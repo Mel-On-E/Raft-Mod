@@ -656,6 +656,11 @@ function Crafter.client_onUpdate( self, deltaTime )
 		self.interactable:setUvFrameIndex( UV_OFFLINE )
 	end
 
+	--Raft
+	if self.shape.uuid == obj_scrap_field then
+		return
+	end
+	
 	self.cl.animTime = self.cl.animTime + deltaTime
 	local animDone = false
 	if self.cl.animTime > self.cl.animDuration then
