@@ -1,0 +1,56 @@
+{
+  "partList": [
+    {
+			"uuid": "8e75cddb-040e-4813-8dd6-7e72f3288a91",
+			"name": "obj_scrap_field",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+													{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							{
+								"textureList": [
+									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$SURVIVAL_DATA/Objects/Mesh/Scrap/ScrapField.fbx"
+					}
+				]
+			},
+			"color": "4f2412",
+			"box": {
+				"x": 4,
+				"y": 1,
+				"z": 4
+			},
+			"rotationSet": "StaticYmZmXm",
+			"physicsMaterial": "Wood",
+			"ratings": {
+				"density": 1,
+				"durability": 3,
+				"friction": 5,
+				"buoyancy": 10
+			},
+			"flammable": true
+		}
+  ]
+}
