@@ -47,7 +47,7 @@
 				"classname": "ScrapField"
 			},
 			"rotationSet": "PropY",
-			"sticky": "-Y",
+			"sticky": "+Y",
 			"physicsMaterial": "Wood",
 			"ratings": {
 				"density": 1,
