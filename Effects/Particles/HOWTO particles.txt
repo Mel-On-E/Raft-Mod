@@ -1,0 +1,3 @@
+Crate any sub folders you want.
+Add any particle files to the particles.json file.
+To create a particle effect simply use the filename without any extensions where you'd specify which system to create.

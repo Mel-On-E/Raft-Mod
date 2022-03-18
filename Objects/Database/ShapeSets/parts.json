@@ -1,0 +1,48 @@
+{
+  "partList": [
+    {
+			"uuid": "4a971f7d-14e6-454d-bce8-0879243c4474",
+			"name": "obj_raft_base",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
+									"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
+									"",
+									"$GAME_DATA/Objects/Textures/industrial/obj_industrial_beamshelf_ao.tga"
+								],
+								"material": "DifAsgAo"
+							}
+						],
+						"mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_beamshelf.fbx",
+						"includes": [
+							"POSITION",
+							"UV0",
+							"UV1",
+							"NORMAL",
+							"TANGENTS"
+						]
+					}
+				]
+			},
+			"color": "4f2412",
+			"box": {
+				"x": 4,
+				"y": 1,
+				"z": 4
+			},
+			"rotationSet": "StaticYmZmXm",
+			"physicsMaterial": "Wood",
+			"ratings": {
+				"density": 1,
+				"durability": 3,
+				"friction": 5,
+				"buoyancy": 10
+			},
+			"flammable": true
+		}
+  ]
+}

@@ -1,0 +1,20 @@
+/*
+	Add all your .bank files to the Bank folder
+	The events list below is not mandatory to set up in order to use the sounds.
+	It's only meant to be a convenient way to assing a more straigt forward name to the event path
+*/
+
+{
+	/*
+	"events":
+	[
+		{
+			"game event": "MyEngine1",
+			"audio event": "event:/vehicle/engine01"
+		},
+		{
+			"game event": "MyEngine2",
+			"audio event": "event:/vehicle/engine02"
+		}
+	]*/
+}

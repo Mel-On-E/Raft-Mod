@@ -1,0 +1,19 @@
+{
+	/*"Example":
+	{
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "PotatoRifle - Shoot",
+				"delay": 0.0
+			},
+			{
+				"type": "particle",
+				"name": "p_spudgun_basic_muzzel",
+				"attached": false,
+				"delay": 0.05
+			}
+		]
+	}*/
+}
