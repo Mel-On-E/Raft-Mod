@@ -19,6 +19,9 @@ SurvivalGame.enableUpgradeCost = true
 
 local SyncInterval = 400 -- 400 ticks | 10 seconds
 
+--Raft
+local spawnRaft = -1
+
 
 function SurvivalGame.server_onCreate( self )
 	print( "SurvivalGame.server_onCreate" )
@@ -258,6 +261,11 @@ function SurvivalGame.server_onFixedUpdate( self, timeStep )
 	g_elevatorManager:sv_onFixedUpdate()
 	g_unitManager:sv_onFixedUpdate()
 	g_questManager:sv_onFixedUpdate()
+	
+	if spawnRaft == 0 then
+		self:server_spawnRaft()
+	end
+	spawnRaft = spawnRaft - 1
 end
 
 function SurvivalGame.sv_updateClientData( self )
@@ -589,6 +597,17 @@ function SurvivalGame.sv_onChatCommand( self, params, player )
 	end
 end
 
+--Raft
+function SurvivalGame.server_spawnRaft()
+	local vec = START_AREA_SPAWN_POINT
+	vec.z = 0
+	for _, player in pairs(sm.player.getAllPlayers()) do
+		if player.id == 1 then
+			sm.creation.importFromFile( player:getCharacter():getWorld(), "$SURVIVAL_DATA/LocalBlueprints/RAFT.blueprint", vec )
+		end
+	end
+end
+
 function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 	print( player.name, "joined the game" )
 
@@ -623,6 +642,11 @@ function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 			sm.world.loadWorld( self.sv.saved.overworld )
 		end
 		self.sv.saved.overworld:loadCell( math.floor( spawnPoint.x/64 ), math.floor( spawnPoint.y/64 ), player, "sv_createNewPlayer" )
+		
+		--Raft
+		if player.id == 1 then
+			spawnRaft = 10
+		end
 	else
 		local inventory = player:getInventory()
 
