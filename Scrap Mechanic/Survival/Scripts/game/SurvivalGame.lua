@@ -38,10 +38,10 @@ function SurvivalGame.server_onCreate( self )
 	self.data = nil
 
 	print( self.sv.saved.data )
-	--if self.sv.saved.data and self.sv.saved.data.dev then
+	if self.sv.saved.data and self.sv.saved.data.dev then
 		g_godMode = true
 		g_survivalDev = true
-	--end
+	end
 
 	self:loadCraftingRecipes()
 
@@ -106,7 +106,7 @@ function SurvivalGame.client_onCreate( self )
 	self.cl.time.timeOfDay = 0.0
 	self.cl.time.timeProgress = true
 
-	if sm.isHost and g_survivalDev then
+	if true then
 		self:bindChatCommands()
 	end
 

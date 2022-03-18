@@ -53,8 +53,8 @@
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/vacumpipe.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/outfitpackage.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/effect_proxies.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/parts.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/scrapfarming.json"
+		
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/raft.json"
 
 		//REMOVE BEFORE SHIP 
 		//"$SURVIVAL_DATA/Objects/Database/ShapeSets/debug.json",

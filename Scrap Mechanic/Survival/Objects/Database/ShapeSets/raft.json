@@ -1,0 +1,105 @@
+{
+  "partList": [
+    {
+		"uuid": "8e75cddb-040e-4813-8dd6-7e72f3288a91",
+		"name": "obj_scrap_field",
+		"renderable": {
+			"lodList": [
+				{
+					"subMeshMap": {
+						"ScrapDriverSeat":{
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_nor.tga"
+							],
+							"material": "DifAsgNor"
+						},
+					"Soil": {
+							"textureList": [
+								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
+							],
+							"material": "DifAsgNor"
+						},
+						"ScrapEngine":{
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_nor.tga"
+							],
+							"material": "DifAsgNor"
+						}
+					},
+					"mesh": "$SURVIVAL_DATA/Objects/Mesh/Scrap/ScrapField.fbx"
+				}
+			]
+		},
+		"color": "4f2412",
+		"box": {
+			"x": 4,
+			"y": 3,
+			"z": 4
+		},
+		"scripted": {
+			"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
+			"classname": "ScrapField"
+		},
+		"rotationSet": "PropY",
+		"sticky": "+Y",
+		"physicsMaterial": "Wood",
+		"ratings": {
+			"density": 1,
+			"durability": 3,
+			"friction": 5,
+			"buoyancy": 10
+		},
+		"flammable": true
+	},
+	{
+		"uuid": "4a971f7d-14e6-454d-bce8-0879243c4474",
+		"name": "obj_raft_base",
+		"renderable": {
+			"lodList": [
+				{
+					"subMeshList": [
+						{
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
+								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
+								"",
+								"$GAME_DATA/Objects/Textures/industrial/obj_industrial_beamshelf_ao.tga"
+							],
+							"material": "DifAsgAo"
+						}
+					],
+					"mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_beamshelf.fbx",
+					"includes": [
+						"POSITION",
+						"UV0",
+						"UV1",
+						"NORMAL",
+						"TANGENTS"
+					]
+				}
+			]
+		},
+		"color": "4f2412",
+		"box": {
+			"x": 4,
+			"y": 1,
+			"z": 4
+		},
+		"rotationSet": "StaticYmZmXm",
+		"physicsMaterial": "Wood",
+		"ratings": {
+			"density": 1,
+			"durability": 3,
+			"friction": 5,
+			"buoyancy": 10
+		},
+		"flammable": true
+	}
+  ]
+}
