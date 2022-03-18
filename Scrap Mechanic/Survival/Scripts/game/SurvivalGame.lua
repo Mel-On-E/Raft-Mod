@@ -222,7 +222,7 @@ function SurvivalGame.loadCraftingRecipes( self )
 		cookbot = "$SURVIVAL_DATA/CraftingRecipes/cookbot.json",
 		craftbot = "$SURVIVAL_DATA/CraftingRecipes/craftbot.json",
 		dressbot = "$SURVIVAL_DATA/CraftingRecipes/dressbot.json",
-		ScrapFarm = "$SURVIVAL_DATA/CraftingRecipes/farm.json"
+		farm = "$SURVIVAL_DATA/CraftingRecipes/farm.json"
 	})
 end
 
