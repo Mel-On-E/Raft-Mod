@@ -6,8 +6,8 @@
 			"renderable": {
 				"lodList": [
 					{
-						"subMeshList": [
-													{
+						"subMeshMap": {
+							"ScrapDriverSeat":{
 								"textureList": [
 									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_dif.tga",
 									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_asg.tga",
@@ -15,7 +15,7 @@
 								],
 								"material": "DifAsgNor"
 							},
-							{
+						"Soil": {
 								"textureList": [
 									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
 									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
@@ -23,7 +23,7 @@
 								],
 								"material": "DifAsgNor"
 							},
-							{
+							"ScrapEngine":{
 								"textureList": [
 									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_dif.tga",
 									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_asg.tga",
@@ -31,7 +31,7 @@
 								],
 								"material": "DifAsgNor"
 							}
-						],
+						},
 						"mesh": "$SURVIVAL_DATA/Objects/Mesh/Scrap/ScrapField.fbx"
 					}
 				]
@@ -39,10 +39,15 @@
 			"color": "4f2412",
 			"box": {
 				"x": 4,
-				"y": 1,
+				"y": 3,
 				"z": 4
 			},
-			"rotationSet": "StaticYmZmXm",
+			"scripted": {
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
+				"classname": "ScrapField"
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
 			"physicsMaterial": "Wood",
 			"ratings": {
 				"density": 1,
