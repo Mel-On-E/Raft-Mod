@@ -4,6 +4,8 @@
 -- appliances.json
 ----------------------------------------
 obj_scrap_field = sm.uuid.new("8e75cddb-040e-4813-8dd6-7e72f3288a91")
+obj_fins = sm.uuid.new("7ece8b10-5cc0-4791-b75e-09858ef1b9c4")
+obj_oxygen_tank = sm.uuid.new("7ceccadf-010f-4a45-907f-18ccc11c509c")
 
 
 
