@@ -64,6 +64,17 @@ local crafters = {
 		subTitle = "Purifier #{LEVEL} Scrap",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
+	-- ScrapTreeGrower
+	[tostring( obj_scrap_tree_grower )] = {
+		needsPower = false,
+		slots = 1,
+		speed = 1,
+		recipeSets = {
+			{ name = "scraptrees", locked = false }
+		},
+		subTitle = "Tree farm #{LEVEL} Scrap",
+		createGuiFunction = sm.gui.createCraftBotGui
+	},
 	-- Craftbot 1
 	[tostring( obj_craftbot_craftbot1 )] = {
 		needsPower = false,
@@ -668,7 +679,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 	end
 
 	--Raft
-	if self.shape.uuid == obj_scrap_field or self.shape.uuid == obj_scrap_purifier then
+	if self.shape.uuid == obj_scrap_field or self.shape.uuid == obj_scrap_purifier or self.shape.uuid == obj_scrap_tree_grower then
 		return
 	end
 	
@@ -1336,5 +1347,6 @@ Craftbot = class( Crafter )
 --Raft
 ScrapField = class( Crafter )
 ScrapPurifier = class( Crafter )
+ScrapTreeGrower = class( Crafter )
 
 Cookbot = class( Crafter )

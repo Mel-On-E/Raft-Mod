@@ -8,8 +8,14 @@ obj_fins = sm.uuid.new("7ece8b10-5cc0-4791-b75e-09858ef1b9c4")
 obj_oxygen_tank = sm.uuid.new("7ceccadf-010f-4a45-907f-18ccc11c509c")
 obj_airtank_empty = sm.uuid.new("03075a5a-92f5-49bd-b132-7d8e0cb80156")
 obj_airtank_full = sm.uuid.new("462baf58-6329-4f29-8f9e-c20d06fb6f7d")
+obj_water_clean = sm.uuid.new("4bd05d7d-898c-4947-8788-e34b84b5d386")
+obj_scrap_purifier = sm.uuid.new("80c9edb7-0f86-4899-bf60-c3baca3fa841")
+obj_scrap_tree_grower = sm.uuid.new("819fb238-a68b-4aab-a6f2-c1037f6bfb5b")
 
-
+obj_birchtree_sapling = sm.uuid.new("eefb0967-d21c-445e-8120-0a09422e1374")
+obj_leafytree_sapling = sm.uuid.new("b84e5fbb-97f2-4de5-bc39-4adb325a56f1")
+obj_sprucetree_sapling = sm.uuid.new("01a4d4c6-469a-4d28-8c69-b74fff83fbdf")
+obj_pinetree_sapling = sm.uuid.new("9e815dcf-cfb0-4672-b0f4-34f1e9ecc1a1")
 
 ----------------------------------------
 -- appliances.json

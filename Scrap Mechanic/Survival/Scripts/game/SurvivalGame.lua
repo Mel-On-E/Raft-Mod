@@ -222,8 +222,9 @@ function SurvivalGame.loadCraftingRecipes( self )
 		cookbot = "$SURVIVAL_DATA/CraftingRecipes/cookbot.json",
 		craftbot = "$SURVIVAL_DATA/CraftingRecipes/craftbot.json",
 		dressbot = "$SURVIVAL_DATA/CraftingRecipes/dressbot.json",
-		farm = "$SURVIVAL_DATA/CraftingRecipes/farm.json"
-		scrappurifier = "$SURVIVAL_DATA/CraftingRecipes/scrappurifier.json"
+		farm = "$SURVIVAL_DATA/CraftingRecipes/farm.json",
+		scrasppurifier = "$SURVIVAL_DATA/CraftingRecipes/scrappurifier.json",
+		scraptrees = "$SURVIVAL_DATA/CraftingRecipes/scraptrees.json"
 	})
 end
 
@@ -605,6 +606,10 @@ function SurvivalGame.server_spawnRaft()
 	for _, player in pairs(sm.player.getAllPlayers()) do
 		if player.id == 1 then
 			sm.creation.importFromFile( player:getCharacter():getWorld(), "$SURVIVAL_DATA/LocalBlueprints/RAFT.blueprint", vec )
+			
+			params = {"/disableraids", "true"}
+			params.player = player
+			sm.event.sendToWorld( player.character:getWorld(), "sv_e_onChatCommand", params )
 		end
 	end
 end
