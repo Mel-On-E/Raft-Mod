@@ -279,6 +279,55 @@
 			"buoyancy": 10
 		},
 		"flammable": true
+	},
+	{
+		"uuid": "4bd05d7d-898c-4947-8788-e34b84b5d386",
+		"name": "obj_water_clean",
+		"renderable": {
+			"lodList": [
+				{
+					"subMeshList": [
+						{
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_water_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_water_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_water_nor.tga"
+							],
+							"material": "DifAsgNor"
+						}
+					],
+					"mesh": "$SURVIVAL_DATA/Objects/Mesh/consumable/obj_consumable_water.fbx"
+				}
+			]
+		},
+		"color": "00ffff",
+		"box": {
+			"x": 2,
+			"y": 2,
+			"z": 2
+		},
+		"itemStack": {},
+		"rotationSet": "PropY",
+		"sticky": "-Y+Y",
+		"physicsMaterial": "Fruit",
+		"ratings": {
+			"density": 2,
+			"durability": 2,
+			"friction": 4,
+			"buoyancy": 7
+		},
+		"flammable": false,
+		"consumable": true,
+		"stackSize": 20,
+		"restrictions": {
+			"erasable": true
+		},
+		"edible": {
+			"hpGain": 0,
+			"foodGain": 0,
+			"waterGain": 25
+		},
+		"autoTool": "2bff990a-0e74-43c7-b7dc-889b3a086fa3"
 	}
   ]
 }
