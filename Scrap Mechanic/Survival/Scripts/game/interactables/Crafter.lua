@@ -75,6 +75,28 @@ local crafters = {
 		subTitle = "Tree farm #{LEVEL} Scrap",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
+	-- ScrapWorkbench
+	[tostring( obj_scrap_workbench )] = {
+		needsPower = false,
+		slots = 1,
+		speed = 1,
+		recipeSets = {
+			{ name = "scrapworkbench", locked = false }
+		},
+		subTitle = "Workbench #{LEVEL} Scrap",
+		createGuiFunction = sm.gui.createCraftBotGui
+	},
+	-- Apiary
+	[tostring( obj_apiary )] = {
+		needsPower = false,
+		slots = 1,
+		speed = 1,
+		recipeSets = {
+			{ name = "apiary", locked = false }
+		},
+		subTitle = "Apiary #{LEVEL} Scrap",
+		createGuiFunction = sm.gui.createCraftBotGui
+	},
 	-- Craftbot 1
 	[tostring( obj_craftbot_craftbot1 )] = {
 		needsPower = false,
@@ -679,7 +701,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 	end
 
 	--Raft
-	if self.shape.uuid == obj_scrap_field or self.shape.uuid == obj_scrap_purifier or self.shape.uuid == obj_scrap_tree_grower then
+	if self.shape.uuid == obj_scrap_field or self.shape.uuid == obj_scrap_purifier or self.shape.uuid == obj_scrap_tree_grower or self.shape.uuid == obj_apiary or self.shape.uuid == obj_scrap_workbench then
 		return
 	end
 	
@@ -1344,9 +1366,11 @@ Dispenser.connectionInput = sm.interactable.connectionType.logic
 
 Craftbot = class( Crafter )
 
+Cookbot = class( Crafter )
+
 --Raft
 ScrapField = class( Crafter )
 ScrapPurifier = class( Crafter )
 ScrapTreeGrower = class( Crafter )
-
-Cookbot = class( Crafter )
+ScrapWorkbench = class( Crafter )
+Apiary = class( Crafter )

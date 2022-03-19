@@ -1,9 +1,8 @@
 -- this file is generated
 
-----------------------------------------
--- appliances.json
-----------------------------------------
+--RAFT
 obj_scrap_field = sm.uuid.new("8e75cddb-040e-4813-8dd6-7e72f3288a91")
+obj_raft_base = sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4474")
 obj_fins = sm.uuid.new("7ece8b10-5cc0-4791-b75e-09858ef1b9c4")
 obj_oxygen_tank = sm.uuid.new("7ceccadf-010f-4a45-907f-18ccc11c509c")
 obj_airtank_empty = sm.uuid.new("03075a5a-92f5-49bd-b132-7d8e0cb80156")
@@ -16,6 +15,10 @@ obj_birchtree_sapling = sm.uuid.new("eefb0967-d21c-445e-8120-0a09422e1374")
 obj_leafytree_sapling = sm.uuid.new("b84e5fbb-97f2-4de5-bc39-4adb325a56f1")
 obj_sprucetree_sapling = sm.uuid.new("01a4d4c6-469a-4d28-8c69-b74fff83fbdf")
 obj_pinetree_sapling = sm.uuid.new("9e815dcf-cfb0-4672-b0f4-34f1e9ecc1a1")
+
+obj_scrap_workbench = sm.uuid.new("f3163e62-e6c3-475c-805e-559f8bb07ad1")
+obj_apiary = sm.uuid.new("ebabda72-94d8-40c5-ab07-7001d1b67380")
+
 
 ----------------------------------------
 -- appliances.json
