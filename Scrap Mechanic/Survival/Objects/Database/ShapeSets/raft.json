@@ -204,6 +204,81 @@
 			"buoyancy": 8
 		},
 		"flammable": true
+	},
+	{
+		"uuid": "03075a5a-92f5-49bd-b132-7d8e0cb80156",
+		"name": "obj_airtank_empty",
+		"renderable": "$SURVIVAL_DATA/Objects/Renderable/resource/obj_resource_crudeoil.rend",
+		"color": "ff0000",
+		"box": {
+			"x": 2,
+			"y": 2,
+			"z": 2
+		},
+		"scripted": {
+			"filename": "$SURVIVAL_DATA/Scripts/game/interactables/AirTank.lua",
+			"classname": "AirTank"
+		},
+		"rotationSet": "PropY",
+		"sticky": "-Y+Y",
+		"physicsMaterial": "Metal",
+		"ratings": {
+			"density": 10,
+			"durability": 2,
+			"friction": 4,
+			"buoyancy": 1
+		},
+		"flammable": true
+	},
+	{
+		"uuid": "462baf58-6329-4f29-8f9e-c20d06fb6f7d",
+		"name": "obj_airtank_full",
+		"renderable": {
+			"lodList": [
+				{
+					"maxViewDistance": 1500,
+					"mesh": "$SURVIVAL_DATA/Objects/Mesh/consumable/obj_consumable_chemical.fbx",
+					"subMeshMap": {
+						"chemicalconsumable": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_nor.tga"
+							]
+						},
+						"glass": {
+							"material": "Glass",
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_nor.tga"
+							]
+						}
+					}
+				}
+			]
+		},
+		"color": "00ff00",
+		"box": {
+			"x": 2,
+			"y": 2,
+			"z": 2
+		},
+		"scripted": {
+			"filename": "$SURVIVAL_DATA/Scripts/game/interactables/AirTank.lua",
+			"classname": "AirTank"
+		},
+		"rotationSet": "PropY",
+		"sticky": "-Y+Y",
+		"physicsMaterial": "Metal",
+		"ratings": {
+			"density": 1,
+			"durability": 2,
+			"friction": 4,
+			"buoyancy": 10
+		},
+		"flammable": true
 	}
   ]
 }
