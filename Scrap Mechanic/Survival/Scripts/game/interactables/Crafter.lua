@@ -53,6 +53,17 @@ local crafters = {
 		subTitle = "Farm #{LEVEL} Scrap",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
+	-- BigFarm
+	[tostring( obj_large_field )] = {
+		needsPower = false,
+		slots = 2,
+		speed = 1,
+		recipeSets = {
+			{ name = "farm", locked = false }
+		},
+		subTitle = "Farm #{LEVEL} 1",
+		createGuiFunction = sm.gui.createCraftBotGui
+	},
 	-- ScrapPurifier
 	[tostring( obj_scrap_purifier )] = {
 		needsPower = false,
@@ -1370,6 +1381,7 @@ Cookbot = class( Crafter )
 
 --Raft
 ScrapField = class( Crafter )
+BigFarm = class( Crafter )
 ScrapPurifier = class( Crafter )
 ScrapTreeGrower = class( Crafter )
 ScrapWorkbench = class( Crafter )

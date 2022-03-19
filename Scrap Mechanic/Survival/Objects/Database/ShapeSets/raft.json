@@ -57,6 +57,62 @@
 		},
 		"flammable": true
 	},
+	    {
+		"uuid": "c80e2932-0d21-48bb-b5a2-dba03d73cfb7",
+		"name": "obj_large_field",
+		"renderable": {
+			"lodList": [
+				{
+					"subMeshMap": {
+						"DefaultMaterial.001":{
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/plants/obj_plants_growbox_dif.tga",
+								"$GAME_DATA/Objects/Textures/plants/obj_plants_growbox_asg.tga"
+							],
+							"material": "DifAsg"
+						},
+					"Soil": {
+							"textureList": [
+								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
+							],
+							"material": "DifAsgNor"
+						},
+						"Soil.001":{
+							"textureList": [
+								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
+							],
+							"material": "DifAsgNor"
+						}
+					},
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/BigField.fbx"
+				}
+			]
+		},
+		"color": "dadac9",
+		"box": {
+				"x": 6,
+				"y": 1,
+				"z": 4
+		},
+		"scripted": {
+			"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
+			"classname": "BigFarm"
+		},
+			"rotationSet": "PropY",
+			"sticky": "+X-X-Y-Z+Z",
+			"physicsMaterial": "Grass",
+		"ratings": {
+				"density": 4,
+				"durability": 2,
+				"friction": 4,
+				"buoyancy": 2
+		},
+		"flammable": true
+	},
 	{
 		"uuid": "4a971f7d-14e6-454d-bce8-0879243c4474",
 		"name": "obj_raft_base",

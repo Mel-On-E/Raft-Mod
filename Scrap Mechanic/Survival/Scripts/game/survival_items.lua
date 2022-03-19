@@ -2,6 +2,7 @@
 
 --RAFT
 obj_scrap_field = sm.uuid.new("8e75cddb-040e-4813-8dd6-7e72f3288a91")
+obj_large_field = sm.uuid.new("c80e2932-0d21-48bb-b5a2-dba03d73cfb7")
 obj_raft_base = sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4474")
 obj_fins = sm.uuid.new("7ece8b10-5cc0-4791-b75e-09858ef1b9c4")
 obj_oxygen_tank = sm.uuid.new("7ceccadf-010f-4a45-907f-18ccc11c509c")
