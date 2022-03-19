@@ -1,0 +1,17 @@
+{
+	"toolList":
+	[
+		{
+			"uuid": "e3bcf8fa-68d7-49a8-b17b-c1e864d53b69",
+			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_spudgun_preview.rend",
+			"previewRotation": [ 1, 0, 0, 0, 0, -1, 0, 1, 0 ],
+			"script": { "file": "$SURVIVAL_DATA/RaftMod/fishingRod.lua", "class": "Rod" }
+		},
+		{
+			"uuid": "b5ade3b0-be48-4a61-a8c2-13a4cedf1343",
+			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_spudgun_preview.rend",
+			"previewRotation": [ -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
+			"script": { "file": "$SURVIVAL_DATA/RaftMod/resourceHook.lua", "class": "Hook" }
+		}
+	]
+}

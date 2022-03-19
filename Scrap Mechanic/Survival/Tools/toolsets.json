@@ -1,0 +1,13 @@
+{
+	"toolSetList": [
+		"$GAME_DATA/Tools/ToolSets/core.json",
+		
+		"$SURVIVAL_DATA/Tools/ToolSets/tools.json",
+		"$SURVIVAL_DATA/Tools/ToolSets/tools_shared.json",
+		"$SURVIVAL_DATA/Tools/ToolSets/spudguns.json",
+		"$SURVIVAL_DATA/Tools/ToolSets/carry.json"
+
+		//raft
+		,"$SURVIVAL_DATA/RaftMod/tools.json"
+	]
+}
