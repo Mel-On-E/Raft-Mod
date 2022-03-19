@@ -43,7 +43,7 @@ local crafters = {
 		createGuiFunction = sm.gui.createCookBotGui
 	},
 	-- ScrapFarm
-	["8e75cddb-040e-4813-8dd6-7e72f3288a91"] = {
+	[tostring( obj_scrap_field )] = {
 		needsPower = false,
 		slots = 1,
 		speed = 1,
@@ -51,6 +51,17 @@ local crafters = {
 			{ name = "farm", locked = false }
 		},
 		subTitle = "Farm #{LEVEL} Scrap",
+		createGuiFunction = sm.gui.createCraftBotGui
+	},
+	-- ScrapPurifier
+	[tostring( obj_scrap_purifier )] = {
+		needsPower = false,
+		slots = 1,
+		speed = 1,
+		recipeSets = {
+			{ name = "scrappurifier", locked = false }
+		},
+		subTitle = "Purifier #{LEVEL} Scrap",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Craftbot 1
@@ -657,7 +668,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 	end
 
 	--Raft
-	if self.shape.uuid == obj_scrap_field then
+	if self.shape.uuid == obj_scrap_field or self.shape.uuid == obj_scrap_purifier then
 		return
 	end
 	
@@ -1322,6 +1333,8 @@ Dispenser.connectionInput = sm.interactable.connectionType.logic
 
 Craftbot = class( Crafter )
 
+--Raft
 ScrapField = class( Crafter )
+ScrapPurifier = class( Crafter )
 
 Cookbot = class( Crafter )
