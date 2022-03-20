@@ -123,14 +123,15 @@
 					"subMeshList": [
 						{
 							"textureList": [
-									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_water_dif.tga",
-									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_water_asg.tga",
-									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_water_nor.tga"
+								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
+								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
+								"",
+								"$GAME_DATA/Objects/Textures/industrial/obj_industrial_beamshelf_ao.tga"
 							],
-							"material": "DifAsgNor"
+							"material": "DifAsgAo"
 						}
 					],
-					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/RaftBlock.fbx",
+					"mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_beamshelf.fbx",
 					"includes": [
 						"POSITION",
 						"UV0",
