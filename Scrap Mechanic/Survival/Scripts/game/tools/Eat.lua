@@ -54,10 +54,10 @@ local FoodUuidToRenderable =
 	[tostring( obj_plantables_tomato )] = TomatoRenderables,
 	[tostring( obj_plantables_broccoli )] = BroccoliRenderables,
 	[tostring( obj_resource_corn )] = CornRenderables,
-	[tostring( obj_water_clean )] = MilkRenderables
+	[tostring( obj_water_clean )] = MilkRenderables --Raft
 }
 
-local Drinks = { obj_consumable_sunshake, obj_consumable_milk, obj_water_clean }
+local Drinks = { obj_consumable_sunshake, obj_consumable_milk, obj_water_clean } --Raft
 
 function Eat.client_onCreate( self )
 	self.tpAnimations = createTpAnimations( self.tool, {} )
