@@ -4,11 +4,31 @@ Propeller.maxChildCount = 0
 Propeller.connectionInput = sm.interactable.connectionType.none
 Propeller.connectionOutput = sm.interactable.connectionType.none
 
+function Propeller:server_onCreate()
+    self.trigger = sm.areaTrigger.createAttachedBox( self.interactable, sm.vec3.one() / 6, sm.vec3.zero(), sm.quat.identity(), 8 )
+end
+
 function Propeller:server_onFixedUpdate(dt)
+	local isInWater = false
+    for _, result in ipairs( self.trigger:getContents() ) do
+        if sm.exists( result ) then
+            local userData = result:getUserData()
+            if userData and userData.water then
+                isInWater = true
+            end
+        end
+    end
+
 	angular = self.shape:getBody():getAngularVelocity()
 
 	vec = self.shape.at
 	speed = sm.vec3.dot(angular, vec)
+
+	--less power in air
+	if not isInWater then
+		speed = speed/10
+	end
+
 	if math.abs(speed) > 1 then
 		sm.physics.applyImpulse( self.shape:getBody(), sm.vec3.new(10,10,10) * speed * self.shape:getAt(), true )
 	end
