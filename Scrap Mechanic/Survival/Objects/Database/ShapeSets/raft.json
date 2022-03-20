@@ -64,14 +64,15 @@
 			"lodList": [
 				{
 					"subMeshMap": {
-						"DefaultMaterial.001":{
+						"Material.001":{
 							"textureList": [
-								"$GAME_DATA/Objects/Textures/plants/obj_plants_growbox_dif.tga",
-								"$GAME_DATA/Objects/Textures/plants/obj_plants_growbox_asg.tga"
+								"$GAME_DATA/Objects/Textures/Blocks/blk_woodplanks01_dif.tga",
+								"$GAME_DATA/Objects/Textures/Blocks/blk_woodplanks01_asg.tga",
+								"$GAME_DATA/Objects/Textures/Blocks/blk_woodplanks01_nor.tga"
 							],
-							"material": "DifAsg"
+							"material": "DifAsgNor"
 						},
-					"Soil": {
+					"Soil.005": {
 							"textureList": [
 								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
 								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
@@ -79,7 +80,7 @@
 							],
 							"material": "DifAsgNor"
 						},
-						"Soil.001":{
+						"Soil.002":{
 							"textureList": [
 								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
 								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
@@ -88,14 +89,14 @@
 							"material": "DifAsgNor"
 						}
 					},
-					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/BigField.fbx"
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/GrowBox2.fbx"
 				}
 			]
 		},
-		"color": "dadac9",
+		"color": "9b683a",
 		"box": {
 				"x": 6,
-				"y": 1,
+				"y": 2,
 				"z": 4
 		},
 		"scripted": {
@@ -122,15 +123,14 @@
 					"subMeshList": [
 						{
 							"textureList": [
-								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
-								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
-								"",
-								"$GAME_DATA/Objects/Textures/industrial/obj_industrial_beamshelf_ao.tga"
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_water_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_water_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_water_nor.tga"
 							],
-							"material": "DifAsgAo"
+							"material": "DifAsgNor"
 						}
 					],
-					"mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_beamshelf.fbx",
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/RaftBlock.fbx",
 					"includes": [
 						"POSITION",
 						"UV0",
@@ -141,13 +141,13 @@
 				}
 			]
 		},
-		"color": "4f2412",
+		"color": "008ae1",
 		"box": {
-			"x": 4,
-			"y": 1,
-			"z": 4
+				"x": 4,
+				"y": 3,
+				"z": 3
 		},
-		"rotationSet": "StaticYmZmXm",
+		"rotationSet": "PropYZ",
 		"physicsMaterial": "Wood",
 		"ratings": {
 			"density": 1,
