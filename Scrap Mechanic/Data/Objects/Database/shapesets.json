@@ -2,6 +2,7 @@
 	"shapeSetList": [
 		"$GAME_DATA/Objects/Database/ShapeSets/blocks.json",
 		"$GAME_DATA/Objects/Database/ShapeSets/interactive.json",
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/mounted_guns.json",
 		"$GAME_DATA/Objects/Database/ShapeSets/lights.json",
 		"$GAME_DATA/Objects/Database/ShapeSets/vehicle.json",
 		"$GAME_DATA/Objects/Database/ShapeSets/industrial.json",
@@ -10,58 +11,41 @@
 		"$GAME_DATA/Objects/Database/ShapeSets/containers.json",
 		"$GAME_DATA/Objects/Database/ShapeSets/decor.json",
 		"$GAME_DATA/Objects/Database/ShapeSets/plants.json",
+		"$GAME_DATA/Objects/Database/ShapeSets/characterobject.json",
+		"$GAME_DATA/Objects/Database/ShapeSets/debug.json",
 		
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/blocks.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/blocks_blueprint.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/interactive.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/interactive_shared.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/mounted_guns.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/beacon.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/powertools.json",
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/interactive_upgradeable.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/interactivecontainers_shared.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/interactivecontainers.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/scrapinteractables.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/cookbot.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/craftbot.json",
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/consumable_shared.json",
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/component.json",
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/blocks.json",
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/powertools.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/bucket.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/tool_parts.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/lights.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/vehicle.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/industrial.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/fittings.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/containers.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/decor.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/consumable_shared.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/consumable.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/component.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/spaceship.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/warehouse.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/construction.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/building.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/manmade.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/resources.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/harvests.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/plantables.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/survivalobject.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/packingcrates.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/treeparts.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/stoneparts.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/interactive_upgradeable.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/destructable_tape.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/robotparts.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/character_shape.json",
 		"$SURVIVAL_DATA/Objects/Database/ShapeSets/vacumpipe.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/outfitpackage.json",
-		"$SURVIVAL_DATA/Objects/Database/ShapeSets/effect_proxies.json"
-		
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/interactive_shared.json",
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/craftbot.json",
+
+		// Override
+		"$CHALLENGE_DATA/Objects/Database/ShapeSets/override.json"
+
 		//Raft
 		,"$SURVIVAL_DATA/Objects/Database/ShapeSets/raft.json"
-
-		//REMOVE BEFORE SHIP 
-		//"$SURVIVAL_DATA/Objects/Database/ShapeSets/debug.json",
-		// "$SURVIVAL_DATA/Objects/Database/ShapeSets/mattest.json",
-		// "$SURVIVAL_DATA/Objects/Database/ShapeSets/vistest.json",
-		//, "$SURVIVAL_DATA/Objects/Database/ShapeSets/test.json"
-		// "$SURVIVAL_DATA/Objects/Database/ShapeSets/pathfinding.json",
 	]
 }
