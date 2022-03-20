@@ -9,6 +9,6 @@
 		"$SURVIVAL_DATA/Tools/ToolSets/carry.json"
 
 		//raft
-		,"$SURVIVAL_DATA/RaftMod/tools.json"
+		,"$SURVIVAL_DATA/RaftMod/Tools/tools.json"
 	]
 }

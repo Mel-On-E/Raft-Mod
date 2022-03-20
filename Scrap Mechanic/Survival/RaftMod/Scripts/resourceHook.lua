@@ -199,7 +199,7 @@ function Hook:sv_manageTrigger( action )
 end
 
 function Hook:sv_applyImpulse( body )
-	sm.physics.applyImpulse( body, sm.vec3.one() * self.hookDir * body:getMass() / 121 )
+	sm.physics.applyImpulse( body, sm.vec3.one() * self.hookDir * body:getMass() / 121, true )
 end
 
 function Hook:cl_reset()
