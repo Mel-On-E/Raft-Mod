@@ -145,8 +145,8 @@
 		"color": "008ae1",
 		"box": {
 				"x": 4,
-				"y": 3,
-				"z": 3
+				"y": 1,
+				"z": 4
 		},
 		"rotationSet": "PropYZ",
 		"physicsMaterial": "Wood",
