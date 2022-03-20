@@ -863,6 +863,246 @@
 			"buoyancy": 5
 		},
 		"flammable": true
+	},
+	{
+		"uuid": "509505f1-b772-4acd-9827-f9a605a979ec",
+		"name": "obj_wasdConverter",
+		"renderable": {
+			"lodList": [
+				{
+					"minViewSize": 20,
+					"mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_logicgate_off.fbx",
+					"pose0": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_logicgate_on.fbx",
+					"includes": [
+						"POSITION",
+						"UV0",
+						"UV1",
+						"NORMAL",
+						"TANGENTS",
+						"BLEND_INDICES",
+						"BLEND_WEIGHTS"
+					],
+					"subMeshMap": {
+						"logicgate": {
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_ao.tga"
+							],
+							"material": "PoseAnimDifAsgNorAo"
+						},
+						"screen": {
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+							],
+							"material": "UVAnimDifAsgNor",
+							"custom": {
+								"uv0": {
+									"u": 0.16666667,
+									"v": 0.1645
+								}
+							}
+						}
+					}
+				},
+				{
+					"mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_logicgate_lod1.fbx",
+					"subMeshMap": {
+						"logicgate": {
+							"material": "DifAsg",
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		"color": "ff3200",
+		"box": {
+			"x": 1,
+			"y": 1,
+			"z": 1
+		},
+		"scripted": {
+			"filename": "$SURVIVAL_DATA/RaftMod/Scripts/wasdConverter.lua",
+			"classname": "Converter"
+		},
+		"rotationSet": "PropYZ",
+		"physicsMaterial": "Mechanical",
+		"ratings": {
+			"density": 2,
+			"durability": 3,
+			"friction": 5,
+			"buoyancy": 2
+		},
+		"flammable": false,
+		"stackSize": 10
+	},
+	{
+		"uuid": "6db7aacf-f2b3-4cbb-a6d2-2a01d5ee5562",
+		"name": "obj_waterSensor",
+		"renderable": {
+			"lodList": [
+				{
+					"minViewSize": 20,
+					"mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_logicgate_off.fbx",
+					"pose0": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_logicgate_on.fbx",
+					"includes": [
+						"POSITION",
+						"UV0",
+						"UV1",
+						"NORMAL",
+						"TANGENTS",
+						"BLEND_INDICES",
+						"BLEND_WEIGHTS"
+					],
+					"subMeshMap": {
+						"logicgate": {
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_ao.tga"
+							],
+							"material": "PoseAnimDifAsgNorAo"
+						},
+						"screen": {
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+							],
+							"material": "UVAnimDifAsgNor",
+							"custom": {
+								"uv0": {
+									"u": 0.16666667,
+									"v": 0.1645
+								}
+							}
+						}
+					}
+				},
+				{
+					"mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_logicgate_lod1.fbx",
+					"subMeshMap": {
+						"logicgate": {
+							"material": "DifAsg",
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		"color": "0033ff",
+		"box": {
+			"x": 1,
+			"y": 1,
+			"z": 1
+		},
+		"scripted": {
+			"filename": "$SURVIVAL_DATA/RaftMod/Scripts/waterSensor.lua",
+			"classname": "Sensor"
+		},
+		"rotationSet": "PropYZ",
+		"physicsMaterial": "Mechanical",
+		"ratings": {
+			"density": 2,
+			"durability": 3,
+			"friction": 5,
+			"buoyancy": 2
+		},
+		"flammable": false,
+		"stackSize": 10
+	},
+	{
+		"uuid": "71ac7645-57f5-4d49-9574-c8482b431862",
+		"name": "obj_creationSteer",
+		"renderable": {
+			"lodList": [
+				{
+					"minViewSize": 20,
+					"mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_logicgate_off.fbx",
+					"pose0": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_logicgate_on.fbx",
+					"includes": [
+						"POSITION",
+						"UV0",
+						"UV1",
+						"NORMAL",
+						"TANGENTS",
+						"BLEND_INDICES",
+						"BLEND_WEIGHTS"
+					],
+					"subMeshMap": {
+						"logicgate": {
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_ao.tga"
+							],
+							"material": "PoseAnimDifAsgNorAo"
+						},
+						"screen": {
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+							],
+							"material": "UVAnimDifAsgNor",
+							"custom": {
+								"uv0": {
+									"u": 0.16666667,
+									"v": 0.1645
+								}
+							}
+						}
+					}
+				},
+				{
+					"mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_logicgate_lod1.fbx",
+					"subMeshMap": {
+						"logicgate": {
+							"material": "DifAsg",
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		"color": "#00ff33",
+		"box": {
+			"x": 1,
+			"y": 1,
+			"z": 1
+		},
+		"scripted": {
+			"filename": "$SURVIVAL_DATA/RaftMod/Scripts/creationSteer.lua",
+			"classname": "Steer"
+		},
+		"rotationSet": "PropYZ",
+		"physicsMaterial": "Mechanical",
+		"ratings": {
+			"density": 2,
+			"durability": 3,
+			"friction": 5,
+			"buoyancy": 2
+		},
+		"flammable": false,
+		"stackSize": 10
 	}
   ]
 }
