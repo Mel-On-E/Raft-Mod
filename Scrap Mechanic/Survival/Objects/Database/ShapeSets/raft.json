@@ -832,20 +832,20 @@
 					"subMeshList": [
 						{
 							"textureList": [
-								"$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_7x8_dif.tga",
-								"$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_7x8_asg.tga",
-								"$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_7x8_nor.tga"
+									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_ac_dif.tga",
+									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_ac_asg.tga",
+									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_ac_nor.tga"
 							],
 							"material": "DifAsgNor"
 						}
 					],
-					"mesh": "$SURVIVAL_DATA/Objects/Mesh/fittings/obj_fittings_7x1.fbx"
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Propeller.fbx"
 				}
 			]
 		},
 		"color": "d8b589",
 		"cylinder": {
-			"diameter": 7,
+			"diameter": 5,
 			"depth": 1,
 			"margin": 0.04,
 			"axis": "Y"
@@ -855,13 +855,13 @@
 			"classname": "Propeller"
 		},
 		"rotationSet": "PropY",
-		"sticky": "-Y+Y",
-		"physicsMaterial": "Wood",
+		"sticky": "-Y",
+		"physicsMaterial": "Mechanical",
 		"ratings": {
 			"density": 3,
 			"durability": 3,
 			"friction": 5,
-			"buoyancy": 5
+			"buoyancy": 4
 		},
 		"flammable": true
 	},
