@@ -1130,6 +1130,55 @@
 		  },
 		  "flammable": false,
 		  "stackSize": 10
+	  },
+	  {
+		  "uuid": "eea9794b-bcdf-431e-bdcd-7b2ff6ffa145",
+		  "name": "obj_sail",
+		  "renderable": {
+			"lodList": [
+				{
+					"subMeshList": [
+						{
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
+								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
+								"",
+								"$GAME_DATA/Objects/Textures/industrial/obj_industrial_beamshelf_ao.tga"
+							],
+							"material": "DifAsgAo"
+						}
+					],
+					"mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_beamshelf.fbx",
+					"includes": [
+						"POSITION",
+						"UV0",
+						"UV1",
+						"NORMAL",
+						"TANGENTS"
+					]
+				}
+			]
+		  },
+		  "color": "#ffffff",
+		  "box": {
+			"x": 4,
+			"y": 1,
+			"z": 4
+		  },
+		  "rotationSet": "PropYZ",
+		  "physicsMaterial": "Wood",
+		  "scripted": {
+			  "filename": "$SURVIVAL_DATA/RaftMod/Scripts/sail.lua",
+			  "classname": "Sail"
+		  },
+		  "ratings": {
+			  "density": 2,
+			  "durability": 2,
+			  "friction": 5,
+			  "buoyancy": 8
+		  },
+		  "flammable": false,
+		  "stackSize": 10
 	  }
 	]
   }

@@ -12,7 +12,6 @@
 			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_spudgun_preview.rend",
 			"previewRotation": [ -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
 			"script": { "file": "$SURVIVAL_DATA/RaftMod/Scripts/resourceHook.lua", "class": "Hook" }
-<<<<<<< Updated upstream
 		},
 		{
 			"uuid": "1daebe24-4e16-422c-b5e7-c3f45f9296d8",
@@ -25,8 +24,6 @@
 			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_sledgehammer_preview.rend",
 			"previewRotation": [  -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
 			"script": { "file": "$SURVIVAL_DATA/RaftMod/Scripts/pickaxe.lua", "class": "Pickaxe" }
-=======
->>>>>>> Stashed changes
 		}
 	]
 }
