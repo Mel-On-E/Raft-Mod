@@ -29,7 +29,9 @@ function StoneChunk.server_onMelee( self, position, attacker, damage )
 			self:sv_onHit( self.DamagerPerHit, attacker )
 		else
 			if type( attacker ) == "Player" then
-				self.network:sendToClient( attacker, "cl_n_onMessage", "#{ALERT_STONE_TOO_BIG}" )
+				--Raft
+				self.network:sendToClient( attacker, "cl_determineValidHit" )
+				--Raft
 			end
 			if g_survivalDev then
 				self:sv_onHit( self.DamagerPerHit )
@@ -37,6 +39,16 @@ function StoneChunk.server_onMelee( self, position, attacker, damage )
 		end
 	end
 end
+
+--Raft
+function StoneChunk:cl_determineValidHit( pos )
+	if sm.localPlayer.getActiveItem() == sm.uuid.new("c883b283-ea7a-4bba-af0d-5c13fd73051d") then
+		self.network:sendToServer("sv_onHit", self.DamagerPerHit)
+	else
+		self:cl_n_onMessage( "#{ALERT_STONE_TOO_BIG}" )
+	end
+end
+--Raft
 
 function StoneChunk.cl_n_onMessage( self, msg )
 	sm.gui.displayAlertText( msg, 2 )
@@ -106,7 +118,7 @@ end
 
 --RAFT
 function StoneChunk:server_onFixedUpdate()
-	data = self.interactable:getPublicData()
+	local data = self.interactable:getPublicData()
 	if data and data.damage then
 		self:sv_onHit( data.damage )
 		self.interactable:setPublicData({})

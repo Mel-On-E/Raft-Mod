@@ -221,13 +221,18 @@ function TreeTrunk.server_onMelee( self, position, attacker, damage )
 	end
 	if self.data then
 		if self.data.treeType == "small" or self.data.treeType == "medium" then
-			self:sv_onHit( DamagerPerHit )
-			if self.sv.health > 0 then
-				self:sv_triggerCreak( position )
+			--Raft
+			if type( attacker ) == "Player" then
+				self.network:sendToClient( attacker, "cl_determineValidHit", position )
+			else
+				self:sv_onHit( DamagerPerHit )
 			end
+			--Raft
 		elseif self.data.treeType == "large" then
 			if type( attacker ) == "Player" then
-				self.network:sendToClient( attacker, "cl_n_onMessage", "#{ALERT_TREE_TOO_BIG}" )
+				--Raft
+				self.network:sendToClient( attacker, "cl_determineValidHit", position )
+				--Raft
 			end
 			if g_survivalDev or type( attacker ) == "Unit" then
 				self:sv_onHit( DamagerPerHit )
@@ -235,6 +240,23 @@ function TreeTrunk.server_onMelee( self, position, attacker, damage )
 		end
 	end
 end
+
+--Raft
+function TreeTrunk:cl_determineValidHit( pos )
+	if sm.localPlayer.getActiveItem() == sm.uuid.new("1daebe24-4e16-422c-b5e7-c3f45f9296d8") then
+		self.network:sendToServer("sv_determineValidHit" )
+		if self.sv.health > 0 then
+			self.network:sendToServer("sv_triggerCreak", pos )
+		end
+	else
+		self:cl_n_onMessage( "#{ALERT_TREE_TOO_BIG}" )
+	end
+end
+
+function TreeTrunk:sv_determineValidHit()
+	self:sv_onHit( DamagerPerHit )
+end
+--Raft
 
 function TreeTrunk.sv_onHit( self, damage )
 	if self.sv.health > 0 then

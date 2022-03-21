@@ -21,12 +21,28 @@ end
 
 function StoneHarvestable.server_onMelee( self, hitPos, attacker, damage )
 	if type( attacker ) == "Player" then
-		self.network:sendToClient( attacker, "cl_n_onMessage", "#{ALERT_STONE_TOO_BIG}" )
+		--Raft
+		self.network:sendToClient( attacker, "cl_determineValidHit", hitPos )
+		--Raft
 	end
 	if g_survivalDev then
 		self:sv_onHit( self.DamagerPerHit, hitPos )
 	end
 end
+
+--Raft
+function StoneHarvestable:cl_determineValidHit( pos )
+	if sm.localPlayer.getActiveItem() == sm.uuid.new("c883b283-ea7a-4bba-af0d-5c13fd73051d") then
+		self.network:sendToServer("sv_determineValidHit", pos )
+	else
+		self:cl_n_onMessage( "#{ALERT_STONE_TOO_BIG}" )
+	end
+end
+
+function StoneHarvestable:sv_determineValidHit( pos )
+	self:sv_onHit( self.DamagerPerHit, pos )
+end
+--Raft
 
 function StoneHarvestable.sv_onHit( self, damage, position )	
 	
@@ -152,7 +168,7 @@ end
 
 --RAFT
 function StoneHarvestable:server_onFixedUpdate()
-	data = self.harvestable:getPublicData()
+	local data = self.harvestable:getPublicData()
 	if data then
 		self:sv_onHit( data.damage, data.position )
 		self.harvestable:setPublicData({})
