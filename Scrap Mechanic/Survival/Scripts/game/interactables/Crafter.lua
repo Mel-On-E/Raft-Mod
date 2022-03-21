@@ -94,7 +94,7 @@ local crafters = {
 		recipeSets = {
 			{ name = "scrapworkbench", locked = false }
 		},
-		subTitle = "Workbench #{LEVEL} Scrap",
+		subTitle = "Workbench",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Apiary
