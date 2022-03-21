@@ -20,7 +20,7 @@ SurvivalGame.enableUpgradeCost = true
 local SyncInterval = 400 -- 400 ticks | 10 seconds
 
 --Raft
-local spawnRaft = -1
+local spawnRaft = false
 
 
 function SurvivalGame.server_onCreate( self )
@@ -266,10 +266,16 @@ function SurvivalGame.server_onFixedUpdate( self, timeStep )
 	g_unitManager:sv_onFixedUpdate()
 	g_questManager:sv_onFixedUpdate()
 	
-	if spawnRaft == 0 then
-		self:server_spawnRaft()
+	if spawnRaft then
+		for _, player in pairs(sm.player.getAllPlayers()) do
+			if player.id == 1 then
+				if player:getCharacter() then
+					self:server_spawnRaft()
+					spawnRaft = false
+				end
+			end
+		end
 	end
-	spawnRaft = spawnRaft - 1
 end
 
 function SurvivalGame.sv_updateClientData( self )
@@ -653,7 +659,7 @@ function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 		
 		--Raft
 		if player.id == 1 then
-			spawnRaft = 10
+			spawnRaft = true
 		end
 	else
 		local inventory = player:getInventory()
