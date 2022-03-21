@@ -112,35 +112,60 @@
 		  "renderable": {
 			  "lodList": [
 				  {
-					  "subMeshList": [
-						  {
+					  "subMeshMap": {
+						  "Barrel":{
 							  "textureList": [
-								  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
-								  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
-								  "",
-								  "$GAME_DATA/Objects/Textures/industrial/obj_industrial_beamshelf_ao.tga"
+								  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_barrel_blueberry_dif.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_barrel_blueberry_asg.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_barrel_blueberry_nor.tga"
 							  ],
-							  "material": "DifAsgAo"
+							  "material": "DifAsgNor"
+						  },
+						  "Plastic":{
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/Blocks/blk_plastic_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/Blocks/blk_plastic_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/Blocks/blk_plastic_nor.tga"
+							],
+							"color": "0b9ade",
+							"material": "DifAsgNor"
+						},
+						  "bark":{
+							"textureList": [
+								"$SURVIVAL_DATA/Harvestables/Textures/Trees/t_tiled_birch_dif.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Trees/t_tiled_birch_asg.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Trees/t_tiled_birch_nor.tga"
+							],
+							"material": "DifAsgNor"
+						},
+						"lambert2":{
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_nor.tga"
+							],
+							"material": "DifAsgNor"
+						},
+						"innerwood": {
+							  "textureList": [
+								  "$SURVIVAL_DATA/Objects/Textures/harvests/Loggs/obj_harvest_log_dif.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/harvests/Loggs/obj_harvest_log_asg.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/harvests/Loggs/obj_harvest_log_nor.tga"
+							  ],
+							  "material": "DifAsgNor"
 						  }
-					  ],
-					  "mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_beamshelf.fbx",
-					  "includes": [
-						  "POSITION",
-						  "UV0",
-						  "UV1",
-						  "NORMAL",
-						  "TANGENTS"
-					  ]
+					  },
+					  "mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/RaftBlock.fbx"
 				  }
 			  ]
 		  },
 		  "color": "008ae1",
 		  "box": {
 				  "x": 4,
-				  "y": 1,
-				  "z": 4
+				  "y": 4,
+				  "z": 2
 		  },
-		  "rotationSet": "PropYZ",
+		  "rotationSet": "PropXYZ",
 		  "physicsMaterial": "Wood",
 		  "ratings": {
 			  "density": 1,
