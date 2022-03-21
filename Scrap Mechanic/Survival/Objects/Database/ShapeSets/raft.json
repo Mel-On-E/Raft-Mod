@@ -344,17 +344,25 @@
 		"renderable": {
 			"lodList": [
 				{
-					"subMeshList": [
-						{
+					"subMeshMap": {
+						"cleanwater": {
+							"material": "DifAsgNor",
 							"textureList": [
-								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_water_dif.tga",
-								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_water_asg.tga",
-								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_water_nor.tga"
-							],
-							"material": "DifAsgNor"
+								"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_dif.tga",
+								"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_asg.tga",
+								"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_nor.tga"
+							]
+						},
+						"glass_mat": {
+							"material": "Glass",
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_dif.tga",
+								"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_asg.tga",
+								"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_nor.tga"
+							]
 						}
-					],
-					"mesh": "$SURVIVAL_DATA/Objects/Mesh/consumable/obj_consumable_water.fbx"
+					},
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/obj_water_clean.fbx"
 				}
 			]
 		},
@@ -716,40 +724,66 @@
 			"lodList": [
 				{
 					"subMeshMap": {
-						"ScrapDriverSeat":{
+						"lambert2": {
+							"material": "DifAsgNor",
 							"textureList": [
-								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_dif.tga",
-								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_asg.tga",
-								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_nor.tga"
+								"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_nor.tga"
+							]
+						},
+						"Notepad": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$CHALLENGE_DATA/Character/Char_observerbot/char_observerbot_tools_dif.tga",
+								"$CHALLENGE_DATA/Character/Char_observerbot/char_observerbot_tools_asg.tga",
+								"$CHALLENGE_DATA/Character/Char_observerbot/char_observerbot_tools_nor.tga"
+							]
+						},
+						"book": {
+							"textureList": [
+								"$SURVIVAL_DATA/Character/Char_Tools/Char_logbook/char_logbook_dif.tga",
+								"$SURVIVAL_DATA/Character/Char_Tools/Char_logbook/char_logbook_asg.tga",
+								"$SURVIVAL_DATA/Character/Char_Tools/Char_logbook/char_logbook_nor.tga"
 							],
+							"color": "fc949d",
 							"material": "DifAsgNor"
 						},
-					"Soil": {
+						"SmallHammer": {
 							"textureList": [
-								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
-								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
-								"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
+								"$GAME_DATA/Character/Char_Tools/Char_smallhammer/char_smallhammer_dif.tga",
+								"$GAME_DATA/Character/Char_Tools/Char_smallhammer/char_smallhammer_asg.tga",
+								"$GAME_DATA/Character/Char_Tools/Char_smallhammer/char_smallhammer_nor.tga"
 							],
+							"color": "ffffff",
 							"material": "DifAsgNor"
 						},
-						"ScrapEngine":{
+						"Wood": {
+							"material": "DifAsgNor",
 							"textureList": [
-								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_dif.tga",
-								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_asg.tga",
-								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_nor.tga"
-							],
-							"material": "DifAsgNor"
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_asg.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_nor.tga"
+							]
+						},
+						"phong1": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_sunshake_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_sunshake_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_sunshake_nor.tga"
+							]
 						}
 					},
-					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ScrapField.fbx"
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Workbench.fbx"
 				}
 			]
 		},
-		"color": "4f2412",
+		"color": "0a956d",
 		"box": {
 			"x": 4,
 			"y": 3,
-			"z": 4
+			"z": 3
 		},
 		"scripted": {
 			"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
