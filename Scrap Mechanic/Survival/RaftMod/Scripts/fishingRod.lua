@@ -2,8 +2,6 @@ dofile "$GAME_DATA/Scripts/game/AnimationUtil.lua"
 dofile "$SURVIVAL_DATA/Scripts/util.lua"
 dofile "$SURVIVAL_DATA/Scripts/game/survival_shapes.lua"
 
-local Damage = 28
-
 Rod = class()
 
 local renderables = {
@@ -21,13 +19,6 @@ sm.tool.preloadRenderables( renderables )
 sm.tool.preloadRenderables( renderablesTp )
 sm.tool.preloadRenderables( renderablesFp )
 
---raft
-local function vec3Num( num )
-	return sm.vec3.new(num,num,num)
-end
-
---local ids = 0
-
 local drops = {
 	--premium
 	{
@@ -36,7 +27,6 @@ local drops = {
 		{ name = "Gasoline", drop = obj_consumable_gas, amount = function() return math.random(5, 20) end },
 		{ name = "Chemical", drop = obj_consumable_chemical, amount = function() return math.random(5, 20) end }
 	},
-
 	--normal
 	{
 		{ name = "Scrap Wood", drop = blk_scrapwood, amount = function() return math.random(10, 30) end },
@@ -47,20 +37,25 @@ local drops = {
 	}
 }
 
+function vec3Num( num )
+	return sm.vec3.new(num,num,num)
+end
+
 local hookSize = vec3Num(0.1)
-local canFishOutLootThreshold = 5
 local premiumDropChance = 0.25
 local maxThrowForce = 5
 local minThrowForce = 0.25
-local minWaitTime = 10
-local maxWaitTime = 30
---raft
+local minWaitTime = 10.001
+local maxWaitTime = 30.001
+
+local CatchTime = 0.5
+local minBites = 1
+local maxBites = 6
+local canFishOutLootThreshold = math.random(minBites, maxBites)
+
+
 
 function Rod.client_onCreate( self )
-	self.shootEffect = sm.effect.createEffect( "SpudgunBasic - BasicMuzzel" )
-	self.shootEffectFP = sm.effect.createEffect( "SpudgunBasic - FPBasicMuzzel" )
-
-	--raft
 	self.player = sm.localPlayer.getPlayer()
 
 	self.ropeEffect = sm.effect.createEffect("ShapeRenderable")
@@ -71,6 +66,7 @@ function Rod.client_onCreate( self )
 	self.hookEffect:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
 	self.hookEffect:setParameter("color", sm.color.new(1,0,0))
 	self.hookEffect:setScale(hookSize)
+	self.hookOffset = 0
 
 	self.throwForce = 0
 	self.primaryState = 0
@@ -81,10 +77,8 @@ function Rod.client_onCreate( self )
 	self.lookDir = sm.vec3.zero()
 	self.trigger = nil
 
-	--self.id = ids + 1
-	self.dropTimer = { timer = 0, effectTimer = 1 }
+	self.dropTimer = { timer = 0, effectTimer = 1, valid = maxWaitTime }
 	self.useCD = { active = false, timer = 1 }
-	--raft
 end
 
 function Rod.client_onRefresh( self )
@@ -95,9 +89,6 @@ function Rod.loadAnimations( self )
 	self.tpAnimations = createTpAnimations(
 		self.tool,
 		{
-			shoot = { "spudgun_shoot", { crouch = "spudgun_crouch_shoot" } },
-			aim = { "spudgun_aim", { crouch = "spudgun_crouch_aim" } },
-			aimShoot = { "spudgun_aim_shoot", { crouch = "spudgun_crouch_aim_shoot" } },
 			idle = { "spudgun_idle" },
 			pickup = { "spudgun_pickup", { nextAnimation = "idle" } },
 			putdown = { "spudgun_putdown" }
@@ -136,14 +127,7 @@ function Rod.loadAnimations( self )
 			{
 				equip = { "spudgun_pickup", { nextAnimation = "idle" } },
 				unequip = { "spudgun_putdown" },
-
 				idle = { "spudgun_idle", { looping = true } },
-				shoot = { "spudgun_shoot", { nextAnimation = "idle" } },
-
-				aimInto = { "spudgun_aim_into", { nextAnimation = "aimIdle" } },
-				aimExit = { "spudgun_aim_exit", { nextAnimation = "idle", blendNext = 0 } },
-				aimIdle = { "spudgun_aim_idle", { looping = true} },
-				aimShoot = { "spudgun_aim_shoot", { nextAnimation = "aimIdle"} },
 
 				sprintInto = { "spudgun_sprint_into", { nextAnimation = "sprintIdle",  blendNext = 0.2 } },
 				sprintExit = { "spudgun_sprint_exit", { nextAnimation = "idle",  blendNext = 0 } },
@@ -152,55 +136,17 @@ function Rod.loadAnimations( self )
 		)
 	end
 
-	self.normalFireMode = {
-		fireCooldown = 0.20,
-		spreadCooldown = 0.18,
-		spreadIncrement = 2.6,
-		spreadMinAngle = .25,
-		spreadMaxAngle = 8,
-		fireVelocity = 130.0,
 
-		minDispersionStanding = 0.1,
-		minDispersionCrouching = 0.04,
-
-		maxMovementDispersion = 0.4,
-		jumpDispersionMultiplier = 2
-	}
-
-	self.aimFireMode = {
-		fireCooldown = 0.20,
-		spreadCooldown = 0.18,
-		spreadIncrement = 1.3,
-		spreadMinAngle = 0,
-		spreadMaxAngle = 8,
-		fireVelocity =  130.0,
-
-		minDispersionStanding = 0.01,
-		minDispersionCrouching = 0.01,
-
-		maxMovementDispersion = 0.4,
-		jumpDispersionMultiplier = 2
-	}
-
-	self.fireCooldownTimer = 0.0
-	self.spreadCooldownTimer = 0.0
-
+	--Remove?
 	self.movementDispersion = 0.0
-
 	self.sprintCooldownTimer = 0.0
 	self.sprintCooldown = 0.3
-
-	self.aimBlendSpeed = 3.0
 	self.blendTime = 0.2
-
 	self.jointWeight = 0.0
 	self.spineWeight = 0.0
 	local cameraWeight, cameraFPWeight = self.tool:getCameraWeights()
-	self.aimWeight = math.max( cameraWeight, cameraFPWeight )
-
 end
 
---raft
 function Rod:sv_itemDrop()
 	local type = math.random() <= premiumDropChance and 1 or 2
 	local index = math.random(1, #drops)
@@ -241,8 +187,11 @@ function Rod:cl_playWaterSplash( args )
 		["Velocity_max_50"] = sm.vec3.new(0,0,10 * args.force * 0.1 ):length(),
 		["Phys_energy"] = args.force / 1000.0
 	}
-
 	sm.effect.playEffect( args.effect, args.pos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one(), params )
+	self.hookOffset = 0.25
+	if args.effect == "Water - HitWaterBig" then
+		self.hookOffset = 1
+	end
 end
 
 function Rod:cl_reset()
@@ -251,24 +200,40 @@ function Rod:cl_reset()
 	self.isFishing = false
 	self.hookPos = sm.vec3.zero()
 	self.hookDir = sm.vec3.zero()
-	self.dropTimer = { timer = 0, effectTimer = 1 }
+	self.dropTimer = { timer = 0, effectTimer = 1, valid = maxWaitTime }
 	self.ropeEffect:stop()
 	self.hookEffect:stop()
 end
 
 function Rod:cl_cancel( state )
 	if (state == 1 or state == 2) then
-		if self.dropTimer.timer <= canFishOutLootThreshold and self.isFishing then
+		local params = {
+			["Size"] = min( 1.0, 10000 * 0.5 / 76800.0 ),
+			["Velocity_max_50"] = sm.vec3.new(0,0,10 * 10000 * 0.1 ):length(),
+			["Phys_energy"] = 10000 / 1000.0
+		}
+		if (self.dropTimer.valid - self.dropTimer.timer) < CatchTime and self.isFishing then
 			self.network:sendToServer("sv_itemDrop")
+			sm.effect.playEffect("Loot - Pickup", self.hookPos)
+			--TODO make this work in multiplayer
+
+			--sm.effect.playEffect("Water - HitWaterMassive", self.hookPos)
+			--self.network:sendToServer("sv_playWaterSplash", { effect = "Loot - Pickup", force = 10000 } )
+			--self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterMassive", force = 10000 } )
+
+			sm.effect.playEffect( "Water - HitWaterMassive", self.hookPos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one(), params )
+		else
+			--self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterTiny", force = 10000 } )
+			sm.effect.playEffect( "Water - HitWaterTiny", self.hookPos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one(), params )
 		end
 
 		if self.isFishing or self.isThrowing then
 			self.useCD.active = true
+			sm.audio.play( "Sledgehammer - Swing" )
 		end
 
 		self:cl_reset()
 	end
-
 	return self.useCD.active
 end
 
@@ -280,8 +245,9 @@ function Rod:client_onFixedUpdate( dt )
 	end
 end
 
+
+
 function Rod.client_onUpdate( self, dt )
-	--raft
 	self.lookDir = sm.localPlayer.getDirection()
 
 	if self.useCD.active then
@@ -293,7 +259,9 @@ function Rod.client_onUpdate( self, dt )
 
 	if sm.exists(self.ropeEffect) and self.ropeEffect:isPlaying() then
 		if self.isThrowing then
-			self.hookDir = self.hookDir - sm.vec3.new(0,0,0.05 / self.throwForce)
+			if self.hookDir.z > -1 then
+				self.hookDir = self.hookDir - sm.vec3.new(0,0,0.05 / self.throwForce)
+			end
 			self.hookPos = self.hookPos + vec3Num(self.throwForce) * 3 * self.hookDir * dt
 			self.network:sendToServer("sv_manageTrigger")
 
@@ -308,37 +276,38 @@ function Rod.client_onUpdate( self, dt )
 					end
 				end
 			end
-
 			local hit, result = sm.physics.raycast( self.hookPos, self.hookPos + self.hookDir * self.throwForce * (dt*2) )
-			--sm.particle.createParticle( "paint_smoke", self.hookPos + self.hookDir * dt, sm.quat.identity() )
 
 			if hitWater then
 				self.isThrowing = false
 				self.isFishing = true
 				self.throwForce = 0
 				self.dropTimer.timer = math.random(minWaitTime,maxWaitTime)
+				self.dropTimer.valid = maxWaitTime
 				self.network:sendToServer("sv_manageTrigger", "destroy")
+				self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterTiny", force = 10000 / math.ceil(self.dropTimer.timer) } )
 			elseif not hitWater and hit then
 				self:cl_reset()
 			end
 		end
 
 		if self.hookDir:length() > 0 and self.hookPos:length() > 0 then
-			local delta = ( self:calculateFirePosition() - self.hookPos )
+			local offset = self.hookPos - sm.vec3.new(0, 0, self.hookOffset)
+
+			local delta = ( self:calculateFirePosition() - offset )
 			local rot = sm.vec3.getRotation(sm.vec3.new(0, 0, 1), delta)
 			local distance = sm.vec3.new(0.01, 0.01, delta:length())
 
-			self.ropeEffect:setPosition(self.hookPos + delta * 0.5)
+			self.ropeEffect:setPosition(offset + delta * 0.5)
 			self.ropeEffect:setScale(distance)
 			self.ropeEffect:setRotation(rot)
 
-			self.hookEffect:setPosition(self.hookPos)
+			self.hookEffect:setPosition(offset)
 			self.hookEffect:setRotation(rot)
 		end
 	end
 
-	--local pos = self.hookPos ~= sm.vec3.zero() and self.hookPos or nil
-	--g_fishAttractionPositions[self.id] = pos
+	self.hookOffset = self.hookOffset * (1 - dt*4)
 
 	if self.dropTimer.timer > 0 then
 		self.dropTimer.timer = self.dropTimer.timer - dt
@@ -346,20 +315,24 @@ function Rod.client_onUpdate( self, dt )
 		if self.dropTimer.timer <= canFishOutLootThreshold + 1 and self.dropTimer.timer > 0 then
 			self.dropTimer.effectTimer = self.dropTimer.effectTimer - dt
 
-			if self.dropTimer.effectTimer <= 0 then
+			if self.dropTimer.effectTimer <= 0 and self.dropTimer.timer > 1 then
 				self.dropTimer.effectTimer = 1
-				self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterSmall", force = 10000 / math.ceil(self.dropTimer.timer) } )
+				if not (self.dropTimer.timer < 2) then
+					self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterTiny", force = 10000 / math.ceil(self.dropTimer.timer) } )
+				else
+					self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterBig", force = 10000 / math.ceil(self.dropTimer.timer) } )
+					self.dropTimer.valid = self.dropTimer.timer
+				end
 			end
 		end
 
-		sm.gui.displayAlertText(tostring(math.floor(self.dropTimer.timer)), 1)
+		--sm.gui.displayAlertText(tostring(math.floor(self.dropTimer.timer)), 1)
 		if self.dropTimer.timer <= 0 then
-			--self:cl_reset()
-			--self.network:sendToServer("sv_itemDrop")
-			self.dropTimer.timer = math.random(10,30)
+			self.dropTimer.timer = math.random(minWaitTime,maxWaitTime)
+			self.dropTimer.valid = maxWaitTime
+			canFishOutLootThreshold = math.random(minBites, maxBites)
 		end
 	end
-	--raft
 
 	-- First person animation
 	local isSprinting =  self.tool:isSprinting()
@@ -372,13 +345,6 @@ function Rod.client_onUpdate( self, dt )
 			elseif not self.tool:isSprinting() and ( self.fpAnimations.currentAnimation == "sprintIdle" or self.fpAnimations.currentAnimation == "sprintInto" ) then
 				swapFpAnimation( self.fpAnimations, "sprintInto", "sprintExit", 0.0 )
 			end
-
-			if self.aiming and not isAnyOf( self.fpAnimations.currentAnimation, { "aimInto", "aimIdle", "aimShoot" } ) then
-				swapFpAnimation( self.fpAnimations, "aimExit", "aimInto", 0.0 )
-			end
-			if not self.aiming and isAnyOf( self.fpAnimations.currentAnimation, { "aimInto", "aimIdle", "aimShoot" } ) then
-				swapFpAnimation( self.fpAnimations, "aimInto", "aimExit", 0.0 )
-			end
 		end
 		updateFpAnimations( self.fpAnimations, self.equipped, dt )
 	end
@@ -390,91 +356,11 @@ function Rod.client_onUpdate( self, dt )
 		end
 		return
 	end
-
-	local effectPos, rot
-
-	if self.tool:isLocal() then
-
-		local zOffset = 0.6
-		if self.tool:isCrouching() then
-			zOffset = 0.29
-		end
-
-		local dir = sm.localPlayer.getDirection()
-		local firePos = self.tool:getFpBonePos( "pejnt_barrel" )
-
-		if not self.aiming then
-			effectPos = firePos + dir * 0.2
-		else
-			effectPos = firePos + dir * 0.45
-		end
-
-		rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), dir )
-
-
-		self.shootEffectFP:setPosition( effectPos )
-		self.shootEffectFP:setVelocity( self.tool:getMovementVelocity() )
-		self.shootEffectFP:setRotation( rot )
-	end
-	local pos = self.tool:getTpBonePos( "pejnt_barrel" )
-	local dir = self.tool:getTpBoneDir( "pejnt_barrel" )
-
-	effectPos = pos + dir * 0.2
-
-	rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), dir )
-
-
-	self.shootEffect:setPosition( effectPos )
-	self.shootEffect:setVelocity( self.tool:getMovementVelocity() )
-	self.shootEffect:setRotation( rot )
-
 	-- Timers
-	self.fireCooldownTimer = math.max( self.fireCooldownTimer - dt, 0.0 )
-	self.spreadCooldownTimer = math.max( self.spreadCooldownTimer - dt, 0.0 )
 	self.sprintCooldownTimer = math.max( self.sprintCooldownTimer - dt, 0.0 )
 
-
-	if self.tool:isLocal() then
-		local dispersion = 0.0
-		local fireMode = self.aiming and self.aimFireMode or self.normalFireMode
-		local recoilDispersion = 1.0 - ( math.max( fireMode.minDispersionCrouching, fireMode.minDispersionStanding ) + fireMode.maxMovementDispersion )
-
-		if isCrouching then
-			dispersion = fireMode.minDispersionCrouching
-		else
-			dispersion = fireMode.minDispersionStanding
-		end
-
-		if self.tool:getRelativeMoveDirection():length() > 0 then
-			dispersion = dispersion + fireMode.maxMovementDispersion * self.tool:getMovementSpeedFraction()
-		end
-
-		if not self.tool:isOnGround() then
-			dispersion = dispersion * fireMode.jumpDispersionMultiplier
-		end
-
-		self.movementDispersion = dispersion
-
-		self.spreadCooldownTimer = clamp( self.spreadCooldownTimer, 0.0, fireMode.spreadCooldown )
-		local spreadFactor = fireMode.spreadCooldown > 0.0 and clamp( self.spreadCooldownTimer / fireMode.spreadCooldown, 0.0, 1.0 ) or 0.0
-
-		self.tool:setDispersionFraction( clamp( self.movementDispersion + spreadFactor * recoilDispersion, 0.0, 1.0 ) )
-
-		if self.aiming then
-			if self.tool:isInFirstPersonView() then
-				self.tool:setCrossHairAlpha( 0.0 )
-			else
-				self.tool:setCrossHairAlpha( 1.0 )
-			end
-			self.tool:setInteractionTextSuppressed( true )
-		else
-			self.tool:setCrossHairAlpha( 1.0 )
-			self.tool:setInteractionTextSuppressed( false )
-		end
-	end
-
 	-- Sprint block
-	local blockSprint = self.aiming or self.sprintCooldownTimer > 0.0
+	local blockSprint = self.sprintCooldownTimer > 0.0
 	self.tool:setBlockSprint( blockSprint )
 
 	local playerDir = self.tool:getDirection()
@@ -498,9 +384,7 @@ function Rod.client_onUpdate( self, dt )
 			animation.weight = math.min( animation.weight + ( self.tpAnimations.blendSpeed * dt ), 1.0 )
 
 			if animation.time >= animation.info.duration - self.blendTime then
-				if ( name == "shoot" or name == "aimShoot" ) then
-					setTpAnimation( self.tpAnimations, self.aiming and "aim" or "idle", 10.0 )
-				elseif name == "pickup" then
+				if name == "pickup" then
 					setTpAnimation( self.tpAnimations, self.aiming and "aim" or "idle", 0.001 )
 				elseif animation.nextAnimation ~= "" then
 					setTpAnimation( self.tpAnimations, animation.nextAnimation, 0.001 )
@@ -528,11 +412,7 @@ function Rod.client_onUpdate( self, dt )
 
 	-- Third Person joint lock
 	local relativeMoveDirection = self.tool:getRelativeMoveDirection()
-	if ( ( ( isAnyOf( self.tpAnimations.currentAnimation, { "aimInto", "aim", "shoot" } ) and ( relativeMoveDirection:length() > 0 or isCrouching) ) or ( self.aiming and ( relativeMoveDirection:length() > 0 or isCrouching) ) ) and not isSprinting ) then
-		self.jointWeight = math.min( self.jointWeight + ( 10.0 * dt ), 1.0 )
-	else
-		self.jointWeight = math.max( self.jointWeight - ( 6.0 * dt ), 0.0 )
-	end
+	self.jointWeight = math.max( self.jointWeight - ( 6.0 * dt ), 0.0 )
 
 	if ( not isSprinting ) then
 		self.spineWeight = math.min( self.spineWeight + ( 10.0 * dt ), 1.0 )
@@ -560,22 +440,6 @@ function Rod.client_onUpdate( self, dt )
 	self.tool:updateJoint( "jnt_spine2", sm.vec3.new( totalOffsetX, totalOffsetY, totalOffsetZ ), ( 0.10 + crouchSpineWeight ) * finalJointWeight )
 	self.tool:updateJoint( "jnt_spine3", sm.vec3.new( totalOffsetX, totalOffsetY, totalOffsetZ ), ( 0.45 + crouchSpineWeight ) * finalJointWeight )
 	self.tool:updateJoint( "jnt_head", sm.vec3.new( totalOffsetX, totalOffsetY, totalOffsetZ ), 0.3 * finalJointWeight )
-
-
-	-- Camera update
-	local bobbing = 1
-	if self.aiming then
-		local blend = 1 - math.pow( 1 - 1 / self.aimBlendSpeed, dt * 60 )
-		self.aimWeight = sm.util.lerp( self.aimWeight, 1.0, blend )
-		bobbing = 0.12
-	else
-		local blend = 1 - math.pow( 1 - 1 / self.aimBlendSpeed, dt * 60 )
-		self.aimWeight = sm.util.lerp( self.aimWeight, 0.0, blend )
-		bobbing = 1
-	end
-
-	self.tool:updateCamera( 2.8, 30.0, sm.vec3.new( 0.65, 0.0, 0.05 ), self.aimWeight )
-	self.tool:updateFpCamera( 30.0, sm.vec3.new( 0.0, 0.0, 0.0 ), self.aimWeight, bobbing )
 end
 
 function Rod.client_onEquip( self, animate )
@@ -585,7 +449,6 @@ function Rod.client_onEquip( self, animate )
 	end
 
 	self.wantEquipped = true
-	self.aiming = false
 	local cameraWeight, cameraFPWeight = self.tool:getCameraWeights()
 	self.aimWeight = math.max( cameraWeight, cameraFPWeight )
 	self.jointWeight = 0.0
@@ -611,9 +474,7 @@ function Rod.client_onEquip( self, animate )
 end
 
 function Rod.client_onUnequip( self, animate )
-	--raft
 	self:cl_reset()
-	--raft
 
 	if animate then
 		sm.audio.play( "PotatoRifle - Unequip", self.tool:getPosition() )
@@ -625,139 +486,6 @@ function Rod.client_onUnequip( self, animate )
 	if self.tool:isLocal() and self.fpAnimations.currentAnimation ~= "unequip" then
 		swapFpAnimation( self.fpAnimations, "equip", "unequip", 0.2 )
 	end
-end
-
-function Rod.sv_n_onAim( self, aiming )
-	self.network:sendToClients( "cl_n_onAim", aiming )
-end
-
-function Rod.cl_n_onAim( self, aiming )
-	if not self.tool:isLocal() and self.tool:isEquipped() then
-		self:onAim( aiming )
-	end
-end
-
-function Rod.onAim( self, aiming )
-	self.aiming = aiming
-	if self.tpAnimations.currentAnimation == "idle" or self.tpAnimations.currentAnimation == "aim" or self.tpAnimations.currentAnimation == "relax" and self.aiming then
-		setTpAnimation( self.tpAnimations, self.aiming and "aim" or "idle", 5.0 )
-	end
-end
-
-function Rod.sv_n_onShoot( self, dir )
-	self.network:sendToClients( "cl_n_onShoot", dir )
-end
-
-function Rod.cl_n_onShoot( self, dir )
-	if not self.tool:isLocal() and self.tool:isEquipped() then
-		self:onShoot( dir )
-	end
-end
-
-function Rod.onShoot( self, dir )
-
-	self.tpAnimations.animations.idle.time = 0
-	self.tpAnimations.animations.shoot.time = 0
-	self.tpAnimations.animations.aimShoot.time = 0
-
-	setTpAnimation( self.tpAnimations, self.aiming and "aimShoot" or "shoot", 10.0 )
-
-	if self.tool:isInFirstPersonView() then
-			self.shootEffectFP:start()
-		else
-			self.shootEffect:start()
-	end
-
-end
-
-function Rod.calculateFirePosition( self )
-	local crouching = self.tool:isCrouching()
-	local firstPerson = self.tool:isInFirstPersonView()
-	local dir = sm.localPlayer.getDirection()
-	local pitch = math.asin( dir.z )
-	local right = sm.localPlayer.getRight()
-
-	local fireOffset = sm.vec3.new( 0.0, 0.0, 0.0 )
-
-	if crouching then
-		fireOffset.z = 0.15
-	else
-		fireOffset.z = 0.45
-	end
-
-	if firstPerson then
-		if not self.aiming then
-			fireOffset = fireOffset + right * 0.05
-		end
-	else
-		fireOffset = fireOffset + right * 0.25
-		fireOffset = fireOffset:rotate( math.rad( pitch ), right )
-	end
-	local firePosition = GetOwnerPosition( self.tool ) + fireOffset
-	return firePosition
-end
-
-function Rod.calculateTpMuzzlePos( self )
-	local crouching = self.tool:isCrouching()
-	local dir = sm.localPlayer.getDirection()
-	local pitch = math.asin( dir.z )
-	local right = sm.localPlayer.getRight()
-	local up = right:cross(dir)
-
-	local fakeOffset = sm.vec3.new( 0.0, 0.0, 0.0 )
-
-	--General offset
-	fakeOffset = fakeOffset + right * 0.25
-	fakeOffset = fakeOffset + dir * 0.5
-	fakeOffset = fakeOffset + up * 0.25
-
-	--Action offset
-	local pitchFraction = pitch / ( math.pi * 0.5 )
-	if crouching then
-		fakeOffset = fakeOffset + dir * 0.2
-		fakeOffset = fakeOffset + up * 0.1
-		fakeOffset = fakeOffset - right * 0.05
-
-		if pitchFraction > 0.0 then
-			fakeOffset = fakeOffset - up * 0.2 * pitchFraction
-		else
-			fakeOffset = fakeOffset + up * 0.1 * math.abs( pitchFraction )
-		end
-	else
-		fakeOffset = fakeOffset + up * 0.1 *  math.abs( pitchFraction )
-	end
-
-	local fakePosition = fakeOffset + GetOwnerPosition( self.tool )
-	return fakePosition
-end
-
-function Rod.calculateFpMuzzlePos( self )
-	local fovScale = ( sm.camera.getFov() - 45 ) / 45
-
-	local up = sm.localPlayer.getUp()
-	local dir = sm.localPlayer.getDirection()
-	local right = sm.localPlayer.getRight()
-
-	local muzzlePos45 = sm.vec3.new( 0.0, 0.0, 0.0 )
-	local muzzlePos90 = sm.vec3.new( 0.0, 0.0, 0.0 )
-
-	if self.aiming then
-		muzzlePos45 = muzzlePos45 - up * 0.2
-		muzzlePos45 = muzzlePos45 + dir * 0.5
-
-		muzzlePos90 = muzzlePos90 - up * 0.5
-		muzzlePos90 = muzzlePos90 - dir * 0.6
-	else
-		muzzlePos45 = muzzlePos45 - up * 0.15
-		muzzlePos45 = muzzlePos45 + right * 0.2
-		muzzlePos45 = muzzlePos45 + dir * 1.25
-
-		muzzlePos90 = muzzlePos90 - up * 0.15
-		muzzlePos90 = muzzlePos90 + right * 0.2
-		muzzlePos90 = muzzlePos90 + dir * 0.25
-	end
-
-	return self.tool:getFpBonePos( "pejnt_barrel" ) + sm.vec3.lerp( muzzlePos45, muzzlePos90, fovScale )
 end
 
 function Rod.cl_onPrimaryUse( self, state )
@@ -780,95 +508,14 @@ function Rod.cl_onPrimaryUse( self, state )
 
 		self.ropeEffect:start()
 		self.hookEffect:start()
+
+		canFishOutLootThreshold = math.random(minBites, maxBites)
+		sm.audio.play( "Sledgehammer - Swing" )
 	end
-
-	--[[if self.fireCooldownTimer <= 0.0 and state == sm.tool.interactState.start then
-
-		if not sm.game.getEnableAmmoConsumption() or sm.container.canSpend( sm.localPlayer.getInventory(), obj_plantables_potato, 1 ) then
-			local firstPerson = self.tool:isInFirstPersonView()
-
-			local dir = sm.localPlayer.getDirection()
-
-			local firePos = self:calculateFirePosition()
-			local fakePosition = self:calculateTpMuzzlePos()
-			local fakePositionSelf = fakePosition
-			if firstPerson then
-				fakePositionSelf = self:calculateFpMuzzlePos()
-			end
-
-			-- Aim assist
-			if not firstPerson then
-				local raycastPos = sm.camera.getPosition() + sm.camera.getDirection() * sm.camera.getDirection():dot( GetOwnerPosition( self.tool ) - sm.camera.getPosition() )
-				local hit, result = sm.localPlayer.getRaycast( 250, raycastPos, sm.camera.getDirection() )
-				if hit then
-					local norDir = sm.vec3.normalize( result.pointWorld - firePos )
-					local dirDot = norDir:dot( dir )
-
-					if dirDot > 0.96592583 then -- max 15 degrees off
-						dir = norDir
-					else
-						local radsOff = math.asin( dirDot )
-						dir = sm.vec3.lerp( dir, norDir, math.tan( radsOff ) / 3.7320508 ) -- if more than 15, make it 15
-					end
-				end
-			end
-
-			dir = dir:rotate( math.rad( 0.955 ), sm.camera.getRight() ) -- 50 m sight calibration
-
-			-- Spread
-			local fireMode = self.aiming and self.aimFireMode or self.normalFireMode
-			local recoilDispersion = 1.0 - ( math.max(fireMode.minDispersionCrouching, fireMode.minDispersionStanding ) + fireMode.maxMovementDispersion )
-
-			local spreadFactor = fireMode.spreadCooldown > 0.0 and clamp( self.spreadCooldownTimer / fireMode.spreadCooldown, 0.0, 1.0 ) or 0.0
-			spreadFactor = clamp( self.movementDispersion + spreadFactor * recoilDispersion, 0.0, 1.0 )
-			local spreadDeg =  fireMode.spreadMinAngle + ( fireMode.spreadMaxAngle - fireMode.spreadMinAngle ) * spreadFactor
-
-			dir = sm.noise.gunSpread( dir, spreadDeg )
-
-			local owner = self.tool:getOwner()
-			if owner then
-				sm.projectile.projectileAttack( "potato", Damage, firePos, dir * fireMode.fireVelocity, owner, fakePosition, fakePositionSelf )
-			end
-
-			-- Timers
-			self.fireCooldownTimer = fireMode.fireCooldown
-			self.spreadCooldownTimer = math.min( self.spreadCooldownTimer + fireMode.spreadIncrement, fireMode.spreadCooldown )
-			self.sprintCooldownTimer = self.sprintCooldown
-
-			-- Send TP shoot over network and dircly to self
-			self:onShoot( dir )
-			self.network:sendToServer( "sv_n_onShoot", dir )
-
-			-- Play FP shoot animation
-			setFpAnimation( self.fpAnimations, self.aiming and "aimShoot" or "shoot", 0.05 )
-		else
-			local fireMode = self.aiming and self.aimFireMode or self.normalFireMode
-			self.fireCooldownTimer = fireMode.fireCooldown
-			sm.audio.play( "PotatoRifle - NoAmmo" )
-		end
-	end]]
 end
 
 function Rod.cl_onSecondaryUse( self, state )
 	self:cl_cancel( state )
-
-	--[[if state == sm.tool.interactState.start and not self.aiming then
-		self.aiming = true
-		self.tpAnimations.animations.idle.time = 0
-
-		self:onAim( self.aiming )
-		self.tool:setMovementSlowDown( self.aiming )
-		self.network:sendToServer( "sv_n_onAim", self.aiming )
-	end
-
-	if self.aiming and (state == sm.tool.interactState.stop or state == sm.tool.interactState.null) then
-		self.aiming = false
-		self.tpAnimations.animations.idle.time = 0
-
-		self:onAim( self.aiming )
-		self.tool:setMovementSlowDown( self.aiming )
-		self.network:sendToServer( "sv_n_onAim", self.aiming )
-	end]]
 end
 
 function Rod.client_onEquippedUpdate( self, primaryState, secondaryState)
@@ -877,12 +524,10 @@ function Rod.client_onEquippedUpdate( self, primaryState, secondaryState)
 		self.prevPrimaryState = primaryState
 	end
 
-	--raft
 	self.primaryState = primaryState
 	if self.throwForce > 0 and not self.isThrowing then
 		sm.gui.setProgressFraction(self.throwForce/maxThrowForce)
 	end
-	--raft
 
 	if secondaryState ~= self.prevSecondaryState then
 		self:cl_onSecondaryUse( secondaryState )
@@ -890,4 +535,29 @@ function Rod.client_onEquippedUpdate( self, primaryState, secondaryState)
 	end
 
 	return true, true
+end
+
+function Rod.calculateFirePosition( self )
+	local crouching = self.tool:isCrouching()
+	local firstPerson = self.tool:isInFirstPersonView()
+	local dir = sm.localPlayer.getDirection()
+	local pitch = math.asin( dir.z )
+	local right = sm.localPlayer.getRight()
+
+	local fireOffset = sm.vec3.new( 0.0, 0.0, 0.0 )
+
+	if crouching then
+		fireOffset.z = 0.15
+	else
+		fireOffset.z = 0.45
+	end
+
+	if firstPerson then
+		fireOffset = fireOffset + right * 0.05
+	else
+		fireOffset = fireOffset + right * 0.25
+		fireOffset = fireOffset:rotate( math.rad( pitch ), right )
+	end
+	local firePosition = GetOwnerPosition( self.tool ) + fireOffset
+	return firePosition
 end
