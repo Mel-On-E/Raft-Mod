@@ -9,6 +9,14 @@
 		"description": "Hold left click to increase the throw force, after the hook lands it will pull certain objects towards you, which will get collected automatically when they reach you.",
 		"title": "Pulling Hook"
 	},
+	"1daebe24-4e16-422c-b5e7-c3f45f9296d8": {
+		"description": "A tool for cutting down trees.",
+		"title": "Axe"
+	},
+	"c883b283-ea7a-4bba-af0d-5c13fd73051d": {
+		"description": "A tool for mining rock.",
+		"title": "Pickaxe"
+	},
 	
 	//parts
 	"8e75cddb-040e-4813-8dd6-7e72f3288a91": {
@@ -54,6 +62,22 @@
 	"885513a7-baa3-44ee-aa6e-7546bf0715a7": {
 		"description": "Applies a force in the direction its pointing, depending on how fast it spins. The force also depends on the way its spinning.",
 		"title": "Propeller"
+	},
+	"509505f1-b772-4acd-9827-f9a605a979ec": {
+		"description": "Press 'E' to switch between which key the part senses. Outputs a logic signal when the selected key is pressed.",
+		"title": "WASD Converter"
+	},
+	"6db7aacf-f2b3-4cbb-a6d2-2a01d5ee5562": {
+		"description": "Outputs a logic signal when it touches water.",
+		"title": "Water Sensor"
+	},
+	"71ac7645-57f5-4d49-9574-c8482b431862": {
+		"description": "Rotates your creation based on either your look direction or A/D input. Press 'E' on the part to select a mode. First 3 modes - mouse control, Roll - A/D. Outputs a logic signal while in use.",
+		"title": "Creation Rotator"
+	},
+	"eea9794b-bcdf-431e-bdcd-7b2ff6ffa145": {
+		"description": "Catches the wind and applies a force to your creation.",
+		"title": "Sail"
 	},
 
 	//sapplings
