@@ -712,7 +712,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 	end
 
 	--Raft
-	if self.shape.uuid == obj_scrap_field or self.shape.uuid == obj_scrap_purifier or self.shape.uuid == obj_scrap_tree_grower or self.shape.uuid == obj_apiary or self.shape.uuid == obj_scrap_workbench then
+	if self.shape.uuid == obj_scrap_field or self.shape.uuid == obj_scrap_purifier or self.shape.uuid == obj_scrap_tree_grower or self.shape.uuid == obj_apiary or self.shape.uuid == obj_scrap_workbench or self.shape.uuid == obj_large_field  then
 		return
 	end
 	
