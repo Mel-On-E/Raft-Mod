@@ -1,0 +1,29 @@
+{
+	"logList": 
+	[
+		{
+			"name": "log_crashedship",
+			"uuid": "ee4ab0d3-027a-4969-9436-5b23c26e5eeb",
+			"type": "photo",
+			"photo": "gui_logbook_photoframe_crashedship.png",			
+			"location": "crashedShip",
+			"icon": "crashedship"
+		},
+		{
+			"name": "log_mechanicstation",
+			"uuid": "29d72e47-8eac-4fb9-95b1-ecccc06ff84f",
+			"type": "photo",
+			"photo": "gui_logbook_photoframe_mechanicstation.png",
+			"location": "mechanicStation",
+			"icon": "mechanicstation"
+		},
+		{
+			"name": "log_hideout",
+			"uuid": "b7ebd326-60c5-4ee7-a35f-1bd3ef408ded",
+			"type": "photo",
+			"photo": "gui_logbook_sus.png",
+			"location": "hideout",
+			"icon": "sus"
+		}
+	]
+}

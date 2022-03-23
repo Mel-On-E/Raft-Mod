@@ -9,6 +9,7 @@ Crafter.colorNormal = sm.color.new( 0x84ff32ff )
 Crafter.colorHighlight = sm.color.new( 0xa7ff4fff )
 
 --raft
+dofile "$SURVIVAL_DATA/Scripts/game/survival_quests.lua"
 local raftbots = {obj_scrap_field, obj_scrap_purifier, obj_scrap_tree_grower, obj_apiary, obj_scrap_workbench, obj_large_field}
 
 local crafters = {
@@ -95,7 +96,8 @@ local crafters = {
 		slots = 1,
 		speed = 1,
 		recipeSets = {
-			{ name = "scrapworkbench", locked = false }
+			{ name = "scrapworkbench", locked = false },
+			{ name = "quest", locked = true }
 		},
 		subTitle = "Workbench",
 		createGuiFunction = sm.gui.createCraftBotGui
@@ -175,6 +177,7 @@ local crafters = {
 		createGuiFunction = sm.gui.createCraftBotGui
 	}
 }
+
 
 local effectRenderables = {
 	[tostring( obj_consumable_carrotburger )] = { char_cookbot_food_03, char_cookbot_food_04 },
@@ -481,7 +484,11 @@ function Crafter.cl_updateRecipeGrid( self )
 	self.cl.guiInterface:clearGrid( "RecipeGrid" )
 	for _, recipeSet in ipairs( self.crafter.recipeSets ) do
 		print( "Adding", g_craftingRecipes[recipeSet.name].path )
-		self.cl.guiInterface:addGridItemsFromFile( "RecipeGrid", g_craftingRecipes[recipeSet.name].path, { locked = recipeSet.locked } )
+		local locked = recipeSet.locked
+		if recipeSet.name == "quest" then
+			locked = not g_questManager:cl_isQuestCompleted(quest_test)
+		end
+		self.cl.guiInterface:addGridItemsFromFile( "RecipeGrid", g_craftingRecipes[recipeSet.name].path, { locked = locked } )
 	end
 end
 
@@ -1030,6 +1037,7 @@ end
 
 function Crafter.client_onInteract( self, character, state )
 	if state == true then
+		self:cl_updateRecipeGrid()
 		local parent = self:getParent()
 		if not self.crafter.needsPower or ( parent and parent.active ) then
 
