@@ -392,18 +392,6 @@ function Crafter.cl_init( self )
 	self.cl.tertiaryEffects = {}
 	self.cl.quaternaryEffects = {}
 
-	-- print( self.crafter.subTitle )
-	-- print( "craft_start", self.interactable:getAnimDuration( "craft_start" ) )
-	-- if self.interactable:hasAnim( "craft_loop" ) then
-	-- 	print( "craft_loop", self.interactable:getAnimDuration( "craft_loop" ) )
-	-- else
-	-- 	print( "craft_loop01", self.interactable:getAnimDuration( "craft_loop01" ) )
-	-- 	print( "craft_loop02", self.interactable:getAnimDuration( "craft_loop02" ) )
-	-- 	print( "craft_loop03", self.interactable:getAnimDuration( "craft_loop03" ) )
-	-- end
-	-- print( "craft_finish", self.interactable:getAnimDuration( "craft_finish" ) )
-
-
 	if shapeUuid == obj_craftbot_craftbot1 or shapeUuid == obj_craftbot_craftbot2 or shapeUuid == obj_craftbot_craftbot3 or shapeUuid == obj_craftbot_craftbot4 or shapeUuid == obj_craftbot_craftbot5  then
 		self.cl.mainEffects["unfold"] = sm.effect.createEffect( "Craftbot - Unpack", self.interactable )
 		self.cl.mainEffects["idle"] = sm.effect.createEffect( "Craftbot - Idle", self.interactable )
@@ -459,8 +447,16 @@ function Crafter.cl_init( self )
 
 		self.cl.mainEffects["craft_loop"] = sm.effect.createEffect( "Dispenserbot - Work01", self.interactable )
 		self.cl.mainEffects["idle"] = sm.effect.createEffect( "Workbench - Idle", self.interactable )
+	
 
+	--raft
+	elseif shapeUuid == obj_scrap_purifier then
+		self.cl.mainEffects["fire"] = sm.effect.createEffect( "Fire - purifier", self.interactable )
+	elseif shapeUuid == obj_apiary then
+		self.cl.mainEffects["bees"] = sm.effect.createEffect( "beehive - beeswarm", self.interactable )
 	end
+
+	
 
 	self:cl_setupUI( tostring( self.shape:getShapeUuid() ) )
 
@@ -655,12 +651,12 @@ function Crafter.client_onUpdate( self, deltaTime )
 	local prevAnimState = self.cl.animState
 
 	local craftTimeRemaining = 0
+	local isCrafting = false
 
 	local parent = self:getParent()
 	if not self.crafter.needsPower or ( parent and parent.active ) then
 		local guiActive = self.cl.guiInterface:isActive()
 		local hasItems = false
-		local isCrafting = false
 
 		for idx = 1, self.crafter.slots do
 			local val = self.cl.craftArray[idx]
@@ -729,9 +725,31 @@ function Crafter.client_onUpdate( self, deltaTime )
 		--print( "NEW ANIMATION STATE:", self.cl.animState )
 	end
 
-	if isAnyOf( self.shape:getShapeUuid(), raftbots) then
+
+
+	--raft
+	shapeUuid = self.shape:getShapeUuid()
+
+	if shapeUuid == obj_scrap_purifier then
+		if isCrafting and not self.cl.mainEffects["fire"]:isPlaying() then
+			self.cl.mainEffects["fire"]:start()
+		elseif not isCrafting and self.cl.mainEffects["fire"]:isPlaying() then
+			self.cl.mainEffects["fire"]:stop()
+		end
+	elseif shapeUuid == obj_apiary then
+		if isCrafting and not self.cl.mainEffects["bees"]:isPlaying() then
+			self.cl.mainEffects["bees"]:start()
+		elseif not isCrafting and self.cl.mainEffects["bees"]:isPlaying() then
+			self.cl.mainEffects["bees"]:stop()
+		end
+	end
+
+	if isAnyOf( shapeUuid, raftbots) then
 		return
 	end
+
+
+
 
 	local prevAnimName = self.cl.animName
 
