@@ -8,6 +8,9 @@ Crafter = class( nil )
 Crafter.colorNormal = sm.color.new( 0x84ff32ff )
 Crafter.colorHighlight = sm.color.new( 0xa7ff4fff )
 
+--raft
+local raftbots = {obj_scrap_field, obj_scrap_purifier, obj_scrap_tree_grower, obj_apiary, obj_scrap_workbench, obj_large_field}
+
 local crafters = {
 	-- Workbench
 	[tostring( obj_survivalobject_workbench )] = {
@@ -710,11 +713,6 @@ function Crafter.client_onUpdate( self, deltaTime )
 		self.cl.animState = "offline"
 		self.interactable:setUvFrameIndex( UV_OFFLINE )
 	end
-
-	--Raft
-	if self.shape.uuid == obj_scrap_field or self.shape.uuid == obj_scrap_purifier or self.shape.uuid == obj_scrap_tree_grower or self.shape.uuid == obj_apiary or self.shape.uuid == obj_scrap_workbench or self.shape.uuid == obj_large_field  then
-		return
-	end
 	
 	self.cl.animTime = self.cl.animTime + deltaTime
 	local animDone = false
@@ -731,8 +729,13 @@ function Crafter.client_onUpdate( self, deltaTime )
 		--print( "NEW ANIMATION STATE:", self.cl.animState )
 	end
 
+	if isAnyOf( self.shape:getShapeUuid(), raftbots) then
+		return
+	end
+
 	local prevAnimName = self.cl.animName
 
+	
 	if self.cl.animState == "offline" then
 		assert( self.crafter.needsPower )
 		self.cl.animName = "offline"
@@ -989,7 +992,10 @@ function Crafter.client_canInteract( self )
 end
 
 function Crafter.cl_setGuiContainers( self )
-	if isAnyOf( self.shape:getShapeUuid(), { obj_craftbot_craftbot1, obj_craftbot_craftbot2, obj_craftbot_craftbot3, obj_craftbot_craftbot4, obj_craftbot_craftbot5 } ) then
+
+	craftbots = { obj_craftbot_craftbot1, obj_craftbot_craftbot2, obj_craftbot_craftbot3, obj_craftbot_craftbot4, obj_craftbot_craftbot5 }
+
+	if isAnyOf( self.shape:getShapeUuid(), craftbots) or isAnyOf( self.shape:getShapeUuid(), raftbots) then
 		local containers = {}
 		if #self.cl.pipeGraphs.input.containers > 0 then
 			for _, val in ipairs( self.cl.pipeGraphs.input.containers ) do
