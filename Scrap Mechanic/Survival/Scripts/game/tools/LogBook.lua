@@ -28,7 +28,7 @@ function LogBook.server_onCreate( self )
 
 	--raft
 	local world = locations["crashedShip"].world
-	locations["hideout"] = { world = world, pos = sm.vec3.new(-1071.5, -1000, 13)}
+	locations["radio quest"] = { world = world, pos = sm.vec3.new(0, 0, 0)}
 
 
 
@@ -77,8 +77,14 @@ function LogBook.client_onCreate( self )
 		end)
 
 		Client_registerOnCompleteQuestObserver( quest_mechanic_station, function( observedCompletion )
-			print("RECEIVED")
 			self:cl_addLog( log_radio, observedCompletion )
+			if g_survivalHud then
+				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_radio_interactive, function( observedCompletion )
+			self:cl_addLog( log_radio_signal, observedCompletion )
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end

@@ -1286,9 +1286,8 @@
 				"z": 4
 			},
 			"scripted": {
-				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Beacon.lua",
-				"classname": "Beacon",
-				"data": {}
+				"filename": "$SURVIVAL_DATA/RaftMod/Scripts/antenna.lua",
+				"classname": "Antenna"
 			},
 			"rotationSet": "PropY",
 			"sticky": "-Y+X-X-Z+Z",

@@ -3,6 +3,7 @@ quest_pickup_logbook = "bfb6e5b6-3ee3-4310-a1b3-7608eb3ecb8d"
 
 quest_mechanic_station = "bf68d177-878c-4017-b146-39354d44d888"
 quest_radio_interactive = "26ca3794-71f2-4648-a97c-997802680c95"
+quest_radio_location = "45fe7b9c-4895-44a3-82aa-ed8da730de83"
 
 SurvivalQuests = {
 	[quest_use_terminal] = {
@@ -15,5 +16,9 @@ SurvivalQuests = {
 
 	[quest_mechanic_station] = {
 		followup = quest_radio_interactive
+	},
+
+	[quest_radio_interactive] = {
+		followup = quest_radio_location
 	}
 }

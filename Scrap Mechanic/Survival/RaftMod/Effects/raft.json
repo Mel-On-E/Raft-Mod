@@ -40,5 +40,40 @@
 				"delay": 0.0
 			}
 		]
+	},
+	"Antenna - Activation":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "p_barrier_activation_startup",
+				"offset": { "x": 0.0, "y": 1.25, "z": 0.0 },
+				"direction": { "x": 0.0, "y": 0.0, "z": -1.0 },
+				"attached": true,
+				"delay": 0.0
+			},
+			{
+				"type": "particle",
+				"name": "p_barrier_activation_end",
+				"offset": { "x": 0.0, "y": 1.0, "z": 0.0 },
+				"direction": { "x": 0.0, "y": 0.0, "z": -1.0 },
+				"attached": true,
+				"delay": 0.0
+			},
+			{
+				"type": "particle",
+				"name": "p_barrier_activation_lightning_01",
+				"offset": { "x": 0.0, "y": 1.25, "z": 0.25 },
+				"direction": { "x": 0.0, "y": 0.0, "z": -1.0 },
+				"attached": true,
+				"delay": 0.0
+			},
+			{
+				"type": "audio",
+				"name": "event:/vehicle/triggers/encryptor_on",
+				"delay": 0
+			}
+		]
 	}
 }

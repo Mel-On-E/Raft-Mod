@@ -24,6 +24,14 @@
 			"photo": "gui_logbook_sus.png",
 			"location": "none",
 			"icon": "sus"
+		},
+		{
+			"name": "log_radio_signal",
+			"uuid": "0ccc96c2-97dd-47d9-af8b-0ae2343a939e",
+			"type": "photo",
+			"photo": "gui_logbook_sus.png",
+			"location": "radio quest",
+			"icon": "sus"
 		}
 	]
 }
