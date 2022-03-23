@@ -79,6 +79,18 @@
 		"description": "Catches the wind and applies a force to your creation.",
 		"title": "Sail"
 	},
+	"bbdd22d4-2d8d-4013-afe9-5fcac1b82c8b":{
+		"description": "Can help you produce more beeswax.",
+		"title": "Bee"
+	},
+	"c2418698-7a91-40fa-95a3-3be5ddb3ec1d":{
+		"description": "The mother of all bees. What a catch!",
+		"title": "Queen Bee"
+	},
+	"f95beb80-49c8-4d4c-98e9-5b87225c4570":{
+		"description": "Help?\n...\n\nAnyone out there?\n...",
+		"title": "Radio Antenna"
+	},
 
 	//sapplings
 	"eefb0967-d21c-445e-8120-0a09422e1374": {
@@ -103,6 +115,8 @@
 		"description": "Water that was purified by the Water Purifier. Gives back 25 thirst points.",
 		"title": "Clean Water"
 	},
+
+
 
 
 	"007d6afc-59ef-4fb4-9bb7-52ab9bcfec22": {

@@ -24,7 +24,7 @@ function OilGeyser.server_spawnJunk(self)
 			local random = math.random(1,1000)
 			local i
 			if random <= 0010 then
-				vec.z = -2
+				vec.z = -3
 				local crate = hvs_lootcrate
 				if math.random(1,30) == 30 then
 					crate = hvs_lootcrateepic

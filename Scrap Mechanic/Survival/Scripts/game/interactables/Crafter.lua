@@ -97,7 +97,7 @@ local crafters = {
 		speed = 1,
 		recipeSets = {
 			{ name = "scrapworkbench", locked = false },
-			{ name = "quest", locked = true }
+			{ name = "quest1", locked = true }
 		},
 		subTitle = "Workbench",
 		createGuiFunction = sm.gui.createCraftBotGui
@@ -486,7 +486,7 @@ function Crafter.cl_updateRecipeGrid( self )
 		print( "Adding", g_craftingRecipes[recipeSet.name].path )
 		local locked = recipeSet.locked
 		--raft
-		if recipeSet.name == "quest" then
+		if recipeSet.name == "quest1" then
 			locked = not g_questManager:cl_isQuestCompleted(quest_mechanic_station)
 		end
 
