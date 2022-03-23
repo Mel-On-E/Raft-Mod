@@ -1223,58 +1223,6 @@
 		  "flammable": false,
 		  "stackSize": 10
 	  },
-	  {
-		"uuid": "bbdd22d4-2d8d-4013-afe9-5fcac1b82c8b",
-		"name": "obj_bee",
-		"renderable": {
-			"lodList": [
-				{
-					"minViewSize": 12,
-					"subMeshList": [
-						{
-								"textureList": [
-									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
-								],
-								"material": "DifAsgNor"
-						}
-					],
-					"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
-				},
-				{
-					"subMeshList": [
-						{
-								"textureList": [
-									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-									""
-								],
-								"material": "DifAsg"
-						}
-					],
-					"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
-				}
-			]
-		},
-		"color": "ffffff",
-		"cylinder": {
-			"diameter": 1,
-			"depth": 1,
-			"margin": 0.1,
-			"axis": "Y"
-		},
-		"rotationSet": "PropY",
-		"sticky": "-Y",
-		"physicsMaterial": "Plastic",
-		"ratings": {
-			"density": 2,
-			"durability": 4,
-			"friction": 5,
-			"buoyancy": 8
-		},
-		"flammable": true
-	    },
 		{
 			"uuid": "c2418698-7a91-40fa-95a3-3be5ddb3ec1d",
 			"name": "obj_bee_queen",

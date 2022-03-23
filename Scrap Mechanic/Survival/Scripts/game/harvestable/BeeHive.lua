@@ -20,7 +20,7 @@ function BeeHive.sv_onHit( self )
 
 		if SurvivalGame then
 			local lootList = {}
-			local slots = math.random( 2, 4 )
+			local slots = math.random( 3, 6 )
 			for i = 1, slots do
 				lootList[i] = { uuid = obj_resource_beewax, quantity = 1 }
 			end
@@ -28,15 +28,10 @@ function BeeHive.sv_onHit( self )
 
 			--raft
 			lootList = {}
-			local slots = math.random(0,4)
-			for i = 1, slots do
-				lootList[i] = { uuid = obj_bee, quantity = 1 }
+			if math.random(1,100) > 90 then --10%
+				lootList[1] = { uuid = obj_bee_queen, quantity = 1 }
+				SpawnLoot( self.harvestable, lootList )
 			end
-			if math.random(1,100) > 95 then --5%
-				lootList[#lootList + 1] = { uuid = obj_bee_queen, quantity = 1 }
-			end
-			SpawnLoot( self.harvestable, lootList )
-
 		end
 
 		sm.effect.playEffect( "beehive - destruct", self.harvestable.worldPosition, nil, self.harvestable.worldRotation )

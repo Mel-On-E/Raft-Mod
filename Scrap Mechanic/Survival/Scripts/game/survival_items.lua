@@ -25,7 +25,6 @@ obj_wasdConverter = sm.uuid.new("509505f1-b772-4acd-9827-f9a605a979ec")
 obj_waterSensor = sm.uuid.new("6db7aacf-f2b3-4cbb-a6d2-2a01d5ee5562")
 obj_creationSteer = sm.uuid.new("71ac7645-57f5-4d49-9574-c8482b431862")
 obj_sail = sm.uuid.new("eea9794b-bcdf-431e-bdcd-7b2ff6ffa145")
-obj_bee = sm.uuid.new("bbdd22d4-2d8d-4013-afe9-5fcac1b82c8b")
 obj_bee_queen = sm.uuid.new("c2418698-7a91-40fa-95a3-3be5ddb3ec1d")
 obj_radio_antenna = sm.uuid.new("f95beb80-49c8-4d4c-98e9-5b87225c4570")
 
