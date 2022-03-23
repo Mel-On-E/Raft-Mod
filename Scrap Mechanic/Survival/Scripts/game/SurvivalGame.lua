@@ -61,9 +61,7 @@ function SurvivalGame.server_onCreate( self )
 	g_questManager:sv_onCreate( self )
 	g_questManager:sv_activateQuest( quest_use_terminal )
 
-	if g_survivalDev then
-		g_questManager:sv_completeQuest( quest_pickup_logbook )
-	end
+	g_questManager:sv_completeQuest( quest_pickup_logbook )
 
 	-- Game script managed global warehouse table
 	self.warehouses = sm.storage.load( STORAGE_CHANNEL_WAREHOUSES )
