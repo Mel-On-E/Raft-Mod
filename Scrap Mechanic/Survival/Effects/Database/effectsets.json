@@ -1,0 +1,19 @@
+{
+	"effectSetList":
+	[
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/tapebot.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/woc.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/environment.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/elevator.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/harvestable.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/totebot.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/haybot.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/farmbot.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/shaperenderable.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/glowstick.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/bucket.json", "showInEditor": false },
+		{ "path":"$SURVIVAL_DATA/Effects/Database/EffectSets/farmer.json", "showInEditor": false },
+
+		{ "path":"$SURVIVAL_DATA/RaftMod/Effects/raft.json", "showInEditor": false }
+	]
+}

@@ -1,0 +1,44 @@
+{
+	"Fire - purifier":
+	{
+		"parameterList":
+		{
+			"color": "ff7b33ff",
+			"radius": 6.0,
+			"intensity": 2.0,
+			"fire_intensity": 1.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "event:/amb/3D/amb_3D_crashsitefire_small",
+				"parameters":
+				[
+					"fire_intensity"
+				],
+				"delay": 0.075
+			},
+			{
+				"type": "pointLight",
+				"name": "",
+				"offset": { "x": 0.0, "y": -0.65, "z": -0.25 },
+				"parameters":
+				[
+					"color",
+					"radius",
+					"intensity"
+				],
+				"duration": -1.0,
+				"delay": 0.0
+			},
+			{
+				"type": "particle",
+				"name": "p_enviroment_fire_small_01",
+				"offset": { "x": 0.0, "y": -0.45, "z": -0.25 },
+				"attached": true,
+				"delay": 0.0
+			}
+		]
+	}
+}
