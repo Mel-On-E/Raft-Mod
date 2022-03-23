@@ -61,6 +61,7 @@ function SurvivalGame.server_onCreate( self )
 	g_questManager:sv_onCreate( self )
 	g_questManager:sv_activateQuest( quest_use_terminal )
 
+	--raft
 	g_questManager:sv_completeQuest( quest_pickup_logbook )
 
 	-- Game script managed global warehouse table

@@ -67,17 +67,23 @@ function LogBook.client_onCreate( self )
 		self.cl.notificationSound = sm.effect.createEffect2D( "Gui - LogbookNotification" )
 		self.cl.seatedEquiped = false
 
+		--raft
 		Client_registerOnCompleteQuestObserver( quest_pickup_logbook, function( observedCompletion )
-			--self:cl_addLog( log_crashedship, observedCompletion )
+			self:cl_addLog( log_crashedship, observedCompletion )
 			self:cl_addLog( log_mechanicstation, observedCompletion )
-
-			--raft
-			self:cl_addLog( log_hideout, observedCompletion )
-
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end
 		end)
+
+		Client_registerOnCompleteQuestObserver( quest_mechanic_station, function( observedCompletion )
+			print("RECEIVED")
+			self:cl_addLog( log_radio, observedCompletion )
+			if g_survivalHud then
+				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
+			end
+		end)
+
 		self.cl.gui:setButtonCallback( "WaypointButton", "cl_onWaypointClicked" )
 	end
 

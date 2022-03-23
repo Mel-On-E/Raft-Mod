@@ -485,9 +485,11 @@ function Crafter.cl_updateRecipeGrid( self )
 	for _, recipeSet in ipairs( self.crafter.recipeSets ) do
 		print( "Adding", g_craftingRecipes[recipeSet.name].path )
 		local locked = recipeSet.locked
+		--raft
 		if recipeSet.name == "quest" then
-			locked = not g_questManager:cl_isQuestCompleted(quest_test)
+			locked = not g_questManager:cl_isQuestCompleted(quest_mechanic_station)
 		end
+
 		self.cl.guiInterface:addGridItemsFromFile( "RecipeGrid", g_craftingRecipes[recipeSet.name].path, { locked = locked } )
 	end
 end

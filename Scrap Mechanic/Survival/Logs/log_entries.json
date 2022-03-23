@@ -6,7 +6,7 @@
 			"uuid": "ee4ab0d3-027a-4969-9436-5b23c26e5eeb",
 			"type": "photo",
 			"photo": "gui_logbook_photoframe_crashedship.png",			
-			"location": "crashedShip",
+			"location": "none",
 			"icon": "crashedship"
 		},
 		{
@@ -18,11 +18,11 @@
 			"icon": "mechanicstation"
 		},
 		{
-			"name": "log_hideout",
+			"name": "log_radio",
 			"uuid": "b7ebd326-60c5-4ee7-a35f-1bd3ef408ded",
 			"type": "photo",
 			"photo": "gui_logbook_sus.png",
-			"location": "hideout",
+			"location": "none",
 			"icon": "sus"
 		}
 	]
