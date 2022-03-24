@@ -836,62 +836,94 @@
 		  "flammable": true
 	  },
 	  {
-		  "uuid": "ebabda72-94d8-40c5-ab07-7001d1b67380",
-		  "name": "obj_apiary",
-		  "renderable": {
-			  "lodList": [
-				  {
-					  "subMeshMap": {
-						  "ScrapDriverSeat":{
-							  "textureList": [
-								  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_dif.tga",
-								  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_asg.tga",
-								  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_nor.tga"
-							  ],
-							  "material": "DifAsgNor"
-						  },
-					  "Soil": {
-							  "textureList": [
-								  "$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
-								  "$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
-								  "$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
-							  ],
-							  "material": "DifAsgNor"
-						  },
-						  "ScrapEngine":{
-							  "textureList": [
-								  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_dif.tga",
-								  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_asg.tga",
-								  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_nor.tga"
-							  ],
-							  "material": "DifAsgNor"
-						  }
-					  },
-					  "mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ScrapField.fbx"
-				  }
-			  ]
-		  },
-		  "color": "4f2412",
-		  "box": {
-			  "x": 4,
-			  "y": 3,
-			  "z": 4
-		  },
-		  "scripted": {
-			  "filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
-			  "classname": "Apiary"
-		  },
-		  "rotationSet": "PropY",
-		  "sticky": "-Y",
-		  "physicsMaterial": "Wood",
-		  "ratings": {
-			  "density": 1,
-			  "durability": 3,
-			  "friction": 5,
-			  "buoyancy": 10
-		  },
-		  "flammable": true
-	  },
+        "uuid": "ebabda72-94d8-40c5-ab07-7001d1b67380",
+        "name": "obj_apiary",
+        "renderable": {
+          "lodList": [
+              {
+                    "subMeshMap": {
+                        "lambert2": {
+                            "material": "DifAsgNor",
+                            "textureList": [
+                                "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_dif.tga",
+                                "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_asg.tga",
+                                "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_nor.tga"
+                            ]
+                        },
+                        "sign_atlas": {
+                            "material": "DifAsgNor",
+                            "textureList": [
+                              "$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_dif.tga",
+                              "$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_asg.tga",
+                              "$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_nor.tga"
+                            ]
+                        },
+                        "DefaultMaterial": {
+                            "textureList": [
+                                "$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_dif.tga",
+                                "$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_asg.tga",
+                                "$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_nor.tga"
+                            ],
+                            "color": "fc949d",
+                            "material": "DifAsgNor"
+                        },
+                        "beehive_mat": {
+                            "textureList": [
+                                "$SURVIVAL_DATA/Harvestables/Textures/Farmables/hvs_farmables_beehive_dif.tga",
+                                "$SURVIVAL_DATA/Harvestables/Textures/Farmables/hvs_farmables_beehive_asg.tga",
+                                "$SURVIVAL_DATA/Harvestables/Textures/Farmables/hvs_farmables_beehive_nor.tga"
+                            ],
+                            "color": "ffffff",
+                            "material": "DifAsgNor"
+                        },
+                        "Shack_Atlas": {
+                            "material": "DifAsgNor",
+                            "textureList": [
+                                "$SURVIVAL_DATA/Objects/Raft/Textures/obj_manmade_atlas01_dif.tga",
+                                "$SURVIVAL_DATA/Objects/Textures/manmade/obj_manmade_atlas01_asg.tga",
+                                "$SURVIVAL_DATA/Objects/Textures/manmade/obj_manmade_atlas01_nor.tga"
+                            ]
+                        },
+                        "bowl": {
+                          "material": "DifAsgNor",
+                          "textureList": [
+                              "$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_dif.tga",
+                              "$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_asg.tga",
+                              "$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_nor.tga"
+                          ]
+                      },
+                      "glass": {
+                          "material": "Glass",
+                          "textureList": [
+                              "$SURVIVAL_DATA/Objects/Raft/Textures/Obj_consumable_chemical_dif.tga"
+                          ]
+                      }
+                  },
+                  "mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Apiary.fbx"
+              }
+          ]
+        },
+        "color": "ffffff",
+        "box": {
+            "x": 2,
+            "y": 3,
+            "z": 3
+        },
+        "scripted": {
+            "filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
+            "classname": "Apiary"
+        },
+        "rotationSet": "PropY",
+        "sticky": "-Y",
+        "physicsMaterial": "Wood",
+        "ratings": {
+            "density": 1,
+            "durability": 3,
+            "friction": 5,
+            "buoyancy": 10
+        },
+        "flammable": true
+    },
 	  {
 		  "uuid": "885513a7-baa3-44ee-aa6e-7546bf0715a7",
 		  "name": "obj_propeller",
