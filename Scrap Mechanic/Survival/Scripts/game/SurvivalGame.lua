@@ -226,7 +226,8 @@ function SurvivalGame.loadCraftingRecipes( self )
 		scraptrees = "$SURVIVAL_DATA/CraftingRecipes/scraptrees.json",
 		scrapworkbench = "$SURVIVAL_DATA/CraftingRecipes/scrapworkbench.json",
 		apiary = "$SURVIVAL_DATA/CraftingRecipes/apiary.json",
-		quest1 = "$SURVIVAL_DATA/CraftingRecipes/quest1.json"
+		quest1 = "$SURVIVAL_DATA/CraftingRecipes/quest1.json",
+		seedpress = "$SURVIVAL_DATA/CraftingRecipes/seedpress.json"
 	})
 end
 

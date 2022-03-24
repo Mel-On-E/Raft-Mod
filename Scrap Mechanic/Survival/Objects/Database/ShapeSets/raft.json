@@ -1331,6 +1331,63 @@
 				"buoyancy": 2
 			},
 			"flammable": false
+		},
+		{
+			"uuid": "e9c7d080-ae4b-4fec-b626-34afda6f5114",
+			"name": "obj_seed_press",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshMap": {
+							"ScrapDriverSeat":{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+						"Soil": {
+								"textureList": [
+									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							"ScrapEngine":{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						},
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ScrapField.fbx"
+					}
+				]
+			},
+			"color": "4f2412",
+			"box": {
+				"x": 4,
+				"y": 3,
+				"z": 4
+			},
+			"scripted": {
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
+				"classname": "SeedPress"
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Wood",
+			"ratings": {
+				"density": 1,
+				"durability": 3,
+				"friction": 5,
+				"buoyancy": 10
+			},
+			"flammable": true
 		}
 	]
   }
