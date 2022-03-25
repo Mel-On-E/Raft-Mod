@@ -29,6 +29,10 @@
 		"description": "Cooks food",
 		"title": "Grill"
 	},
+	"0db1ecd5-503d-4dd3-807e-869c243a7c08": {
+		"description": "A sharp stick. Useful to poke things.",
+		"title": "Spear"
+	},
 	
 	//parts
 	"8e75cddb-040e-4813-8dd6-7e72f3288a91": {

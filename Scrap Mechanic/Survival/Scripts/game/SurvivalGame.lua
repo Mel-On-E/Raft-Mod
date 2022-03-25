@@ -644,8 +644,8 @@ function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 			sm.container.setItem( inventory, 10, tool_paint, 1 )
 			sm.container.setItem( inventory, 11, tool_weld, 1 )
 		else
-			sm.container.setItem( inventory, 0, tool_sledgehammer, 1 )
-			sm.container.setItem( inventory, 1, tool_lift, 1 )
+			--sm.container.setItem( inventory, 0, tool_sledgehammer, 1 ) --raft
+			sm.container.setItem( inventory, 0, tool_lift, 1 )
 		end
 
 		sm.container.endTransaction()
