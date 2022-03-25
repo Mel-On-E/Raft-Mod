@@ -61,7 +61,7 @@
 		  "uuid": "c80e2932-0d21-48bb-b5a2-dba03d73cfb7",
 		  "name": "obj_large_field",
 		  "renderable": {
-			  "lodList": [
+			"lodList": [
 				  {
 					  "subMeshMap": {
 						  "lambert2":{
@@ -839,7 +839,7 @@
         "uuid": "ebabda72-94d8-40c5-ab07-7001d1b67380",
         "name": "obj_apiary",
         "renderable": {
-          "lodList": [
+        "lodList": [
               {
                     "subMeshMap": {
                         "lambert2": {
@@ -901,7 +901,7 @@
                   },
                   "mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Apiary.fbx"
               }
-          ]
+        ]
         },
         "color": "ffffff",
         "box": {
@@ -1339,40 +1339,98 @@
 				"lodList": [
 					{
 						"subMeshMap": {
-							"ScrapDriverSeat":{
+							"lambert2": {
+								"material": "DifAsgNor",
 								"textureList": [
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_dif.tga",
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_asg.tga",
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_nor.tga"
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_nor.tga"
+								]
+							},
+							"DefaultMaterial": {
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_dif.tga",
+									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_asg.tga",
+									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_nor.tga"
 								],
+								"color": "fc949d",
 								"material": "DifAsgNor"
 							},
-						"Soil": {
+							"sign_atlas": {
+								"material": "DifAsgNor",
 								"textureList": [
-									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
-									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
-									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
+									"$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_dif.tga",
+								  	"$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_asg.tga",
+								  	"$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_nor.tga"
+								]
+							},
+							"radar": {
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_nor.tga"
 								],
+								"color": "ffffff",
 								"material": "DifAsgNor"
 							},
-							"ScrapEngine":{
+							"panels": {
+								"material": "DifAsgNor",
 								"textureList": [
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_dif.tga",
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_asg.tga",
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_nor.tga"
-								],
-								"material": "DifAsgNor"
+									"$SURVIVAL_DATA/Terrain/Textures/Building/env_building_solarpanel_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_solarpanel_asg.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_solarpanel_nor.tga"
+								]
+							},
+							"shinymetal": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
+								]
+							},
+							"shinymetal2": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
+								]
+							},
+							"seed_texture": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_potato_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_nor.tga"
+								]
+							},
+							"seed_texture.001": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_tomato_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_nor.tga"
+								]
+							},
+							"seed_tag": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_seed_tag_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_seed_tag_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_seed_tag_nor.tga"
+								]
 							}
 						},
-						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ScrapField.fbx"
-					}
-				]
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/SeedPress.fbx"
+				}
+			]
 			},
-			"color": "4f2412",
+			"color": "000000",
 			"box": {
 				"x": 4,
-				"y": 3,
-				"z": 4
+				"y": 4,
+				"z": 6
 			},
 			"scripted": {
 				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
