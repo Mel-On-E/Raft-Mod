@@ -10,7 +10,7 @@ Crafter.colorHighlight = sm.color.new( 0xa7ff4fff )
 
 --raft
 dofile "$SURVIVAL_DATA/Scripts/game/survival_quests.lua"
-local raftbots = {obj_scrap_field, obj_scrap_purifier, obj_scrap_tree_grower, obj_apiary, obj_scrap_workbench, obj_large_field, obj_seed_press}
+local raftbots = {obj_scrap_field, obj_scrap_purifier, obj_scrap_tree_grower, obj_apiary, obj_scrap_workbench, obj_large_field, obj_seed_press, obj_grill}
 
 local crafters = {
 	-- Workbench
@@ -93,7 +93,7 @@ local crafters = {
 	-- ScrapWorkbench
 	[tostring( obj_scrap_workbench )] = {
 		needsPower = false,
-		slots = 1,
+		slots = 8,
 		speed = 1,
 		recipeSets = {
 			{ name = "scrapworkbench", locked = false },
@@ -123,6 +123,17 @@ local crafters = {
 			{ name = "seedpress", locked = false }
 		},
 		subTitle = "Seed Press #{LEVEL} Scrap",
+		createGuiFunction = sm.gui.createCraftBotGui
+	},
+	-- Grill
+	[tostring( obj_grill )] = {
+		needsPower = false,
+		slots = 1,
+		speed = 1,
+		recipeSets = {
+			{ name = "grill", locked = false }
+		},
+		subTitle = "Grill #{LEVEL} Scrap",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Craftbot 1
@@ -1433,3 +1444,4 @@ ScrapTreeGrower = class( Crafter )
 ScrapWorkbench = class( Crafter )
 Apiary = class( Crafter )
 SeedPress = class( Crafter )
+Grill = class( Crafter )

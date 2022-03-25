@@ -792,7 +792,7 @@ function generateOverworldCelldata( xMin, xMax, yMin, yMax, seed, data, padding 
 
 	-- Crash site and nearby pois
 
-	writeStartArea( pois )
+	--writeStartArea( pois )
 	------------------------------------------------------------------------------------------------
 
 	-- Processing: All corner types must be adjacent to meadow

@@ -24,6 +24,12 @@
 			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_sledgehammer_preview.rend",
 			"previewRotation": [  -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
 			"script": { "file": "$SURVIVAL_DATA/RaftMod/Scripts/pickaxe.lua", "class": "Pickaxe" }
+		},
+		{
+			"uuid": "0db1ecd5-503d-4dd3-807e-869c243a7c08",
+			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_sledgehammer_preview.rend",
+			"previewRotation": [  -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
+			"script": { "file": "$SURVIVAL_DATA/RaftMod/Scripts/spear.lua", "class": "Spear" }
 		}
 	]
 }
