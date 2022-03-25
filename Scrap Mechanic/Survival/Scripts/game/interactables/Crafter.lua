@@ -97,6 +97,7 @@ local crafters = {
 		speed = 1,
 		recipeSets = {
 			{ name = "scrapworkbench", locked = false },
+			{ name = "workbench", locked = false },
 			{ name = "quest1", locked = true }
 		},
 		subTitle = "Workbench",
