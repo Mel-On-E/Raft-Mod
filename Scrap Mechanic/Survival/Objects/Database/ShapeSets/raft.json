@@ -1580,38 +1580,78 @@
 				"lodList": [
 					{
 						"subMeshMap": {
-							"ScrapDriverSeat":{
+							"lambert2":{
 								"textureList": [
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_dif.tga",
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_asg.tga",
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_nor.tga"
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_dif.tga",
+								 	"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_nor.tga"
 								],
 								"material": "DifAsgNor"
 							},
-						"Soil": {
+							"Notepad": {
 								"textureList": [
-									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
-									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
-									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
+									"$CHALLENGE_DATA/Character/Char_observerbot/char_observerbot_tools_dif.tga",
+								  	"$CHALLENGE_DATA/Character/Char_observerbot/char_observerbot_tools_asg.tga",
+									"$CHALLENGE_DATA/Character/Char_observerbot/char_observerbot_tools_nor.tga"
 								],
 								"material": "DifAsgNor"
 							},
-							"ScrapEngine":{
+							"Wood": {
 								"textureList": [
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_dif.tga",
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_asg.tga",
-									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_nor.tga"
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_dif.tga",
+								  	"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_asg.tga",
+								  	"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							"bathtub": {
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_bathtub_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_bathtub_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_bathtub_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							"Bark": {
+								"textureList": [
+									"$SURVIVAL_DATA/Harvestables/Textures/Trees/t_tiled_brownbark_dif.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Trees/t_tiled_brownbark_asg.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Trees/t_tiled_brownbark_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							"submesh0_innerwood": {
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/harvests/Loggs/obj_harvest_log_dif.tga",
+								  	"$SURVIVAL_DATA/Objects/Textures/harvests/Loggs/obj_harvest_log_asg.tga",
+								  	"$SURVIVAL_DATA/Objects/Textures/harvests/Loggs/obj_harvest_log_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							"campfire_mat": {
+								"textureList": [
+									"$SURVIVAL_DATA/Terrain/Textures/Camping/env_camping_campfire_dif.tga",
+									"$SURVIVAL_DATA/Terrain/Textures/Camping/env_camping_campfire_asg.tga",
+									"$SURVIVAL_DATA/Terrain/Textures/Camping/env_camping_campfire_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							"lambert11":{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/industrial/obj_industrial_antennatower_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/industrial/obj_industrial_antennatower_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/industrial/obj_industrial_antennatower_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
 						},
-						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ScrapField.fbx"
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Grill.fbx"
 					}
 				]
 			},
 			"color": "4f2412",
 			"box": {
-				"x": 4,
+				"x": 6,
 				"y": 3,
 				"z": 4
 			},
