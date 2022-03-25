@@ -17,6 +17,18 @@
 		"description": "A tool for mining rock.",
 		"title": "Pickaxe"
 	},
+	"7c440c4a-5919-4baa-a946-0bb89b8c4d5d": {
+		"description": "Would be more yummy if it were cooked",
+		"title": "Raw Fish"
+	},
+	"c57fe6d6-03b1-46d4-9104-29cf19f176ab": {
+		"description": "Looks very delicious",
+		"title": "Cooked Fish"
+	},
+	"67dd0023-023d-46cb-9839-e4ada2609a9b": {
+		"description": "Cooks food",
+		"title": "Grill"
+	},
 	
 	//parts
 	"8e75cddb-040e-4813-8dd6-7e72f3288a91": {

@@ -1446,6 +1446,189 @@
 				"buoyancy": 10
 			},
 			"flammable": true
+		},
+		{
+			"uuid": "7c440c4a-5919-4baa-a946-0bb89b8c4d5d",
+			"name": "obj_fish",
+			"renderable": {
+				"lodList": [
+					{
+						"minViewSize": 12,
+						"subMeshList": [
+							{
+									"textureList": [
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+									],
+									"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
+					},
+					{
+						"subMeshList": [
+							{
+									"textureList": [
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+										""
+									],
+									"material": "DifAsg"
+							}
+						],
+						"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+					}
+				]
+			},
+			"color": "696969",
+			"cylinder": {
+				"diameter": 1,
+				"depth": 1,
+				"margin": 0.1,
+				"axis": "Y"
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 2,
+				"durability": 4,
+				"friction": 5,
+				"buoyancy": 8
+			},
+			"flammable": true,
+			"consumable": true,
+			"stackSize": 20,
+			"restrictions": {
+				"erasable": true
+			},
+			"edible": {
+				"hpGain": 0,
+				"foodGain": 15,
+				"waterGain": -10
+			},
+			"autoTool": "2bff990a-0e74-43c7-b7dc-889b3a086fa3"
+		},
+		{
+			"uuid": "c57fe6d6-03b1-46d4-9104-29cf19f176ab",
+			"name": "obj_fish_cooked",
+			"renderable": {
+				"lodList": [
+					{
+						"minViewSize": 12,
+						"subMeshList": [
+							{
+									"textureList": [
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+									],
+									"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
+					},
+					{
+						"subMeshList": [
+							{
+									"textureList": [
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+										""
+									],
+									"material": "DifAsg"
+							}
+						],
+						"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+					}
+				]
+			},
+			"color": "693737",
+			"cylinder": {
+				"diameter": 1,
+				"depth": 1,
+				"margin": 0.1,
+				"axis": "Y"
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 2,
+				"durability": 4,
+				"friction": 5,
+				"buoyancy": 8
+			},
+			"flammable": true,
+			"consumable": true,
+			"stackSize": 20,
+			"restrictions": {
+				"erasable": true
+			},
+			"edible": {
+				"hpGain": 0,
+				"foodGain": 25,
+				"waterGain": 0
+			},
+			"autoTool": "2bff990a-0e74-43c7-b7dc-889b3a086fa3"
+		},
+		{
+			"uuid": "67dd0023-023d-46cb-9839-e4ada2609a9b",
+			"name": "obj_grill",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshMap": {
+							"ScrapDriverSeat":{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_worn_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+						"Soil": {
+								"textureList": [
+									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_dif.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_asg.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Farming/hvs_farming_soil_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							"ScrapEngine":{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_makeshiftengine_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						},
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ScrapField.fbx"
+					}
+				]
+			},
+			"color": "4f2412",
+			"box": {
+				"x": 4,
+				"y": 3,
+				"z": 4
+			},
+			"scripted": {
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
+				"classname": "Grill"
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Wood",
+			"ratings": {
+				"density": 1,
+				"durability": 3,
+				"friction": 5,
+				"buoyancy": 10
+			},
+			"flammable": true
 		}
 	]
   }

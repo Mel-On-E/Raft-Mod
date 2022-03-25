@@ -29,6 +29,11 @@ obj_bee_queen = sm.uuid.new("c2418698-7a91-40fa-95a3-3be5ddb3ec1d")
 obj_radio_antenna = sm.uuid.new("f95beb80-49c8-4d4c-98e9-5b87225c4570")
 obj_seed_press = sm.uuid.new("e9c7d080-ae4b-4fec-b626-34afda6f5114")
 
+obj_fish = sm.uuid.new("7c440c4a-5919-4baa-a946-0bb89b8c4d5d")
+obj_fish_cooked = sm.uuid.new("c57fe6d6-03b1-46d4-9104-29cf19f176ab")
+obj_grill = sm.uuid.new("67dd0023-023d-46cb-9839-e4ada2609a9b")
+
+
 
 ----------------------------------------
 -- appliances.json
