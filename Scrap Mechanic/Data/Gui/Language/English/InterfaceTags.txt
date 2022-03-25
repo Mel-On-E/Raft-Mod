@@ -414,8 +414,8 @@ HIDEOUT_TRADE TRADE
 HIDEOUT_TRADING TRADING
 
 INFO_BUSY Object is busy
-INFO_HOME_CRASH_SITE New respawn point: Crashed ship
-INFO_HOME_MECHANIC_STATION New respawn point: Mechanic Station
+INFO_HOME_CRASH_SITE New respawn point: Crash Site
+INFO_HOME_MECHANIC_STATION New respawn point: Space Ranger's Station
 INFO_HOME_NOT_STORED It's too dangerous to sleep here
 INFO_HOME_STORED Respawn point saved
 INFO_INVENTORY_FULL Inventory full

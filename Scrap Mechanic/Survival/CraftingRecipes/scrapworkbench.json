@@ -1,13 +1,351 @@
 
 [
+	//Tools
+		//Hammer
+		{
+		"itemId": "bb641a4f-e391-441c-bc6d-0ae21a069476",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			{
+				"quantity": 15,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 5,
+				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+			}
+		]
+	},
+		//Axe
+		{
+		"itemId": "1daebe24-4e16-422c-b5e7-c3f45f9296d8",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			{
+				"quantity": 15,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 5,
+				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+			}
+		]
+	},
+		//PickAxe
+		{
+		"itemId": "c883b283-ea7a-4bba-af0d-5c13fd73051d",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			{
+				"quantity": 15,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 5,
+				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+			}
+		]
+	},
+		//FishingRod
+		{
+		"itemId": "e3bcf8fa-68d7-49a8-b17b-c1e864d53b69",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			{
+				"quantity": 15,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 5,
+				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+			}
+		]
+	},
+		//Connecttool
+	{
+		"itemId": "8c7efc37-cd7c-4262-976e-39585f8527bf",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			{
+				"quantity": 10,
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39"
+			},
+			{
+				"quantity": 2,
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3"
+			}
+		]
+	},
+		//PaintTool
+	{
+		"itemId": "c60b9627-fc2b-4319-97c5-05921cb976c6",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			{
+				"quantity": 10,
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e"
+			},
+			{
+				"quantity": 5,
+				"itemId": "5f41af56-df4c-4837-9b3c-10781335757f"
+			},
+			{
+				"quantity": 3,
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf"
+			}
+		]
+	},
+		//Welder
+	{
+		"itemId": "fdb8b8be-96e7-4de0-85c7-d2f42e4f33ce",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			{
+				"quantity": 20,
+				"itemId": "1016cafc-9f6b-40c9-8713-9019d399783f"
+			},
+			{
+				"quantity": 5,
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3"
+			},
+			{
+				"quantity": 5,
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf"
+			}
+		]
+	},
+	//RaftFoundation
 	{
 		"itemId": "4a971f7d-14e6-454d-bce8-0879243c4474",
 		"quantity": 2,
 		"craftTime": 32,
 		"ingredientList": [
 			{
+				"quantity": 20,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 10,
+				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+			}
+		]
+	},
+	//ScrapFarm
+	{
+		"itemId": "8e75cddb-040e-4813-8dd6-7e72f3288a91",
+		"quantity": 1,
+		"craftTime": 25,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "9a3e478c-2224-44fa-887c-239965bd05ad"
+			},
+			{
+				"quantity": 20,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 10,
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39"
+			}
+		]
+	},
+	//BigFarm
+	{
+		"itemId": "c80e2932-0d21-48bb-b5a2-dba03d73cfb7",
+		"quantity": 1,
+		"craftTime": 40,
+		"ingredientList": [
+			{
+				"quantity": 2,
+				"itemId": "9a3e478c-2224-44fa-887c-239965bd05ad"
+			},
+			{
+				"quantity": 50,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			}
+		]
+	},
+	//AirTank
+	{
+		"itemId": "03075a5a-92f5-49bd-b132-7d8e0cb80156",
+		"quantity": 1,
+		"craftTime": 35,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3"
+			},
+			{
+				"quantity": 10,
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e"
+			}
+		]
+	},
+	//WaterPurifier
+	{
+		"itemId": "80c9edb7-0f86-4899-bf60-c3baca3fa841",
+		"quantity": 1,
+		"craftTime": 62,
+		"ingredientList": [
+			{
+				"quantity": 50,
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39"
+			},
+			{
+				"quantity": 10,
+				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+			},
+			{
+				"quantity": 2,
+				"itemId": "798c2c81-1f8e-481b-8c32-b71b5dc5511a"
+			}
+		]
+	},
+	//TreeFarm
+	{
+		"itemId": "819fb238-a68b-4aab-a6f2-c1037f6bfb5b",
+		"quantity": 1,
+		"craftTime": 52,
+		"ingredientList": [
+			{
+				"quantity": 4,
+				"itemId": "9a3e478c-2224-44fa-887c-239965bd05ad"
+			},
+			{
+				"quantity": 20,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 50,
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39"
+			}
+		]
+	},
+	//Apiary
+	{
+		"itemId": "ebabda72-94d8-40c5-ab07-7001d1b67380",
+		"quantity": 1,
+		"craftTime": 49,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "c2418698-7a91-40fa-95a3-3be5ddb3ec1d"
+			},
+			{
+				"quantity": 30,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 20,
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39"
+			}
+		]
+	},
+	//SeedPress
+	{
+		"itemId": "e9c7d080-ae4b-4fec-b626-34afda6f5114",
+		"quantity": 1,
+		"craftTime": 49,
+		"ingredientList": [
+			{
+				"quantity": 20,
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e"
+			},
+			{
+				"quantity": 2,
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3"
+			},
+			{
 				"quantity": 10,
 				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			}
+		]
+	},
+	//Propeller
+	{
+		"itemId": "885513a7-baa3-44ee-aa6e-7546bf0715a7",
+		"quantity": 1,
+		"craftTime": 79,
+		"ingredientList": [
+			{
+				"quantity": 45,
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e"
+			}
+		]
+	},
+	//Sail
+	{
+		"itemId": "eea9794b-bcdf-431e-bdcd-7b2ff6ffa145",
+		"quantity": 1,
+		"craftTime": 79,
+		"ingredientList": [
+			{
+				"quantity": 5,
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad"
+			},
+			{
+				"quantity": 15,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			}
+		]
+	},
+	//WASD Converter
+	{
+		"itemId": "509505f1-b772-4acd-9827-f9a605a979ec",
+		"quantity": 1,
+		"craftTime": 45,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f"
+			},
+			{
+				"quantity": 1,
+				"itemId": "1d4793af-cb66-4628-804a-9d7404712643"
+			}
+		]
+	},
+	//Water Sensor
+	{
+		"itemId": "6db7aacf-f2b3-4cbb-a6d2-2a01d5ee5562",
+		"quantity": 1,
+		"craftTime": 45,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f"
+			},
+			{
+				"quantity": 1,
+				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+			}
+		]
+	},
+	//Creation Rotator
+	{
+		"itemId": "71ac7645-57f5-4d49-9574-c8482b431862",
+		"quantity": 1,
+		"craftTime": 55,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f"
+			},
+			{
+				"quantity": 1,
+				"itemId": "22f3e797-82f5-4819-a085-c3cc28ec9025"
+			},
+			{
+				"quantity": 4,
+				"itemId": "4a1b886b-913e-4aad-b5b6-6e41b0db23a6"
 			}
 		]
 	}

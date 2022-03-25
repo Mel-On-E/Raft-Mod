@@ -50,10 +50,10 @@
 		  "sticky": "-Y",
 		  "physicsMaterial": "Wood",
 		  "ratings": {
-			  "density": 1,
+			  "density": 4,
 			  "durability": 3,
 			  "friction": 5,
-			  "buoyancy": 10
+			  "buoyancy": 4
 		  },
 		  "flammable": true
 	  },
@@ -99,10 +99,10 @@
 		  "sticky": "+X-X-Y+Z-Z",
 		  "physicsMaterial": "Grass",
 		  "ratings": {
-				  "density": 4,
-				  "durability": 2,
-				  "friction": 4,
-				  "buoyancy": 2
+				  "density": 5,
+				  "durability": 4,
+				  "friction": 5,
+				  "buoyancy": 3
 		  },
 		  "flammable": true
 	  },
@@ -166,7 +166,7 @@
 				  "z": 2
 		  },
 		  "rotationSet": "PropXYZ",
-		  "physicsMaterial": "Wood",
+		  "physicsMaterial": "Plastic",
 		  "ratings": {
 			  "density": 1,
 			  "durability": 3,
@@ -298,7 +298,7 @@
 		  "physicsMaterial": "Metal",
 		  "ratings": {
 			  "density": 10,
-			  "durability": 2,
+			  "durability": 4,
 			  "friction": 4,
 			  "buoyancy": 1
 		  },
@@ -348,7 +348,7 @@
 		  "physicsMaterial": "Metal",
 		  "ratings": {
 			  "density": 1,
-			  "durability": 2,
+			  "durability": 4,
 			  "friction": 4,
 			  "buoyancy": 10
 		  },
@@ -478,14 +478,14 @@
 		  },
 		  "rotationSet": "PropY",
 		  "sticky": "-Y",
-		  "physicsMaterial": "Wood",
+		  "physicsMaterial": "Metal",
 		  "ratings": {
-			  "density": 1,
+			  "density": 4,
 			  "durability": 3,
 			  "friction": 5,
-			  "buoyancy": 10
+			  "buoyancy": 2
 		  },
-		  "flammable": true
+		  "flammable": false
 	  },
 	  {
 		  "uuid": "819fb238-a68b-4aab-a6f2-c1037f6bfb5b",
@@ -535,12 +535,12 @@
 		  },
 		  "rotationSet": "PropY",
 		  "sticky": "-Y",
-		  "physicsMaterial": "Wood",
+		  "physicsMaterial": "Metal",
 		  "ratings": {
-			  "density": 1,
-			  "durability": 3,
-			  "friction": 5,
-			  "buoyancy": 10
+			  "density": 5,
+			  "durability": 4,
+			  "friction": 3,
+			  "buoyancy": 4
 		  },
 		  "flammable": true
 	  },
@@ -828,10 +828,10 @@
 		  "sticky": "-Y",
 		  "physicsMaterial": "Wood",
 		  "ratings": {
-			  "density": 1,
+			  "density": 2,
 			  "durability": 3,
 			  "friction": 5,
-			  "buoyancy": 10
+			  "buoyancy": 5
 		  },
 		  "flammable": true
 	  },
@@ -917,10 +917,10 @@
         "sticky": "-Y",
         "physicsMaterial": "Wood",
         "ratings": {
-            "density": 1,
-            "durability": 3,
+            "density": 3,
+            "durability": 4,
             "friction": 5,
-            "buoyancy": 10
+            "buoyancy": 4
         },
         "flammable": true
     },
@@ -960,9 +960,9 @@
 		  "physicsMaterial": "Mechanical",
 		  "ratings": {
 			  "density": 3,
-			  "durability": 3,
-			  "friction": 5,
-			  "buoyancy": 4
+			  "durability": 5,
+			  "friction": 3,
+			  "buoyancy": 1
 		  },
 		  "flammable": true
 	  },
@@ -1248,7 +1248,7 @@
 		  },
 		  "ratings": {
 			  "density": 2,
-			  "durability": 2,
+			  "durability": 3,
 			  "friction": 5,
 			  "buoyancy": 8
 		  },
@@ -1438,14 +1438,14 @@
 			},
 			"rotationSet": "PropY",
 			"sticky": "-Y",
-			"physicsMaterial": "Wood",
+			"physicsMaterial": "Metal",
 			"ratings": {
-				"density": 1,
-				"durability": 3,
-				"friction": 5,
-				"buoyancy": 10
+				"density": 2,
+				"durability": 4,
+				"friction": 3,
+				"buoyancy": 4
 			},
-			"flammable": true
+			"flammable": false
 		}
 	]
   }
