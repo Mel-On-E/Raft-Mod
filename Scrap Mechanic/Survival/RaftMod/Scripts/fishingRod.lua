@@ -1,6 +1,7 @@
 dofile "$GAME_DATA/Scripts/game/AnimationUtil.lua"
 dofile "$SURVIVAL_DATA/Scripts/util.lua"
 dofile "$SURVIVAL_DATA/Scripts/game/survival_shapes.lua"
+dofile "$SURVIVAL_DATA/Scripts/game/survival_loot.lua"
 
 Rod = class()
 
@@ -19,22 +20,18 @@ sm.tool.preloadRenderables( renderables )
 sm.tool.preloadRenderables( renderablesTp )
 sm.tool.preloadRenderables( renderablesFp )
 
-local drops = {
-	--premium
-	{
-		{ name = "Component Kit", drop = obj_consumable_component, amount = function() return math.random(2, 4) end },
-		{ name = "Fertilizer", drop = obj_consumable_fertilizer, amount = function() return math.random(5, 15) end },
-		{ name = "Gasoline", drop = obj_consumable_gas, amount = function() return math.random(5, 20) end },
-		{ name = "Chemical", drop = obj_consumable_chemical, amount = function() return math.random(5, 20) end }
-	},
-	--normal
-	{
-		{ name = "Scrap Wood", drop = blk_scrapwood, amount = function() return math.random(10, 30) end },
-		{ name = "Scrap Metal", drop = blk_scrapmetal, amount = function() return math.random(10, 30) end },
-		{ name = "Mannequin Hand", drop = obj_decor_mannequinhand, amount = function() return 1 end },
-		{ name = "Boot", drop = obj_decor_boot, amount = function() return 1 end },
-		{ name = "Milk", drop = obj_consumable_milk, amount = function() return math.random(1, 5) end }
-	}
+local normalLoot = {
+	{ uuid = obj_fish,						chance = 100,			quantity = 1 },
+	{ uuid = blk_scrapwood, 				chance = 20,			quantity = function() return math.random(5, 10) end },
+	{ uuid = blk_scrapmetal, 				chance = 10,			quantity = function() return math.random(2, 5) end },
+	{ uuid = obj_decor_boot, 				chance = 5,				quantity = 1 }
+}
+
+local rareLoot = {
+	{ uuid = obj_consumable_component,		chance = 1,			quantity = function() return math.random(1, 2) end },
+	{ uuid = obj_consumable_fertilizer, 	chance = 1,			quantity = function() return math.random(1, 3) end },
+	{ uuid = obj_consumable_gas, 			chance = 1,			quantity = function() return math.random(2, 5) end },
+	{ uuid = obj_consumable_chemical, 		chance = 1,			quantity = function() return math.random(1, 10) end }
 }
 
 function vec3Num( num )
@@ -42,7 +39,7 @@ function vec3Num( num )
 end
 
 local hookSize = vec3Num(0.1)
-local premiumDropChance = 0.25
+local premiumDropChance = 0.1
 local maxThrowForce = 5
 local minThrowForce = 0.25
 local minWaitTime = 10.001
@@ -148,20 +145,21 @@ function Rod.loadAnimations( self )
 end
 
 function Rod:sv_itemDrop()
-	local type = math.random() <= premiumDropChance and 1 or 2
-	local index = math.random(1, #drops)
-	local selectedLoot = drops[type][index]
-	local drop = { name = selectedLoot.name, drop = selectedLoot.drop, amount = selectedLoot.amount() }
+	local lootList = normalLoot
+	if math.random() <= premiumDropChance then
+		lootList = rareLoot
+	end
+	local drop = SelectOne(lootList)
 
 	sm.container.beginTransaction()
-	sm.container.collect( self.player:getInventory(), drop.drop, drop.amount, 1 )
+	sm.container.collect( self.player:getInventory(), drop.uuid, drop.quantity, 1 )
 	sm.container.endTransaction()
 
 	self.network:sendToClient(self.player, "cl_itemDrop", drop )
 end
 
 function Rod:cl_itemDrop( drop )
-	sm.gui.displayAlertText( "Fished item: #ff9d00"..drop.name.." #df7f00x"..tostring(drop.amount) )
+	sm.gui.displayAlertText( "Fished item: #ff9d00"..sm.shape.getShapeTitle(drop.uuid).." #df7f00x"..tostring(drop.quantity) )
 end
 
 function Rod:sv_manageTrigger( action )
