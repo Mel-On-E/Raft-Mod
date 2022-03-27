@@ -69,6 +69,7 @@ function LogBook.client_onCreate( self )
 
 		--raft
 		Client_registerOnCompleteQuestObserver( quest_pickup_logbook, function( observedCompletion )
+			self:cl_addLog( log_welcome, observedCompletion )
 			self:cl_addLog( log_crashedship, observedCompletion )
 			self:cl_addLog( log_mechanicstation, observedCompletion )
 			if g_survivalHud then

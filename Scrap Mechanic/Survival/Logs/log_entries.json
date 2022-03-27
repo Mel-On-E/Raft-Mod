@@ -2,6 +2,14 @@
 	"logList": 
 	[
 		{
+			"name": "log_welcome",
+			"uuid": "ecf82a9f-26a1-4cac-b7de-ad69f4aba635",
+			"type": "audio",
+			"photo": "gui_logbook_welcome.png",			
+			"location": "none",
+			"icon": "welcome"
+		},
+		{
 			"name": "log_crashedship",
 			"uuid": "ee4ab0d3-027a-4969-9436-5b23c26e5eeb",
 			"type": "photo",
