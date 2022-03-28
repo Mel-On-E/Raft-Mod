@@ -480,7 +480,7 @@
 		  "sticky": "-Y",
 		  "physicsMaterial": "Metal",
 		  "ratings": {
-			  "density": 4,
+			  "density": 1,
 			  "durability": 3,
 			  "friction": 5,
 			  "buoyancy": 2
@@ -1639,6 +1639,48 @@
 				"durability": 3,
 				"friction": 5,
 				"buoyancy": 10
+			},
+			"flammable": true
+		},
+		{
+			"uuid": "4e69beb8-4519-4fff-a382-fdcfffbad6c2",
+			"name": "obj_propeller_small",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshMap": {
+							"lambert5":{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_ac_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_ac_asg.tga",
+									 "$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_ac_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						},
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Propeller.fbx"
+					}
+				]
+			},
+			"color": "ff0000",
+			"cylinder": {
+				"diameter": 3,
+				"depth": 1,
+				"margin": 0.04,
+				"axis": "Y"
+			},
+			"scripted": {
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Propeller.lua",
+				"classname": "SmallPropeller"
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Mechanical",
+			"ratings": {
+				"density": 3,
+				"durability": 5,
+				"friction": 3,
+				"buoyancy": 1
 			},
 			"flammable": true
 		}

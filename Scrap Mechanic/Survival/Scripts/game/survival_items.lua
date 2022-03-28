@@ -19,6 +19,7 @@ obj_pinetree_sapling = sm.uuid.new("9e815dcf-cfb0-4672-b0f4-34f1e9ecc1a1")
 obj_scrap_workbench = sm.uuid.new("f3163e62-e6c3-475c-805e-559f8bb07ad1")
 obj_apiary = sm.uuid.new("ebabda72-94d8-40c5-ab07-7001d1b67380")
 obj_propeller = sm.uuid.new("885513a7-baa3-44ee-aa6e-7546bf0715a7")
+obj_propeller_small = sm.uuid.new("4e69beb8-4519-4fff-a382-fdcfffbad6c2")
 
 obj_wasdConverter = sm.uuid.new("509505f1-b772-4acd-9827-f9a605a979ec")
 obj_waterSensor = sm.uuid.new("6db7aacf-f2b3-4cbb-a6d2-2a01d5ee5562")
