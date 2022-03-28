@@ -8,7 +8,6 @@ obj_fins = sm.uuid.new("7ece8b10-5cc0-4791-b75e-09858ef1b9c4")
 obj_oxygen_tank = sm.uuid.new("7ceccadf-010f-4a45-907f-18ccc11c509c")
 obj_airtank_empty = sm.uuid.new("03075a5a-92f5-49bd-b132-7d8e0cb80156")
 obj_airtank_full = sm.uuid.new("462baf58-6329-4f29-8f9e-c20d06fb6f7d")
-obj_water_clean = sm.uuid.new("4bd05d7d-898c-4947-8788-e34b84b5d386")
 obj_scrap_purifier = sm.uuid.new("80c9edb7-0f86-4899-bf60-c3baca3fa841")
 obj_scrap_tree_grower = sm.uuid.new("819fb238-a68b-4aab-a6f2-c1037f6bfb5b")
 
@@ -29,10 +28,12 @@ obj_bee_queen = sm.uuid.new("c2418698-7a91-40fa-95a3-3be5ddb3ec1d")
 obj_radio_antenna = sm.uuid.new("f95beb80-49c8-4d4c-98e9-5b87225c4570")
 obj_seed_press = sm.uuid.new("e9c7d080-ae4b-4fec-b626-34afda6f5114")
 
-obj_fish = sm.uuid.new("7c440c4a-5919-4baa-a946-0bb89b8c4d5d")
-obj_fish_cooked = sm.uuid.new("c57fe6d6-03b1-46d4-9104-29cf19f176ab")
 obj_grill = sm.uuid.new("67dd0023-023d-46cb-9839-e4ada2609a9b")
 
+--RAFT Consumables
+obj_water_clean = sm.uuid.new("4bd05d7d-898c-4947-8788-e34b84b5d386")
+obj_fish = sm.uuid.new("7c440c4a-5919-4baa-a946-0bb89b8c4d5d")
+obj_fish_cooked = sm.uuid.new("c57fe6d6-03b1-46d4-9104-29cf19f176ab")
 
 
 ----------------------------------------
@@ -144,6 +145,7 @@ obj_consumable_component = sm.uuid.new( "5530e6a0-4748-4926-b134-50ca9ecb9dcf" )
 obj_consumable_inkammo = sm.uuid.new( "c7322cd1-3158-41d9-b15a-eff2f2f8d9f7" )
 obj_consumable_glowstick = sm.uuid.new( "3a3280e4-03b6-4a4d-9e02-e348478213c9" )
 obj_consumable_soilbag = sm.uuid.new( "9a3e478c-2224-44fa-887c-239965bd05ad" )
+
 
 ----------------------------------------
 -- containers.json
