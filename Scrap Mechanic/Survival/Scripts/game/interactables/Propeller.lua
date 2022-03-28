@@ -34,11 +34,38 @@ function Propeller:server_onFixedUpdate(dt)
 
 	if math.abs(speed) > 1 then
 		sm.physics.applyImpulse( self.shape:getBody(), sm.vec3.new(10,10,10) * speed * self.shape:getAt(), true )
+
+		--effects
+		if sm.game.getCurrentTick() % 5 == 0 then
+			if isInWater then
+				local effect = "Water - HitWaterTiny"
+				speed = math.abs(speed)
+				
+				print(speed)
+
+				if speed > 75 then
+					effect = "Water - HitWaterMassive"
+				elseif speed > 25 then
+					effect = "Water - HitWaterBig"
+				elseif speed > 5 then
+					effect = "Water - HitWaterSmall"
+				end
+
+
+
+
+				self.network:sendToClients("cl_playEffect", effect)
+			end
+		end
 	end
 end
 
 function Propeller:client_canInteract()
 	return false
+end
+
+function Propeller:cl_playEffect( effect )
+	sm.effect.playEffect( effect, self.shape:getWorldPosition(), sm.vec3.zero(), sm.quat.lookRotation(self.shape.at, self.shape.right), sm.vec3.one())
 end
 
 SmallPropeller = class(Propeller)
