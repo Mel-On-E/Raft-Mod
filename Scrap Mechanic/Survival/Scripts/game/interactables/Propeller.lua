@@ -40,8 +40,6 @@ function Propeller:server_onFixedUpdate(dt)
 			if isInWater then
 				local effect = "Water - HitWaterTiny"
 				speed = math.abs(speed)
-				
-				print(speed)
 
 				if speed > 75 then
 					effect = "Water - HitWaterMassive"
@@ -50,9 +48,6 @@ function Propeller:server_onFixedUpdate(dt)
 				elseif speed > 5 then
 					effect = "Water - HitWaterSmall"
 				end
-
-
-
 
 				self.network:sendToClients("cl_playEffect", effect)
 			end
