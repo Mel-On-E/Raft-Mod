@@ -26,10 +26,20 @@ local function vec3Num( num )
 	return sm.vec3.new(num,num,num)
 end
 
---local ids = 0
-
 local collectables = {
-	blk_scrapwood
+	blk_scrapwood,
+	blk_plastic,
+	obj_consumable_gas,
+	obj_consumable_water,
+	obj_consumable_fertilizer,
+	obj_consumable_sunshake
+}
+
+local ignoreSizeCheck = {
+	obj_consumable_gas,
+	obj_consumable_water,
+	obj_consumable_fertilizer,
+	obj_consumable_sunshake
 }
 
 local hookSize = vec3Num(0.25)
@@ -199,7 +209,54 @@ function Hook:sv_manageTrigger( action )
 end
 
 function Hook:sv_applyImpulse( body )
-	sm.physics.applyImpulse( body, sm.vec3.one() * self.hookDir * body:getMass() / 121, true )
+	local dir = self.hookDir --(self.hookPos + self.hookDir) - body:getWorldPosition()
+	sm.physics.applyImpulse( body, dir * body:getMass() / 100, true )
+end
+
+function Hook:sv_collectItems( container )
+	local shapesToCollect = {}
+	for _, body in ipairs( self.shapeTrigger:getContents() ) do
+		if sm.exists( body ) then
+			for v, shape in pairs(sm.body.getCreationShapes( body )) do
+				local blocks = 1
+
+				if not isAnyOf(shapeUuid, ignoreSizeCheck) then
+					local boundingBox = shape:getBoundingBox() * 4
+					blocks = boundingBox.x * boundingBox.y * boundingBox.z
+				end
+
+				print(sm.shape.getShapeTitle( shapeUuid ), blocks)
+				local shapeUUID = shape:getShapeUuid()
+				if isAnyOf(shapeUUID, collectables) then
+					for i = 1, blocks do
+						shapesToCollect[#shapesToCollect+1] = shapeUUID
+					end
+					shape:destroyShape()
+				end
+			end
+		end
+	end
+
+	sm.container.beginTransaction()
+	for v, uuid in pairs(shapesToCollect) do
+		if sm.container.canCollect( container, uuid, 1 ) then
+			sm.container.collect( container, uuid, 1, 1 )
+		end
+	end
+	sm.container.endTransaction()
+end
+
+function Hook:cl_calculateRodEffectData()
+	local delta = self:calculateFirePosition() - self.hookPos
+	local rot = sm.vec3.getRotation(sm.vec3.new(0, 0, 1), delta)
+	local distance = sm.vec3.new(0.01, 0.01, delta:length())
+
+	self.ropeEffect:setPosition(self.hookPos + delta * 0.5)
+	self.ropeEffect:setScale(distance)
+	self.ropeEffect:setRotation(rot)
+
+	self.hookEffect:setPosition(self.hookPos)
+	self.hookEffect:setRotation(rot)
 end
 
 function Hook:cl_reset()
@@ -258,55 +315,35 @@ function Hook.client_onUpdate( self, dt )
 			local playerPos = playerChar:getWorldPosition()
 			local dir = playerPos - self.hookPos
 
-			if (sm.vec3.new(playerPos.x, playerPos.y, 0) - sm.vec3.new(self.hookPos.x, self.hookPos.y, 0)):length() <= hookDirAdjustThreshold then
-				self.hookDir = dir * 5
-			elseif dir:length() > hookDirAdjustThreshold then
+			--if (sm.vec3.new(playerPos.x, playerPos.y, 0) - sm.vec3.new(self.hookPos.x, self.hookPos.y, 0)):length() <= hookDirAdjustThreshold then
+			--	self.hookDir = dir * 5
+			--elseif dir:length() > hookDirAdjustThreshold then
+				local distance = sm.vec3.new(playerPos.x, playerPos.y, 0) - sm.vec3.new(self.hookPos.x, self.hookPos.y, 0)
 				self.hookDir = sm.vec3.new(dir.x, dir.y, 0)
-			end
+			--end
 
 			self.hookPos = self.hookPos + sm.vec3.one() / 4 * self.hookDir * dt
 
 			self.network:sendToServer("sv_manageTrigger")
 			for _, body in ipairs( self.shapeTrigger:getContents() ) do
 				if sm.exists( body ) then
-					for v, shape in pairs(sm.body.getCreationShapes( body )) do
-						if isAnyOf(shape:getShapeUuid(), collectables ) then
+					--for v, shape in pairs(sm.body.getCreationShapes( body )) do
+					--	if isAnyOf(shape:getShapeUuid(), collectables ) then
 							self.network:sendToServer("sv_applyImpulse", body)
-							break
-						end
-					end
+					--	end
+					--end
 				end
 			end
 
-			if dir:length() <= colllectHookRange then
-				for _, body in ipairs( self.shapeTrigger:getContents() ) do
-					if sm.exists( body ) then
-						for v, shape in pairs(sm.body.getCreationShapes( body )) do
-							if isAnyOf(shape:getShapeUuid(), collectables ) then
-								print("poggers")
-								--sm.shape.destroyPart( part, attackLevel )
-								--shape:destroyBlock( shape:getWorldPosition(), sm.vec3.one() )
-							end
-						end
-					end
-				end
-
+			if distance:length() <= colllectHookRange then
+				self.network:sendToServer("sv_collectItems", sm.localPlayer.getInventory())
 				self.network:sendToServer("sv_manageTrigger", "destroy")
 				self:cl_reset()
 			end
 		end
 
 		if self.hookDir:length() > 0 and self.hookPos:length() > 0 then
-			local delta = ( self:calculateFirePosition() - self.hookPos )
-			local rot = sm.vec3.getRotation(sm.vec3.new(0, 0, 1), delta)
-			local distance = sm.vec3.new(0.01, 0.01, delta:length())
-
-			self.ropeEffect:setPosition(self.hookPos + delta * 0.5)
-			self.ropeEffect:setScale(distance)
-			self.ropeEffect:setRotation(rot)
-
-			self.hookEffect:setPosition(self.hookPos)
-			self.hookEffect:setRotation(rot)
+			self:cl_calculateRodEffectData()
 		end
 	end
 	--raft
@@ -725,6 +762,7 @@ function Hook.cl_onPrimaryUse( self, state )
 		self.hookDir = self.lookDir
 		self.network:sendToServer("sv_manageTrigger", "create")
 
+		self:cl_calculateRodEffectData()
 		self.ropeEffect:start()
 		self.hookEffect:start()
 	end

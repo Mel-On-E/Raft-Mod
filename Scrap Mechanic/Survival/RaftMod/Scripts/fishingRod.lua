@@ -28,10 +28,10 @@ local normalLoot = {
 }
 
 local rareLoot = {
-	{ uuid = obj_consumable_component,		chance = 1,			quantity = function() return math.random(1, 2) end },
-	{ uuid = obj_consumable_fertilizer, 	chance = 1,			quantity = function() return math.random(1, 3) end },
-	{ uuid = obj_consumable_gas, 			chance = 1,			quantity = function() return math.random(2, 5) end },
-	{ uuid = obj_consumable_chemical, 		chance = 1,			quantity = function() return math.random(1, 10) end }
+	{ uuid = obj_consumable_component,		chance = 1,				quantity = function() return math.random(1, 2) end },
+	{ uuid = obj_consumable_fertilizer, 	chance = 1,				quantity = function() return math.random(1, 3) end },
+	{ uuid = obj_consumable_gas, 			chance = 1,				quantity = function() return math.random(2, 5) end },
+	{ uuid = obj_consumable_chemical, 		chance = 1,				quantity = function() return math.random(1, 10) end }
 }
 
 function vec3Num( num )
@@ -48,8 +48,6 @@ local maxWaitTime = 30.001
 local CatchTime = 0.5
 local minBites = 1
 local maxBites = 6
-local canFishOutLootThreshold = math.random(minBites, maxBites)
-
 
 
 function Rod.client_onCreate( self )
@@ -67,6 +65,7 @@ function Rod.client_onCreate( self )
 
 	self.throwForce = 0
 	self.primaryState = 0
+	self.canFishOutLootThreshold = 0
 	self.isThrowing = false
 	self.isFishing = false
 	self.hookPos = sm.vec3.zero()
@@ -175,6 +174,18 @@ function Rod:sv_manageTrigger( action )
 	self.trigger:setWorldPosition( self.hookPos )
 end
 
+function Rod:sv_playEffect( args )
+	self.network:sendToClients("cl_playEffect", args)
+end
+
+function Rod:cl_playEffect( args )
+	if args.type == "effect" then
+		sm.effect.playEffect( args.effect, args.pos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one())
+	else
+		sm.audio.play( args.effect, args.pos )
+	end
+end
+
 function Rod:sv_playWaterSplash( args )
 	self.network:sendToClients("cl_playWaterSplash", { pos = self.hookPos, effect = args.effect, force = args.force })
 end
@@ -205,24 +216,17 @@ end
 
 function Rod:cl_cancel( state )
 	if (state == 1 or state == 2) then
-		local params = {
-			["Size"] = min( 1.0, 10000 * 0.5 / 76800.0 ),
-			["Velocity_max_50"] = sm.vec3.new(0,0,10 * 10000 * 0.1 ):length(),
-			["Phys_energy"] = 10000 / 1000.0
-		}
 		if (self.dropTimer.valid - self.dropTimer.timer) < CatchTime and self.isFishing then
 			self.network:sendToServer("sv_itemDrop")
 			sm.effect.playEffect("Loot - Pickup", self.hookPos)
-			--TODO make this work in multiplayer
 
 			--sm.effect.playEffect("Water - HitWaterMassive", self.hookPos)
 			--self.network:sendToServer("sv_playWaterSplash", { effect = "Loot - Pickup", force = 10000 } )
-			--self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterMassive", force = 10000 } )
-
-			sm.effect.playEffect( "Water - HitWaterMassive", self.hookPos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one(), params )
+			self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterMassive", force = 10000 } )
+			--sm.effect.playEffect( "Water - HitWaterMassive", self.hookPos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one(), params )
 		else
-			--self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterTiny", force = 10000 } )
-			sm.effect.playEffect( "Water - HitWaterTiny", self.hookPos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one(), params )
+			self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterTiny", force = 10000 } )
+			--sm.effect.playEffect( "Water - HitWaterTiny", self.hookPos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one(), params )
 		end
 
 		if self.isFishing or self.isThrowing then
@@ -235,15 +239,32 @@ function Rod:cl_cancel( state )
 	return self.useCD.active
 end
 
+function Rod:cl_calculateRodEffectData()
+	local offset = self.hookPos - sm.vec3.new(0, 0, self.hookOffset)
+
+	local delta = ( self:calculateFirePosition() - offset )
+	local rot = sm.vec3.getRotation(sm.vec3.new(0, 0, 1), delta)
+	local distance = sm.vec3.new(0.01, 0.01, delta:length())
+
+	self.ropeEffect:setPosition(offset + delta * 0.5)
+	self.ropeEffect:setScale(distance)
+	self.ropeEffect:setRotation(rot)
+
+	self.hookEffect:setPosition(offset)
+	self.hookEffect:setRotation(rot)
+end
+
 function Rod:client_onFixedUpdate( dt )
-	if self.useCD.active then return end
+	local owner = self.tool:getOwner()
+	if self.useCD.active or owner.character:isSwimming() or owner.character:isDiving() then
+		self.throwForce = 0
+		return
+	end
 
 	if self.tool:isEquipped() and self.primaryState == 1 or self.primaryState == 2 then
 		self.throwForce = self.throwForce < maxThrowForce and self.throwForce + dt*2 or maxThrowForce
 	end
 end
-
-
 
 function Rod.client_onUpdate( self, dt )
 	self.lookDir = sm.localPlayer.getDirection()
@@ -290,18 +311,7 @@ function Rod.client_onUpdate( self, dt )
 		end
 
 		if self.hookDir:length() > 0 and self.hookPos:length() > 0 then
-			local offset = self.hookPos - sm.vec3.new(0, 0, self.hookOffset)
-
-			local delta = ( self:calculateFirePosition() - offset )
-			local rot = sm.vec3.getRotation(sm.vec3.new(0, 0, 1), delta)
-			local distance = sm.vec3.new(0.01, 0.01, delta:length())
-
-			self.ropeEffect:setPosition(offset + delta * 0.5)
-			self.ropeEffect:setScale(distance)
-			self.ropeEffect:setRotation(rot)
-
-			self.hookEffect:setPosition(offset)
-			self.hookEffect:setRotation(rot)
+			self:cl_calculateRodEffectData()
 		end
 	end
 
@@ -310,25 +320,28 @@ function Rod.client_onUpdate( self, dt )
 	if self.dropTimer.timer > 0 then
 		self.dropTimer.timer = self.dropTimer.timer - dt
 
-		if self.dropTimer.timer <= canFishOutLootThreshold + 1 and self.dropTimer.timer > 0 then
+		if self.dropTimer.timer <= self.canFishOutLootThreshold + 1 and self.dropTimer.timer > 0 then
 			self.dropTimer.effectTimer = self.dropTimer.effectTimer - dt
 
 			if self.dropTimer.effectTimer <= 0 and self.dropTimer.timer > 1 then
 				self.dropTimer.effectTimer = 1
-				if not (self.dropTimer.timer < 2) then
+				if self.dropTimer.timer > 2 then
 					self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterTiny", force = 10000 / math.ceil(self.dropTimer.timer) } )
+					self.network:sendToServer("sv_playEffect", { effect = "Eat - MunchSound", pos = self.hookPos, type = "effect" } )
 				else
 					self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterBig", force = 10000 / math.ceil(self.dropTimer.timer) } )
+					self.network:sendToServer("sv_playEffect", { effect = "Eat - MunchSound", pos = self.hookPos, type = "effect" } )
+					self.network:sendToServer("sv_playEffect", { effect = "Retrofmblip", pos = self.hookPos, type = "sound" } )
 					self.dropTimer.valid = self.dropTimer.timer
 				end
 			end
 		end
 
-		--sm.gui.displayAlertText(tostring(math.floor(self.dropTimer.timer)), 1)
+		sm.gui.displayAlertText(tostring(math.floor(self.dropTimer.timer)), 1)
 		if self.dropTimer.timer <= 0 then
 			self.dropTimer.timer = math.random(minWaitTime,maxWaitTime)
 			self.dropTimer.valid = maxWaitTime
-			canFishOutLootThreshold = math.random(minBites, maxBites)
+			self.canFishOutLootThreshold = math.random(minBites, maxBites)
 		end
 	end
 
@@ -487,7 +500,8 @@ function Rod.client_onUnequip( self, animate )
 end
 
 function Rod.cl_onPrimaryUse( self, state )
-	if self.tool:getOwner().character == nil or self.lookDir == sm.vec3.zero() or self.useCD.active then
+	local owner = self.tool:getOwner()
+	if owner.character == nil or self.lookDir == sm.vec3.zero() or self.useCD.active or owner.character:isSwimming() or owner.character:isDiving() then
 		return
 	end
 
@@ -504,10 +518,11 @@ function Rod.cl_onPrimaryUse( self, state )
 		self.hookDir = self.lookDir
 		self.network:sendToServer("sv_manageTrigger", "create")
 
+		self:cl_calculateRodEffectData()
 		self.ropeEffect:start()
 		self.hookEffect:start()
 
-		canFishOutLootThreshold = math.random(minBites, maxBites)
+		self.canFishOutLootThreshold = math.random(minBites, maxBites)
 		sm.audio.play( "Sledgehammer - Swing" )
 	end
 end
