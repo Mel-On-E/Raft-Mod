@@ -7,7 +7,7 @@ local Damage = 20
 Axe = class()
 
 local renderables = {
-	"$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer.rend"
+	"$SURVIVAL_DATA/Character/Char_Tools/Char_axe/char_axe_preview.rend"
 }
 
 local renderablesTp = {"$GAME_DATA/Character/Char_Male/Animations/char_male_tp_sledgehammer.rend", "$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_tp_animlist.rend"}
