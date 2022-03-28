@@ -20,6 +20,9 @@ local PineappleRenderables = { "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool
 local MilkRenderables = { "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_milk.rend" }
 local CornRenderables = { "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_corn.rend" }
 
+--RAFT
+local WatercleanRenderables = { "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_waterclean.rend" }
+
 local RenderablesEattoolTp = { "$SURVIVAL_DATA/Character/Char_Male/Animations/char_male_tp_eattool.rend", "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_tp.rend" }
 local RenderablesEattoolFp = { "$SURVIVAL_DATA/Character/Char_Male/Animations/char_male_fp_eattool.rend", "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_fp.rend" }
 
@@ -39,6 +42,9 @@ sm.tool.preloadRenderables( RedbeetRenderables )
 sm.tool.preloadRenderables( RenderablesEattoolTp )
 sm.tool.preloadRenderables( RenderablesEattoolFp )
 
+--RAFT
+sm.tool.preloadRenderables( WatercleanRenderables )
+
 local FoodUuidToRenderable =
 {
 	[tostring( obj_consumable_sunshake )] = SunshakeRenderables,
@@ -54,7 +60,9 @@ local FoodUuidToRenderable =
 	[tostring( obj_plantables_tomato )] = TomatoRenderables,
 	[tostring( obj_plantables_broccoli )] = BroccoliRenderables,
 	[tostring( obj_resource_corn )] = CornRenderables,
-	[tostring( obj_water_clean )] = MilkRenderables --Raft
+	
+	--RAFT
+	[tostring( obj_water_clean )] = WatercleanRenderables
 }
 
 local Drinks = { obj_consumable_sunshake, obj_consumable_milk, obj_water_clean } --Raft
