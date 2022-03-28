@@ -480,6 +480,27 @@ function Crafter.cl_init( self )
 		self.cl.mainEffects["fire"] = sm.effect.createEffect( "Fire - purifier", self.interactable )
 	elseif shapeUuid == obj_apiary then
 		self.cl.mainEffects["bees"] = sm.effect.createEffect( "beehive - beeswarm", self.interactable )
+	elseif shapeUuid == obj_scrap_field then
+		local crops = { obj_plantables_redbeet,
+						obj_plantables_carrot,
+						obj_plantables_tomato,
+						obj_plantables_potato,
+						obj_resource_cotton,
+						obj_plantables_banana,
+						obj_plantables_blueberry,
+						obj_plantables_orange,
+						obj_plantables_broccoli,
+						obj_plantables_pineapple,
+						obj_resource_flower}
+		
+		--TODO
+		--use harvestables for some plants?
+		--add effects, fertilizer, fully grown
+
+		for _, crop in ipairs(crops) do
+			self.cl.mainEffects[tostring(crop)] = sm.effect.createEffect("ShapeRenderable")
+			self.cl.mainEffects[tostring(crop)]:setParameter("uuid", crop)
+		end
 	end
 
 	
@@ -684,6 +705,8 @@ function Crafter.client_onUpdate( self, deltaTime )
 
 	local craftTimeRemaining = 0
 	local isCrafting = false
+	local crop = nil
+	local craftProgress = 0
 
 	local parent = self:getParent()
 	if not self.crafter.needsPower or ( parent and parent.active ) then
@@ -701,6 +724,10 @@ function Crafter.client_onUpdate( self, deltaTime )
 				if val.time >= 0 and val.time < recipeCraftTime then -- The one beeing crafted
 					isCrafting = true
 					craftTimeRemaining = ( recipeCraftTime - val.time ) / 40
+
+					--raft
+					craftProgress = val.time/recipeCraftTime
+					crop = recipe.itemId
 				end
 
 				if guiActive and self.interactable.shape.uuid ~= obj_survivalobject_dispenserbot then
@@ -773,6 +800,20 @@ function Crafter.client_onUpdate( self, deltaTime )
 			self.cl.mainEffects["bees"]:start()
 		elseif not isCrafting and self.cl.mainEffects["bees"]:isPlaying() then
 			self.cl.mainEffects["bees"]:stop()
+		end
+	elseif shapeUuid == obj_scrap_field then
+		if crop then
+			if isCrafting and not self.cl.mainEffects[crop]:isPlaying() then
+				self.cl.mainEffects[crop]:start()
+			elseif not isCrafting and self.cl.mainEffects[crop]:isPlaying() then
+				self.cl.mainEffects[crop]:stop()
+			end
+
+			if isCrafting and self.cl.mainEffects[crop]:isPlaying() then
+				self.cl.mainEffects[crop]:setScale(vec3Num(craftProgress*0.2 + 0.05))
+				self.cl.mainEffects[crop]:setPosition(self.shape:getWorldPosition() - self.shape.at * 0.25 * (1-craftProgress))
+				self.cl.mainEffects[crop]:setRotation(sm.quat.lookRotation( -self.shape.up, self.shape.at ))
+			end
 		end
 	end
 
