@@ -1,0 +1,25 @@
+{
+	"lodList": [
+		{
+			"subMeshMap": {
+				"cleanwater": {
+					"material": "DifAsgNor",
+					"textureList": [
+					  	"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_dif.tga",
+					  	"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_asg.tga",
+					  	"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_nor.tga"
+					]
+				},
+				"glass_mat": {
+					"material": "Glass",
+					"textureList": [
+					  	"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_dif.tga",
+					  	"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_asg.tga",
+					  	"$SURVIVAL_DATA/Objects/Raft/Textures/obj_water_clean_nor.tga"
+					]
+				}
+			},
+			"mesh": "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_waterclean.dae"
+		}
+	]
+}
