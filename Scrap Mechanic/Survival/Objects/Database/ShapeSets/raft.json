@@ -179,37 +179,48 @@
 		  "uuid": "7ece8b10-5cc0-4791-b75e-09858ef1b9c4",
 		  "name": "obj_fins",
 		  "renderable": {
-			  "lodList": [
-				  {
-					  "minViewSize": 12,
-					  "subMeshList": [
-						  {
-								  "textureList": [
-									  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-									  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-									  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
-								  ],
-								  "material": "DifAsgNor"
-						  }
-					  ],
-					  "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
-				  },
-				  {
-					  "subMeshList": [
-						  {
-								  "textureList": [
-									  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-									  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-									  ""
-								  ],
-								  "material": "DifAsg"
-						  }
-					  ],
-					  "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
-				  }
-			  ]
-		  },
-		  "color": "ff0000",
+			"lodList": [
+				{
+					"subMeshMap": {
+						"outfit_farmer_shoes":{
+							"textureList": [
+								"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_farmer_shoes/outfit_farmer_shoes_dif.tga",
+								"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_farmer_shoes/outfit_farmer_shoes_asg.tga",
+								"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_farmer_shoes/outfit_farmer_shoes_nor.tga"
+							],
+							"material": "DifAsgNor"
+						},
+						"FlipperPart":{
+						  "textureList": [
+							  "$SURVIVAL_DATA/Objects/Textures/Blocks/blk_plastic_dif.tga",
+							  "$SURVIVAL_DATA/Objects/Textures/Blocks/blk_plastic_asg.tga",
+							  "$SURVIVAL_DATA/Objects/Textures/Blocks/blk_plastic_nor.tga"
+						  ],
+						  "color": "008ae1",
+						  "material": "DifAsgNor"
+					  },
+						"Shark":{
+						  "textureList": [
+							"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_dif.tga",
+							"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_asg.tga",
+							"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_nor.tga"
+						  ],
+						  "material": "DifAsgNor"
+					  },
+					  "lambert2":{
+						  "textureList": [
+							  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_dif.tga",
+							  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_asg.tga",
+							  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_nor.tga"
+						  ],
+						  "material": "DifAsgNor"
+					  }
+					},
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/FlipperObject.fbx"
+				}
+			]
+		},
+		  "color": "008ae1",
 		  "cylinder": {
 			  "diameter": 1,
 			  "depth": 1,
