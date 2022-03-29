@@ -21,7 +21,7 @@
 		},
 		{
 			"uuid": "c883b283-ea7a-4bba-af0d-5c13fd73051d",
-			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_sledgehammer_preview.rend",
+			"previewRenderable": "$SURVIVAL_DATA/Character/Char_Tools/Char_pickaxe/char_pickaxe_preview.rend",
 			"previewRotation": [  -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
 			"script": { "file": "$SURVIVAL_DATA/RaftMod/Scripts/pickaxe.lua", "class": "Pickaxe" }
 		},
