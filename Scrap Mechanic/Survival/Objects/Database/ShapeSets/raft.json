@@ -1694,6 +1694,44 @@
 				"buoyancy": 1
 			},
 			"flammable": true
+		},
+		//Effects
+		{
+			"uuid": "3a46e74e-7826-419e-b457-965d80fed12c",
+			"name": "obj_effect_pigmentflower",
+            "renderable":{
+				"lodList": [
+					{
+						"subMeshMap": {
+							"leaves": {
+								"material": "Leaves",
+									"textureList": [
+										"$SURVIVAL_DATA/Harvestables/Textures/Farmables/hvs_farmables_pigmentflower_dif.tga",
+										"$SURVIVAL_DATA/Harvestables/Textures/Farmables/hvs_farmables_pigmentflower_asg.tga",
+										"$SURVIVAL_DATA/Harvestables/Textures/Farmables/hvs_farmables_pigmentflower_nor.tga"
+									]
+							}
+						},
+						"mesh": "$SURVIVAL_DATA/Harvestables/Mesh/Farmables/hvs_farmables_pigmentflower.fbx"
+					}
+				]
+			},
+			"color": "ff0000",
+			"box": {
+				"x": 1,
+				"y": 1,
+				"z": 1
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Grass",
+			"ratings": {
+				"density": 3,
+				"durability": 5,
+				"friction": 3,
+				"buoyancy": 1
+			},
+			"flammable": true
 		}
 	]
   }
