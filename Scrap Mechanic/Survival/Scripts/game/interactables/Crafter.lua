@@ -1,6 +1,7 @@
 -- Crafter.lua --
 
 dofile "$SURVIVAL_DATA/Scripts/game/survival_items.lua"
+dofile "$SURVIVAL_DATA/Scripts/game/survival_harvestable.lua"
 dofile "$SURVIVAL_DATA/Scripts/game/survival_survivalobjects.lua"
 dofile "$SURVIVAL_DATA/Scripts/game/util/pipes.lua"
 
@@ -11,6 +12,17 @@ Crafter.colorHighlight = sm.color.new( 0xa7ff4fff )
 --raft
 dofile "$SURVIVAL_DATA/Scripts/game/survival_quests.lua"
 local raftbots = {obj_scrap_field, obj_scrap_purifier, obj_scrap_tree_grower, obj_apiary, obj_scrap_workbench, obj_large_field, obj_seed_press, obj_grill}
+local crops = { obj_plantables_redbeet,
+						obj_plantables_carrot,
+						obj_plantables_tomato,
+						obj_plantables_potato,
+						obj_resource_cotton,
+						obj_plantables_banana,
+						obj_plantables_blueberry,
+						obj_plantables_orange,
+						obj_plantables_broccoli,
+						obj_plantables_pineapple,
+						obj_resource_flower}
 
 local crafters = {
 	-- Workbench
@@ -481,26 +493,23 @@ function Crafter.cl_init( self )
 	elseif shapeUuid == obj_apiary then
 		self.cl.mainEffects["bees"] = sm.effect.createEffect( "beehive - beeswarm", self.interactable )
 	elseif shapeUuid == obj_scrap_field then
-		local crops = { obj_plantables_redbeet,
-						obj_plantables_carrot,
-						obj_plantables_tomato,
-						obj_plantables_potato,
-						obj_resource_cotton,
-						obj_plantables_banana,
-						obj_plantables_blueberry,
-						obj_plantables_orange,
-						obj_plantables_broccoli,
-						obj_plantables_pineapple,
-						obj_resource_flower}
-		
-		--TODO
-		--use harvestables for some plants?
-		--add effects, fertilizer, fully grown
-
 		for _, crop in ipairs(crops) do
 			self.cl.mainEffects[tostring(crop)] = sm.effect.createEffect("ShapeRenderable")
 			self.cl.mainEffects[tostring(crop)]:setParameter("uuid", crop)
 		end
+
+		self.cl.mainEffects["fertilizer"] = sm.effect.createEffect( "Plants - Fertilizer" )
+	elseif shapeUuid == obj_large_field then
+		for _, crop in ipairs(crops) do
+			self.cl.mainEffects[tostring(crop).."1"] = sm.effect.createEffect("ShapeRenderable")
+			self.cl.mainEffects[tostring(crop).."1"]:setParameter("uuid", crop)
+
+			self.cl.mainEffects[tostring(crop).."2"] = sm.effect.createEffect("ShapeRenderable")
+			self.cl.mainEffects[tostring(crop).."2"]:setParameter("uuid", crop)
+		end
+
+		self.cl.mainEffects["fertilizer1"] = sm.effect.createEffect( "Plants - Fertilizer" )
+		self.cl.mainEffects["fertilizer2"] = sm.effect.createEffect( "Plants - Fertilizer" )
 	end
 
 	
@@ -705,13 +714,17 @@ function Crafter.client_onUpdate( self, deltaTime )
 
 	local craftTimeRemaining = 0
 	local isCrafting = false
+	local hasItems = false
 	local crop = nil
+	local isFertilized = false
 	local craftProgress = 0
+
+	local slot1 = { crop = nil, isCrafting = false, isFertilized = false, craftProgress = 0}
+	local slot2 = { crop = nil, isCrafting = false, isFertilized = false, craftProgress = 0}
 
 	local parent = self:getParent()
 	if not self.crafter.needsPower or ( parent and parent.active ) then
 		local guiActive = self.cl.guiInterface:isActive()
-		local hasItems = false
 
 		for idx = 1, self.crafter.slots do
 			local val = self.cl.craftArray[idx]
@@ -720,6 +733,14 @@ function Crafter.client_onUpdate( self, deltaTime )
 
 				local recipe = val.recipe
 				local recipeCraftTime = math.ceil( recipe.craftTime / self.crafter.speed ) + 120
+
+				for _, itemId in ipairs(recipe.ingredientList) do
+					for __, uuid in pairs(itemId) do
+						if uuid == obj_consumable_fertilizer then
+							isFertilized = true
+						end
+					end		
+				end
 
 				if val.time >= 0 and val.time < recipeCraftTime then -- The one beeing crafted
 					isCrafting = true
@@ -803,16 +824,52 @@ function Crafter.client_onUpdate( self, deltaTime )
 		end
 	elseif shapeUuid == obj_scrap_field then
 		if crop then
+			--fertilizer
+			if isFertilized and isCrafting and not self.cl.mainEffects["fertilizer"]:isPlaying() then
+				self.cl.mainEffects["fertilizer"]:start()
+			end
+			if self.cl.mainEffects["fertilizer"]:isPlaying() then
+				self.cl.mainEffects["fertilizer"]:setPosition(self.shape:getWorldPosition())
+			end
+
+
+			--growing crops
 			if isCrafting and not self.cl.mainEffects[crop]:isPlaying() then
 				self.cl.mainEffects[crop]:start()
-			elseif not isCrafting and self.cl.mainEffects[crop]:isPlaying() then
-				self.cl.mainEffects[crop]:stop()
+				sm.effect.playEffect( "Plants - Planted", self.shape:getWorldPosition() )
 			end
 
 			if isCrafting and self.cl.mainEffects[crop]:isPlaying() then
+				local offset = sm.vec3.zero()
+				local rotation = self.shape:getWorldRotation()
+				if crop == tostring(obj_plantables_carrot) then
+					rotation = rotation * sm.vec3.getRotation( self.shape.up, self.shape.right )
+				elseif crop == tostring(obj_plantables_banana) then
+					rotation = sm.quat.lookRotation( -self.shape.at, self.shape.right )
+					rotation = rotation * sm.vec3.getRotation( -self.shape.right, self.shape.up )
+				elseif crop == tostring(obj_plantables_blueberry) then
+					offset = self.shape.at*0.075
+				elseif crop == tostring(obj_plantables_redbeet) then
+					rotation = rotation * sm.vec3.getRotation( self.shape.up, self.shape.right + self.shape.up*2 )
+					offset = self.shape.at*0.075
+				end
+
 				self.cl.mainEffects[crop]:setScale(vec3Num(craftProgress*0.2 + 0.05))
-				self.cl.mainEffects[crop]:setPosition(self.shape:getWorldPosition() - self.shape.at * 0.25 * (1-craftProgress))
-				self.cl.mainEffects[crop]:setRotation(sm.quat.lookRotation( -self.shape.up, self.shape.at ))
+				self.cl.mainEffects[crop]:setPosition(self.shape:getWorldPosition() - self.shape.at * 0.25 * (1-craftProgress) - offset)
+				self.cl.mainEffects[crop]:setRotation(rotation)
+			end
+		else
+			if self.cl.mainEffects["fertilizer"]:isPlaying() then
+				self.cl.mainEffects["fertilizer"]:stop()
+			end
+
+			if not hasItems then
+				for _, crop in ipairs(crops) do
+					if self.cl.mainEffects[tostring(crop)]:isPlaying() then
+						self.cl.mainEffects[tostring(crop)]:stop()
+						sm.effect.playEffect( "Plants - Picked", self.shape:getWorldPosition() )
+					end
+				end
 			end
 		end
 	end
