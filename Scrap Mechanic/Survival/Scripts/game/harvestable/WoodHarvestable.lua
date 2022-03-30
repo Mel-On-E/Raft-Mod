@@ -29,10 +29,10 @@ function WoodHarvestable.server_onMelee( self, hitPos, attacker, damage )
 				self:sv_onHit( DamagerPerHit, hitPos )
 			end
 			--Raft
-		elseif self.data.treeType == "large" then
+		elseif self.data.type == "large" then
 			if type( attacker ) == "Player" then
 				--Raft
-				self.network:sendToClient( attacker, "cl_determineValidHit", hitPos )
+				self.network:sendToClient( attacker, "cl_n_onMessage", "#{ALERT_TREE_TOO_BIG}" )
 				--Raft
 			end
 
