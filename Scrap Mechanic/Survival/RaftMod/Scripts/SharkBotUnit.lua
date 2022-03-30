@@ -28,7 +28,9 @@ local AllyRange = 40.0
 local MeleeBreachLevel = 9
 
 local HearRange = 100
-local fleeDistance = 100
+local fleeDistance = 200
+local fleeSpeed = 5
+local attackSpeed = 2
 
 function SharkBotUnit.server_onCreate( self )
 	
@@ -37,6 +39,7 @@ function SharkBotUnit.server_onCreate( self )
 	self.lastTargetPosition = nil
 	self.ambushPosition = nil
 	self.predictedVelocity = sm.vec3.new( 0, 0, 0 )
+	self.lastTargetPosition = nil
 	self.flee = false
 	self.saved = self.storage:load()
 	if self.saved == nil then
@@ -178,13 +181,6 @@ function SharkBotUnit.server_onCreate( self )
 	self.lookAtState.tolerance = 0.5
 	self.lookAtState.avoidance = false
 	self.lookAtState.movementType = "stand"
-
-	-- Flee
-	self.dayFlee = self.unit:createState( "flee" )
-	self.dayFlee.movementAngleThreshold = math.rad( 180 )
-	self.dayFlee.maxFleeTime = 0.0
-	self.dayFlee.maxDeviation = 45 * math.pi / 180
-	self.dayFlee.debugName = "dayFlee"
 	
 	-- Tumble
 	initTumble( self )
@@ -217,7 +213,7 @@ function SharkBotUnit.sv_flee( self )
 			self.currentState = self.pathingState
 			self.currentState:start()
 
-			self.flee = true
+			self.flee = sm.game.getCurrentTick() + math.random(10,30)*40 --10 to 30secs flee time
 			self.target = nil
 		end
 end
@@ -232,12 +228,23 @@ end
 
 function SharkBotUnit.server_onFixedUpdate( self, dt )
 	if self.unit.character:isSwimming() then
-		self.roamState.cliffAvoidance = false
-		self.pathingState:sv_setCliffAvoidance( false )
+		self.roamState.cliffAvoidance = true
+		self.pathingState:sv_setCliffAvoidance( true )
 	else
+		self:sv_flee()
 		self.roamState.cliffAvoidance = true
 		self.pathingState:sv_setCliffAvoidance( true )
 	end
+
+
+	if self.flee then
+		self.unit.character:setMovementSpeedFraction(fleeSpeed)
+	elseif self.unit.character:getMovementSpeedFraction() == fleeSpeed then
+		self.unit.character:setMovementSpeedFraction(1)
+	end
+
+	--self.unit.character:setMovementSpeedFraction(attackSpeed)
+
 	
 	self.stateTicker:tick()
 	
@@ -309,7 +316,6 @@ function SharkBotUnit.server_onCharacterChangedColor( self, color )
 end
 
 function SharkBotUnit.server_onUnitUpdate( self, dt )
-	
 	if not sm.exists( self.unit ) then
 		return
 	end
@@ -432,6 +438,12 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 
 		inCombatApproachRange = fromToTarget:length() - targetRadius <= CombatApproachRange
 		inCombatAttackRange = fromToTarget:length() - targetRadius <= CombatAttackRange
+
+		if fromToTarget:length() < 10 then
+			self.unit.character:setMovementSpeedFraction(attackSpeed)
+		else
+			self.unit.character:setMovementSpeedFraction(1)
+		end
 
 		local attackDirection = ( desiredDirection:length() >= FLT_EPSILON ) and desiredDirection:normalize() or self.unit.character.direction
 		self.combatAttackState:sv_setAttackDirection( attackDirection ) -- Turn ongoing attacks toward moving players
@@ -567,8 +579,11 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 				self.isInCombat = false
 			end
 		else
+			if self.flee and self.flee < sm.game.getCurrentTick() then
+				self.flee = false
+			end
+
 			-- Select non-combat state
-			self.flee = false
 			if heardNoise then
 				self.currentState = self.lookAtState
 				self.roamTimer:start( math.random( RoamStartTimeMin, RoamStartTimeMax ) )
@@ -597,14 +612,14 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 
 	--move up or down
 	if self.target and inCombatApproachRange then
-		if self.currentState ~= self.combatApproachState and self.currentState ~= self.combatAttackState then
+		if (self.currentState ~= self.combatApproachState) and (self.currentState ~= self.combatAttackState) and (self.currentState ~= self.breachState) then
 			self.currentState = self.combatApproachState
 		end
 
 		unitZ = self.unit.character.worldPosition.z
 		targetZ = self.target:getWorldPosition().z
 
-		if unitZ < targetZ then
+		if unitZ < targetZ and unitZ < -3 then
 			sm.physics.applyImpulse(self.unit.character, sm.vec3.new(0,0,500))
 		elseif unitZ > targetZ then
 			sm.physics.applyImpulse(self.unit.character, sm.vec3.new(0,0,-500))
@@ -853,7 +868,7 @@ function SharkBotUnit.sv_spawnParts( self, impact )
 	if SurvivalGame then
 		if math.random( 1, 5 ) == 1 then
 			local headBody = sm.body.createBody( bodyPos, bodyRot, true )
-			local headShape = headBody:createPart( obj_interactive_robotbliphead01, sm.vec3.new( 0, 1, 2 ), sm.vec3.new( 0, 1, 0 ), sm.vec3.new( -1, 0, 0 ), true )
+			local headShape = headBody:createPart( obj_resource_steak, sm.vec3.new( 0, 1, 2 ), sm.vec3.new( 0, 1, 0 ), sm.vec3.new( -1, 0, 0 ), true )
 			headShape.color = color
 			sm.physics.applyImpulse( headShape, impact * headShape.mass, true )
 		end
