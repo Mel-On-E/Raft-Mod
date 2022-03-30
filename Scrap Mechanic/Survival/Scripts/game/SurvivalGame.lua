@@ -666,6 +666,7 @@ function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 	else
 		local inventory = player:getInventory()
 
+		--[[	YEET	raft
 		local sledgehammerCount = sm.container.totalQuantity( inventory, tool_sledgehammer )
 		if sledgehammerCount == 0 then
 			sm.container.beginTransaction()
@@ -675,7 +676,7 @@ function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 			sm.container.beginTransaction()
 			sm.container.spend( inventory, tool_sledgehammer, sledgehammerCount - 1 )
 			sm.container.endTransaction()
-		end
+		end]]--
 
 		local tool_lift_creative = sm.uuid.new( "5cc12f03-275e-4c8e-b013-79fc0f913e1b" )
 		local creativeLiftCount = sm.container.totalQuantity( inventory, tool_lift_creative )
