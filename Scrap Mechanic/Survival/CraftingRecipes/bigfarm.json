@@ -224,6 +224,7 @@
 			}
 		]
 	},
+//Fertilized
 	{
 		"itemId": "4ce00048-f735-4fab-b978-5f405e60f48f",
 		"extras": [
@@ -236,7 +237,7 @@
 		"craftTime": 630,
 		"ingredientList": [
 			{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 			{
@@ -261,7 +262,7 @@
 		"craftTime": 630,
 		"ingredientList": [
 					{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 					{
@@ -286,7 +287,7 @@
 		"craftTime": 630,
 		"ingredientList": [
 					{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 			{
@@ -311,7 +312,7 @@
 		"craftTime": 630,
 		"ingredientList": [
 					{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 					{
@@ -336,7 +337,7 @@
 		"craftTime": 630,
 		"ingredientList": [
 					{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 					{
@@ -361,7 +362,7 @@
 		"craftTime": 630,
 		"ingredientList": [
 					{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 					{
@@ -386,7 +387,7 @@
 		"craftTime": 630,
 		"ingredientList": [
 					{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 					{
@@ -411,7 +412,7 @@
 		"craftTime": 630,
 		"ingredientList": [
 					{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 					{
@@ -436,7 +437,7 @@
 		"craftTime": 1260,
 		"ingredientList": [
 					{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 					{
@@ -461,7 +462,7 @@
 		"craftTime": 1260,
 		"ingredientList": [
 					{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 					{
@@ -480,7 +481,7 @@
 		"craftTime": 315,
 		"ingredientList": [
 							{
-				"quantity": 2,
+				"quantity": 1,
 				"itemId": "ac0b5b0a-14e1-4b31-8944-0a351fbfcc67"
 			},
 					{
