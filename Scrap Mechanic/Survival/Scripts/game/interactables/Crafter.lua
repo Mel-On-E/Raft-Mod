@@ -66,18 +66,18 @@ local crafters = {
 		recipeSets = {
 			{ name = "farm", locked = false }
 		},
-		subTitle = "Farm #{LEVEL} Scrap",
+		subTitle = "Scrap Field",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- BigFarm
 	[tostring( obj_large_field )] = {
 		needsPower = false,
-		slots = 2,
+		slots = 1,
 		speed = 1,
 		recipeSets = {
-			{ name = "farm", locked = false }
+			{ name = "bigfarm", locked = false }
 		},
-		subTitle = "Farm #{LEVEL} 1",
+		subTitle = "Large Field",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- ScrapPurifier
@@ -88,7 +88,7 @@ local crafters = {
 		recipeSets = {
 			{ name = "scrappurifier", locked = false }
 		},
-		subTitle = "Purifier #{LEVEL} Scrap",
+		subTitle = "Scrap Purifier",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- ScrapTreeGrower
@@ -99,7 +99,7 @@ local crafters = {
 		recipeSets = {
 			{ name = "scraptrees", locked = false }
 		},
-		subTitle = "Tree farm #{LEVEL} Scrap",
+		subTitle = "Tree Farm",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- ScrapWorkbench
@@ -123,7 +123,7 @@ local crafters = {
 		recipeSets = {
 			{ name = "apiary", locked = false }
 		},
-		subTitle = "Apiary #{LEVEL} Scrap",
+		subTitle = "Apiary",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Seed Press
@@ -134,7 +134,7 @@ local crafters = {
 		recipeSets = {
 			{ name = "seedpress", locked = false }
 		},
-		subTitle = "Seed Press #{LEVEL} Scrap",
+		subTitle = "Seed Press",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Grill
@@ -145,7 +145,7 @@ local crafters = {
 		recipeSets = {
 			{ name = "grill", locked = false }
 		},
-		subTitle = "Grill #{LEVEL} Scrap",
+		subTitle = "Grill",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Craftbot 1
@@ -300,7 +300,7 @@ end
 
 function Crafter.sv_sendClientData( self )
 	if self.sv.clientDataDirty then
-		self.network:setClientData( { craftArray = self.sv.craftArray, pipeGraphs = self.sv.pipeGraphs } )
+		self.network:setClientData( { craftArray = self.sv.craftArray, pipeGraphs = self.sv.pipeGraphs, tree = self.sv.saved.tree } )
 		self.sv.clientDataDirty = false
 	end
 end
@@ -492,24 +492,49 @@ function Crafter.cl_init( self )
 		self.cl.mainEffects["fire"] = sm.effect.createEffect( "Fire - purifier", self.interactable )
 	elseif shapeUuid == obj_apiary then
 		self.cl.mainEffects["bees"] = sm.effect.createEffect( "beehive - beeswarm", self.interactable )
-	elseif shapeUuid == obj_scrap_field then
+	elseif shapeUuid == obj_scrap_field or shapeUuid == obj_large_field then
 		for _, crop in ipairs(crops) do
 			self.cl.mainEffects[tostring(crop)] = sm.effect.createEffect("ShapeRenderable")
 			self.cl.mainEffects[tostring(crop)]:setParameter("uuid", crop)
+			if shapeUuid == obj_large_field then
+				self.cl.mainEffects[tostring(crop).."1"] = sm.effect.createEffect("ShapeRenderable")
+				self.cl.mainEffects[tostring(crop).."1"]:setParameter("uuid", crop)
+			end
 		end
 
 		self.cl.mainEffects["fertilizer"] = sm.effect.createEffect( "Plants - Fertilizer" )
-	elseif shapeUuid == obj_large_field then
-		for _, crop in ipairs(crops) do
-			self.cl.mainEffects[tostring(crop).."1"] = sm.effect.createEffect("ShapeRenderable")
-			self.cl.mainEffects[tostring(crop).."1"]:setParameter("uuid", crop)
-
-			self.cl.mainEffects[tostring(crop).."2"] = sm.effect.createEffect("ShapeRenderable")
-			self.cl.mainEffects[tostring(crop).."2"]:setParameter("uuid", crop)
-		end
-
 		self.cl.mainEffects["fertilizer1"] = sm.effect.createEffect( "Plants - Fertilizer" )
-		self.cl.mainEffects["fertilizer2"] = sm.effect.createEffect( "Plants - Fertilizer" )
+
+	elseif shapeUuid == obj_scrap_tree_grower then
+		self.cl.mainEffects["spruce1"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["spruce1"]:setParameter("uuid", obj_harvests_trees_spruce01_p05)
+		self.cl.mainEffects["spruce2"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["spruce2"]:setParameter("uuid", obj_harvests_trees_spruce02_p05)
+		self.cl.mainEffects["spruce3"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["spruce3"]:setParameter("uuid", obj_harvests_trees_spruce03_p05)
+
+		self.cl.mainEffects["leafy1"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["leafy1"]:setParameter("uuid", obj_harvests_trees_leafy01_p04)
+		self.cl.mainEffects["leafy2"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["leafy2"]:setParameter("uuid", obj_harvests_trees_leafy02_p07)
+		self.cl.mainEffects["leafy3"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["leafy3"]:setParameter("uuid", obj_harvests_trees_leafy03_p09)
+
+		self.cl.mainEffects["birch1"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["birch1"]:setParameter("uuid", obj_harvests_trees_birch01_p05)
+		self.cl.mainEffects["birch2"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["birch2"]:setParameter("uuid", obj_harvests_trees_birch02_p06)
+		self.cl.mainEffects["birch3"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["birch3"]:setParameter("uuid", obj_harvests_trees_birch03_p06)
+
+		self.cl.mainEffects["pine1"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["pine1"]:setParameter("uuid", obj_harvests_trees_pine01_p11)
+		self.cl.mainEffects["pine2"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["pine2"]:setParameter("uuid", obj_harvests_trees_pine02_p10)
+		self.cl.mainEffects["pine3"] = sm.effect.createEffect("ShapeRenderable")
+		self.cl.mainEffects["pine3"]:setParameter("uuid", obj_harvests_trees_pine03_p10)
+
+		self.cl.mainEffects["fertilizer"] = sm.effect.createEffect( "Plants - Fertilizer" )
 	end
 
 	
@@ -550,6 +575,7 @@ end
 function Crafter.client_onClientDataUpdate( self, data )
 	self.cl.craftArray = data.craftArray
 	self.cl.pipeGraphs = data.pipeGraphs
+	self.tree = data.tree
 
 	-- Experimental needs testing
 	for _, val in ipairs( self.cl.craftArray ) do
@@ -608,7 +634,9 @@ function Crafter.server_onFixedUpdate( self )
 	local parent = self:getParent()
 	if not self.crafter.needsPower or ( parent and parent.active ) then
 		-- Update first in array
+		local update = false
 		for idx, val in ipairs( self.sv.craftArray ) do
+			update = true
 			if val then
 				local recipe = val.recipe
 				local recipeCraftTime = math.ceil( recipe.craftTime / self.crafter.speed ) + 120 -- 1s windup + 2s winddown
@@ -618,6 +646,36 @@ function Crafter.server_onFixedUpdate( self )
 					-- Begin crafting new item
 					if val.time == -1 then
 						val.startTick = sm.game.getServerTick()
+
+						--TODO
+						if self.shape:getShapeUuid() == obj_scrap_tree_grower then
+							self.sv.saved.tree = nil
+							for _, itemId in ipairs( val.recipe.ingredientList) do
+								local tree = nil
+								for __, uuid in pairs(itemId) do
+									if uuid == obj_sprucetree_sapling then
+										tree = "spruce"
+									elseif uuid == obj_leafytree_sapling then
+										tree = "leafy"
+									elseif uuid == obj_birchtree_sapling then
+										tree = "birch"
+									elseif uuid == obj_pinetree_sapling then
+										tree = "pine"
+									end
+								end
+
+								if not self.sv.saved.tree and tree then
+									local treeType = tree..tostring(math.random(1,3))
+									if treeType == "leafy1" then
+										treeType = tree..tostring(math.random(2,3))
+									elseif treeType == "spruce3" then
+										treeType = tree..tostring(math.random(1,2))
+									end
+									self.sv.saved.tree = treeType
+								end
+							end
+						end
+
 						self:sv_markClientDataDirty()
 					end
 
@@ -672,9 +730,14 @@ function Crafter.server_onFixedUpdate( self )
 				end
 			end
 		end
+
+		if not update then
+			self.sv.saved.tree = nil
+		end
 	end
 
 	self:sv_sendClientData()
+	self:sv_markStorageDirty()
 	self:sv_updateStorage()
 end
 
@@ -719,9 +782,6 @@ function Crafter.client_onUpdate( self, deltaTime )
 	local isFertilized = false
 	local craftProgress = 0
 
-	local slot1 = { crop = nil, isCrafting = false, isFertilized = false, craftProgress = 0}
-	local slot2 = { crop = nil, isCrafting = false, isFertilized = false, craftProgress = 0}
-
 	local parent = self:getParent()
 	if not self.crafter.needsPower or ( parent and parent.active ) then
 		local guiActive = self.cl.guiInterface:isActive()
@@ -734,6 +794,10 @@ function Crafter.client_onUpdate( self, deltaTime )
 				local recipe = val.recipe
 				local recipeCraftTime = math.ceil( recipe.craftTime / self.crafter.speed ) + 120
 
+				--raft
+				craftProgress = val.time/recipeCraftTime
+				crop = recipe.itemId
+
 				for _, itemId in ipairs(recipe.ingredientList) do
 					for __, uuid in pairs(itemId) do
 						if uuid == obj_consumable_fertilizer then
@@ -745,10 +809,6 @@ function Crafter.client_onUpdate( self, deltaTime )
 				if val.time >= 0 and val.time < recipeCraftTime then -- The one beeing crafted
 					isCrafting = true
 					craftTimeRemaining = ( recipeCraftTime - val.time ) / 40
-
-					--raft
-					craftProgress = val.time/recipeCraftTime
-					crop = recipe.itemId
 				end
 
 				if guiActive and self.interactable.shape.uuid ~= obj_survivalobject_dispenserbot then
@@ -822,52 +882,145 @@ function Crafter.client_onUpdate( self, deltaTime )
 		elseif not isCrafting and self.cl.mainEffects["bees"]:isPlaying() then
 			self.cl.mainEffects["bees"]:stop()
 		end
-	elseif shapeUuid == obj_scrap_field then
-		if crop then
-			--fertilizer
-			if isFertilized and isCrafting and not self.cl.mainEffects["fertilizer"]:isPlaying() then
-				self.cl.mainEffects["fertilizer"]:start()
+	elseif shapeUuid == obj_scrap_field or shapeUuid == obj_large_field then
+		worldPosition = self.shape:getWorldPosition()
+		local bigFarm = shapeUuid == obj_large_field
+		if bigFarm then
+			worldPosition = worldPosition + self.shape.at*0.5 - self.shape.right*0.35
+			worldPosition1 = self.shape:getWorldPosition() + self.shape.at*0.5 + self.shape.right*0.35
+		end
+		
+		--fertilizer
+		if isFertilized and isCrafting and not self.cl.mainEffects["fertilizer"]:isPlaying() then
+			self.cl.mainEffects["fertilizer"]:start()
+			if bigFarm then
+				self.cl.mainEffects["fertilizer1"]:start()
 			end
+		end
+		if self.cl.mainEffects["fertilizer"]:isPlaying() then
+			self.cl.mainEffects["fertilizer"]:setPosition(worldPosition)
+			if bigFarm then
+				self.cl.mainEffects["fertilizer1"]:setPosition(worldPosition1)
+			end
+		end
+
+		local reload = false
+		if hasItems and not self.cl.mainEffects[crop]:isPlaying() then
+			reload = true
+		end
+
+		--growing crops
+		if (isCrafting and not self.cl.mainEffects[crop]:isPlaying()) or reload then
+			self.cl.mainEffects[crop]:start()
+			sm.effect.playEffect( "Plants - Planted", worldPosition )
+			if bigFarm then
+				self.cl.mainEffects[crop.."1"]:start()
+				sm.effect.playEffect( "Plants - Planted", worldPosition1 )
+			end
+		end
+
+		if (isCrafting and self.cl.mainEffects[crop]:isPlaying()) or reload then
+			local offset = sm.vec3.zero()
+			local rotation = self.shape:getWorldRotation()
+			if crop == tostring(obj_plantables_carrot) then
+				rotation = rotation * sm.vec3.getRotation( self.shape.up, self.shape.right )
+				offset = self.shape.at*0.075
+			elseif crop == tostring(obj_plantables_banana) then
+				rotation = sm.quat.lookRotation( -self.shape.at, self.shape.right )
+				rotation = rotation * sm.vec3.getRotation( -self.shape.right, self.shape.up )
+			elseif crop == tostring(obj_plantables_blueberry) then
+				offset = self.shape.at*0.075
+			elseif crop == tostring(obj_plantables_redbeet) then
+				rotation = rotation * sm.vec3.getRotation( self.shape.up, self.shape.right + self.shape.up*2 )
+				offset = self.shape.at*0.075
+			elseif crop == tostring(obj_resource_cotton) then
+				offset = self.shape.at*0.075
+			end
+
+			self.cl.mainEffects[crop]:setScale(vec3Num(craftProgress*0.2 + 0.05))
+			self.cl.mainEffects[crop]:setPosition(worldPosition - self.shape.at * 0.25 * (1-craftProgress) - offset)
+			self.cl.mainEffects[crop]:setRotation(rotation)
+			if bigFarm then
+				self.cl.mainEffects[crop.."1"]:setScale(vec3Num(craftProgress*0.2 + 0.05))
+				self.cl.mainEffects[crop.."1"]:setPosition(worldPosition1 - self.shape.at * 0.25 * (1-craftProgress) - offset)
+				self.cl.mainEffects[crop.."1"]:setRotation(rotation)
+			end
+		end
+	
+		if craftProgress >= 1 then
 			if self.cl.mainEffects["fertilizer"]:isPlaying() then
-				self.cl.mainEffects["fertilizer"]:setPosition(self.shape:getWorldPosition())
-			end
-
-
-			--growing crops
-			if isCrafting and not self.cl.mainEffects[crop]:isPlaying() then
-				self.cl.mainEffects[crop]:start()
-				sm.effect.playEffect( "Plants - Planted", self.shape:getWorldPosition() )
-			end
-
-			if isCrafting and self.cl.mainEffects[crop]:isPlaying() then
-				local offset = sm.vec3.zero()
-				local rotation = self.shape:getWorldRotation()
-				if crop == tostring(obj_plantables_carrot) then
-					rotation = rotation * sm.vec3.getRotation( self.shape.up, self.shape.right )
-				elseif crop == tostring(obj_plantables_banana) then
-					rotation = sm.quat.lookRotation( -self.shape.at, self.shape.right )
-					rotation = rotation * sm.vec3.getRotation( -self.shape.right, self.shape.up )
-				elseif crop == tostring(obj_plantables_blueberry) then
-					offset = self.shape.at*0.075
-				elseif crop == tostring(obj_plantables_redbeet) then
-					rotation = rotation * sm.vec3.getRotation( self.shape.up, self.shape.right + self.shape.up*2 )
-					offset = self.shape.at*0.075
+				self.cl.mainEffects["fertilizer"]:stop()
+				if bigFarm then
+					self.cl.mainEffects["fertilizer1"]:stop()
 				end
-
-				self.cl.mainEffects[crop]:setScale(vec3Num(craftProgress*0.2 + 0.05))
-				self.cl.mainEffects[crop]:setPosition(self.shape:getWorldPosition() - self.shape.at * 0.25 * (1-craftProgress) - offset)
-				self.cl.mainEffects[crop]:setRotation(rotation)
 			end
-		else
+		end
+
+		if not hasItems then
+			for _, crop in ipairs(crops) do
+				if self.cl.mainEffects[tostring(crop)]:isPlaying() then
+					self.cl.mainEffects[tostring(crop)]:stop()
+					sm.effect.playEffect( "Plants - Picked", worldPosition )
+					if bigFarm then
+						self.cl.mainEffects[tostring(crop).."1"]:stop()
+						sm.effect.playEffect( "Plants - Picked", worldPosition1 )
+					end
+				end
+			end
+		end
+		
+	elseif shapeUuid == obj_scrap_tree_grower then
+		worldPosition = self.shape:getWorldPosition() + self.shape.at*0.6
+
+		--fertilizer
+		if isFertilized and isCrafting and not self.cl.mainEffects["fertilizer"]:isPlaying() then
+			self.cl.mainEffects["fertilizer"]:start()
+		end
+		if self.cl.mainEffects["fertilizer"]:isPlaying() then
+			self.cl.mainEffects["fertilizer"]:setPosition(worldPosition)
+		end
+
+		local growEffect = nil
+		local reload = false
+		if self.tree then
+			if self.cl.mainEffects[self.tree]:isPlaying() then
+				growEffect = self.tree
+			else
+				--start grow
+				growEffect = self.tree
+				self.cl.mainEffects[growEffect]:start()
+				sm.effect.playEffect( "Plants - Planted", worldPosition )
+				reload = true
+			end
+		end
+
+		if (isCrafting and growEffect) or reload then
+			local offset = -self.shape.at*0.5
+			local scale = 0.4
+			local rotation = self.shape:getWorldRotation()
+			if growEffect:find("spruce") then
+				offset = -self.shape.at*3.75
+				scale = 3
+			end
+
+			self.cl.mainEffects[growEffect]:setScale(vec3Num(craftProgress*0.1 + 0.0275))
+			self.cl.mainEffects[growEffect]:setPosition(worldPosition - self.shape.at*scale * (1-craftProgress) - offset)
+			self.cl.mainEffects[growEffect]:setRotation(rotation)
+		end
+
+		if craftProgress >= 1 then
 			if self.cl.mainEffects["fertilizer"]:isPlaying() then
 				self.cl.mainEffects["fertilizer"]:stop()
 			end
+		end
 
-			if not hasItems then
-				for _, crop in ipairs(crops) do
-					if self.cl.mainEffects[tostring(crop)]:isPlaying() then
-						self.cl.mainEffects[tostring(crop)]:stop()
-						sm.effect.playEffect( "Plants - Picked", self.shape:getWorldPosition() )
+		if not hasItems then
+			local trees = {"birch", "leafy", "pine", "spruce"}
+			for _, tree in ipairs(trees) do
+				for i=1,3 do
+					if self.cl.mainEffects[tree..tostring(i)]:isPlaying() then
+						self.cl.mainEffects[tree..tostring(i)]:stop()
+						sm.effect.playEffect( "Plants - Picked", worldPosition )
 					end
 				end
 			end
