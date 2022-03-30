@@ -647,7 +647,6 @@ function Crafter.server_onFixedUpdate( self )
 					if val.time == -1 then
 						val.startTick = sm.game.getServerTick()
 
-						--TODO
 						if self.shape:getShapeUuid() == obj_scrap_tree_grower then
 							self.sv.saved.tree = nil
 							for _, itemId in ipairs( val.recipe.ingredientList) do
@@ -680,6 +679,10 @@ function Crafter.server_onFixedUpdate( self )
 					end
 
 					val.time = val.time + 1
+					--update craft time while unloaded
+					if sm.game.getCurrentTick() > val.startTick + val.time then
+						val.time = sm.game.getCurrentTick() - val.startTick
+					end
 
 					local isSpawner = self.sv.saved and self.sv.saved.spawner
 
