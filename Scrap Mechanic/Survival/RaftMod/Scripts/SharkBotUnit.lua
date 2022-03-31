@@ -28,9 +28,12 @@ local AllyRange = 40.0
 local MeleeBreachLevel = 9
 
 local HearRange = 100
-local fleeDistance = 200
-local fleeSpeed = 5
-local attackSpeed = 2
+
+local FleeTimeMin = 40 * 14 -- 14 seconds
+local FleeTimeMax = 40 * 20 -- 20 seconds
+local fleeSpeed = 3
+local attackSpeed = 2.5
+local rushRange = 15
 
 function SharkBotUnit.server_onCreate( self )
 	
@@ -41,6 +44,7 @@ function SharkBotUnit.server_onCreate( self )
 	self.predictedVelocity = sm.vec3.new( 0, 0, 0 )
 	self.lastTargetPosition = nil
 	self.flee = false
+	self.land = 0
 	self.saved = self.storage:load()
 	if self.saved == nil then
 		self.saved = {}
@@ -131,13 +135,13 @@ function SharkBotUnit.server_onCreate( self )
 	self.attackState01 = self.unit:createState( "meleeAttack" )
 	self.attackState01.meleeType = "ToteBotAttack"
 	self.attackState01.event = "melee"
-	self.attackState01.damage = 15
+	self.attackState01.damage = 45
 	self.attackState01.attackRange = 1.15
 	self.attackState01.animationCooldown = 0.825 * 40
 	self.attackState01.attackCooldown = 1.0 * 40
 	self.attackState01.globalCooldown = 0.0 * 40
 	self.attackState01.attackDelay = 0.25 * 40
-	self.attackState01.power = 3750.0
+	self.attackState01.power = 1000.0
 	
 	-- Combat
 	self.combatAttackState = CombatAttackState()
@@ -181,6 +185,10 @@ function SharkBotUnit.server_onCreate( self )
 	self.lookAtState.tolerance = 0.5
 	self.lookAtState.avoidance = false
 	self.lookAtState.movementType = "stand"
+
+	-- Flee
+	self.fleeState = self.unit:createState( "flee" )
+	self.fleeState.movementAngleThreshold = math.rad( 180 )
 	
 	-- Tumble
 	initTumble( self )
@@ -201,21 +209,16 @@ end
 function SharkBotUnit.sv_flee( self )
 		self.isInCombat = false
 		self.eventTarget = nil
-		if self.target then
+		if self.fleeFrom then
 			self.currentState:stop()
 
-			local fleeDirection = self.target:getWorldPosition() - self.unit.character.worldPosition
-			fleeDirection:normalize()
-			local fleeDestination = self.target:getWorldPosition() + -fleeDirection*fleeDistance
-			
-			self.pathingState:sv_setDestination(fleeDestination)
-			self.pathingState:sv_setMovementType( "sprint" )
-			self.currentState = self.pathingState
+			self.currentState = self.fleeState
+			self.fleeState.fleeFrom = self.fleeFrom
+			self.fleeState.maxFleeTime = math.random( FleeTimeMin, FleeTimeMax ) / 40
+			self.fleeState.maxDeviation = 45 * math.pi / 180
 			self.currentState:start()
-
-			self.flee = sm.game.getCurrentTick() + math.random(10,30)*40 --10 to 30secs flee time
-			self.target = nil
 		end
+		
 end
 
 function SharkBotUnit.server_onRefresh( self )
@@ -230,20 +233,31 @@ function SharkBotUnit.server_onFixedUpdate( self, dt )
 	if self.unit.character:isSwimming() then
 		self.roamState.cliffAvoidance = true
 		self.pathingState:sv_setCliffAvoidance( true )
+		self.land = 0
 	else
-		self:sv_flee()
+		self.land = self.land + 1
+		if self.land > 3 then
+			print("NOT SWIM")
+			if self.fleeFrom == nil and self.currentState ~= self.fleeState  then
+				self.fleeFrom = self.unit.character.worldPosition + self.unit.character.direction
+			end
+		end
 		self.roamState.cliffAvoidance = true
 		self.pathingState:sv_setCliffAvoidance( true )
 	end
 
 
-	if self.flee then
+	if self.currentState and self.currentState == self.fleeState then
 		self.unit.character:setMovementSpeedFraction(fleeSpeed)
+
+		--force shark to move because I don't get the ai shit
+		if self.unit.character.velocity:length() < fleeSpeed*5 then
+			sm.physics.applyImpulse(self.unit.character, self.unit.character.direction*500)
+		end
+
 	elseif self.unit.character:getMovementSpeedFraction() == fleeSpeed then
 		self.unit.character:setMovementSpeedFraction(1)
 	end
-
-	--self.unit.character:setMovementSpeedFraction(attackSpeed)
 
 	
 	self.stateTicker:tick()
@@ -357,7 +371,7 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 	
 	-- Share found target
 	local foundTarget = false
-	if targetCharacter and self.target == nil and not self.flee then
+	if targetCharacter and self.target == nil and not self.fleeState == self.currentState then
 		for _, allyUnit in ipairs( sm.unit.getAllUnits() ) do
 			if sm.exists( allyUnit ) and self.unit ~= allyUnit and allyUnit.character and isAnyOf( allyUnit.character:getCharacterType(), g_robots ) and InSameWorld( self.unit, allyUnit) then
 				if ( allyUnit.character.worldPosition - self.unit.character.worldPosition ):length() <= AllyRange then
@@ -385,7 +399,7 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 	self.eventTarget = nil
 
 
-	if targetCharacter and not self.flee then
+	if targetCharacter then
 		self.target = targetCharacter
 	end
 
@@ -394,11 +408,17 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 	end
 	
 	-- Cooldown after attacking a crop
+	local _, attackResult = self.combatAttackState:isDone()
 	if type( self.target ) == "Harvestable" then
-		local _, attackResult = self.combatAttackState:isDone()
 		if attackResult == "started" or attackResult == "attacked" then
 			self.griefTimer:reset()
 		end
+	elseif attackResult == "finished" then
+		self.fleeFrom = self.target:getPlayer()
+	end
+	_, attackResult = self.breachState:isDone()
+	if attackResult == "fail" or attackResult == "timeout" then
+		self.fleeFrom = self.target:getPlayer()
 	end
 	
 	local inCombatApproachRange = false
@@ -439,7 +459,7 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 		inCombatApproachRange = fromToTarget:length() - targetRadius <= CombatApproachRange
 		inCombatAttackRange = fromToTarget:length() - targetRadius <= CombatAttackRange
 
-		if fromToTarget:length() < 10 then
+		if fromToTarget:length() < rushRange then
 			self.unit.character:setMovementSpeedFraction(attackSpeed)
 		else
 			self.unit.character:setMovementSpeedFraction(1)
@@ -473,19 +493,17 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 	end
 
 	-- Update pathingState destination and condition
-	if not self.flee then
-		local pathingConditions = { { variable = sm.pathfinder.conditionProperty.target, value = ( self.lastTargetPosition and 1 or 0 ) } }
-		self.pathingState:sv_setConditions( pathingConditions )
-		if self.currentState == self.pathingState then
-			if self.target then
-				local currentTargetPosition = self.target.worldPosition
-				if type( self.target ) == "Harvestable" then
-					currentTargetPosition = self.target.worldPosition + sm.vec3.new( 0, 0, self.unit.character:getHeight() * 0.5 )
-				end
-				self.pathingState:sv_setDestination( currentTargetPosition )
-			elseif self.lastTargetPosition then
-				self.pathingState:sv_setDestination( self.lastTargetPosition )
+	local pathingConditions = { { variable = sm.pathfinder.conditionProperty.target, value = ( self.lastTargetPosition and 1 or 0 ) } }
+	self.pathingState:sv_setConditions( pathingConditions )
+	if self.currentState == self.pathingState then
+		if self.target then
+			local currentTargetPosition = self.target.worldPosition
+			if type( self.target ) == "Harvestable" then
+				currentTargetPosition = self.target.worldPosition + sm.vec3.new( 0, 0, self.unit.character:getHeight() * 0.5 )
 			end
+			self.pathingState:sv_setDestination( currentTargetPosition )
+		elseif self.lastTargetPosition then
+			self.pathingState:sv_setDestination( self.lastTargetPosition )
 		end
 	end
 
@@ -544,7 +562,13 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 
 	if ( done or abortState ) then
 		-- Select state
-		if shouldAvoid then
+		if self.fleeFrom then
+			self:sv_flee( self.fleeFrom )
+			prevState = self.currentState
+			self.fleeFrom = nil
+		elseif self.currentState == self.fleeState then
+			self.currentState = self.idleState
+		elseif shouldAvoid then
 			-- Move away from danger
 			if self.currentState ~= self.avoidState  then
 				self.avoidCount = math.min( self.avoidCount + 1, AvoidLimit )
@@ -558,7 +582,6 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 			self.avoidState.desiredDirection = self.unit.character.direction
 			self.avoidState.desiredPosition = self.unit.character.worldPosition - self.avoidState.desiredDirection:normalize() * 2
 			self.currentState = self.avoidState
-			self.flee = false
 		elseif self.isInCombat then
 			-- Select combat state
 			if self.target and inCombatAttackRange then
@@ -579,10 +602,6 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 				self.isInCombat = false
 			end
 		else
-			if self.flee and self.flee < sm.game.getCurrentTick() then
-				self.flee = false
-			end
-
 			-- Select non-combat state
 			if heardNoise then
 				self.currentState = self.lookAtState
@@ -611,7 +630,7 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 	end
 
 	--move up or down
-	if self.target and inCombatApproachRange then
+	if self.fleeState ~= self.currentState and (self.target and inCombatApproachRange) and not self.fleeFrom then
 		if (self.currentState ~= self.combatApproachState) and (self.currentState ~= self.combatAttackState) and (self.currentState ~= self.breachState) then
 			self.currentState = self.combatApproachState
 		end
@@ -625,7 +644,6 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 			sm.physics.applyImpulse(self.unit.character, sm.vec3.new(0,0,-500))
 		end
 	end
-
 end
 
 function SharkBotUnit.sv_e_worldEvent( self, params )
@@ -666,6 +684,13 @@ function SharkBotUnit.server_onProjectile( self, hitPos, hitTime, hitVelocity, p
 	if not sm.exists( self.unit ) or not sm.exists( attacker ) then
 		return
 	end
+	if damage > 0 then
+		if self.fleeFrom == nil then
+			self.fleeFrom = attacker
+			self.unit:sendCharacterEvent( "hit" )
+		end
+	end
+
 	local teamOpponent = false
 	if type( attacker ) == "Unit" then
 		if not SurvivalGame then
@@ -702,6 +727,12 @@ function SharkBotUnit.server_onMelee( self, hitPos, attacker, damage )
 
 	if type( attacker ) == "Player" or teamOpponent then
 		local attackingCharacter = attacker:getCharacter()
+		if self.fleeFrom == nil then
+			self.fleeFrom = attacker
+			self.unit:sendCharacterEvent( "hit" )
+		end
+
+
 		self:sv_addStagger( StaggerMelee )
 		if self.eventTarget == nil then
 			self.eventTarget = attackingCharacter
@@ -716,6 +747,10 @@ end
 function SharkBotUnit.server_onExplosion( self, center, destructionLevel )
 	if not sm.exists( self.unit ) then
 		return
+	end
+	if self.fleeFrom == nil then
+		self.fleeFrom = center
+		self.unit:sendCharacterEvent( "hit" )
 	end
 	local impact = ( self.unit:getCharacter().worldPosition - center ):normalize() * 6
 	self:sv_takeDamage( self.saved.stats.maxhp * ( destructionLevel / 10 ), impact, self.unit:getCharacter().worldPosition )
@@ -828,8 +863,6 @@ function SharkBotUnit.sv_takeDamage( self, damage, impact, hitPos )
 		else
 			self.storage:save( self.saved )
 		end
-
-		self:sv_flee()
 	end
 end
 
