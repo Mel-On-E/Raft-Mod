@@ -19,12 +19,12 @@ function OilGeyser.server_spawnJunk(self)
 	for _, player in pairs(sm.player.getAllPlayers()) do
 		if player.id == 1 then
 			vec = self.harvestable:getPosition()
-			vec.z = 0
+			vec.z = -2
 
 			local random = math.random(1,1000)
 			local i
 			if random <= 0010 then
-				vec.z = -3
+				vec.z = -2
 				local crate = hvs_lootcrate
 				if math.random(1,30) == 30 then
 					crate = hvs_lootcrateepic
