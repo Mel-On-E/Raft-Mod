@@ -535,6 +535,11 @@ function Crafter.cl_init( self )
 		self.cl.mainEffects["pine3"]:setParameter("uuid", obj_harvests_trees_pine03_p10)
 
 		self.cl.mainEffects["fertilizer"] = sm.effect.createEffect( "Plants - Fertilizer" )
+	
+	elseif shapeUuid == obj_grill then
+		self.cl.mainEffects["fire"] = sm.effect.createEffect( "Fire - small01", self.interactable )
+	elseif shapeUuid == obj_scrap_workbench then
+		self.cl.mainEffects["craft"] = sm.effect.createEffect( "Multiknife - Use", self.interactable )
 	end
 
 	
@@ -1027,6 +1032,18 @@ function Crafter.client_onUpdate( self, deltaTime )
 					end
 				end
 			end
+		end
+	elseif shapeUuid == obj_grill then
+		if isCrafting and not self.cl.mainEffects["fire"]:isPlaying() then
+			self.cl.mainEffects["fire"]:start()
+		elseif not isCrafting and self.cl.mainEffects["fire"]:isPlaying() then
+			self.cl.mainEffects["fire"]:stop()
+		end
+	elseif shapeUuid == obj_scrap_workbench then
+		if isCrafting and not self.cl.mainEffects["craft"]:isPlaying() then
+			self.cl.mainEffects["craft"]:start()
+		elseif not isCrafting and self.cl.mainEffects["craft"]:isPlaying() then
+			self.cl.mainEffects["craft"]:stop()
 		end
 	end
 
