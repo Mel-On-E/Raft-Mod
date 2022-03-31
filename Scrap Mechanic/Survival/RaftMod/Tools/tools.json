@@ -3,7 +3,7 @@
 	[
 		{
 			"uuid": "e3bcf8fa-68d7-49a8-b17b-c1e864d53b69",
-			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_spudgun_preview.rend",
+			"previewRenderable": "$SURVIVAL_DATA/Character/Char_Tools/Char_fishingrod/char_char_fishingrod_preview.rend",
 			"previewRotation": [ 1, 0, 0, 0, 0, -1, 0, 1, 0 ],
 			"script": { "file": "$SURVIVAL_DATA/RaftMod/Scripts/fishingRod.lua", "class": "Rod" }
 		},
