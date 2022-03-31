@@ -237,7 +237,6 @@ function SharkBotUnit.server_onFixedUpdate( self, dt )
 	else
 		self.land = self.land + 1
 		if self.land > 3 then
-			print("NOT SWIM")
 			if self.fleeFrom == nil and self.currentState ~= self.fleeState  then
 				self.fleeFrom = self.unit.character.worldPosition + self.unit.character.direction
 			end
