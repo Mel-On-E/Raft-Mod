@@ -5,16 +5,10 @@ dofile "$SURVIVAL_DATA/Scripts/game/survival_loot.lua"
 
 Rod = class()
 
-local renderables = {
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Base/char_spudgun_base_basic.rend",
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Barrel/Barrel_basic/char_spudgun_barrel_basic.rend",
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Sight/Sight_basic/char_spudgun_sight_basic.rend",
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Stock/Stock_broom/char_spudgun_stock_broom.rend",
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic.rend"
-}
+local renderables = {"$SURVIVAL_DATA/Character/Char_Tools/Char_fishingrod/char_char_fishingrod_preview.rend"}
 
-local renderablesTp = {"$GAME_DATA/Character/Char_Male/Animations/char_male_tp_spudgun.rend", "$GAME_DATA/Character/Char_Tools/Char_spudgun/char_spudgun_tp_animlist.rend"}
-local renderablesFp = {"$GAME_DATA/Character/Char_Tools/Char_spudgun/char_spudgun_fp_animlist.rend"}
+local renderablesTp = {"$SURVIVAL_DATA/Character/Char_Male/Animations/char_male_tp_fertilizer.rend", "$SURVIVAL_DATA/Character/Char_Tools/Char_fertilizer/char_fertilizer_tp_animlist.rend"}
+local renderablesFp = {"$SURVIVAL_DATA/Character/Char_Male/Animations/char_male_fp_fertilizer.rend", "$SURVIVAL_DATA/Character/Char_Tools/Char_fertilizer/char_fertilizer_fp_animlist.rend"}
 
 sm.tool.preloadRenderables( renderables )
 sm.tool.preloadRenderables( renderablesTp )
@@ -85,30 +79,34 @@ function Rod.loadAnimations( self )
 	self.tpAnimations = createTpAnimations(
 		self.tool,
 		{
-			idle = { "spudgun_idle" },
-			pickup = { "spudgun_pickup", { nextAnimation = "idle" } },
-			putdown = { "spudgun_putdown" }
+			idle = { "fertilizer_idle", { looping = true } },
+			use = { "fertilizer_paint", { nextAnimation = "idle" } },
+			sprint = { "fertilizer_sprint" },
+			pickup = { "fertilizer_pickup", { nextAnimation = "idle" } },
+			putdown = { "fertilizer_putdown" }
+
 		}
 	)
 	local movementAnimations = {
-		idle = "spudgun_idle",
-		idleRelaxed = "spudgun_relax",
 
-		sprint = "spudgun_sprint",
-		runFwd = "spudgun_run_fwd",
-		runBwd = "spudgun_run_bwd",
+		idle = "fertilizer_idle",
+		idleRelaxed = "fertilizer_idle_relaxed",
 
-		jump = "spudgun_jump",
-		jumpUp = "spudgun_jump_up",
-		jumpDown = "spudgun_jump_down",
+		runFwd = "fertilizer_run_fwd",
+		runBwd = "fertilizer_run_bwd",
+		sprint = "fertilizer_sprint",
 
-		land = "spudgun_jump_land",
-		landFwd = "spudgun_jump_land_fwd",
-		landBwd = "spudgun_jump_land_bwd",
+		jump = "fertilizer_jump",
+		jumpUp = "fertilizer_jump_up",
+		jumpDown = "fertilizer_jump_down",
 
-		crouchIdle = "spudgun_crouch_idle",
-		crouchFwd = "spudgun_crouch_fwd",
-		crouchBwd = "spudgun_crouch_bwd"
+		land = "fertilizer_jump_land",
+		landFwd = "fertilizer_jump_land_fwd",
+		landBwd = "fertilizer_jump_land_bwd",
+
+		crouchIdle = "fertilizer_crouch_idle",
+		crouchFwd = "fertilizer_crouch_fwd",
+		crouchBwd = "fertilizer_crouch_bwd"
 	}
 
 	for name, animation in pairs( movementAnimations ) do
