@@ -21,7 +21,7 @@
 			"name": "log_mechanicstation",
 			"uuid": "29d72e47-8eac-4fb9-95b1-ecccc06ff84f",
 			"type": "photo",
-			"photo": "gui_logbook_photoframe_mechanicstation.png",
+			"photo": "gui_logbook_rangerstation.png",
 			"location": "mechanicStation",
 			"icon": "mechanicstation"
 		},
