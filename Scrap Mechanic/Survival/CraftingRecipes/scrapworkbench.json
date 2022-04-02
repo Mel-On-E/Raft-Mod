@@ -121,6 +121,79 @@
 			}
 		]
 	},
+	//Craftbot Imports
+		//Glue
+		{
+			"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+			"quantity": 1,
+			"craftTime": 2,
+			"ingredientList": [
+				{
+					"quantity": 3,
+					"itemId": "40e8bd0d-04a0-4e95-b593-4038b54b156f"
+				}
+			]
+		},
+		//Bucket
+		{
+			"itemId": "798c2c81-1f8e-481b-8c32-b71b5dc5511a",
+			"quantity": 1,
+			"craftTime": 17,
+			"ingredientList": [
+				{
+					"quantity": 5,
+					"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+				}
+			]
+		},
+		//UndrinkableWater
+		{
+			"itemId": "869d4736-289a-4952-96cd-8a40117a2d28",
+			"extras": [
+				{
+					"itemId": "798c2c81-1f8e-481b-8c32-b71b5dc5511a",
+					"quantity": 1
+				}
+			],
+			"quantity": 1,
+			"craftTime": 2,
+			"ingredientList": [
+				{
+					"quantity": 1,
+					"itemId": "103fc4e6-7e57-465e-a86d-983343415877"
+				}
+			]
+		},
+		//Gasoline
+		{
+			"itemId": "d4d68946-aa03-4b8f-b1af-96b81ad4e305",
+			"quantity": 5,
+			"craftTime": 7,
+			"ingredientList": [
+				{
+					"quantity": 5,
+					"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0"
+				}
+			]
+		},
+		//Chemicals
+		{
+			"itemId": "f74c2891-79a9-45e0-982e-4896651c2e25",
+			"extras": [
+				{
+					"itemId": "798c2c81-1f8e-481b-8c32-b71b5dc5511a",
+					"quantity": 1
+				}
+			],
+			"quantity": 1,
+			"craftTime": 2,
+			"ingredientList": [
+				{
+					"quantity": 1,
+					"itemId": "2e792123-4a10-4cc6-b9ef-c5a518655cb4"
+				}
+			]
+		},
 	//RaftFoundation
 	{
 		"itemId": "4a971f7d-14e6-454d-bce8-0879243c4474",
