@@ -5,6 +5,10 @@ Antenna.maxParentCount = 0
 Antenna.maxChildCount = 0
 Antenna.connectionInput = sm.interactable.connectionType.none
 Antenna.connectionOutput = sm.interactable.connectionType.none
+Antenna.poseWeightCount = 1
+
+local UVSpeed = 5
+local UnfoldSpeed = 15
 
 function Antenna.server_completeQuest( self, character, state )
 	g_questManager:sv_completeQuest(quest_radio_interactive)
@@ -12,7 +16,27 @@ function Antenna.server_completeQuest( self, character, state )
 end
 
 function Antenna.client_onCreate( self )
+    self.cl = {}
+	self.cl.loopingIndex = 0
+	self.cl.unfoldWeight = 0
 	self.effect = sm.effect.createEffect( "Antenna - Activation", self.interactable )
+end
+
+function Antenna.client_onUpdate( self, dt )
+	self.cl.loopingIndex = self.cl.loopingIndex + dt * UVSpeed
+	if self.cl.loopingIndex >= 4 then
+		self.cl.loopingIndex = 0
+	end
+	self.interactable:setUvFrameIndex( math.floor( self.cl.loopingIndex ) )
+
+	if self.cl.unfoldWeight < 1.0 then
+		self.cl.unfoldWeight = math.min( self.cl.unfoldWeight + dt * UnfoldSpeed, 1.0 )
+		self.interactable:setPoseWeight( 0, self.cl.unfoldWeight )
+	end
+
+	if self.cl.idleSound and not self.cl.idleSound:isPlaying() then
+		self.cl.idleSound:start()
+	end
 end
 
 function Antenna.client_onInteract( self, character, state )
