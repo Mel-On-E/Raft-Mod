@@ -1,0 +1,88 @@
+{
+	"lodList": [
+		{
+			"minViewSize": 55,
+			"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Antenna0.fbx",
+			"pose0": "$SURVIVAL_DATA/Objects/Raft/Mesh/Antenna1.fbx",
+			"subMeshMap": {
+				"shinymetal": {
+                                "custom": {
+                                    "color": "5a5a5a"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Objects/Raft/Textures/env_building_shinymetal_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
+                                ]
+                            },
+				"shinymetal2": {
+                                "custom": {
+                                    "color": "a8a8a8"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Objects/Raft/Textures/env_building_shinymetal2_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
+                                ]
+                            },
+				"shinymetal3": {
+                                "custom": {
+                                    "color": "3e81da"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
+                                ]
+                            },
+                            "shinymetal4": {
+                                "custom": {
+                                    "color": "5a5a5a"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_boltstripes_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_boltstripes_nor.tga"
+                                ]
+                            },
+				"rubber": {
+                                "custom": {
+                                    "color": "rubber"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
+                                ]
+                            },
+				"radar": {
+					"material": "PoseAnimDifAsgNor",
+					"textureList": [
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_dif.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_asg.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_nor.tga"
+					]
+				},
+				"radar_uvanim": {
+					"material": "PoseUVAnimDifAsg",
+					"custom": {
+						"uv0": {
+							"v": 0.25,
+							"u": 1
+						}
+					},
+					"textureList": [
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beaconuvanim_dif.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beaconuvanim_asg.tga",
+						""
+					]
+				}
+			}
+		}
+	]
+}
