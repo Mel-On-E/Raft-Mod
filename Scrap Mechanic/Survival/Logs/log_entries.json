@@ -4,7 +4,7 @@
 		{
 			"name": "log_welcome",
 			"uuid": "ecf82a9f-26a1-4cac-b7de-ad69f4aba635",
-			"type": "audio",
+			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
 			"location": "none",
 			"icon": "welcome"
