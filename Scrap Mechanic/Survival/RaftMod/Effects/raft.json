@@ -66,6 +66,34 @@
 			}
 		]
 	},
+	"Craft - seedpress":
+	{
+		"parameterList":
+		{
+			"Material": 7
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "event:/char/npc/bots/utility/refinery/refinery_use",
+				"offset": { "x": 0.0, "y": 0.9, "z": 0.8 },
+				"delay": 0.0
+			},
+			{
+				"type": "audio",
+				"name": "event:/tools/glowstick/gs_bounce",
+				"offset": { "x": 0.0, "y": 0.9, "z": 0.8 },
+				"delay": 0.0
+			},
+			{
+				"type": "particle",
+				"name": "p_destruct_fruit",
+				"offset": { "x": 0.0, "y": 0.9, "z": 0.8 },
+				"delay": 0.0
+			}
+		]
+	},
 	"Antenna - Activation":
 	{
 		"effectList":

@@ -542,6 +542,8 @@ function Crafter.cl_init( self )
 		self.cl.mainEffects["fish"] = sm.effect.createEffect("ShapeRenderable")
 	elseif shapeUuid == obj_scrap_workbench then
 		self.cl.mainEffects["craft"] = sm.effect.createEffect( "Craft - scrapworkbench", self.interactable )
+	elseif shapeUuid == obj_seed_press then
+		self.cl.mainEffects["craft"] = sm.effect.createEffect( "Craft - seedpress", self.interactable )
 	end
 
 	
@@ -1074,7 +1076,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 		elseif not isCrafting and not hasItems and self.cl.mainEffects["fish"]:isPlaying() then
 			self.cl.mainEffects["fish"]:stop()
 		end
-	elseif shapeUuid == obj_scrap_workbench then
+	elseif shapeUuid == obj_scrap_workbench or obj_seed_press then
 		if isCrafting and not self.cl.mainEffects["craft"]:isPlaying() then
 			self.cl.mainEffects["craft"]:start()
 		elseif not isCrafting and self.cl.mainEffects["craft"]:isPlaying() then
