@@ -11,7 +11,7 @@
                                 },
                                 "material": "DifAsgNor",
                                 "textureList": [
-                                    "$SURVIVAL_DATA/Objects/Raft/Textures/env_building_shinymetal_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_dif.tga",
                                     "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
                                     "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
                                 ]
