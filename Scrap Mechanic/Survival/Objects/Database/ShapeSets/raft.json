@@ -293,19 +293,60 @@
 	  {
 		  "uuid": "03075a5a-92f5-49bd-b132-7d8e0cb80156",
 		  "name": "obj_airtank_empty",
-		  "renderable": "$SURVIVAL_DATA/Objects/Renderable/resource/obj_resource_crudeoil.rend",
+		  "renderable": {
+			"lodList": [
+				{
+					"maxViewDistance": 1500,
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/AirTank.fbx",
+					"subMeshMap": {
+						"radar": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Raft/Textures/obj_interactive_airtankempty_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_nor.tga"
+							]
+						},
+						"barrack_support:blinn3": {
+						  "material": "DifAsgNor",
+						  "textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/building/obj_building_barracksupport_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/building/obj_building_barracksupport_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/building/obj_building_barracksupport_nor.tga"
+						  ]
+					  	},
+						  "DefaultMaterial": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_dif.tga",
+								"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_asg.tga",
+								"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_nor.tga"
+							]
+						},
+						  "Material": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic_dif.tga",
+								"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic_asg.tga",
+								"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic_nor.tga"
+							]
+						}
+					}
+				}
+			]
+		},
 		  "color": "ff0000",
 		  "box": {
-			  "x": 2,
-			  "y": 2,
-			  "z": 2
+			"x": 4,
+			"y": 2,
+			"z": 2
 		  },
 		  "scripted": {
 			  "filename": "$SURVIVAL_DATA/Scripts/game/interactables/AirTank.lua",
 			  "classname": "AirTank"
 		  },
-		  "rotationSet": "PropY",
-		  "sticky": "-Y+Y",
+		  "rotationSet": "PropZ",
+		  "sticky": "-Z+Z",
 		  "physicsMaterial": "Metal",
 		  "ratings": {
 			  "density": 10,
@@ -322,40 +363,56 @@
 			  "lodList": [
 				  {
 					  "maxViewDistance": 1500,
-					  "mesh": "$SURVIVAL_DATA/Objects/Mesh/consumable/obj_consumable_chemical.fbx",
+					  "mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/AirTank.fbx",
 					  "subMeshMap": {
-						  "chemicalconsumable": {
+						  "radar": {
 							  "material": "DifAsgNor",
 							  "textureList": [
-								  "$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_dif.tga",
-								  "$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_asg.tga",
-								  "$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_nor.tga"
+								  "$SURVIVAL_DATA/Objects/Raft/Textures/obj_interactive_airtankfull_dif.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_asg.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_beacon_nor.tga"
 							  ]
 						  },
-						  "glass": {
-							  "material": "Glass",
-							  "textureList": [
-								  "$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_dif.tga",
-								  "$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_asg.tga",
-								  "$SURVIVAL_DATA/Objects/Textures/consumable/Obj_consumable_chemical_nor.tga"
-							  ]
-						  }
+						  "barrack_support:blinn3": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/building/obj_building_barracksupport_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/building/obj_building_barracksupport_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/building/obj_building_barracksupport_nor.tga"
+							]
+						},
+						"DefaultMaterial": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_dif.tga",
+								"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_asg.tga",
+								"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_nor.tga"
+							]
+						},
+						"Material": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic_dif.tga",
+								"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic_asg.tga",
+								"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic_nor.tga"
+							]
+						}
 					  }
 				  }
 			  ]
 		  },
 		  "color": "00ff00",
 		  "box": {
-			  "x": 2,
-			  "y": 2,
-			  "z": 2
+			"x": 4,
+			"y": 2,
+			"z": 2
 		  },
 		  "scripted": {
 			  "filename": "$SURVIVAL_DATA/Scripts/game/interactables/AirTank.lua",
 			  "classname": "AirTank"
 		  },
-		  "rotationSet": "PropY",
-		  "sticky": "-Y+Y",
+		  "rotationSet": "PropZ",
+		  "sticky": "-Z+Z",
 		  "physicsMaterial": "Metal",
 		  "ratings": {
 			  "density": 1,
