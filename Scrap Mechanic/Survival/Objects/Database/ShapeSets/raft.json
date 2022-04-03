@@ -50,7 +50,7 @@
 		  "sticky": "-Y",
 		  "physicsMaterial": "Wood",
 		  "ratings": {
-			  "density": 2,
+			  "density": 4,
 			  "durability": 3,
 			  "friction": 5,
 			  "buoyancy": 4
@@ -99,7 +99,7 @@
 		  "sticky": "+X-X-Y+Z-Z",
 		  "physicsMaterial": "Grass",
 		  "ratings": {
-				  "density": 3,
+				  "density": 5,
 				  "durability": 4,
 				  "friction": 5,
 				  "buoyancy": 3
@@ -167,7 +167,6 @@
 		  },
 		  "rotationSet": "PropXYZ",
 		  "physicsMaterial": "Plastic",
-		  "stackSize": 4,
 		  "ratings": {
 			  "density": 1,
 			  "durability": 3,
@@ -998,19 +997,28 @@
 		  "name": "obj_propeller",
 		  "renderable": {
 			  "lodList": [
-				  {
-					  "subMeshMap": {
-						  "lambert5":{
-							  "textureList": [
-								  "$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_ac_dif.tga",
-								  "$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_ac_asg.tga",
-								   "$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_ac_nor.tga"
-							  ],
-							  "material": "DifAsgNor"
-						  }
-					  },
-					  "mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Propeller.fbx"
-				  }
+				{
+					"maxViewDistance": 1500,
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Propeller.fbx",
+					"subMeshMap": {
+						"sign_atlas": {
+							"material": "DifAsgNor",
+							"textureList": [
+								"$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_dif.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_asg.tga",
+								"$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_nor.tga"
+							]
+						},
+						"hideout_atlas": {
+						  "material": "DifAsgNor",
+						  "textureList": [
+								"$SURVIVAL_DATA/Terrain/Textures/Hideout/env_hideout_atlas_dif.tga",
+                                "$SURVIVAL_DATA/Terrain/Textures/Hideout/env_hideout_atlas_asg.tga",
+                                "$SURVIVAL_DATA/Terrain/Textures/Hideout/env_hideout_atlas_nor.tga"
+						  ]
+					  	}
+					}
+				}
 			  ]
 		  },
 		  "color": "d8b589",
@@ -1718,16 +1726,24 @@
 				"lodList": [
 					{
 						"subMeshMap": {
-							"lambert5":{
+							"sign_atlas": {
+								"material": "DifAsgNor",
 								"textureList": [
-									"$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_ac_dif.tga",
-									"$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_ac_asg.tga",
-									 "$SURVIVAL_DATA/Objects/Textures/fittings/obj_fittings_ac_nor.tga"
-								],
-								"material": "DifAsgNor"
-							}
+									"$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_dif.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_asg.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Fillers/hvs_fillers_hideoutsigns_nor.tga"
+								]
+							},
+							"hideout_atlas": {
+							  "material": "DifAsgNor",
+							  "textureList": [
+									"$SURVIVAL_DATA/Terrain/Textures/Hideout/env_hideout_atlas_dif.tga",
+									"$SURVIVAL_DATA/Terrain/Textures/Hideout/env_hideout_atlas_asg.tga",
+									"$SURVIVAL_DATA/Terrain/Textures/Hideout/env_hideout_atlas_nor.tga"
+							  ]
+							  }
 						},
-						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Propeller.fbx"
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/PropellerSmall.fbx"
 					}
 				]
 			},
