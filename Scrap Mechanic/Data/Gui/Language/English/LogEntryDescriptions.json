@@ -1,22 +1,22 @@
 {
 	"ecf82a9f-26a1-4cac-b7de-ad69f4aba635": {
 		"title": "Welcome to Raft Mechanic",
-		"description": "Thanks for playing with OUR mod, there is some info on how to get started:\n\n • Firstly, get some wood and plastic that's floating on sea and craft the Hammer.\n\n • Hammer has been nerfed, so it can't cut trees anymore, it also does less damage.\n\n • Best way to get food and loot is by fishing, you can craft fishing rod in the Workbench, then cast it into the ocean and wait for a splash particle, then pull it back.\n\n • Also, don't forget about threats! Such as sharks and other, not so good sea creatures"
+		"description": "Thanks for playing with OUR mod, there is some info on how to get started:\n\n • Firstly, get some wood and plastic that's floating on sea and craft the Hammer.\n\n • Hammer has been nerfed, so it can't cut trees anymore, it also does less damage.\n\n • Best way to get food and loot is by fishing, you can craft fishing rod in the Workbench, then cast it into the ocean and wait for a splash particle, then pull it back.\n\n • Also, don't forget about threats! Such as sharks and other, not so good sea creatures."
 	},
 	"ee4ab0d3-027a-4969-9436-5b23c26e5eeb": {
 		"title": "Stranded",
-		"description": "I was just doing a routine driveby through star system 5U5 as I had to do an emergency landing. I don't know where the ship is, but at least I could deploy the emergency raft in time"
+		"description": "I was just doing a routine driveby through star system 5U5 as something hit my ship so i had to do an emergency landing. I don't know where the ship is, but at least I could deploy the emergency raft in time."
 	},	
 	"29d72e47-8eac-4fb9-95b1-ecccc06ff84f": {
 		"title": "Space Ranger's Outpost",
-		"description": "According to the ships navigational unit there should be an outpost somewhere. Maybe I can send a distress signal there"
+		"description": "According to the ships navigational unit there should be an outpost somewhere. Maybe I can send a distress signal there? Looking at its picture a bit more, it seems rundown i wonder what happened to it..."
 	},
 	"b7ebd326-60c5-4ee7-a35f-1bd3ef408ded": {
 		"title": "Cry for help",
-		"description": "The comm array in the outpost has been damaged by 'haybots'. However I should be able to build a small radio to send and receive local distress signals"
+		"description": "The Communication Antenna in the outpost has been damaged by 'haybots'. However I should be able to build a small radio to send and receive local distress signals."
 	},
 	"0ccc96c2-97dd-47d9-af8b-0ae2343a939e": {
 		"title": "Distress Signal",
-		"description": "My makeshift antenna picked up a nearby distress signal. Perhpas I am not alone after all. I should investigate this."
+		"description": "My Makeshift Antenna picked up a nearby distress signal. Perhpas I am not alone after all. I should investigate this."
 	}
 }

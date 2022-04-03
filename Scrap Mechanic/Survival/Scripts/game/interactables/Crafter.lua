@@ -110,7 +110,8 @@ local crafters = {
 		recipeSets = {
 			{ name = "scrapworkbench", locked = false },
 			{ name = "workbench", locked = false },
-			{ name = "quest1", locked = true }
+			{ name = "quest1", locked = true },
+			{ name = "questpropeller", locked = true }
 		},
 		subTitle = "Workbench",
 		createGuiFunction = sm.gui.createCraftBotGui

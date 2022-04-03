@@ -180,9 +180,9 @@ ALERT_MAX_CONNECTIONS_BEARINGS Max bearing connections reached
 ALERT_NO_CONNECTIONS No connections
 ALERT_NON_EXISTING_SHAPE Non existing shape
 ALERT_NOT_THE_CREATOR_OF_BLUEPRINT YOU'RE NOT THE CREATOR OF THIS CONTRAPTION
-ALERT_STONE_TOO_BIG This stone is too big for the sledgehammer
+ALERT_STONE_TOO_BIG This stone is too big for this tool
 ALERT_THIRST Thirsty
-ALERT_TREE_TOO_BIG This tree is too big for the sledgehammer
+ALERT_TREE_TOO_BIG This tree is too big for this tool
 ALERT_UNABLE_TO_COLLECT_ALL Unable to collect all parts
 
 ALL_CAPS ALL

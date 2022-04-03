@@ -342,18 +342,6 @@
 			}
 		]
 	},
-	//Propeller
-	{
-		"itemId": "885513a7-baa3-44ee-aa6e-7546bf0715a7",
-		"quantity": 1,
-		"craftTime": 79,
-		"ingredientList": [
-			{
-				"quantity": 45,
-				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e"
-			}
-		]
-	},
 	//Sail
 	{
 		"itemId": "eea9794b-bcdf-431e-bdcd-7b2ff6ffa145",

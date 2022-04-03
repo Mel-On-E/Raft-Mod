@@ -33,7 +33,7 @@ function Propeller:server_onFixedUpdate(dt)
 	speed = speed * self.speed
 
 	if math.abs(speed) > 1 then
-		sm.physics.applyImpulse( self.shape:getBody(), sm.vec3.new(12,12,12) * speed * self.shape:getAt(), true )
+		sm.physics.applyImpulse( self.shape:getBody(), sm.vec3.new(10,10,10) * speed * self.shape:getAt(), true )
 
 		--effects
 		if sm.game.getCurrentTick() % 5 == 0 then

@@ -2,11 +2,11 @@
 	//Raft
 	//tools
 	"e3bcf8fa-68d7-49a8-b17b-c1e864d53b69": {
-		"description": "Hold left click to increase the throw force, click again when the water splashes start to get loot.",
+		"description": "The longer you hold use button, the further you will throw the hook, click again when the water splashes to get loot.",
 		"title": "Fishing Rod"
 	},
 	"b5ade3b0-be48-4a61-a8c2-13a4cedf1343": {
-		"description": "Hold left click to increase the throw force, after the hook lands it will pull certain objects towards you, which will get collected automatically when they reach you.",
+		"description": "The longer you hold use button, the further you will throw the hook, after the hook lands it will pull certain objects towards you, which will get collected automatically when they reach you.",
 		"title": "Pulling Hook"
 	},
 	"1daebe24-4e16-422c-b5e7-c3f45f9296d8": {
@@ -18,29 +18,29 @@
 		"title": "Pickaxe"
 	},
 	"7c440c4a-5919-4baa-a946-0bb89b8c4d5d": {
-		"description": "Would be more yummy if it were cooked",
+		"description": "Better off cooking it, raw isn't good.",
 		"title": "Raw Fish"
 	},
 	"c57fe6d6-03b1-46d4-9104-29cf19f176ab": {
-		"description": "Looks very delicious",
+		"description": "Looks very delicious, but smells.",
 		"title": "Cooked Fish"
 	},
 	"67dd0023-023d-46cb-9839-e4ada2609a9b": {
-		"description": "Cooks food",
+		"description": "Grills food, requires wood as fuel.",
 		"title": "Grill"
 	},
 	"0db1ecd5-503d-4dd3-807e-869c243a7c08": {
-		"description": "A sharp stick. Useful to poke things.",
+		"description": "A sharp stick. Useful to poke and hurt things.",
 		"title": "Spear"
 	},
 	
 	//parts
 	"8e75cddb-040e-4813-8dd6-7e72f3288a91": {
-		"description": "Used to farm crops on your raft.",
+		"description": "Can be used to farm crops on your raft, doesn't trigger raids.",
 		"title": "Scrap Field"
 	},
 	"c80e2932-0d21-48bb-b5a2-dba03d73cfb7": {
-		"description": "A bigger version of the Scrap Field.",
+		"description": "Can be used to farm crops on your raft, unlike Scrap Field, youc an plant 2 crops, doesn't trigger raids.",
 		"title": "Big Farm"
 	},
 	"4a971f7d-14e6-454d-bce8-0879243c4474": {
@@ -60,7 +60,7 @@
 		"title": "Air Tank"
 	},
 	"80c9edb7-0f86-4899-bf60-c3baca3fa841": {
-		"description": "Turns regular bottled water into clean water that you can drink.",
+		"description": "Turns regular bottled water into clean water that you can drink, requires wood as fuel.",
 		"title": "Water Purifier"
 	},
 	"819fb238-a68b-4aab-a6f2-c1037f6bfb5b": {
@@ -68,11 +68,11 @@
 		"title": "Scrap Tree Farm"
 	},
 	"f3163e62-e6c3-475c-805e-559f8bb07ad1": {
-		"description": "Used to craft the mod's items.",
+		"description": "Used to craft the mod's items and others, doesn't craft everything tho.",
 		"title": "Scrap Workbench"
 	},
 	"ebabda72-94d8-40c5-ab07-7001d1b67380": {
-		"description": "Bee farm.",
+		"description": "A place for bees to exist, they produce besswax, wich you can use.",
 		"title": "Apiary"
 	},
 	"885513a7-baa3-44ee-aa6e-7546bf0715a7": {
@@ -101,7 +101,7 @@
 	},
 	"f95beb80-49c8-4d4c-98e9-5b87225c4570":{
 		"description": "Help?\n...\n\nAnyone out there?\n...",
-		"title": "Radio Antenna"
+		"title": "Makeshift Radio Antenna"
 	},
 	"e9c7d080-ae4b-4fec-b626-34afda6f5114":{
 		"description": "Plant. Grow. Press. Repeat.",
@@ -114,25 +114,25 @@
 
 	//sapplings
 	"eefb0967-d21c-445e-8120-0a09422e1374": {
-		"description": "Plant it in a tree farm to grow another tree.",
+		"description": "Plant it in a tree farm or on ground to grow another tree.",
 		"title": "Birch Tree Sappling"
 	},
 	"b84e5fbb-97f2-4de5-bc39-4adb325a56f1": {
-		"description": "Plant it in a tree farm to grow another tree.",
+		"description": "Plant it in a tree farm or on ground to grow another tree.",
 		"title": "Leafy Tree Sappling"
 	},
 	"01a4d4c6-469a-4d28-8c69-b74fff83fbdf": {
-		"description": "Plant it in a tree farm to grow another tree.",
+		"description": "Plant it in a tree farm or on ground to grow another tree.",
 		"title": "Spruce Tree Sappling"
 	},
 	"9e815dcf-cfb0-4672-b0f4-34f1e9ecc1a1": {
-		"description": "Plant it in a tree farm to grow another tree.",
+		"description": "Plant it in a tree farm or on ground to grow another tree.",
 		"title": "Pine Tree Sappling"
 	},
 
 	//consumable
 	"4bd05d7d-898c-4947-8788-e34b84b5d386": {
-		"description": "Water that was purified by the Water Purifier. Gives back 25 thirst points.",
+		"description": "Water that was purified by the Water Purifier. Gives back 25 thirst points. Plants require it to grow.",
 		"title": "Clean Water"
 	},
 
