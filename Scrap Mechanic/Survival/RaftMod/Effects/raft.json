@@ -41,6 +41,31 @@
 			}
 		]
 	},
+	"Craft - scrapworkbench":
+	{
+		"parameterList":
+		{
+			"Material": 7
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "event:/tools/multitool_refine",
+				"parameters":
+				[
+					"Material"
+				],
+				"delay": 0.0
+			},
+			{
+				"type": "particle",
+				"name": "p_tool_multiknife_refine_hit_wood",
+				"offset": { "x": 0.0, "y": 0.5, "z": 0.0 },
+				"delay": 0.05
+			}
+		]
+	},
 	"Antenna - Activation":
 	{
 		"effectList":

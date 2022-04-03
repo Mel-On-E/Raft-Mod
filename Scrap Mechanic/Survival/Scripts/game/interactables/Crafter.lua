@@ -488,6 +488,7 @@ function Crafter.cl_init( self )
 	
 
 	--raft
+	--TODO Don't create an effect for every crop, just set the uuid of the effect. I'm so stupid...
 	elseif shapeUuid == obj_scrap_purifier then
 		self.cl.mainEffects["fire"] = sm.effect.createEffect( "Fire - purifier", self.interactable )
 	elseif shapeUuid == obj_apiary then
@@ -538,8 +539,9 @@ function Crafter.cl_init( self )
 	
 	elseif shapeUuid == obj_grill then
 		self.cl.mainEffects["fire"] = sm.effect.createEffect( "Fire - small01", self.interactable )
+		self.cl.mainEffects["fish"] = sm.effect.createEffect("ShapeRenderable")
 	elseif shapeUuid == obj_scrap_workbench then
-		self.cl.mainEffects["craft"] = sm.effect.createEffect( "Multiknife - Use", self.interactable )
+		self.cl.mainEffects["craft"] = sm.effect.createEffect( "Craft - scrapworkbench", self.interactable )
 	end
 
 	
@@ -789,6 +791,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 	local crop = nil
 	local isFertilized = false
 	local craftProgress = 0
+	local recipe
 
 	local parent = self:getParent()
 	if not self.crafter.needsPower or ( parent and parent.active ) then
@@ -799,7 +802,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 			if val then
 				hasItems = true
 
-				local recipe = val.recipe
+				recipe = val.recipe
 				local recipeCraftTime = math.ceil( recipe.craftTime / self.crafter.speed ) + 120
 
 				--raft
@@ -1034,10 +1037,42 @@ function Crafter.client_onUpdate( self, deltaTime )
 			end
 		end
 	elseif shapeUuid == obj_grill then
+		if crop then
+			self.crop = crop
+		end
 		if isCrafting and not self.cl.mainEffects["fire"]:isPlaying() then
 			self.cl.mainEffects["fire"]:start()
+
+			local fish = sm.uuid.new(crop)
+			for _, itemId in ipairs(recipe.ingredientList) do
+				for __, uuid in pairs(itemId) do
+					if uuid ~= blk_scrapwood and type(uuid) ~= "number" then
+						fish = uuid
+					end
+				end		
+			end
+
+			self.cl.mainEffects["fish"]:setParameter("uuid", fish)
+			self.cl.mainEffects["fish"]:setScale(vec3Num(0.5))
+			self.cl.mainEffects["fish"]:setPosition(self.shape:getWorldPosition() + self.shape.at*0.375)
+
+			local rotation = self.shape:getWorldRotation() * sm.vec3.getRotation( self.shape.up, self.shape.right )
+			rotation = rotation * sm.vec3.getRotation( self.shape.at, -self.shape.up )
+			self.cl.mainEffects["fish"]:setRotation(rotation)
+			self.cl.mainEffects["fish"]:start()
+
 		elseif not isCrafting and self.cl.mainEffects["fire"]:isPlaying() then
 			self.cl.mainEffects["fire"]:stop()
+			self.cl.mainEffects["fish"]:stop()
+			self.cl.mainEffects["fish"]:setParameter("uuid", sm.uuid.new(self.crop))
+			self.cl.mainEffects["fish"]:setPosition(self.shape:getWorldPosition() + self.shape.at*0.475)
+
+			local rotation = self.shape:getWorldRotation() * sm.vec3.getRotation( self.shape.at, self.shape.right )
+			self.cl.mainEffects["fish"]:setRotation(rotation)
+			self.cl.mainEffects["fish"]:start()
+
+		elseif not isCrafting and not hasItems and self.cl.mainEffects["fish"]:isPlaying() then
+			self.cl.mainEffects["fish"]:stop()
 		end
 	elseif shapeUuid == obj_scrap_workbench then
 		if isCrafting and not self.cl.mainEffects["craft"]:isPlaying() then
