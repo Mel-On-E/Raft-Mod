@@ -36,10 +36,10 @@ local hookSize = vec3Num(0.1)
 local premiumDropChance = 0.1
 local maxThrowForce = 5
 local minThrowForce = 0.25
-local minWaitTime = 10.001
-local maxWaitTime = 30.001
+local minWaitTime = 10*40
+local maxWaitTime = 30*40
 
-local CatchTime = 1.5
+local CatchTime = 1.0
 local minBites = 1
 local maxBites = 6
 
@@ -59,15 +59,16 @@ function Rod.client_onCreate( self )
 
 	self.throwForce = 0
 	self.primaryState = 0
-	self.canFishOutLootThreshold = 0
+	self.fishBites = 0
 	self.isThrowing = false
 	self.isFishing = false
+	self.catchTimer = 0
 	self.hookPos = sm.vec3.zero()
 	self.hookDir = sm.vec3.zero()
 	self.lookDir = sm.vec3.zero()
 	self.trigger = nil
 
-	self.dropTimer = { timer = 0, effectTimer = 1, valid = maxWaitTime }
+	self.dropTimer = 0
 	self.useCD = { active = false, timer = 1 }
 end
 
@@ -185,7 +186,7 @@ function Rod:cl_playEffect( args )
 end
 
 function Rod:sv_playWaterSplash( args )
-	self.network:sendToClients("cl_playWaterSplash", { pos = self.hookPos, effect = args.effect, force = args.force })
+	self.network:sendToClients("cl_playWaterSplash", { pos = args.pos, effect = args.effect, force = args.force })
 end
 
 function Rod:cl_playWaterSplash( args )
@@ -207,24 +208,20 @@ function Rod:cl_reset()
 	self.isFishing = false
 	self.hookPos = sm.vec3.zero()
 	self.hookDir = sm.vec3.zero()
-	self.dropTimer = { timer = 0, effectTimer = 1, valid = maxWaitTime }
+	self.dropTimer = 0
 	self.ropeEffect:stop()
 	self.hookEffect:stop()
 end
 
 function Rod:cl_cancel( state )
 	if (state == 1 or state == 2) then
-		if (self.dropTimer.valid - self.dropTimer.timer) < CatchTime and self.isFishing then
+		if self.catchTimer > 0 and self.isFishing then
 			self.network:sendToServer("sv_itemDrop")
 			sm.effect.playEffect("Loot - Pickup", self.hookPos)
 
-			--sm.effect.playEffect("Water - HitWaterMassive", self.hookPos)
-			--self.network:sendToServer("sv_playWaterSplash", { effect = "Loot - Pickup", force = 10000 } )
-			self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterMassive", force = 10000 } )
-			--sm.effect.playEffect( "Water - HitWaterMassive", self.hookPos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one(), params )
+			self.network:sendToServer("sv_playWaterSplash", { pos = self.hookPos, effect = "Water - HitWaterMassive", force = 10000 } )
 		else
-			self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterTiny", force = 10000 } )
-			--sm.effect.playEffect( "Water - HitWaterTiny", self.hookPos, sm.vec3.zero(), sm.quat.identity(), sm.vec3.one(), params )
+			self.network:sendToServer("sv_playWaterSplash", { pos = self.hookPos, effect = "Water - HitWaterTiny", force = 10000 } )
 		end
 
 		if self.isFishing or self.isThrowing then
@@ -299,10 +296,10 @@ function Rod.client_onUpdate( self, dt )
 				self.isThrowing = false
 				self.isFishing = true
 				self.throwForce = 0
-				self.dropTimer.timer = math.random(minWaitTime,maxWaitTime)
-				self.dropTimer.valid = maxWaitTime
+				self.dropTimer = sm.game.getCurrentTick() + math.random(minWaitTime,maxWaitTime)
+				self.fishBites = math.random(minBites, maxBites)
 				self.network:sendToServer("sv_manageTrigger", "destroy")
-				self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterTiny", force = 10000 / math.ceil(self.dropTimer.timer) } )
+				self.network:sendToServer("sv_playWaterSplash", { pos = self.hookPos, effect = "Water - HitWaterTiny", force = 10000 / math.ceil(self.dropTimer) } )
 			elseif not hitWater and hit then
 				self:cl_reset()
 			end
@@ -313,34 +310,36 @@ function Rod.client_onUpdate( self, dt )
 		end
 	end
 
+	local owner = self.tool:getOwner()
+	if self.isFishing and (owner.character:isSwimming() or owner.character:isDiving() or self.tool:isSprinting()) then
+		self:cl_cancel(1)
+		return
+	end
+
 	self.hookOffset = self.hookOffset * (1 - dt*4)
+	self.catchTimer = self.catchTimer - dt
 
-	if self.dropTimer.timer > 0 then
-		self.dropTimer.timer = self.dropTimer.timer - dt
+	if self.dropTimer > sm.game.getCurrentTick() and self.isFishing then
+		local dif = self.dropTimer - sm.game.getCurrentTick()
 
-		if self.dropTimer.timer <= self.canFishOutLootThreshold + 1 and self.dropTimer.timer > 0 then
-			self.dropTimer.effectTimer = self.dropTimer.effectTimer - dt
-
-			if self.dropTimer.effectTimer <= 0 and self.dropTimer.timer > 1 then
-				self.dropTimer.effectTimer = 1
-				if self.dropTimer.timer > 2 then
-					self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterTiny", force = 10000 / math.ceil(self.dropTimer.timer) } )
+		if dif % 40 == 0 then
+			if dif / 40 - 2 < self.fishBites then
+				if self.fishBites > 1 then
+					self.network:sendToServer("sv_playWaterSplash", { pos = self.hookPos, effect = "Water - HitWaterTiny", force = 10000 / math.ceil(self.dropTimer) } )
 					self.network:sendToServer("sv_playEffect", { effect = "Eat - MunchSound", pos = self.hookPos, type = "effect" } )
-				else
-					self.network:sendToServer("sv_playWaterSplash", { effect = "Water - HitWaterBig", force = 10000 / math.ceil(self.dropTimer.timer) } )
+					self.fishBites = self.fishBites - 1
+				elseif self.fishBites == 1 then
+					self.network:sendToServer("sv_playWaterSplash", { pos = self.hookPos, effect = "Water - HitWaterBig", force = 10000 / math.ceil(self.dropTimer) } )
 					self.network:sendToServer("sv_playEffect", { effect = "Eat - MunchSound", pos = self.hookPos, type = "effect" } )
 					self.network:sendToServer("sv_playEffect", { effect = "Retrofmblip", pos = self.hookPos, type = "sound" } )
-					self.dropTimer.valid = self.dropTimer.timer
+					self.fishBites = self.fishBites - 1
+					self.catchTimer = CatchTime
 				end
 			end
 		end
-
-		sm.gui.displayAlertText(tostring(math.floor(self.dropTimer.timer)), 1)
-		if self.dropTimer.timer <= 0 then
-			self.dropTimer.timer = math.random(minWaitTime,maxWaitTime)
-			self.dropTimer.valid = maxWaitTime
-			self.canFishOutLootThreshold = math.random(minBites, maxBites)
-		end
+	elseif self.catchTimer < 0 then
+		self.dropTimer = sm.game.getCurrentTick() + math.random(minWaitTime,maxWaitTime)
+		self.fishBites = math.random(minBites, maxBites)
 	end
 
 	-- First person animation
@@ -520,7 +519,7 @@ function Rod.cl_onPrimaryUse( self, state )
 		self.ropeEffect:start()
 		self.hookEffect:start()
 
-		self.canFishOutLootThreshold = math.random(minBites, maxBites)
+		self.fishBites = math.random(minBites, maxBites)
 		sm.audio.play( "Sledgehammer - Swing" )
 	end
 end
@@ -555,13 +554,18 @@ function Rod.calculateFirePosition( self )
 	local pitch = math.asin( dir.z )
 	local right = sm.localPlayer.getRight()
 
-	local fireOffset = sm.vec3.new( 0.0, 0.0, 0.0 )
+	local fireOffset = sm.vec3.new( 1.0, 0.0, 0.75 )
 
 	if crouching then
-		fireOffset.z = 0.15
+		fireOffset.z = fireOffset.z + 0.15
 	else
-		fireOffset.z = 0.45
+		fireOffset.z = fireOffset.z + 0.45
 	end
+
+	fireOffset = sm.localPlayer.getDirection()
+	fireOffset.z = 0.0
+	fireOffset = fireOffset:normalize()*1.2
+	fireOffset.z = fireOffset.z + 1
 
 	if firstPerson then
 		fireOffset = fireOffset + right * 0.05
@@ -569,6 +573,8 @@ function Rod.calculateFirePosition( self )
 		fireOffset = fireOffset + right * 0.25
 		fireOffset = fireOffset:rotate( math.rad( pitch ), right )
 	end
+	
+
 	local firePosition = GetOwnerPosition( self.tool ) + fireOffset
 	return firePosition
 end
