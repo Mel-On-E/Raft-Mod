@@ -33,6 +33,10 @@
 		"description": "A sharp stick. Useful to poke and hurt things.",
 		"title": "Spear"
 	},
+	"bb641a4f-e391-441c-bc6d-0ae21a069477": {
+		"description": "A wooden hammer. Useful for all sorts of things, but not really good at them.",
+		"title": "Seldgehammer"
+	},
 	
 	//parts
 	"8e75cddb-040e-4813-8dd6-7e72f3288a91": {
