@@ -606,7 +606,7 @@
 		  "sticky": "-Y",
 		  "physicsMaterial": "Metal",
 		  "ratings": {
-			  "density": 5,
+			  "density": 1,
 			  "durability": 4,
 			  "friction": 3,
 			  "buoyancy": 4
@@ -1809,7 +1809,7 @@
 									]
 							}
 						},
-						"mesh": "$SURVIVAL_DATA/Harvestables/Mesh/Farmables/hvs_farmables_pigmentflower.fbx"
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ModifiedPlants/pigmentflower.fbx"
 					}
 				]
 			},
