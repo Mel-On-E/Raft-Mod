@@ -305,6 +305,8 @@ function Rod:cl_cancel( state )
 			sm.audio.play( "Sledgehammer - Swing" )
 		end
 
+		self.network:sendToServer("sv_manageTrigger", {pos = self.hookPos, state = "destroy"})
+
 		self:cl_reset()
 	end
 	return self.useCD.active
@@ -327,9 +329,16 @@ end
 
 function Rod:client_onFixedUpdate( dt )
 	local owner = self.tool:getOwner()
-	if self.useCD.active or owner.character:isSwimming() or owner.character:isDiving() then
+	if self.useCD.active or owner.character:isSwimming() or owner.character:isDiving() or self.tool:isSprinting()then
 		self.throwForce = 0
+		if self.isFishing or self.isThrowing then
+			self:cl_cancel(1)
+		end
 		return
+	end
+
+	if self.isFishing or self.isThrowing then
+		--print()
 	end
 
 	if self.tool:isEquipped() and self.primaryState == 1 or self.primaryState == 2 then
@@ -342,6 +351,7 @@ function Rod:client_onFixedUpdate( dt )
 	if sm.exists(self.ropeEffect) and self.ropeEffect:isPlaying() then
 		if self.isThrowing then
 			if self.hookDir.z > -1 then
+				self.throwForce = math.max(0.01, self.throwForce)
 				self.hookDir = self.hookDir - sm.vec3.new(0,0,0.05 / self.throwForce)
 			end
 			self.hookPos = self.hookPos + vec3Num(self.throwForce) * 3 * self.hookDir * dt
@@ -376,12 +386,6 @@ function Rod:client_onFixedUpdate( dt )
 		if self.hookDir:length() > 0 and self.hookPos:length() > 0 then
 			self:cl_calculateRodEffectData()
 		end
-	end
-
-	if self.isFishing and (owner.character:isSwimming() or owner.character:isDiving() or self.tool:isSprinting()) then
-		self:cl_cancel(1)
-		self.network:sendToServer("sv_manageTrigger", {pos = self.hookPos, state = "destroy"})
-		return
 	end
 
 	if self.dropTimer > sm.game.getCurrentTick() and self.isFishing then
@@ -575,7 +579,7 @@ end
 
 function Rod.cl_onPrimaryUse( self, state )
 	local owner = self.tool:getOwner()
-	if owner.character == nil or self.lookDir == sm.vec3.zero() or self.useCD.active or owner.character:isSwimming() or owner.character:isDiving() then
+	if owner.character == nil or self.lookDir == sm.vec3.zero() or self.useCD.active or owner.character:isSwimming() or owner.character:isDiving() or self.tool:isSprinting() then
 		return
 	end
 
