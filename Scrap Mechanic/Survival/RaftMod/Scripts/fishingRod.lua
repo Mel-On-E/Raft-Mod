@@ -74,6 +74,7 @@ function Rod.client_onCreate( self )
 	self.hookDir = sm.vec3.zero()
 	self.lookDir = sm.vec3.zero()
 	self.trigger = nil
+	self.triggers = {}
 
 	self.dropTimer = 0
 	self.useCD = { active = false, timer = 1 }
@@ -149,7 +150,7 @@ function Rod.loadAnimations( self )
 	local cameraWeight, cameraFPWeight = self.tool:getCameraWeights()
 end
 
-function Rod:sv_itemDrop()
+function Rod:sv_itemDrop(args, player)
 	local lootList = normalLoot
 	if math.random() <= premiumDropChance then
 		lootList = rareLoot
@@ -157,10 +158,10 @@ function Rod:sv_itemDrop()
 	local drop = SelectOne(lootList)
 
 	sm.container.beginTransaction()
-	sm.container.collect( self.player:getInventory(), drop.uuid, drop.quantity, 1 )
+	sm.container.collect( player:getInventory(), drop.uuid, drop.quantity, 1 )
 	sm.container.endTransaction()
 
-	self.network:sendToClient(self.player, "cl_itemDrop", drop )
+	self.network:sendToClient(player, "cl_itemDrop", drop )
 end
 
 function Rod:cl_itemDrop( drop )
@@ -179,21 +180,67 @@ end
 
 function Rod:cl_setTriggers( triggers )
 	for playerID, _ in pairs(triggers) do
-		if playerID == tostring(self.tool:getOwner().id) then
-			for k, v in pairs(triggers[playerID]) do
-				if k == "pos" and sm.exists(self.trigger) then
-					self.trigger:setWorldPosition( v )
-				elseif k == "create" then
-					if v then
-						self.trigger = sm.areaTrigger.createBox( hookSize * 4, self.hookPos, sm.quat.identity(), 8 )
-					elseif sm.exists(self.trigger) then
-						sm.areaTrigger.destroy(self.trigger)
-						break
+		local player = nil
+		for _, players in pairs(sm.player.getAllPlayers()) do
+			if tostring(players.id) == playerID then
+				player = players
+			end
+		end
+
+		if player then
+			--self
+			if playerID == tostring(sm.localPlayer.getPlayer().id) then
+				for k, v in pairs(triggers[playerID]) do
+					if k == "pos" and sm.exists(self.trigger) then
+						self.trigger:setWorldPosition( v )
+					elseif k == "create" then
+						if v then
+							self.trigger = sm.areaTrigger.createBox( hookSize * 4, self.hookPos, sm.quat.identity(), 8 )
+						elseif sm.exists(self.trigger) then
+							sm.areaTrigger.destroy(self.trigger)
+							break
+						end
 					end
 				end
+			else
+				--other
+				if self.triggers[playerID] then
+					for k, v in pairs(triggers[playerID]) do
+						if k == "pos" and sm.exists(self.triggers[playerID].hook) then
+							self.triggers[playerID].hook:setPosition( v )
+
+							local offset = v
+
+							local delta = ( self:calculateFirePositionMP( player ) - offset)
+							local rot = sm.vec3.getRotation(sm.vec3.new(0, 0, 1), delta)
+							local distance = sm.vec3.new(0.01, 0.01, delta:length())
+
+							self.triggers[playerID].rope:setPosition(offset + delta * 0.5)
+							self.triggers[playerID].rope:setScale(distance)
+							self.triggers[playerID].rope:setRotation(rot)
+							self.triggers[playerID].hook:setRotation( rot )
+							self.triggers[playerID].hook:start()
+							self.triggers[playerID].rope:start()
+						elseif k == "create" then
+							if not v then
+								self.triggers[playerID].hook:stop()
+								self.triggers[playerID].rope:stop()
+							end
+						end
+					end
+				else
+					local rope = sm.effect.createEffect("ShapeRenderable")
+					rope:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
+					rope:setParameter("color", sm.color.new(0,0,0))
+				
+					local hook = sm.effect.createEffect("ShapeRenderable")
+					hook:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
+					hook:setParameter("color", sm.color.new(1,0,0))
+					hook:setScale(hookSize)
+					self.triggers[playerID] = {rope = rope, hook = hook}
+				end
 			end
-		else
-			--TODO manage other players
+
 		end
 	end
 end
@@ -333,6 +380,7 @@ function Rod:client_onFixedUpdate( dt )
 
 	if self.isFishing and (owner.character:isSwimming() or owner.character:isDiving() or self.tool:isSprinting()) then
 		self:cl_cancel(1)
+		self.network:sendToServer("sv_manageTrigger", {pos = self.hookPos, state = "destroy"})
 		return
 	end
 
@@ -605,5 +653,28 @@ function Rod.calculateFirePosition( self )
 	
 
 	local firePosition = GetOwnerPosition( self.tool ) + fireOffset
+	return firePosition
+end
+
+function Rod.calculateFirePositionMP( self, player )
+	--calculate rope offset for other players
+	local character = player:getCharacter()
+
+	local dir = character:getDirection()
+	local pitch = math.asin( dir.z )
+	local right = sm.vec3.cross(dir, sm.vec3.new(0,0,1))
+	right = right:normalize()
+
+	local fireOffset = sm.vec3.new( 1.0, 0.0, 0.75 )
+
+	fireOffset = dir
+	fireOffset.z = 0.0
+	fireOffset = fireOffset:normalize()*1.2
+	fireOffset.z = fireOffset.z + 1
+
+	fireOffset = fireOffset + right * 0.25
+	fireOffset = fireOffset:rotate( math.rad( pitch ), right )
+
+	local firePosition = character:getWorldPosition() + fireOffset
 	return firePosition
 end
