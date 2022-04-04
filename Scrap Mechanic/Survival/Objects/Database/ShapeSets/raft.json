@@ -903,7 +903,7 @@
 			  "buoyancy": 5
 		  },
 		  "flammable": true
-	  },
+	  	},
 	  {
         "uuid": "ebabda72-94d8-40c5-ab07-7001d1b67380",
         "name": "obj_apiary",
@@ -1409,16 +1409,16 @@
 			"renderable": "$SURVIVAL_DATA/Objects/Raft/Renderable/obj_interactive_antenna.rend",
 			"color": "000000",
 			"box": {
-				"x": 3,
-				"y": 8,
-				"z": 4
+				"x": 4,
+				"y": 3,
+				"z": 3
 			},
 			"scripted": {
 				"filename": "$SURVIVAL_DATA/RaftMod/Scripts/antenna.lua",
 				"classname": "Antenna"
 			},
 			"rotationSet": "PropY",
-			"sticky": "-Y+X-X-Z+Z",
+		  	"sticky": "-Y",
 			"physicsMaterial": "Mechanical",
 			"ratings": {
 				"density": 3,
