@@ -2,10 +2,58 @@
 	"lodList": [
 		{
 			"minViewSize": 55,
-			"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Antenna0.fbx",
-			"pose0": "$SURVIVAL_DATA/Objects/Raft/Mesh/Antenna1.fbx",
+			"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/antenna.fbx",
+			"pose0": "$SURVIVAL_DATA/Objects/Raft/Mesh/antenna.fbx",
 			"subMeshMap": {
-				"shinymetal": {
+                            "lambert2":{
+							  "textureList": [
+								  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_dif.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_asg.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_nor.tga"
+							  ],
+							  "material": "DifAsgNor"
+						    },
+                            "phong1": {
+							  "material": "DifAsgNor",
+							  "textureList": [
+								  "$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_sunshake_dif.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_sunshake_asg.tga",
+								  "$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_sunshake_nor.tga"
+							  ]
+						    },
+                            "containerbattery": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_battery_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_battery_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_battery_nor.tga"
+								]
+							},
+							"connectionpoint": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_nor.tga"
+								]
+							},
+                            "screen": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_screen_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_screen_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_screen_nor.tga"
+								]
+							},
+                            "lambert11":{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/industrial/obj_industrial_antennatower_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/industrial/obj_industrial_antennatower_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/industrial/obj_industrial_antennatower_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+				            "shinymetal": {
                                 "custom": {
                                     "color": "5a5a5a"
                                 },
@@ -16,7 +64,7 @@
                                     "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
                                 ]
                             },
-				"shinymetal2": {
+				            "shinymetal2": {
                                 "custom": {
                                     "color": "a8a8a8"
                                 },
@@ -27,39 +75,42 @@
                                     "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
                                 ]
                             },
-				"shinymetal3": {
-                                "custom": {
-                                    "color": "3e81da"
-                                },
-                                "material": "DifAsgNor",
-                                "textureList": [
-                                    "$SURVIVAL_DATA/Objects/Raft/Textures/env_building_shinymetal2_dif.tga",
-                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
-                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
-                                ]
-                            },
-                            "shinymetal4": {
-                                "custom": {
-                                    "color": "5a5a5a"
-                                },
-                                "material": "DifAsgNor",
-                                "textureList": [
-                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_boltstripes_dif.tga",
-                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
-                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_boltstripes_nor.tga"
-                                ]
-                            },
-				"rubber": {
+                            "rubber": {
                                 "custom": {
                                     "color": "rubber"
                                 },
                                 "material": "DifAsgNor",
                                 "textureList": [
-                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_dif.tga",
+                                    "$SURVIVAL_DATA/Objects/Raft/Textures/Back.png",
                                     "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_asg.tga",
                                     "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_shinymetal_nor.tga"
                                 ]
                             },
+                            "Notepad": {
+							  "material": "DifAsgNor",
+							  "textureList": [
+								  "$CHALLENGE_DATA/Character/Char_observerbot/char_observerbot_tools_dif.tga",
+								  "$CHALLENGE_DATA/Character/Char_observerbot/char_observerbot_tools_asg.tga",
+								  "$CHALLENGE_DATA/Character/Char_observerbot/char_observerbot_tools_nor.tga"
+							  ]
+						    },
+                            "panels": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Terrain/Textures/Building/env_building_solarpanel_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_solarpanel_asg.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Building/env_building_solarpanel_nor.tga"
+								]
+							},
+                            "outfit_engineer_backpack": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Character/Char_Male/Outfit/Backpack/Outfit_engineer_backpack/outfit_engineer_backpack_dif.tga",
+					                "$SURVIVAL_DATA/Character/Char_Male/Outfit/Backpack/Outfit_engineer_backpack/outfit_engineer_backpack_asg.tga",
+					                "$SURVIVAL_DATA/Character/Char_Male/Outfit/Backpack/Outfit_engineer_backpack/outfit_engineer_backpack_nor.tga"
+								]
+							},
+				            
 				"radar": {
 					"material": "PoseAnimDifAsgNor",
 					"textureList": [
