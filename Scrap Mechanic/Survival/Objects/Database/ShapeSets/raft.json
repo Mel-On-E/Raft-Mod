@@ -634,6 +634,7 @@
 			]
 		  },
 		  "color": "a39d67",
+		  "stackSize": 10,
 		  "cylinder": {
 			"diameter": 1,
 			"depth": 1,
@@ -686,6 +687,7 @@
 			]
 		  },
 		  "color": "57410d",
+		  "stackSize": 10,
 		  "cylinder": {
 			"diameter": 1,
 			"depth": 1,
@@ -738,6 +740,7 @@
 			]
 		  },
 		  "color": "6b5a15",
+		  "stackSize": 10,
 		  "cylinder": {
 			"diameter": 1,
 			"depth": 2,
@@ -790,6 +793,7 @@
 			]
 		  },
 		  "color": "402c0d",
+		  "stackSize": 10,
 		  "cylinder": {
 			"diameter": 1,
 			"depth": 1,
