@@ -135,7 +135,7 @@ function SharkBotUnit.server_onCreate( self )
 	self.attackState01 = self.unit:createState( "meleeAttack" )
 	self.attackState01.meleeType = "ToteBotAttack"
 	self.attackState01.event = "melee"
-	self.attackState01.damage = 45
+	self.attackState01.damage = 55
 	self.attackState01.attackRange = 1.15
 	self.attackState01.animationCooldown = 0.825 * 40
 	self.attackState01.attackCooldown = 1.0 * 40
@@ -638,9 +638,9 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 		targetZ = self.target:getWorldPosition().z
 
 		if unitZ < targetZ and unitZ < -3 then
-			sm.physics.applyImpulse(self.unit.character, sm.vec3.new(0,0,500))
+			sm.physics.applyImpulse(self.unit.character, sm.vec3.new(0,0,1000))
 		elseif unitZ > targetZ then
-			sm.physics.applyImpulse(self.unit.character, sm.vec3.new(0,0,-500))
+			sm.physics.applyImpulse(self.unit.character, sm.vec3.new(0,0,-1000))
 		end
 	end
 end

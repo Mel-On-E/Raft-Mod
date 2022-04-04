@@ -512,10 +512,10 @@
 		},
 		"movement":
 		{
-			"moveSpeed": 1.8,
-			"slowDownSpeed": 1.0,
-			"crouchSpeed": 1.0,
-			"sprintSpeed": 4.0,
+			"moveSpeed": 3.6,
+			"slowDownSpeed": 2.0,
+			"crouchSpeed": 2.0,
+			"sprintSpeed": 8.0,
 			"headingRotationSpeed": 9.4245,
 			"facingRotationSpeed": 9.4245,
 			"canSwim": true
