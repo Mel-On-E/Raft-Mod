@@ -2,8 +2,6 @@ dofile "$GAME_DATA/Scripts/game/AnimationUtil.lua"
 dofile "$SURVIVAL_DATA/Scripts/util.lua"
 dofile "$SURVIVAL_DATA/Scripts/game/survival_shapes.lua"
 
-local Damage = 28
-
 Hook = class()
 
 local renderables = {
@@ -46,15 +44,12 @@ local hookSize = vec3Num(0.25)
 local hookDirAdjustThreshold = 2
 local colllectHookRange = 0.75
 local hookPullForce = 2
-local maxThrowForce = 10
-local minThrowForce = 0.25
---raft
+local maxThrowForce = 25
+local minThrowForce = 5
+local chargeUpTime = 2
+
 
 function Hook.client_onCreate( self )
-	self.shootEffect = sm.effect.createEffect( "SpudgunBasic - BasicMuzzel" )
-	self.shootEffectFP = sm.effect.createEffect( "SpudgunBasic - FPBasicMuzzel" )
-
-	--raft
 	self.player = sm.localPlayer.getPlayer()
 
 	self.ropeEffect = sm.effect.createEffect("ShapeRenderable")
@@ -86,9 +81,6 @@ function Hook.loadAnimations( self )
 	self.tpAnimations = createTpAnimations(
 		self.tool,
 		{
-			shoot = { "spudgun_shoot", { crouch = "spudgun_crouch_shoot" } },
-			aim = { "spudgun_aim", { crouch = "spudgun_crouch_aim" } },
-			aimShoot = { "spudgun_aim_shoot", { crouch = "spudgun_crouch_aim_shoot" } },
 			idle = { "spudgun_idle" },
 			pickup = { "spudgun_pickup", { nextAnimation = "idle" } },
 			putdown = { "spudgun_putdown" }
@@ -131,52 +123,12 @@ function Hook.loadAnimations( self )
 				idle = { "spudgun_idle", { looping = true } },
 				shoot = { "spudgun_shoot", { nextAnimation = "idle" } },
 
-				aimInto = { "spudgun_aim_into", { nextAnimation = "aimIdle" } },
-				aimExit = { "spudgun_aim_exit", { nextAnimation = "idle", blendNext = 0 } },
-				aimIdle = { "spudgun_aim_idle", { looping = true} },
-				aimShoot = { "spudgun_aim_shoot", { nextAnimation = "aimIdle"} },
-
 				sprintInto = { "spudgun_sprint_into", { nextAnimation = "sprintIdle",  blendNext = 0.2 } },
 				sprintExit = { "spudgun_sprint_exit", { nextAnimation = "idle",  blendNext = 0 } },
 				sprintIdle = { "spudgun_sprint_idle", { looping = true } },
 			}
 		)
 	end
-
-	self.normalFireMode = {
-		fireCooldown = 0.20,
-		spreadCooldown = 0.18,
-		spreadIncrement = 2.6,
-		spreadMinAngle = .25,
-		spreadMaxAngle = 8,
-		fireVelocity = 130.0,
-
-		minDispersionStanding = 0.1,
-		minDispersionCrouching = 0.04,
-
-		maxMovementDispersion = 0.4,
-		jumpDispersionMultiplier = 2
-	}
-
-	self.aimFireMode = {
-		fireCooldown = 0.20,
-		spreadCooldown = 0.18,
-		spreadIncrement = 1.3,
-		spreadMinAngle = 0,
-		spreadMaxAngle = 8,
-		fireVelocity =  130.0,
-
-		minDispersionStanding = 0.01,
-		minDispersionCrouching = 0.01,
-
-		maxMovementDispersion = 0.4,
-		jumpDispersionMultiplier = 2
-	}
-
-	self.fireCooldownTimer = 0.0
-	self.spreadCooldownTimer = 0.0
-
-	self.movementDispersion = 0.0
 
 	self.sprintCooldownTimer = 0.0
 	self.sprintCooldown = 0.3
@@ -271,7 +223,7 @@ end
 
 function Hook:client_onFixedUpdate( dt )
 	if self.tool:isEquipped() and self.primaryState == 1 or self.primaryState == 2 then
-		self.throwForce = self.throwForce < maxThrowForce and self.throwForce + dt*2 or maxThrowForce
+		self.throwForce = math.min(self.throwForce + dt/chargeUpTime * maxThrowForce, maxThrowForce)
 	end
 end
 
@@ -327,11 +279,9 @@ function Hook.client_onUpdate( self, dt )
 			self.network:sendToServer("sv_manageTrigger")
 			for _, body in ipairs( self.shapeTrigger:getContents() ) do
 				if sm.exists( body ) then
-					--for v, shape in pairs(sm.body.getCreationShapes( body )) do
-					--	if isAnyOf(shape:getShapeUuid(), collectables ) then
-							self.network:sendToServer("sv_applyImpulse", body)
-					--	end
-					--end
+					if body:getMass() < 100 then
+						self.network:sendToServer("sv_applyImpulse", body)
+					end
 				end
 			end
 
@@ -378,87 +328,8 @@ function Hook.client_onUpdate( self, dt )
 		return
 	end
 
-	local effectPos, rot
-
-	if self.tool:isLocal() then
-
-		local zOffset = 0.6
-		if self.tool:isCrouching() then
-			zOffset = 0.29
-		end
-
-		local dir = sm.localPlayer.getDirection()
-		local firePos = self.tool:getFpBonePos( "pejnt_barrel" )
-
-		if not self.aiming then
-			effectPos = firePos + dir * 0.2
-		else
-			effectPos = firePos + dir * 0.45
-		end
-
-		rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), dir )
-
-
-		self.shootEffectFP:setPosition( effectPos )
-		self.shootEffectFP:setVelocity( self.tool:getMovementVelocity() )
-		self.shootEffectFP:setRotation( rot )
-	end
-	local pos = self.tool:getTpBonePos( "pejnt_barrel" )
-	local dir = self.tool:getTpBoneDir( "pejnt_barrel" )
-
-	effectPos = pos + dir * 0.2
-
-	rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), dir )
-
-
-	self.shootEffect:setPosition( effectPos )
-	self.shootEffect:setVelocity( self.tool:getMovementVelocity() )
-	self.shootEffect:setRotation( rot )
-
 	-- Timers
-	self.fireCooldownTimer = math.max( self.fireCooldownTimer - dt, 0.0 )
-	self.spreadCooldownTimer = math.max( self.spreadCooldownTimer - dt, 0.0 )
 	self.sprintCooldownTimer = math.max( self.sprintCooldownTimer - dt, 0.0 )
-
-
-	if self.tool:isLocal() then
-		local dispersion = 0.0
-		local fireMode = self.aiming and self.aimFireMode or self.normalFireMode
-		local recoilDispersion = 1.0 - ( math.max( fireMode.minDispersionCrouching, fireMode.minDispersionStanding ) + fireMode.maxMovementDispersion )
-
-		if isCrouching then
-			dispersion = fireMode.minDispersionCrouching
-		else
-			dispersion = fireMode.minDispersionStanding
-		end
-
-		if self.tool:getRelativeMoveDirection():length() > 0 then
-			dispersion = dispersion + fireMode.maxMovementDispersion * self.tool:getMovementSpeedFraction()
-		end
-
-		if not self.tool:isOnGround() then
-			dispersion = dispersion * fireMode.jumpDispersionMultiplier
-		end
-
-		self.movementDispersion = dispersion
-
-		self.spreadCooldownTimer = clamp( self.spreadCooldownTimer, 0.0, fireMode.spreadCooldown )
-		local spreadFactor = fireMode.spreadCooldown > 0.0 and clamp( self.spreadCooldownTimer / fireMode.spreadCooldown, 0.0, 1.0 ) or 0.0
-
-		self.tool:setDispersionFraction( clamp( self.movementDispersion + spreadFactor * recoilDispersion, 0.0, 1.0 ) )
-
-		if self.aiming then
-			if self.tool:isInFirstPersonView() then
-				self.tool:setCrossHairAlpha( 0.0 )
-			else
-				self.tool:setCrossHairAlpha( 1.0 )
-			end
-			self.tool:setInteractionTextSuppressed( true )
-		else
-			self.tool:setCrossHairAlpha( 1.0 )
-			self.tool:setInteractionTextSuppressed( false )
-		end
-	end
 
 	-- Sprint block
 	local blockSprint = self.aiming or self.sprintCooldownTimer > 0.0
@@ -716,35 +587,6 @@ function Hook.calculateTpMuzzlePos( self )
 
 	local fakePosition = fakeOffset + GetOwnerPosition( self.tool )
 	return fakePosition
-end
-
-function Hook.calculateFpMuzzlePos( self )
-	local fovScale = ( sm.camera.getFov() - 45 ) / 45
-
-	local up = sm.localPlayer.getUp()
-	local dir = sm.localPlayer.getDirection()
-	local right = sm.localPlayer.getRight()
-
-	local muzzlePos45 = sm.vec3.new( 0.0, 0.0, 0.0 )
-	local muzzlePos90 = sm.vec3.new( 0.0, 0.0, 0.0 )
-
-	if self.aiming then
-		muzzlePos45 = muzzlePos45 - up * 0.2
-		muzzlePos45 = muzzlePos45 + dir * 0.5
-
-		muzzlePos90 = muzzlePos90 - up * 0.5
-		muzzlePos90 = muzzlePos90 - dir * 0.6
-	else
-		muzzlePos45 = muzzlePos45 - up * 0.15
-		muzzlePos45 = muzzlePos45 + right * 0.2
-		muzzlePos45 = muzzlePos45 + dir * 1.25
-
-		muzzlePos90 = muzzlePos90 - up * 0.15
-		muzzlePos90 = muzzlePos90 + right * 0.2
-		muzzlePos90 = muzzlePos90 + dir * 0.25
-	end
-
-	return self.tool:getFpBonePos( "pejnt_barrel" ) + sm.vec3.lerp( muzzlePos45, muzzlePos90, fovScale )
 end
 
 function Hook.cl_onPrimaryUse( self, state )
