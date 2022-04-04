@@ -1088,7 +1088,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 		elseif not isCrafting and not hasItems and self.cl.mainEffects["fish"]:isPlaying() then
 			self.cl.mainEffects["fish"]:stop()
 		end
-	elseif shapeUuid == obj_scrap_workbench or obj_seed_press then
+	elseif shapeUuid == obj_scrap_workbench or shapeUuid == obj_seed_press then
 		if isCrafting and not self.cl.mainEffects["craft"]:isPlaying() then
 			self.cl.mainEffects["craft"]:start()
 		elseif not isCrafting and self.cl.mainEffects["craft"]:isPlaying() then
