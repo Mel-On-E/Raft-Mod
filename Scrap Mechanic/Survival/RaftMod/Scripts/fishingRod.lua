@@ -43,6 +43,13 @@ local CatchTime = 1.0
 local minBites = 1
 local maxBites = 6
 
+function Rod.server_onCreate( self )
+	self.hooks = {}
+end
+
+function Rod.server_onRefresh( self )
+	self:server_onCreate()
+end
 
 function Rod.client_onCreate( self )
 	self.player = sm.localPlayer.getPlayer()
@@ -160,17 +167,39 @@ function Rod:cl_itemDrop( drop )
 	sm.gui.displayAlertText( "Fished item: #ff9d00"..sm.shape.getShapeTitle(drop.uuid).." #df7f00x"..tostring(drop.quantity) )
 end
 
-function Rod:sv_manageTrigger( action )
-	if action ~= nil then
-		if action == "create" then
-			self.trigger = sm.areaTrigger.createBox( hookSize * 4, self.hookPos, sm.quat.identity(), 8 )
+function Rod:sv_manageTrigger( args, player )
+	if args.state == "create" then
+		self.hooks[tostring(player.id)] = {create = true, pos = args.pos}
+	elseif args.state == "destroy" then
+		self.hooks[tostring(player.id)] = {create = false, pos = args.pos}
+	else
+		self.hooks[tostring(player.id)] = {pos = args.pos}
+	end
+end
+
+function Rod:cl_setTriggers( triggers )
+	for playerID, _ in pairs(triggers) do
+		if playerID == tostring(self.tool:getOwner().id) then
+			for k, v in pairs(triggers[playerID]) do
+				if k == "pos" and sm.exists(self.trigger) then
+					self.trigger:setWorldPosition( v )
+				elseif k == "create" then
+					if v then
+						self.trigger = sm.areaTrigger.createBox( hookSize * 4, self.hookPos, sm.quat.identity(), 8 )
+					elseif sm.exists(self.trigger) then
+						sm.areaTrigger.destroy(self.trigger)
+						break
+					end
+				end
+			end
 		else
-			sm.areaTrigger.destroy(self.trigger)
-			return
+			--TODO manage other players
 		end
 	end
+end
 
-	self.trigger:setWorldPosition( self.hookPos )
+function Rod:server_onFixedUpdate( dt )
+	self.network:sendToClients("cl_setTriggers", self.hooks)
 end
 
 function Rod:sv_playEffect( args )
@@ -259,17 +288,9 @@ function Rod:client_onFixedUpdate( dt )
 	if self.tool:isEquipped() and self.primaryState == 1 or self.primaryState == 2 then
 		self.throwForce = self.throwForce < maxThrowForce and self.throwForce + dt*2 or maxThrowForce
 	end
-end
 
-function Rod.client_onUpdate( self, dt )
-	self.lookDir = sm.localPlayer.getDirection()
-
-	if self.useCD.active then
-		self.useCD.timer = self.useCD.timer - dt
-		if self.useCD.timer <= 0 then
-			self.useCD = { active = false, timer = 1 }
-		end
-	end
+	self.hookOffset = self.hookOffset * (1 - dt*4)
+	self.catchTimer = self.catchTimer - dt
 
 	if sm.exists(self.ropeEffect) and self.ropeEffect:isPlaying() then
 		if self.isThrowing then
@@ -277,7 +298,7 @@ function Rod.client_onUpdate( self, dt )
 				self.hookDir = self.hookDir - sm.vec3.new(0,0,0.05 / self.throwForce)
 			end
 			self.hookPos = self.hookPos + vec3Num(self.throwForce) * 3 * self.hookDir * dt
-			self.network:sendToServer("sv_manageTrigger")
+			self.network:sendToServer("sv_manageTrigger", {pos = self.hookPos})
 
 			local hitWater = false
 			if sm.exists(self.trigger) then
@@ -298,7 +319,7 @@ function Rod.client_onUpdate( self, dt )
 				self.throwForce = 0
 				self.dropTimer = sm.game.getCurrentTick() + math.random(minWaitTime,maxWaitTime)
 				self.fishBites = math.random(minBites, maxBites)
-				self.network:sendToServer("sv_manageTrigger", "destroy")
+				self.network:sendToServer("sv_manageTrigger", {pos = self.hookPos, state = "destroy"})
 				self.network:sendToServer("sv_playWaterSplash", { pos = self.hookPos, effect = "Water - HitWaterTiny", force = 10000 / math.ceil(self.dropTimer) } )
 			elseif not hitWater and hit then
 				self:cl_reset()
@@ -310,14 +331,10 @@ function Rod.client_onUpdate( self, dt )
 		end
 	end
 
-	local owner = self.tool:getOwner()
 	if self.isFishing and (owner.character:isSwimming() or owner.character:isDiving() or self.tool:isSprinting()) then
 		self:cl_cancel(1)
 		return
 	end
-
-	self.hookOffset = self.hookOffset * (1 - dt*4)
-	self.catchTimer = self.catchTimer - dt
 
 	if self.dropTimer > sm.game.getCurrentTick() and self.isFishing then
 		local dif = self.dropTimer - sm.game.getCurrentTick()
@@ -340,6 +357,18 @@ function Rod.client_onUpdate( self, dt )
 	elseif self.catchTimer < 0 then
 		self.dropTimer = sm.game.getCurrentTick() + math.random(minWaitTime,maxWaitTime)
 		self.fishBites = math.random(minBites, maxBites)
+	end
+
+end
+
+function Rod.client_onUpdate( self, dt )
+	self.lookDir = sm.localPlayer.getDirection()
+
+	if self.useCD.active then
+		self.useCD.timer = self.useCD.timer - dt
+		if self.useCD.timer <= 0 then
+			self.useCD = { active = false, timer = 1 }
+		end
 	end
 
 	-- First person animation
@@ -513,7 +542,7 @@ function Rod.cl_onPrimaryUse( self, state )
 		self.isThrowing = true
 		self.hookPos = self:calculateFirePosition() + self.lookDir / 2
 		self.hookDir = self.lookDir
-		self.network:sendToServer("sv_manageTrigger", "create")
+		self.network:sendToServer("sv_manageTrigger", {pos = self.hookPos, state = "create"})
 
 		self:cl_calculateRodEffectData()
 		self.ropeEffect:start()
