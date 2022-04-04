@@ -475,39 +475,27 @@
 	//RAFT
 	"817c128f-c3c0-4e9e-bfa6-30337bbfb0a4": // Sharkbot
 	{
-		"renderables":
-		[
-			"$SURVIVAL_DATA/Character/Char_Totebot/char_totebot.rend",
-			"$SURVIVAL_DATA/Character/Char_Totebot/char_totebot_head_01.rend",
-			"$SURVIVAL_DATA/Character/Char_Totebot/char_totebot_swim.rend",
-			"$SURVIVAL_DATA/Character/Char_Totebot/char_totebot_head_01_swim.rend"
-		],
-		"ragdoll": "$SURVIVAL_DATA/Character/Char_Totebot/char_totebot_ragdoll.json",
-		"tumble":
-		{
+		"renderables":["$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/SharkBot.rend"],
+		"ragdoll": "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/char_sharkbot_ragdoll.json",
+		"tumble":{
 			"col": "$SURVIVAL_DATA/Character/Char_Totebot/char_totebot_tumble_col.obj",
-			"offset": [0.0, 0.0, 0.883]
+			"offset": [0.0, 0.0, 0.883], "mass": 675.0
+		},
+		"hit": 
+		{
+			"stand":{
+				"col": "$SURVIVAL_DATA/Character/Char_Totebot/char_totebot_hit_col.obj",
+				"offset": [0.0, 0.0, 0.9] }
 		},
 		"unit":
 		{
 			"scriptPath": "$SURVIVAL_DATA/RaftMod/Scripts/SharkBotUnit.lua",
-			"scriptClass": "SharkBotUnit",
-			"data":
-			{}
-			
-		},
-		"hit":
-		{
-			"stand":
-			{
-				"col": "$SURVIVAL_DATA/Character/Char_Totebot/char_totebot_hit_col.obj",
-				"offset": [0.0, 0.0, 0.75]
-			}
+			"scriptClass": "SharkBotUnit"
 		},
 		"character": 
 		{
-			"scriptPath": "$SURVIVAL_DATA/Scripts/game/characters/TotebotCharacter.lua",
-			"scriptClass": "TotebotCharacter",
+			"scriptPath": "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/SharkBotCharacter.lua",
+			"scriptClass": "SharkBotCharacter",
 			"data": {}
 		},
 		"movement":
@@ -520,22 +508,7 @@
 			"facingRotationSpeed": 9.4245,
 			"canSwim": true
 		},
-		"sound":
-		{
-			"movementSoundFrames": [ 1 ],
-			"crouchedMovementSoundFrames": [ 1 ]
-		},
-		"capsule":
-		{
-			"radius": 0.5,
-			"height": 1.25
-		},
-		"paint":
-		{
-			"enable": true,
-			"defaultColor": "ffffff",
-			"effect": "Paintcharacter - Small"
-		},
+		"capsule":{ "radius": 0.7,"height": 1.4 },
 		"mass": 275.0
 	}
 }

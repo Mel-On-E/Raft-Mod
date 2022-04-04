@@ -1,0 +1,58 @@
+{
+	"color": "304352",
+	"lodList": [{
+		"mesh": "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/shark.dae",
+		"subMeshMap":{
+				"tapebot_body": {
+					"material": "DifAsgNor",
+					"textureList": [
+						"$SURVIVAL_DATA/Character/Char_Tapebot/char_tapebot_body_dif.tga",
+						"$SURVIVAL_DATA/Character/Char_Tapebot/char_tapebot_body_asg.tga",
+						"$SURVIVAL_DATA/Character/Char_Tapebot/char_tapebot_body_nor.tga"
+					]
+				},
+				"tapebot_head": {
+					"material": "DifAsgNor",
+					"textureList": [
+						"$SURVIVAL_DATA/Character/Char_Tapebot/char_tapebot_head01_dif.tga",
+						"$SURVIVAL_DATA/Character/Char_Tapebot/char_tapebot_head02_asg.tga",
+						"$SURVIVAL_DATA/Character/Char_Tapebot/char_tapebot_head02_nor.tga"
+					]
+				}
+			},
+		"animationList" : [
+			{ "name" : "idle", "file" : 			"$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_onground.dae", "looping" : true },
+			
+			{ "name" : "ground_a", "file" : 		"$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_ground_action.dae" },
+			{ "name" : "attack", "file" : 			"$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_attack.dae" },
+			
+			{ "name" : "swim_idle", 				"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_swim_idle.dae", "looping" : true },
+			{ "name" : "swim_fwd", 					"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "swim_sprint", 				"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "swim_left", 				"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_swim_left.dae", "looping" : true },
+			{ "name" : "swim_right", 				"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_swim_right.dae", "looping" : true },
+			{ "name" : "swim_bwd", 					"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "swim_bwd_left", 			"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "swim_bwd_right", 			"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "swim_up", 					"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "swim_down", 				"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "swim_bwd_up", 				"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "swim_bwd_down", 			"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "swim_shuffle_left", 		"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_swim_left.dae", "looping" : true },
+			{ "name" : "swim_shuffle_right", 		"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_swim_right.dae", "looping" : true },
+			
+			
+			
+			{ "name" : "run", 					"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "run_left", 				"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "run_right", 			"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+
+			{ "name" : "run_bwd", 				"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "run_bwd_left", 			"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true },
+			{ "name" : "run_bwd_right", 		"file" : "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Animations/shark_walk.dae", "looping" : true }
+
+		
+		],
+		"maxViewDistance": 1000.0
+	}]
+} 
