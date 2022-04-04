@@ -897,6 +897,11 @@ function Crafter.client_onUpdate( self, deltaTime )
 			self.cl.mainEffects["bees"]:stop()
 		end
 	elseif shapeUuid == obj_scrap_field or shapeUuid == obj_large_field then
+		if crop then
+			self.crop = crop
+		else
+			crop = self.crop
+		end
 		worldPosition = self.shape:getWorldPosition()
 		local bigFarm = shapeUuid == obj_large_field
 		if bigFarm then
@@ -933,7 +938,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 			end
 		end
 
-		if (isCrafting and self.cl.mainEffects[crop]:isPlaying()) or reload then
+		if (crop and self.cl.mainEffects[crop]:isPlaying()) or reload then
 			local offset = sm.vec3.zero()
 			local rotation = self.shape:getWorldRotation()
 			if crop == tostring(obj_plantables_carrot) then
@@ -1008,7 +1013,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 			end
 		end
 
-		if (isCrafting and growEffect) or reload then
+		if growEffect or reload then
 			local offset = -self.shape.at*0.5
 			local scale = 0.4
 			local rotation = self.shape:getWorldRotation()
@@ -1057,22 +1062,28 @@ function Crafter.client_onUpdate( self, deltaTime )
 
 			self.cl.mainEffects["fish"]:setParameter("uuid", fish)
 			self.cl.mainEffects["fish"]:setScale(vec3Num(0.5))
+			self.cl.mainEffects["fish"]:start()
+		elseif isCrafting then
 			self.cl.mainEffects["fish"]:setPosition(self.shape:getWorldPosition() + self.shape.at*0.375)
 
 			local rotation = self.shape:getWorldRotation() * sm.vec3.getRotation( self.shape.up, self.shape.right )
-			rotation = rotation * sm.vec3.getRotation( self.shape.at, -self.shape.up )
+			rotation = rotation *sm.quat.lookRotation(sm.vec3.new(0,1,0), sm.vec3.new(0,0,1) )
 			self.cl.mainEffects["fish"]:setRotation(rotation)
-			self.cl.mainEffects["fish"]:start()
 
 		elseif not isCrafting and self.cl.mainEffects["fire"]:isPlaying() then
 			self.cl.mainEffects["fire"]:stop()
 			self.cl.mainEffects["fish"]:stop()
+		elseif not isCrafting and hasItems then
 			self.cl.mainEffects["fish"]:setParameter("uuid", sm.uuid.new(self.crop))
+			self.cl.mainEffects["fish"]:setScale(vec3Num(0.5))
+			if not self.cl.mainEffects["fish"]:isPlaying() then
+				self.cl.mainEffects["fish"]:start()
+			end
+
 			self.cl.mainEffects["fish"]:setPosition(self.shape:getWorldPosition() + self.shape.at*0.475)
 
-			local rotation = self.shape:getWorldRotation() * sm.vec3.getRotation( self.shape.at, self.shape.right )
+			local rotation = self.shape:getWorldRotation() * sm.quat.lookRotation(sm.vec3.new(1,0,0), sm.vec3.new(0,1,0) )
 			self.cl.mainEffects["fish"]:setRotation(rotation)
-			self.cl.mainEffects["fish"]:start()
 
 		elseif not isCrafting and not hasItems and self.cl.mainEffects["fish"]:isPlaying() then
 			self.cl.mainEffects["fish"]:stop()
