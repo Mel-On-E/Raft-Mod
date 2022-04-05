@@ -83,7 +83,7 @@ local crafters = {
 	-- ScrapPurifier
 	[tostring( obj_scrap_purifier )] = {
 		needsPower = false,
-		slots = 1,
+		slots = 2,
 		speed = 1,
 		recipeSets = {
 			{ name = "scrappurifier", locked = false }
