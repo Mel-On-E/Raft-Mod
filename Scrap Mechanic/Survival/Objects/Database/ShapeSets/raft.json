@@ -539,7 +539,7 @@
 		  "box": {
 			  "x": 7,
 			  "y": 6,
-			  "z": 13
+			  "z": 9
 		  },
 		  "scripted": {
 			  "filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
