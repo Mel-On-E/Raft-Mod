@@ -1646,6 +1646,50 @@
 			"autoTool": "2bff990a-0e74-43c7-b7dc-889b3a086fa3"
 		},
 		{
+			"uuid": "f74c2891-79a9-45e0-982e-4896651c2259",
+			"name": "obj_potato",
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 1500,
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ModifiedPlants/Potato.fbx",
+						"subMeshMap": {
+							"potato": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_ammo_potato_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_ammo_potato_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_ammo_potato_nor.tga"
+								]
+							}
+						}
+					}
+				]
+			},
+			"color": "495975",
+			"box": {
+				"x": 2,
+				"y": 2,
+				"z": 2
+			},
+			"itemStack": {},
+			"rotationSet": "PropY",
+			"sticky": "-Y+Y",
+			"physicsMaterial": "Fruit",
+			"ratings": {
+				"density": 2,
+				"durability": 2,
+				"friction": 4,
+				"buoyancy": 7
+			},
+			"flammable": true,
+			"consumable": true,
+			"stackSize": 20,
+			"restrictions": {
+				"erasable": true
+			}
+		},
+		{
 			"uuid": "67dd0023-023d-46cb-9839-e4ada2609a9b",
 			"name": "obj_grill",
 			"renderable": {
