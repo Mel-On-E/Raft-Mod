@@ -7,7 +7,7 @@ local Damage = 10
 Sledgehammer = class()
 
 local renderables = {
-	"$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer.rend"
+	"$SURVIVAL_DATA/Character/Char_Tools/Char_woodsledgehammer/char_woodsledgehammer.rend"
 }
 
 local renderablesTp = {"$GAME_DATA/Character/Char_Male/Animations/char_male_tp_sledgehammer.rend", "$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_tp_animlist.rend"}
