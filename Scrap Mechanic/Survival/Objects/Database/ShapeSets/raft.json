@@ -171,7 +171,7 @@
 		  "ratings": {
 			  "density": 1,
 			  "durability": 3,
-			  "friction": 5,
+			  "friction": 10,
 			  "buoyancy": 10
 		  },
 		  "flammable": true
@@ -1294,48 +1294,55 @@
 		  "renderable": {
 			"lodList": [
 				{
+					"minViewSize": 12,
 					"subMeshList": [
 						{
-							"textureList": [
-								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
-								"$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
-								"",
-								"$GAME_DATA/Objects/Textures/industrial/obj_industrial_beamshelf_ao.tga"
-							],
-							"material": "DifAsgAo"
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+								],
+								"material": "DifAsgNor"
 						}
 					],
-					"mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_beamshelf.fbx",
-					"includes": [
-						"POSITION",
-						"UV0",
-						"UV1",
-						"NORMAL",
-						"TANGENTS"
-					]
+					"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
+				},
+				{
+					"subMeshList": [
+						{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+									""
+								],
+								"material": "DifAsg"
+						}
+					],
+					"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
 				}
 			]
-		  },
-		  "color": "#ffffff",
-		  "box": {
-			"x": 4,
-			"y": 1,
-			"z": 4
-		  },
-		  "rotationSet": "PropYZ",
-		  "physicsMaterial": "Wood",
-		  "scripted": {
-			  "filename": "$SURVIVAL_DATA/RaftMod/Scripts/sail.lua",
-			  "classname": "Sail"
-		  },
-		  "ratings": {
-			  "density": 2,
-			  "durability": 3,
-			  "friction": 5,
-			  "buoyancy": 8
-		  },
-		  "flammable": false,
-		  "stackSize": 10
+		},
+		"color": "00ff00",
+		"cylinder": {
+			"diameter": 1,
+			"depth": 1,
+			"margin": 0.1,
+			"axis": "Y"
+		},
+		"scripted": {
+			"filename": "$SURVIVAL_DATA/RaftMod/Scripts/sail.lua",
+			"classname": "Sail"
+		},
+		"rotationSet": "PropY",
+		"sticky": "-Y",
+		"physicsMaterial": "Plastic",
+		"ratings": {
+			"density": 2,
+			"durability": 4,
+			"friction": 5,
+			"buoyancy": 8
+		},
+		"flammable": true
 	  },
 		{
 			"uuid": "c2418698-7a91-40fa-95a3-3be5ddb3ec1d",
