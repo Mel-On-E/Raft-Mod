@@ -1371,9 +1371,9 @@
 		},
 		"color": "00ff00",
 		"box": {
-			"x": 1,
-			"y": 5, //hauteur
-			"z": 5
+			"x": 5,
+			"y": 6,
+			"z": 1
 		},
 		"scripted": {
 			"filename": "$SURVIVAL_DATA/RaftMod/Scripts/sail.lua",
@@ -1383,7 +1383,7 @@
 		"sticky": "-Y",
 		"physicsMaterial": "Wood",
 		"ratings": {
-			"density": 2,
+			"density": 1,
 			"durability": 4,
 			"friction": 5,
 			"buoyancy": 8

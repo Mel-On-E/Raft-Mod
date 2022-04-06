@@ -6,11 +6,11 @@ Sail.connectionOutput = sm.interactable.connectionType.none
 Sail.colorNormal = sm.color.new( 0xff8000ff )
 Sail.colorHighlight = sm.color.new( 0xff9f3aff )
 
-local STRENGTH = 1000
+local POWER = 1000
+local MAX_SPEED = 10
 
 
 function Sail.server_onCreate(self)
-    self.size = 10
     self.sv = {}
     self.sv.active = false
     self.network:setClientData( self.sv.active )
@@ -29,15 +29,20 @@ function Sail.server_onFixedUpdate(self, dt)
         end
     end
 
-    if self.sv.active then
+    if self.sv.active and self.shape:getVelocity():length() < MAX_SPEED then
         local up = sm.vec3.new(0, 0, 1)
         local dirMiddle = self.shape:getWorldPosition():normalize()
-        local forceDirection = dirMiddle:cross(up):normalize()
-        local velFactor = math.min(10, math.abs(self.shape:getVelocity():dot(forceDirection)))
-        local factor = math.abs(self.shape:getRight():dot(forceDirection))
-        local balance = 10 - velFactor
-        local force = self.size * STRENGTH * dt * factor * balance
-        sm.physics.applyImpulse(self.shape, forceDirection * force, true)
+        local windDirection = dirMiddle:cross(up):normalize()
+        local sailDirection = -self.shape:getUp()
+
+        local cosine = windDirection:dot(sailDirection)/(windDirection:length() + sailDirection:length())*-2
+        --sm.gui.chatMessage(tostring(cosine))
+
+        local speedFraction = 1 - (self.shape:getVelocity():length() / MAX_SPEED)
+        local force = sailDirection * (POWER * speedFraction * dt * cosine)
+        force.z = 0
+        sm.physics.applyImpulse(self.shape, force, true)
+        --print(self.shape:getVelocity():length())
     end
 end
 
@@ -60,6 +65,12 @@ function Sail.client_onClientDataUpdate( self, state )
 end
 
 function Sail.client_canInteract( self, character, state )
+    parent = self.interactable:getSingleParent()
+    if parent then
+        sm.gui.setInteractionText("Controlled by interactable")
+        return false
+    end
+
     local keyBindingText = sm.gui.getKeyBinding( "Use" )
     if self.active then
         sm.gui.setInteractionText("", keyBindingText, "Tie up sail")

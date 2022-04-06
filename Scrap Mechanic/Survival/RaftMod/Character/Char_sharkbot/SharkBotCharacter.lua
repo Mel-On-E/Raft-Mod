@@ -78,7 +78,7 @@ function SharkBotCharacter.client_onGraphicsLoaded( self )
 	
 	self.currentAnimation = ""
 	
-	self.character:setMovementEffects( "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/Character/movement_effects.json" )
+	self.character:setMovementEffects( "$SURVIVAL_DATA/RaftMod/Character/Char_sharkbot/movement_effects.json" )
 	self.graphicsLoaded = true
 end
 
