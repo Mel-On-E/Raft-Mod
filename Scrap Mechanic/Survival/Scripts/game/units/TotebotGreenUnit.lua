@@ -9,13 +9,13 @@ dofile "$SURVIVAL_DATA/Scripts/game/units/states/BreachState.lua"
 dofile "$SURVIVAL_DATA/Scripts/game/units/states/CombatAttackState.lua"
 dofile "$SURVIVAL_DATA/Scripts/game/survival_constants.lua"
 
-SharkBotUnit = class( nil )
+TotebotGreenUnit = class( nil )
 
 local RoamStartTimeMin = 40 * 4 -- 4 seconds
 local RoamStartTimeMax = 40 * 8 -- 8 seconds
 
 local CombatAttackRange = 1.0 -- Range where the unit will perform attacks
-local CombatApproachRange = 2000.25 -- Range where the unit will approach the player without obstacle checking
+local CombatApproachRange = 2.25 -- Range where the unit will approach the player without obstacle checking
 
 local StaggerProjectile = 0.5
 local StaggerMelee = 1.0
@@ -24,33 +24,24 @@ local StaggerCooldownTickTime = 1.65 * 40
 local AvoidLimit = 3
 local AvoidRange = 3.5
 
-local AllyRange = 40.0
+local AllyRange = 20.0
 local MeleeBreachLevel = 9
 
-local HearRange = 100
+local HearRange = 40.0
 
-local FleeTimeMin = 40 * 14 -- 14 seconds
-local FleeTimeMax = 40 * 20 -- 20 seconds
-local fleeSpeed = 3
-local attackSpeed = 2.5
-local rushRange = 15
-
-function SharkBotUnit.server_onCreate( self )
+function TotebotGreenUnit.server_onCreate( self )
 	
 	self.target = nil
 	self.previousTarget = nil
 	self.lastTargetPosition = nil
 	self.ambushPosition = nil
 	self.predictedVelocity = sm.vec3.new( 0, 0, 0 )
-	self.lastTargetPosition = nil
-	self.flee = false
-	self.land = 0
 	self.saved = self.storage:load()
 	if self.saved == nil then
 		self.saved = {}
 	end
 	if self.saved.stats == nil then
-		self.saved.stats = { hp = 200, maxhp = 200 }
+		self.saved.stats = { hp = 60, maxhp = 60 }
 	end
 	
 	if self.params then
@@ -135,13 +126,13 @@ function SharkBotUnit.server_onCreate( self )
 	self.attackState01 = self.unit:createState( "meleeAttack" )
 	self.attackState01.meleeType = "ToteBotAttack"
 	self.attackState01.event = "melee"
-	self.attackState01.damage = 55
+	self.attackState01.damage = 15
 	self.attackState01.attackRange = 1.15
 	self.attackState01.animationCooldown = 0.825 * 40
 	self.attackState01.attackCooldown = 1.0 * 40
 	self.attackState01.globalCooldown = 0.0 * 40
 	self.attackState01.attackDelay = 0.25 * 40
-	self.attackState01.power = 1000.0
+	self.attackState01.power = 3750.0
 	
 	-- Combat
 	self.combatAttackState = CombatAttackState()
@@ -187,8 +178,11 @@ function SharkBotUnit.server_onCreate( self )
 	self.lookAtState.movementType = "stand"
 
 	-- Flee
-	self.fleeState = self.unit:createState( "flee" )
-	self.fleeState.movementAngleThreshold = math.rad( 180 )
+	self.dayFlee = self.unit:createState( "flee" )
+	self.dayFlee.movementAngleThreshold = math.rad( 180 )
+	self.dayFlee.maxFleeTime = 0.0
+	self.dayFlee.maxDeviation = 45 * math.pi / 180
+	self.dayFlee.debugName = "dayFlee"
 	
 	-- Tumble
 	initTumble( self )
@@ -206,69 +200,43 @@ function SharkBotUnit.server_onCreate( self )
 	self.currentState:start()
 end
 
-function SharkBotUnit.sv_flee( self )
-		self.isInCombat = false
-		self.eventTarget = nil
-		if self.fleeFrom then
-			self.currentState:stop()
-
-			self.currentState = self.fleeState
-			self.fleeState.fleeFrom = self.fleeFrom
-			self.fleeState.maxFleeTime = math.random( FleeTimeMin, FleeTimeMax ) / 40
-			self.fleeState.maxDeviation = 45 * math.pi / 180
-			self.currentState:start()
-		end
-		
+function TotebotGreenUnit.server_onRefresh( self )
+	print( "-- TotebotGreenUnit refreshed --" )
 end
 
-function SharkBotUnit.server_onRefresh( self )
-	print( "-- SharkBotUnit refreshed --" )
-end
-
-function SharkBotUnit.server_onDestroy( self )
-	print( "-- SharkBotUnit terminated --" )
+function TotebotGreenUnit.server_onDestroy( self )
+	print( "-- TotebotGreenUnit terminated --" )
 end
 
 --Raft
-function SharkBotUnit:sv_raft_takeDamage( args )
+function TotebotGreenUnit:sv_raft_takeDamage( args )
 	self:sv_takeDamage(args.damage, args.impact, args.hitPos)
 end
 --Raft
 
-function SharkBotUnit.server_onFixedUpdate( self, dt )
+function TotebotGreenUnit.server_onFixedUpdate( self, dt )
+	
+	-- Temporary units are destroyed at dawn
+	if sm.exists( self.unit ) and not self.destroyed then
+		if self.saved.deathTickTimestamp and sm.game.getCurrentTick() >= self.saved.deathTickTimestamp then
+			self.unit:destroy()
+			self.destroyed = true
+			return
+		end
+	end
+
 	if self.unit.character:isSwimming() then
-		self.roamState.cliffAvoidance = true
-		self.pathingState:sv_setCliffAvoidance( true )
-		self.land = 0
+		self.roamState.cliffAvoidance = false
+		self.pathingState:sv_setCliffAvoidance( false )
 	else
-		self.land = self.land + 1
-		if self.land > 3 then
-			if self.fleeFrom == nil and self.currentState ~= self.fleeState  then
-				self.fleeFrom = self.unit.character.worldPosition + self.unit.character.direction
-			end
-		end
 		self.roamState.cliffAvoidance = true
 		self.pathingState:sv_setCliffAvoidance( true )
 	end
-
-
-	if self.currentState and self.currentState == self.fleeState then
-		self.unit.character:setMovementSpeedFraction(fleeSpeed)
-
-		--force shark to move because I don't get the ai shit
-		if self.unit.character.velocity:length() < fleeSpeed*5 then
-			sm.physics.applyImpulse(self.unit.character, self.unit.character.direction*500)
-		end
-
-	elseif self.unit.character:getMovementSpeedFraction() == fleeSpeed then
-		self.unit.character:setMovementSpeedFraction(1)
-	end
-
 	
 	self.stateTicker:tick()
 	
 	if updateCrushing( self ) then
-		print("'SharkBotUnit' was crushed!")
+		print("'TotebotGreenUnit' was crushed!")
 		self:sv_onDeath( sm.vec3.new( 0, 0, 0 ) )
 	end
 	
@@ -327,20 +295,34 @@ function SharkBotUnit.server_onFixedUpdate( self, dt )
 	end
 end
 
-function SharkBotUnit.server_onCharacterChangedColor( self, color )
+function TotebotGreenUnit.server_onCharacterChangedColor( self, color )
 	if self.saved.color ~= color then
 		self.saved.color = color
 		self.storage:save( self.saved )
 	end
 end
 
-function SharkBotUnit.server_onUnitUpdate( self, dt )
+function TotebotGreenUnit.server_onUnitUpdate( self, dt )
+	
 	if not sm.exists( self.unit ) then
 		return
 	end
 	
 	if self.currentState then
 		self.currentState:onUnitUpdate( dt )
+	end
+	
+	-- Temporary units are routed by the daylight
+	if self.saved.temporary then
+		if self.currentState ~= self.dayFlee and sm.game.getCurrentTick() >= self.saved.deathTickTimestamp - DaysInTicks( 1 / 24 ) then
+			local prevState = self.currentState
+			prevState:stop()
+			self.currentState = self.dayFlee
+			self.currentState:start()
+		end
+		if self.currentState == self.dayFlee then
+			return
+		end
 	end
 	
 	if self.unit.character:isTumbling() then
@@ -350,6 +332,8 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 	local targetCharacter
 	local closestVisiblePlayerCharacter
 	local closestHeardPlayerCharacter
+	local closestVisibleWocCharacter
+	local closestVisibleWormCharacter
 	local closestVisibleCrop
 	local closestVisibleTeamOpponent
 	if not SurvivalGame then
@@ -359,24 +343,36 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 	if not closestVisiblePlayerCharacter then
 		closestHeardPlayerCharacter = ListenForPlayerNoise( self.unit.character, self.noiseScale )
 	end
+	if not closestVisiblePlayerCharacter and not closestHeardPlayerCharacter then
+		closestVisibleWocCharacter = sm.ai.getClosestVisibleCharacterType( self.unit, unit_woc )
+	end
+	if not closestVisibleWocCharacter and not closestVisiblePlayerCharacter and not closestHeardPlayerCharacter then
+		closestVisibleWormCharacter = sm.ai.getClosestVisibleCharacterType( self.unit, unit_worm )
+	end
 	if self.saved.raider then
 		closestVisibleCrop = sm.ai.getClosestVisibleCrop( self.unit )
-	elseif not closestVisiblePlayerCharacter and not closestHeardPlayerCharacter then
+	elseif not closestVisibleWormCharacter and not closestVisibleWocCharacter and not closestVisiblePlayerCharacter and not closestHeardPlayerCharacter then
 		if self.griefTimer:done() then
 			closestVisibleCrop = sm.ai.getClosestVisibleCrop( self.unit )
 		end
 	end
 
 	-- Find target
-	if closestVisiblePlayerCharacter then
+	if closestVisibleTeamOpponent then
+		targetCharacter = closestVisibleTeamOpponent
+	elseif closestVisiblePlayerCharacter then
 		targetCharacter = closestVisiblePlayerCharacter
 	elseif closestHeardPlayerCharacter then
 		targetCharacter = closestHeardPlayerCharacter
+	elseif closestVisibleWocCharacter then
+		targetCharacter = closestVisibleWocCharacter
+	elseif closestVisibleWormCharacter then
+		targetCharacter = closestVisibleWormCharacter
 	end
 	
 	-- Share found target
 	local foundTarget = false
-	if targetCharacter and self.target == nil and not self.fleeState == self.currentState then
+	if targetCharacter and self.target == nil then
 		for _, allyUnit in ipairs( sm.unit.getAllUnits() ) do
 			if sm.exists( allyUnit ) and self.unit ~= allyUnit and allyUnit.character and isAnyOf( allyUnit.character:getCharacterType(), g_robots ) and InSameWorld( self.unit, allyUnit) then
 				if ( allyUnit.character.worldPosition - self.unit.character.worldPosition ):length() <= AllyRange then
@@ -403,27 +399,25 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 	end
 	self.eventTarget = nil
 
-
-	if targetCharacter then
-		self.target = targetCharacter
+	if self.saved.raider then
+		selectRaidTarget( self, targetCharacter, closestVisibleCrop )
+	else
+		if targetCharacter then
+			self.target = targetCharacter
+		else
+			self.target = closestVisibleCrop
+		end
 	end
-
 	if self.target and not sm.exists( self.target ) then
 		self.target = nil
 	end
 	
 	-- Cooldown after attacking a crop
-	local _, attackResult = self.combatAttackState:isDone()
 	if type( self.target ) == "Harvestable" then
+		local _, attackResult = self.combatAttackState:isDone()
 		if attackResult == "started" or attackResult == "attacked" then
 			self.griefTimer:reset()
 		end
-	elseif attackResult == "finished" then
-		self.fleeFrom = self.target:getPlayer()
-	end
-	_, attackResult = self.breachState:isDone()
-	if attackResult == "fail" or attackResult == "timeout" then
-		self.fleeFrom = self.target:getPlayer()
 	end
 	
 	local inCombatApproachRange = false
@@ -464,16 +458,38 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 		inCombatApproachRange = fromToTarget:length() - targetRadius <= CombatApproachRange
 		inCombatAttackRange = fromToTarget:length() - targetRadius <= CombatAttackRange
 
-		if fromToTarget:length() < rushRange then
-			self.unit.character:setMovementSpeedFraction(attackSpeed)
-		else
-			self.unit.character:setMovementSpeedFraction(1)
-		end
-
 		local attackDirection = ( desiredDirection:length() >= FLT_EPSILON ) and desiredDirection:normalize() or self.unit.character.direction
 		self.combatAttackState:sv_setAttackDirection( attackDirection ) -- Turn ongoing attacks toward moving players
 		self.combatApproachState.desiredPosition = self.lastTargetPosition
 		self.combatApproachState.desiredDirection = fromToTarget:normalize()
+	end
+
+	-- Raiders will continue attacking an ambush position
+	if self.saved.raidPosition then
+		local flatFromToRaid = sm.vec3.new( self.saved.raidPosition.x,  self.saved.raidPosition.y, self.unit.character.worldPosition.z ) - self.unit.character.worldPosition
+		if flatFromToRaid:length() >= RAIDER_AMBUSH_RADIUS then
+			self.ambushPosition = self.saved.raidPosition
+		end
+	end
+	
+	-- Ambushers will always have somewhere they want to go
+	if self.ambushPosition then
+		if not self.lastTargetPosition and not self.target then
+			self.lastTargetPosition = self.ambushPosition
+		end
+		local flatFromToAmbush = sm.vec3.new(  self.ambushPosition.x,  self.ambushPosition.y, self.unit.character.worldPosition.z ) - self.unit.character.worldPosition
+		if flatFromToAmbush:length() <= 2.0 then
+			-- Finished ambush
+			self.ambushPosition = nil
+		end
+	end
+
+	-- Raiders without a target search for shapes to destroy
+	if self.saved.raidPosition and not self.ambushPosition and not self.lastTargetPosition and not self.target then
+		local attackableShape, attackPosition = FindAttackableShape( self.saved.raidPosition, RAIDER_AMBUSH_RADIUS, MeleeBreachLevel )
+		if attackableShape and attackPosition then
+			self.lastTargetPosition = attackPosition
+		end
 	end
 
 	local prevState = self.currentState
@@ -567,18 +583,15 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 
 	if ( done or abortState ) then
 		-- Select state
-		if self.fleeFrom then
-			self:sv_flee( self.fleeFrom )
-			prevState = self.currentState
-			self.fleeFrom = nil
-		elseif self.currentState == self.fleeState then
-			self.currentState = self.idleState
-		elseif shouldAvoid then
+		if shouldAvoid then
 			-- Move away from danger
 			if self.currentState ~= self.avoidState  then
 				self.avoidCount = math.min( self.avoidCount + 1, AvoidLimit )
 			end
 			self.currentState = self.avoidState
+		elseif self.currentState == self.combatApproachState and done then
+			-- Attack towards the approached target
+			self.currentState = self.combatAttackState
 		elseif breachDestination then
 			-- Start breaching path obstacle
 			self.breachState:sv_setDestination( breachDestination )
@@ -634,24 +647,9 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 		end
 	end
 
-	--move up or down
-	if self.fleeState ~= self.currentState and (self.target and inCombatApproachRange) and not self.fleeFrom then
-		if (self.currentState ~= self.combatApproachState) and (self.currentState ~= self.combatAttackState) and (self.currentState ~= self.breachState) then
-			self.currentState = self.combatApproachState
-		end
-
-		unitZ = self.unit.character.worldPosition.z
-		targetZ = self.target:getWorldPosition().z
-
-		if unitZ < targetZ and unitZ < -3 then
-			sm.physics.applyImpulse(self.unit.character, sm.vec3.new(0,0,1000))
-		elseif unitZ > targetZ then
-			sm.physics.applyImpulse(self.unit.character, sm.vec3.new(0,0,-1000))
-		end
-	end
 end
 
-function SharkBotUnit.sv_e_worldEvent( self, params )
+function TotebotGreenUnit.sv_e_worldEvent( self, params )
 	if sm.exists( self.unit ) and self.isInCombat == false then
 		if params.eventName == "projectileHit" then
 			if self.unit.character then
@@ -685,17 +683,10 @@ function SharkBotUnit.sv_e_worldEvent( self, params )
 	end
 end
 
-function SharkBotUnit.server_onProjectile( self, hitPos, hitTime, hitVelocity, projectileName, attacker, damage )
+function TotebotGreenUnit.server_onProjectile( self, hitPos, hitTime, hitVelocity, projectileName, attacker, damage )
 	if not sm.exists( self.unit ) or not sm.exists( attacker ) then
 		return
 	end
-	if damage > 0 then
-		if self.fleeFrom == nil then
-			self.fleeFrom = attacker
-			self.unit:sendCharacterEvent( "hit" )
-		end
-	end
-
 	local teamOpponent = false
 	if type( attacker ) == "Unit" then
 		if not SurvivalGame then
@@ -719,7 +710,7 @@ function SharkBotUnit.server_onProjectile( self, hitPos, hitTime, hitVelocity, p
 	end
 end
 
-function SharkBotUnit.server_onMelee( self, hitPos, attacker, damage )
+function TotebotGreenUnit.server_onMelee( self, hitPos, attacker, damage )
 	if not sm.exists( self.unit ) or not sm.exists( attacker ) then
 		return
 	end
@@ -732,12 +723,6 @@ function SharkBotUnit.server_onMelee( self, hitPos, attacker, damage )
 
 	if type( attacker ) == "Player" or teamOpponent then
 		local attackingCharacter = attacker:getCharacter()
-		if self.fleeFrom == nil then
-			self.fleeFrom = attacker
-			self.unit:sendCharacterEvent( "hit" )
-		end
-
-
 		self:sv_addStagger( StaggerMelee )
 		if self.eventTarget == nil then
 			self.eventTarget = attackingCharacter
@@ -749,19 +734,15 @@ function SharkBotUnit.server_onMelee( self, hitPos, attacker, damage )
 	end
 end
 
-function SharkBotUnit.server_onExplosion( self, center, destructionLevel )
+function TotebotGreenUnit.server_onExplosion( self, center, destructionLevel )
 	if not sm.exists( self.unit ) then
 		return
-	end
-	if self.fleeFrom == nil then
-		self.fleeFrom = center
-		self.unit:sendCharacterEvent( "hit" )
 	end
 	local impact = ( self.unit:getCharacter().worldPosition - center ):normalize() * 6
 	self:sv_takeDamage( self.saved.stats.maxhp * ( destructionLevel / 10 ), impact, self.unit:getCharacter().worldPosition )
 end
 
-function SharkBotUnit.server_onCollision( self, other, collisionPosition, selfPointVelocity, otherPointVelocity, collisionNormal )
+function TotebotGreenUnit.server_onCollision( self, other, collisionPosition, selfPointVelocity, otherPointVelocity, collisionNormal )
 	if not sm.exists( self.unit ) then
 		return
 	end
@@ -806,7 +787,7 @@ function SharkBotUnit.server_onCollision( self, other, collisionPosition, selfPo
 		self.impactCooldownTicks = 6
 	end
 	if damage > 0 then
-		print("'SharkBotUnit' took", damage, "collision damage")
+		print("'TotebotGreenUnit' took", damage, "collision damage")
 		self:sv_takeDamage( damage, collisionNormal, collisionPosition )
 	end
 	if tumbleTicks > 0 then
@@ -819,20 +800,20 @@ function SharkBotUnit.server_onCollision( self, other, collisionPosition, selfPo
 	
 end
 
-function SharkBotUnit.server_onCollisionCrush( self )
+function TotebotGreenUnit.server_onCollisionCrush( self )
 	if not sm.exists( self.unit ) then
 		return
 	end
 	onCrush( self )
 end
 
-function SharkBotUnit.sv_updateCharacterTarget( self )
+function TotebotGreenUnit.sv_updateCharacterTarget( self )
 	if self.unit.character then
 		sm.event.sendToCharacter( self.unit.character, "sv_n_updateTarget", { target = self.target } )
 	end
 end
 
-function SharkBotUnit.sv_addStagger( self, stagger )
+function TotebotGreenUnit.sv_addStagger( self, stagger )
 	
 	-- Update stagger
 	if self.staggerCooldownTicks <= 0 then
@@ -851,11 +832,11 @@ function SharkBotUnit.sv_addStagger( self, stagger )
 	
 end
 
-function SharkBotUnit.sv_takeDamage( self, damage, impact, hitPos )
+function TotebotGreenUnit.sv_takeDamage( self, damage, impact, hitPos )
 	if self.saved.stats.hp > 0 then
 		self.saved.stats.hp = self.saved.stats.hp - damage
 		self.saved.stats.hp = math.max( self.saved.stats.hp, 0 )
-		print( "'SharkBotUnit' received:", damage, "damage.", self.saved.stats.hp, "/", self.saved.stats.maxhp, "HP" )
+		print( "'TotebotGreenUnit' received:", damage, "damage.", self.saved.stats.hp, "/", self.saved.stats.maxhp, "HP" )
 		
 		local effectRotation = sm.quat.identity()
 		if hitPos and impact and impact:length() >= FLT_EPSILON then
@@ -871,14 +852,14 @@ function SharkBotUnit.sv_takeDamage( self, damage, impact, hitPos )
 	end
 end
 
-function SharkBotUnit.sv_onDeath( self, impact )
+function TotebotGreenUnit.sv_onDeath( self, impact )
 	local character = self.unit:getCharacter()
 	if not self.destroyed then
 		sm.effect.playEffect( "ToteBot - DestroyedParts", character.worldPosition, nil, nil, nil, { Color = self.unit.character:getColor() } )
 		g_unitManager:sv_addDeathMarker( character.worldPosition )
 		self.saved.stats.hp = 0
 		self.unit:destroy()
-		print("'SharkBotUnit' killed!")
+		print("'TotebotGreenUnit' killed!")
 		self:sv_spawnParts( impact )
 		if SurvivalGame then
 			local loot = SelectLoot( "loot_totebot_green" )
@@ -888,7 +869,7 @@ function SharkBotUnit.sv_onDeath( self, impact )
 	end
 end
 
-function SharkBotUnit.sv_spawnParts( self, impact )
+function TotebotGreenUnit.sv_spawnParts( self, impact )
 	local character = self.unit:getCharacter()
 
 	local lookDirection = character:getDirection()
@@ -906,7 +887,7 @@ function SharkBotUnit.sv_spawnParts( self, impact )
 	if SurvivalGame then
 		if math.random( 1, 5 ) == 1 then
 			local headBody = sm.body.createBody( bodyPos, bodyRot, true )
-			local headShape = headBody:createPart( obj_resource_steak, sm.vec3.new( 0, 1, 2 ), sm.vec3.new( 0, 1, 0 ), sm.vec3.new( -1, 0, 0 ), true )
+			local headShape = headBody:createPart( obj_interactive_robotbliphead01, sm.vec3.new( 0, 1, 2 ), sm.vec3.new( 0, 1, 0 ), sm.vec3.new( -1, 0, 0 ), true )
 			headShape.color = color
 			sm.physics.applyImpulse( headShape, impact * headShape.mass, true )
 		end
@@ -923,7 +904,7 @@ function SharkBotUnit.sv_spawnParts( self, impact )
 	sm.physics.applyImpulse( legShape, impact * legShape.mass, true )
 end
 
-function SharkBotUnit.sv_e_receiveTarget( self, params )
+function TotebotGreenUnit.sv_e_receiveTarget( self, params )
 	if self.unit ~= params.unit then
 		if self.eventTarget == nil then
 			local sameTeam = false
@@ -937,6 +918,6 @@ function SharkBotUnit.sv_e_receiveTarget( self, params )
 	end
 end
 
-function SharkBotUnit.sv_e_onEnterWater( self ) end
+function TotebotGreenUnit.sv_e_onEnterWater( self ) end
 
-function SharkBotUnit.sv_e_onStayWater( self ) end
+function TotebotGreenUnit.sv_e_onStayWater( self ) end
