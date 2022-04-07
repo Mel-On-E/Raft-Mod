@@ -51,7 +51,7 @@ end
 function Sail.client_onCreate(self)
     self.effect = sm.effect.createEffect("ShapeRenderable", self.interactable)
     self.effect:setOffsetPosition(sm.vec3.new(0, 1, 0))
-    self.effect:setScale(sm.vec3.new(0.118, 0.08, 0.1))
+    self.effect:setScale(sm.vec3.new(0.118, 0.135, 0.1))
     self.effect:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4934"))
 end
 
