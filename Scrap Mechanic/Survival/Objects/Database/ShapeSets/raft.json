@@ -1371,8 +1371,8 @@
 		},
 		"color": "00ff00",
 		"box": {
-			"x": 5,
-			"y": 6,
+			"x": 1,
+			"y": 1,
 			"z": 1
 		},
 		"scripted": {
@@ -1383,7 +1383,7 @@
 		"sticky": "-Y",
 		"physicsMaterial": "Wood",
 		"ratings": {
-			"density": 1,
+			"density": 2,
 			"durability": 4,
 			"friction": 5,
 			"buoyancy": 8
