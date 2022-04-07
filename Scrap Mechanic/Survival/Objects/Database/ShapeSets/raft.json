@@ -1926,6 +1926,62 @@
 				"buoyancy": 1
 			},
 			"flammable": true
+		},
+		{
+			"uuid": "8f460344-ef34-42ab-99e3-d3bed9af4b52",
+			"name": "obj_flag",
+			"renderable": {
+				"lodList": [
+					{
+						"minViewSize": 12,
+						"subMeshList": [
+							{
+									"textureList": [
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+									],
+									"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
+					},
+					{
+						"subMeshList": [
+							{
+									"textureList": [
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+										""
+									],
+									"material": "DifAsg"
+							}
+						],
+						"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+					}
+				]
+			},
+			"color": "ff0000",
+			"cylinder": {
+				"diameter": 1,
+				"depth": 1,
+				"margin": 0.1,
+				"axis": "Y"
+			},
+			"scripted": {
+				"filename": "$SURVIVAL_DATA/RaftMod/Scripts/flag.lua",
+				"classname": "Flag"
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 2,
+				"durability": 4,
+				"friction": 5,
+				"buoyancy": 8
+			},
+			"flammable": true
 		}
 	]
   }

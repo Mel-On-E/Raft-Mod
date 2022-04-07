@@ -30,6 +30,7 @@ obj_radio_antenna = sm.uuid.new("f95beb80-49c8-4d4c-98e9-5b87225c4570")
 obj_seed_press = sm.uuid.new("e9c7d080-ae4b-4fec-b626-34afda6f5114")
 
 obj_grill = sm.uuid.new("67dd0023-023d-46cb-9839-e4ada2609a9b")
+obj_flag = sm.uuid.new("8f460344-ef34-42ab-99e3-d3bed9af4b52")
 
 --RAFT Consumables
 obj_water_clean = sm.uuid.new("4bd05d7d-898c-4947-8788-e34b84b5d386")

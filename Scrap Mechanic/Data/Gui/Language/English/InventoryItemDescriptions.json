@@ -37,6 +37,10 @@
 		"description": "A wooden hammer. Useful for all sorts of things, but not really good at them.",
 		"title": "Sledgehammer"
 	},
+	"8f460344-ef34-42ab-99e3-d3bed9af4b52": {
+		"description": "Shows you the direction of the wind",
+		"title": "Flag"
+	},
 	
 	//parts
 	"8e75cddb-040e-4813-8dd6-7e72f3288a91": {
