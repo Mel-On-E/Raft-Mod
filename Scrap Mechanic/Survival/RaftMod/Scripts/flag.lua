@@ -12,7 +12,7 @@ end
 function Flag.client_onFixedUpdate( self, dt )
     local up = sm.vec3.new(0, 0, 1)
     local dirMiddle = self.shape:getWorldPosition():normalize()
-    local windDirection = dirMiddle:cross(up):normalize()
+    local windDirection = -dirMiddle:cross(up):normalize()
 
     windDirection = self.shape:transformPoint(windDirection)
 
