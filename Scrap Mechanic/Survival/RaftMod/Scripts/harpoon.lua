@@ -10,11 +10,7 @@ local spearImpact = 2.5
 Harpoon = class()
 
 local renderables = {
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Base/char_spudgun_base_basic.rend",
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Barrel/Barrel_basic/char_spudgun_barrel_basic.rend",
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Sight/Sight_basic/char_spudgun_sight_basic.rend",
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Stock/Stock_broom/char_spudgun_stock_broom.rend",
-	"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic.rend"
+	"$SURVIVAL_DATA/Character/Char_Tools/Char_harpoon/char_harpoon_preview.rend"
 }
 
 local renderablesTp = {"$GAME_DATA/Character/Char_Male/Animations/char_male_tp_spudgun.rend", "$GAME_DATA/Character/Char_Tools/Char_spudgun/char_spudgun_tp_animlist.rend"}
@@ -376,7 +372,7 @@ function Harpoon.client_onUpdate( self, dt )
 		end
 
 		local dir = sm.localPlayer.getDirection()
-		local firePos = self.tool:getFpBonePos( "pejnt_barrel" )
+		local firePos = self.tool:getFpBonePos( "jnt_trigger" )
 
 		if not self.aiming then
 			effectPos = firePos + dir * 0.2
@@ -391,8 +387,8 @@ function Harpoon.client_onUpdate( self, dt )
 		self.shootEffectFP:setVelocity( self.tool:getMovementVelocity() )
 		self.shootEffectFP:setRotation( rot )
 	end
-	local pos = self.tool:getTpBonePos( "pejnt_barrel" )
-	local dir = self.tool:getTpBoneDir( "pejnt_barrel" )
+	local pos = self.tool:getTpBonePos( "jnt_trigger" )
+	local dir = self.tool:getTpBoneDir( "jnt_trigger" )
 
 	effectPos = pos + dir * 0.2
 
@@ -729,7 +725,7 @@ function Harpoon.calculateFpMuzzlePos( self )
 		muzzlePos90 = muzzlePos90 + dir * 0.25
 	end
 
-	return self.tool:getFpBonePos( "pejnt_barrel" ) + sm.vec3.lerp( muzzlePos45, muzzlePos90, fovScale )
+	return self.tool:getFpBonePos( "jnt_trigger" ) + sm.vec3.lerp( muzzlePos45, muzzlePos90, fovScale )
 end
 
 function Harpoon.cl_onPrimaryUse( self, state )
