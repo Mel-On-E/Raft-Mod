@@ -154,9 +154,9 @@ function Harpoon:cl_shootSpear( args )
 	self.effects[#self.effects+1] = sm.effect.createEffect("ShapeRenderable")
 	local effect = self.effects[#self.effects]
 
-	effect:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
+	effect:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4857"))
 	effect:setParameter("color", sm.color.new(0.4,0.4,0.4))
-	effect:setScale( sm.vec3.new(0.25,0.25,1) )
+	effect:setScale( sm.vec3.new(0.12,0.12,0.3) )
 	effect:setPosition( args.pos )
 	effect:setRotation( sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), args.dir ) )
 	effect:start()
@@ -176,7 +176,7 @@ function Harpoon:sv_spearCollect( args )
 	self.network:sendToClients("cl_stopEffect", args.index)
 
 	sm.container.beginTransaction()
-	sm.container.collect( inv, blk_scrapwood, 1, 1 )
+	sm.container.collect( inv, obj_arrow, 1, 1 )
 	sm.container.endTransaction()
 end
 
@@ -735,7 +735,7 @@ function Harpoon.cl_onPrimaryUse( self, state )
 
 	if self.fireCooldownTimer <= 0.0 and state == sm.tool.interactState.start then
 
-		if not sm.game.getEnableAmmoConsumption() or sm.container.canSpend( sm.localPlayer.getInventory(), obj_plantables_potato, 1 ) then
+		if not sm.game.getEnableAmmoConsumption() or sm.container.canSpend( sm.localPlayer.getInventory(), obj_arrow, 1 ) then
 			local firstPerson = self.tool:isInFirstPersonView()
 
 			local dir = sm.localPlayer.getDirection()
