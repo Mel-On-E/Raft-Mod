@@ -36,7 +36,7 @@ obj_flag = sm.uuid.new("8f460344-ef34-42ab-99e3-d3bed9af4b52")
 obj_water_clean = sm.uuid.new("4bd05d7d-898c-4947-8788-e34b84b5d386")
 obj_fish = sm.uuid.new("7c440c4a-5919-4baa-a946-0bb89b8c4d5d")
 obj_fish_cooked = sm.uuid.new("c57fe6d6-03b1-46d4-9104-29cf19f176ab")
-
+obj_arrow = sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4857")
 
 ----------------------------------------
 -- appliances.json
