@@ -37,6 +37,10 @@
 		"description": "A wooden hammer. Useful for all sorts of things, but not really good at them.",
 		"title": "Sledgehammer"
 	},
+	"e34387d3-fa29-4831-89b8-c94417b6fce6": {
+		"description": "Shoots Harpoons, but you can collect the Harpoons, unlike spuds from Spudgun.",
+		"title": "Harpoon Gun"
+	},
 	"8f460344-ef34-42ab-99e3-d3bed9af4b52": {
 		"description": "Shows you the direction of the wind",
 		"title": "Flag"
@@ -136,6 +140,10 @@
 	"9e815dcf-cfb0-4672-b0f4-34f1e9ecc1a1": {
 		"description": "Plant it in a tree farm or on ground to grow another tree.",
 		"title": "Pine Tree Sappling"
+	},
+	"4a971f7d-14e6-454d-bce8-0879243c4857": {
+		"description": "Spiky and sharp, has to be shot to do damage.",
+		"title": "Harpoon"
 	},
 
 	//consumable
