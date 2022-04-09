@@ -182,7 +182,7 @@ end
 
 function Harpoon:cl_spearCollect()
 	sm.audio.play( "Sledgehammer - Swing" )
-	sm.gui.displayAlertText("Picked up spear", 2.5)
+	sm.gui.displayAlertText( "#{RAFT_PICKUP_HARPOON}", 2.5)
 end
 
 function Harpoon:cl_stopEffect( index )
