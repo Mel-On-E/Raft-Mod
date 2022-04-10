@@ -165,7 +165,7 @@ function Rod:sv_itemDrop(args, player)
 end
 
 function Rod:cl_itemDrop( drop )
-	sm.gui.displayAlertText( "Fished item: #ff9d00"..sm.shape.getShapeTitle(drop.uuid).." #df7f00x"..tostring(drop.quantity) )
+	sm.gui.displayAlertText( "#{RAFT_FISHED} #ff9d00"..sm.shape.getShapeTitle(drop.uuid).." #df7f00x"..tostring(drop.quantity) )
 end
 
 function Rod:sv_manageTrigger( args, player )
