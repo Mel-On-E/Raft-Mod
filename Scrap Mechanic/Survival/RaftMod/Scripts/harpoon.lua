@@ -101,7 +101,7 @@ function Harpoon.loadAnimations( self )
 	end
 
 	self.normalFireMode = {
-		fireCooldown = 2,
+		fireCooldown = 0.75,
 		spreadCooldown = 0.18,
 		spreadIncrement = 2.6,
 		spreadMinAngle = .25,
@@ -116,7 +116,7 @@ function Harpoon.loadAnimations( self )
 	}
 
 	self.aimFireMode = {
-		fireCooldown = 2,
+		fireCooldown = 0.75,
 		spreadCooldown = 0.18,
 		spreadIncrement = 1.3,
 		spreadMinAngle = 0,
@@ -150,188 +150,21 @@ end
 
 
 --Raft
-function Harpoon:cl_shootSpear( args )
-	self.effects[#self.effects+1] = sm.effect.createEffect("ShapeRenderable")
-	local effect = self.effects[#self.effects]
-
-	effect:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4857"))
-	effect:setParameter("color", sm.color.new(0.4,0.4,0.4))
-	effect:setScale( sm.vec3.new(0.12,0.12,0.3) )
-	effect:setPosition( args.pos )
-	effect:setRotation( sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), args.dir ) )
-	effect:start()
-end
-
 function Harpoon:sv_shootSpear(args)
-	local spear = { effect = nil, owner = args.owner, speed = sm.vec3.one() * 0.75, trigger = nil, pos = args.pos, dir = args.dir, lifeTime = 0, attached = false, attachedTarget = nil, attachPos = sm.vec3.zero(), attachDir = sm.vec3.zero() }
-	spear.trigger = sm.areaTrigger.createBox( sm.vec3.new(0.25,0.25,0.25), spear.pos + spear.dir, sm.quat.identity() )
-	self.network:sendToClients("cl_shootSpear", { effect = spear.effect, pos = args.pos, dir = args.dir})
-
-	self.spears[#self.spears+1] = spear
+	sm.event.sendToGame("sv_shootSpear", { world = self.player:getCharacter():getWorld(), data = args } )
+	self:sv_spearSpend( { player = args.owner } )
 end
 
-function Harpoon:sv_spearCollect( args )
+function Harpoon:sv_spearSpend( args )
 	local inv = args.player:getInventory()
-	self.network:sendToClient(args.player, "cl_spearCollect")
-	self.network:sendToClients("cl_stopEffect", args.index)
 
 	sm.container.beginTransaction()
-	sm.container.collect( inv, obj_arrow, 1, 1 )
+	sm.container.spend( inv, obj_arrow, 1, 1 )
 	sm.container.endTransaction()
-end
-
-function Harpoon:cl_spearCollect()
-	sm.audio.play( "Sledgehammer - Swing" )
-	sm.gui.displayAlertText( "#{RAFT_PICKUP_HARPOON}", 2.5)
-end
-
-function Harpoon:cl_stopEffect( index )
-	--self.effects[index]:stop()
-	--self.effects[index] = nil
-end
-
-function Harpoon:server_onFixedUpdate( dt ) --sv_updateSpears
-	if #self.spears == 0 then return end
-
-	for tablePos, spear in pairs(self.spears) do
-		if spear.lifeTime >= 30 then
-			spear.effect:stop()
-			self:sv_spearCollect( { player = spear.owner, index = tablePos } )
-			self.spears[tablePos] = nil
-		else
-			if spear.trigger ~= nil and sm.exists(spear.trigger) then
-				local pos = spear.attached and spear.attachedTarget == nil and spear.pos or spear.pos + spear.dir
-				local scale = spear.attached and spear.attachedTarget == nil and sm.vec3.one() or sm.vec3.new(0.25,0.25,0.25)
-				spear.trigger:setSize( scale )
-				spear.trigger:setWorldPosition( pos )
-			end
-
-			if not spear.attached then
-				local hit, result = sm.physics.raycast( spear.pos, spear.pos + spear.dir * 2 )
-				if result.type == "terrainSurface" or result.type == "terrainAsset" then
-					spear.attached = true
-				elseif result.type == "character" and not result:getCharacter():isPlayer() then
-					spear.attached = true
-					spear.attachedTarget = result:getCharacter()
-					spear.attachPos = result.pointLocal
-					spear.attachDir = spear.dir
-
-					sm.event.sendToUnit(spear.attachedTarget:getUnit(), "sv_raft_takeDamage", { damage = Damage, impact = spear.dir * spearImpact, hitPos = spear.attachPos })
-				elseif result.type == "body" then
-					spear.attached = true
-					spear.attachedTarget = result:getBody()
-					spear.attachPos = result.pointLocal
-					spear.attachDir = spear.dir
-				end
-
-				spear.lifeTime = spear.lifeTime + dt
-
-				local inWater = false
-				if sm.exists(spear.trigger) then
-					for _, result in ipairs( spear.trigger:getContents() ) do
-						if sm.exists( result ) then
-							if type(result) == "AreaTrigger" then
-								local userData = result:getUserData()
-								if userData and userData.water then
-									inWater = true
-
-									if spear.speed > sm.vec3.one() / 10 and spear.lifeTime > 0.5 then
-										spear.speed = spear.speed - sm.vec3.one() / 5 * dt
-									end
-								end
-							end
-						end
-					end
-				end
-
-				if spear.dir.z > -1 then
-					local gravity = inWater and sm.vec3.new(0,0,0.0005) or sm.vec3.new(0,0,0.005)
-					spear.dir = spear.dir - gravity / spear.speed
-				end
-
-				local newPos = spear.pos + spear.speed * spear.dir * dt * 50
-				spear.pos = newPos
-			else
-				local hit, result = sm.physics.raycast( spear.pos - spear.dir, spear.pos + spear.dir * 2 ) --this is shit
-				local attachedCheck
-				if type(spear.attachedTarget) == "Character" then
-					attachedCheck = result:getCharacter()
-				elseif type(spear.attachedTarget) == "Body" then
-					attachedCheck = result:getBody()
-				end
-
-				if result:getCharacter() and result:getCharacter():isPlayer() then
-					attachedCheck = spear.attachedTarget
-				end
-
-				if spear.attachedTarget == nil then
-					for _, content in ipairs( spear.trigger:getContents() ) do
-						local obj = content
-						if sm.exists( obj ) then
-							if type(obj) == "Character" and obj:isPlayer() then
-								self:sv_spearCollect( { player = obj:getPlayer(), index = tablePos } )
-								self.spears[tablePos] = nil
-								break
-							end
-						end
-					end
-				elseif spear.attachedTarget ~= attachedCheck or not sm.exists(spear.attachedTarget) then
-					spear.attached = false
-					spear.attachedTarget = nil
-					spear.speed = sm.vec3.one() / 10
-					spear.dir.z = -1
-				else
-					if type(spear.attachedTarget) == "Body" then
-						spear.pos = spear.attachedTarget:transformPoint(spear.attachPos)
-						spear.dir = sm.body.getWorldRotation(spear.attachedTarget) * spear.attachDir
-					elseif type(spear.attachedTarget) == "Character" then
-						spear.pos = spear.attachedTarget:getWorldPosition()
-						spear.dir = spear.attachedTarget:getDirection() * spear.attachDir
-					end
-				end
-			end
-		end
-	end
-
-	local effects = {}
-	for v, k in pairs(self.spears) do
-		effects[#effects+1] = { effect = k.effect, pos = k.pos, dir = k.dir }
-	end
-
-	self.network:sendToClients("cl_drawEffects", effects)
-end
-
-function Harpoon:cl_drawEffects( effects )
-	for tablePos, effect in pairs(self.effects) do
-		local effectData = effects[tablePos]
-		if sm.exists(effect) then
-			if effectData ~= nil then
-				effect:setPosition( effectData.pos )
-				effect:setRotation( sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), effectData.dir ) )
-			else
-				self.effects[tablePos]:stop()
-				self.effects[tablePos] = nil
-			end
-		end
-	end
-
-	--[[for tablePos, data in pairs(effects) do
-		local effect = self.effects[tablePos]
-		if effect ~= nil and sm.exists(effect) then
-			effect:setPosition( data.pos )
-			effect:setRotation( sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), data.dir ) )
-		end
-	end]]
 end
 --Raft
 
 function Harpoon.client_onUpdate( self, dt )
-	--Raft
-	--[[if sm.isHost then
-		self.network:sendToServer("sv_updateSpears", dt)
-	end]]
-	--Raft
-
 	-- First person animation
 	local isSprinting =  self.tool:isSprinting()
 	local isCrouching =  self.tool:isCrouching()
@@ -382,16 +215,14 @@ function Harpoon.client_onUpdate( self, dt )
 
 		rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), dir )
 
-
 		self.shootEffectFP:setPosition( effectPos )
 		self.shootEffectFP:setVelocity( self.tool:getMovementVelocity() )
 		self.shootEffectFP:setRotation( rot )
 	end
 	local pos = self.tool:getTpBonePos( "jnt_trigger" )
-	local dir = self.tool:getTpBoneDir( "jnt_trigger" )
+	local dir = sm.localPlayer.getDirection() --self.tool:getTpBoneDir( "jnt_trigger" )
 
-	effectPos = pos + dir * 0.2
-
+	effectPos = pos + dir * 1.25
 	rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), dir )
 
 

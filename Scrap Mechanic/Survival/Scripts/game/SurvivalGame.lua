@@ -22,6 +22,11 @@ local SyncInterval = 400 -- 400 ticks | 10 seconds
 --Raft
 local spawnRaft = false
 
+--Raft
+function SurvivalGame:sv_shootSpear( args )
+	sm.event.sendToWorld( args.world, "sv_shootSpear", args.data )
+end
+--Raft
 
 function SurvivalGame.server_onCreate( self )
 	print( "SurvivalGame.server_onCreate" )

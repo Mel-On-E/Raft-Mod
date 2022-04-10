@@ -41,6 +41,12 @@ function CreativeGame.server_onCreate( self )
 	self:loadCraftingRecipes()
 end
 
+--Raft
+function CreativeGame:sv_shootSpear( args )
+	sm.event.sendToWorld( args.world, "sv_shootSpear", args.data )
+end
+--Raft
+
 function CreativeGame.loadCraftingRecipes( self )
 	LoadCraftingRecipes({
 		--Raft

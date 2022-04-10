@@ -245,9 +245,10 @@
 		"box": {
 				"x": 1,
 				"y": 1,
-				"z": 1
+				"z": 3
 		},
-		"rotationSet": "PropFull",
+		"rotationSet": "PropZ",
+		"sticky": "-Z",
 		"physicsMaterial": "Plastic",
 		"stackSize": 4,
 		"ratings": {
@@ -1926,6 +1927,44 @@
 			},
 			"flammable": true
 		},
+		//Effects
+		{
+			"uuid": "3a46e74e-7826-419e-b457-965d80fed12c",
+			"name": "obj_effect_pigmentflower",
+            "renderable":{
+				"lodList": [
+					{
+						"subMeshMap": {
+							"leaves": {
+								"material": "Leaves",
+									"textureList": [
+										"$SURVIVAL_DATA/Harvestables/Textures/Farmables/hvs_farmables_pigmentflower_dif.tga",
+										"$SURVIVAL_DATA/Harvestables/Textures/Farmables/hvs_farmables_pigmentflower_asg.tga",
+										"$SURVIVAL_DATA/Harvestables/Textures/Farmables/hvs_farmables_pigmentflower_nor.tga"
+									]
+							}
+						},
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ModifiedPlants/pigmentflower.fbx"
+					}
+				]
+			},
+			"color": "ff0000",
+			"box": {
+				"x": 1,
+				"y": 1,
+				"z": 1
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Grass",
+			"ratings": {
+				"density": 3,
+				"durability": 5,
+				"friction": 3,
+				"buoyancy": 1
+			},
+			"flammable": true
+		},
 		{
 			"uuid": "8f460344-ef34-42ab-99e3-d3bed9af4b52",
 			"name": "obj_flag",
@@ -1981,58 +2020,6 @@
 				"buoyancy": 8
 			},
 			"flammable": true
-		},
-		{
-			"uuid": "4c1aed86-a402-4240-81e7-b67edf433fa2",
-			"name": "obj_log_file_text",
-			"renderable": {
-				"lodList": [
-					{
-						"minViewSize": 12,
-						"subMeshList": [
-							{
-									"textureList": [
-										"$SURVIVAL_DATA/Harvestables/Textures/logfiles/hvs_logfiles_picturelog_dif.tga",
-										"$SURVIVAL_DATA/Harvestables/Textures/logfiles/hvs_logfiles_picturelog_asg.tga",
-										"$SURVIVAL_DATA/Harvestables/Textures/logfiles/hvs_logfiles_picturelog_nor.tga"
-									],
-									"material": "DifAsgNor"
-							}
-						],
-						"mesh": "$SURVIVAL_DATA/Harvestables/Mesh/logfiles/hvs_logfiles_picturelog.fbx"
-					}
-				]
-			},
-			"color": "ffffff",
-			"box": {
-				"x": 2,
-				"y": 2,
-				"z": 2
-			},
-			"scripted": {
-				"filename": "$SURVIVAL_DATA/RaftMod/Scripts/log1.lua",
-				"classname": "Log"
-			},
-			"rotationSet": "PropY",
-			"sticky": "-Y",
-			"physicsMaterial": "Plastic",
-			"ratings": {
-				"density": 3,
-				"durability": 10,
-				"friction": 4,
-				"buoyancy": 3
-			},
-					  "restrictions": {
-			"destructable": false,
-			"erasable": false,
-			"buildable": false,
-			"usable": false,
-			"connectable": false,
-			"liftable": false,
-			"convertibleToDynamic": true,
-			"paintable": false
-		  },
-			"flammable": false
 		}
 	]
   }
