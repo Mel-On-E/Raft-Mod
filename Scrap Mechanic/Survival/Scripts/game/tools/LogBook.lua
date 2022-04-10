@@ -28,7 +28,7 @@ function LogBook.server_onCreate( self )
 
 	--raft
 	local world = locations["crashedShip"].world
-	locations["radio quest"] = { world = world, pos = sm.vec3.new(0, 0, 0)}
+	locations["radio quest"] = { world = world, pos = sm.vec3.new(-1820.5, 167.5, -7)}
 
 
 

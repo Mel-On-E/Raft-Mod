@@ -242,8 +242,8 @@ function initPoiTiles()
 	}
 
 	--RAFT
-	g_poiTiles[POI_RAFT] = {
-		addPoiTile( POI_RAFT, 1, "$SURVIVAL_DATA/RaftMod/Tiles/AbandonedBoat(RaftMod).tile" )
+	g_poiTiles[POI_RAFT_CRASHEDSHIP] = {
+		addPoiTile( POI_RAFT_CRASHEDSHIP, 1, "$SURVIVAL_DATA/RaftMod/Tiles/AbandonedBoat(RaftMod).tile" )
 	}
 end
 

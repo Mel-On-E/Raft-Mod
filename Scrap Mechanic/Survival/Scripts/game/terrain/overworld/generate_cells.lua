@@ -793,6 +793,23 @@ function generateOverworldCelldata( xMin, xMax, yMin, yMax, seed, data, padding 
 	-- Crash site and nearby pois
 
 	--writeStartArea( pois )
+
+
+	local function _addPoi( tileX, tileY, size )
+		local x = tileX + math.floor( size / 2 )
+		local y = tileY + math.floor( size / 2 )
+		pois[#pois + 1] = { x = x, y = y, size = size, flat = true }
+	end
+
+	-- RAFT
+	writeTile( getPoiId( POI_RAFT_CRASHEDSHIP, 1 ), -29, 2, 1, 0 )
+	_addPoi( -29, 2, 1 )
+
+
+
+
+
+
 	------------------------------------------------------------------------------------------------
 
 	-- Processing: All corner types must be adjacent to meadow

@@ -120,7 +120,7 @@ POI_RANDOM_PLACEHOLDER = 1
 POI_TEST = 99
 
 --RAFT
-POI_RAFT = 98
+POI_RAFT_CRASHEDSHIP = 98
 
 --------------------------------------------------------------------------------
 -- Cell data
