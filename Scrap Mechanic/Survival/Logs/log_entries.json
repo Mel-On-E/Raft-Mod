@@ -40,6 +40,62 @@
 			"photo": "gui_logbook_sus.png",
 			"location": "radio quest",
 			"icon": "sus"
+		},
+		{
+			"name": "log_find_trader",
+			"uuid": "826a19db-2d2e-46fa-9ade-7bcdd8514572",
+			"type": "tutorial",
+			"photo": "gui_logbook_welcome.png",			
+			"location": "none",
+			"icon": "welcome"
+		},
+		{
+			"name": "log_deliver_vegetables",
+			"uuid": "9ff5727d-f8d7-4bfd-8c39-04ff194f61bc",
+			"type": "tutorial",
+			"photo": "gui_logbook_welcome.png",			
+			"location": "none",
+			"icon": "welcome"
+		},
+		{
+			"name": "log_sunshake",
+			"uuid": "6160a79b-08c6-4546-872c-48730b53118b",
+			"type": "tutorial",
+			"photo": "gui_logbook_welcome.png",			
+			"location": "none",
+			"icon": "welcome"
+		},
+		{
+			"name": "log_deliver_fruits",
+			"uuid": "51c6d229-15a2-4834-a164-e37634fe5b9d",
+			"type": "tutorial",
+			"photo": "gui_logbook_welcome.png",			
+			"location": "none",
+			"icon": "welcome"
+		},
+		{
+			"name": "log_scrap_city",
+			"uuid": "310434f1-84ca-41d1-a60d-ab91dea2aa04",
+			"type": "tutorial",
+			"photo": "gui_logbook_welcome.png",			
+			"location": "none",
+			"icon": "welcome"
+		},
+		{
+			"name": "log_warehouse",
+			"uuid": "cad33bbf-5fc6-433a-b2f5-ae65ca3b43c6",
+			"type": "tutorial",
+			"photo": "gui_logbook_welcome.png",			
+			"location": "none",
+			"icon": "welcome"
+		},
+		{
+			"name": "log_chpater2",
+			"uuid": "cfee3c4f-e70d-4017-a963-177c4a19ecd2",
+			"type": "tutorial",
+			"photo": "gui_logbook_welcome.png",			
+			"location": "none",
+			"icon": "welcome"
 		}
 	]
 }

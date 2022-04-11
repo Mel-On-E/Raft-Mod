@@ -91,6 +91,55 @@ function LogBook.client_onCreate( self )
 			end
 		end)
 
+		Client_registerOnCompleteQuestObserver( quest_radio_location, function( observedCompletion )
+			self:cl_addLog( log_find_trader, observedCompletion )
+			if g_survivalHud then
+				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_find_trader, function( observedCompletion )
+			self:cl_addLog( log_deliver_vegetables, observedCompletion )
+			if g_survivalHud then
+				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_deliver_vegetables, function( observedCompletion )
+			self:cl_addLog( log_sunshake, observedCompletion )
+			if g_survivalHud then
+				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_sunshake, function( observedCompletion )
+			self:cl_addLog( log_deliver_fruits, observedCompletion )
+			if g_survivalHud then
+				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_fruits, function( observedCompletion )
+			self:cl_addLog( log_scrap_city, observedCompletion )
+			if g_survivalHud then
+				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_scrap_city, function( observedCompletion )
+			self:cl_addLog( log_warehouse, observedCompletion )
+			if g_survivalHud then
+				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_warehouse, function( observedCompletion )
+			self:cl_addLog( log_chpater2, observedCompletion )
+			if g_survivalHud then
+				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
+			end
+		end)
+
 		self.cl.gui:setButtonCallback( "WaypointButton", "cl_onWaypointClicked" )
 	end
 
@@ -379,7 +428,7 @@ function LogBook.cl_addLog( self, uuid, notify )
 	if uuid then
 		table.insert( self.cl.logs, uuid )
 		self.cl.updateLogGui = true
-		if notify then
+		if true then
 			if not self.cl.notificationSound:isPlaying() then
 				self.cl.notificationSound:start()
 			end

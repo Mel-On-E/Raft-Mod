@@ -15,8 +15,32 @@
 		"title": "Cry for help",
 		"description": "The Communication Antenna in the outpost has been damaged by 'haybots'. However I should be able to build a small radio to send and receive local distress signals."
 	},
-	"0ccc96c2-97dd-47d9-af8b-0ae2343a939e": {
-		"title": "Distress Signal",
-		"description": "My Makeshift Antenna picked up a nearby distress signal. Perhpas I am not alone after all. I should investigate this."
+	"826a19db-2d2e-46fa-9ade-7bcdd8514572": {
+		"title": "Find Trader",
+		"description": "waypoint go brrrr"
+	},
+	"9ff5727d-f8d7-4bfd-8c39-04ff194f61bc": {
+		"title": "Vegetables",
+		"description": "he wants plant stuff"
+	},
+	"6160a79b-08c6-4546-872c-48730b53118b": {
+		"title": "Sunshake",
+		"description": "Steal recipe"
+	},
+	"51c6d229-15a2-4834-a164-e37634fe5b9d": {
+		"title": "Fruits",
+		"description": "Now he wants fruits"
+	},
+	"310434f1-84ca-41d1-a60d-ab91dea2aa04": {
+		"title": "(S)crap City",
+		"description": "git gud"
+	},
+	"cad33bbf-5fc6-433a-b2f5-ae65ca3b43c6": {
+		"title": "War(e)house",
+		"description": "Bezos will not be happy..."
+	},
+	"cfee3c4f-e70d-4017-a963-177c4a19ecd2": {
+		"title": "Chapter 2",
+		"description": "Thanks for playing. Chapter 2 of story coming soon™"
 	}
 }
