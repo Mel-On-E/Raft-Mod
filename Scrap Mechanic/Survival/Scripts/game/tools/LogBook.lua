@@ -79,6 +79,9 @@ function LogBook.client_onCreate( self )
 
 		Client_registerOnCompleteQuestObserver( quest_mechanic_station, function( observedCompletion )
 			self:cl_addLog( log_radio, observedCompletion )
+			if observedCompletion then
+				sm.gui.displayAlertText( "Recipe Unlocked: Makeshift Antenna", 5 )
+			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end
@@ -86,6 +89,9 @@ function LogBook.client_onCreate( self )
 
 		Client_registerOnCompleteQuestObserver( quest_radio_interactive, function( observedCompletion )
 			self:cl_addLog( log_radio_signal, observedCompletion )
+			if observedCompletion then	
+				sm.gui.displayAlertText( "Recipe Unlocked: Sail", 5 )
+			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end
@@ -428,7 +434,7 @@ function LogBook.cl_addLog( self, uuid, notify )
 	if uuid then
 		table.insert( self.cl.logs, uuid )
 		self.cl.updateLogGui = true
-		if true then
+		if notify then
 			if not self.cl.notificationSound:isPlaying() then
 				self.cl.notificationSound:start()
 			end

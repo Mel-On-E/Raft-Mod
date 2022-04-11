@@ -111,6 +111,7 @@ local crafters = {
 			{ name = "scrapworkbench", locked = false },
 			{ name = "workbench", locked = false },
 			{ name = "quest1", locked = true },
+			{ name = "questsail", locked = true },
 			{ name = "questpropeller", locked = true }
 		},
 		subTitle = "Workbench",
@@ -576,6 +577,8 @@ function Crafter.cl_updateRecipeGrid( self )
 		--raft
 		if recipeSet.name == "quest1" then
 			locked = not g_questManager:cl_isQuestCompleted(quest_mechanic_station)
+		elseif recipeSet.name == "questsail" then
+			locked = not g_questManager:cl_isQuestCompleted(quest_radio_interactive)
 		end
 
 		self.cl.guiInterface:addGridItemsFromFile( "RecipeGrid", g_craftingRecipes[recipeSet.name].path, { locked = locked } )

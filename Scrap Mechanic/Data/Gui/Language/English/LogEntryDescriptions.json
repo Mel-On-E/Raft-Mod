@@ -15,6 +15,10 @@
 		"title": "Cry for help",
 		"description": "The Communication Antenna in the outpost has been damaged by 'haybots'. However I should be able to build a small radio to send and receive local distress signals."
 	},
+	"0ccc96c2-97dd-47d9-af8b-0ae2343a939e": {
+		"title": "Rescue mission",
+		"description": "I picked up a weird signal not far from here. If I can build a sail, I should be able to get there."
+	},
 	"826a19db-2d2e-46fa-9ade-7bcdd8514572": {
 		"title": "Find Trader",
 		"description": "waypoint go brrrr"
