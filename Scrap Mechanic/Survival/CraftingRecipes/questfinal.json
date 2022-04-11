@@ -1,0 +1,54 @@
+[
+	//WASD Converter
+	{
+		"itemId": "509505f1-b772-4acd-9827-f9a605a979ec",
+		"quantity": 1,
+		"craftTime": 45,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f"
+			},
+			{
+				"quantity": 1,
+				"itemId": "1d4793af-cb66-4628-804a-9d7404712643"
+			}
+		]
+	},
+	//Water Sensor
+	{
+		"itemId": "6db7aacf-f2b3-4cbb-a6d2-2a01d5ee5562",
+		"quantity": 1,
+		"craftTime": 45,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f"
+			},
+			{
+				"quantity": 1,
+				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+			}
+		]
+	},
+	//Creation Rotator
+	{
+		"itemId": "71ac7645-57f5-4d49-9574-c8482b431862",
+		"quantity": 1,
+		"craftTime": 55,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "9f0f56e8-2c31-4d83-996c-d00a9b296c3f"
+			},
+			{
+				"quantity": 1,
+				"itemId": "22f3e797-82f5-4819-a085-c3cc28ec9025"
+			},
+			{
+				"quantity": 4,
+				"itemId": "4a1b886b-913e-4aad-b5b6-6e41b0db23a6"
+			}
+		]
+	}
+]

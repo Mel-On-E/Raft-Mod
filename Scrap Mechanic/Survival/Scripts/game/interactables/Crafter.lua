@@ -109,10 +109,10 @@ local crafters = {
 		speed = 1,
 		recipeSets = {
 			{ name = "scrapworkbench", locked = false },
-			{ name = "workbench", locked = false },
 			{ name = "quest1", locked = true },
 			{ name = "questsail", locked = true },
-			{ name = "questpropeller", locked = true }
+			{ name = "questpropeller", locked = true },
+			{ name = "questfinal", locked = true }
 		},
 		subTitle = "Workbench",
 		createGuiFunction = sm.gui.createCraftBotGui
@@ -579,6 +579,8 @@ function Crafter.cl_updateRecipeGrid( self )
 			locked = not g_questManager:cl_isQuestCompleted(quest_mechanic_station)
 		elseif recipeSet.name == "questsail" then
 			locked = not g_questManager:cl_isQuestCompleted(quest_radio_interactive)
+		elseif recipeSet.name == "questfinal" then
+			locked = not g_questManager:cl_isQuestCompleted(quest_warehouse)
 		end
 
 		self.cl.guiInterface:addGridItemsFromFile( "RecipeGrid", g_craftingRecipes[recipeSet.name].path, { locked = locked } )

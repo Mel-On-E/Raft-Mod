@@ -80,7 +80,7 @@ function LogBook.client_onCreate( self )
 		Client_registerOnCompleteQuestObserver( quest_mechanic_station, function( observedCompletion )
 			self:cl_addLog( log_radio, observedCompletion )
 			if observedCompletion then
-				sm.gui.displayAlertText( "Recipe Unlocked: Makeshift Antenna", 5 )
+				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
 			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
@@ -90,7 +90,7 @@ function LogBook.client_onCreate( self )
 		Client_registerOnCompleteQuestObserver( quest_radio_interactive, function( observedCompletion )
 			self:cl_addLog( log_radio_signal, observedCompletion )
 			if observedCompletion then	
-				sm.gui.displayAlertText( "Recipe Unlocked: Sail", 5 )
+				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
 			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
@@ -134,6 +134,9 @@ function LogBook.client_onCreate( self )
 
 		Client_registerOnCompleteQuestObserver( quest_scrap_city, function( observedCompletion )
 			self:cl_addLog( log_warehouse, observedCompletion )
+			if observedCompletion then	
+				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
+			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end
