@@ -46,16 +46,16 @@
 			"uuid": "826a19db-2d2e-46fa-9ade-7bcdd8514572",
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
-			"location": "none",
-			"icon": "welcome"
+			"location": "trader",
+			"icon": "sus"
 		},
 		{
 			"name": "log_deliver_vegetables",
 			"uuid": "9ff5727d-f8d7-4bfd-8c39-04ff194f61bc",
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
-			"location": "none",
-			"icon": "welcome"
+			"location": "veggies",
+			"icon": "sus"
 		},
 		{
 			"name": "log_sunshake",
@@ -63,7 +63,7 @@
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
 			"location": "none",
-			"icon": "welcome"
+			"icon": "sus"
 		},
 		{
 			"name": "log_deliver_fruits",
@@ -71,7 +71,7 @@
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
 			"location": "none",
-			"icon": "welcome"
+			"icon": "sus"
 		},
 		{
 			"name": "log_scrap_city",
@@ -79,7 +79,7 @@
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
 			"location": "none",
-			"icon": "welcome"
+			"icon": "sus"
 		},
 		{
 			"name": "log_warehouse",
@@ -87,7 +87,7 @@
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
 			"location": "none",
-			"icon": "welcome"
+			"icon": "sus"
 		},
 		{
 			"name": "log_chpater2",
@@ -95,7 +95,7 @@
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
 			"location": "none",
-			"icon": "welcome"
+			"icon": "sus"
 		}
 	]
 }

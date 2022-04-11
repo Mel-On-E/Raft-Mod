@@ -579,8 +579,10 @@ function Crafter.cl_updateRecipeGrid( self )
 			locked = not g_questManager:cl_isQuestCompleted(quest_mechanic_station)
 		elseif recipeSet.name == "questsail" then
 			locked = not g_questManager:cl_isQuestCompleted(quest_radio_interactive)
+		elseif recipeSet.name == "questpropeller" then
+			locked = not g_questManager:cl_isQuestCompleted(quest_find_trader)
 		elseif recipeSet.name == "questfinal" then
-			locked = not g_questManager:cl_isQuestCompleted(quest_warehouse)
+			locked = not g_questManager:cl_isQuestCompleted(quest_return_to_trader4)
 		end
 
 		self.cl.guiInterface:addGridItemsFromFile( "RecipeGrid", g_craftingRecipes[recipeSet.name].path, { locked = locked } )

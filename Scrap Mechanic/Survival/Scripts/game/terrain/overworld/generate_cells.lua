@@ -99,15 +99,15 @@ function generateOverworldCelldata( xMin, xMax, yMin, yMax, seed, data, padding 
 	-- Unique
 	pois[#pois + 1] = { x = -27, y = -26, type = POI_MECHANICSTATION_MEDIUM, size = 2, road = false, flat = true, terrainType = TYPE_LAKE, cellDebug = DEBUG_R, edges = {} }
 	local mechanicStation = pois[#pois]
-	pois[#pois + 1] = { x = -17, y = -23, type = POI_PACKINGSTATIONVEG_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
+	pois[#pois + 1] = { x = -17, y = -23, type = POI_CAPSULESCRAPYARD_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 	local packingStation1 = pois[#pois]
 	pois[#pois + 1] = { x = 0, y = -21, type = POI_PACKINGSTATIONFRUIT_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 	local packingStation2 = pois[#pois]
-	pois[#pois + 1] = { x = -16, y = -16, type = POI_HIDEOUT_XL, rotation = 0, size = 8, road = false, flat = true, cliffLevel = 0, cellDebug = DEBUG_R, edges = {} }
+	pois[#pois + 1] = { x = -16, y = -16, type = POI_RUINCITY_XL, rotation = 0, size = 8, road = false, flat = true, cliffLevel = 0, cellDebug = DEBUG_R, edges = {} }
 	local hideout = pois[#pois]
 
 	--DELETE
-	pois[#pois + 1] = { x = 24, y = 32, type = POI_RUINCITY_XL, size = 8, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
+	pois[#pois + 1] = { x = 24, y = 32, type = POI_HIDEOUT_XL, size = 8, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 	pois[#pois + 1] = { x = 40, y = 0, type = POI_SILODISTRICT_XL, rotation = 1, size = 8, road = true, flat = true, cellDebug = DEBUG_R, edges = {} }
 
 	pois[#pois + 1] = { x = -48, y = 40, type = POI_CRASHEDSHIP_LARGE, size = 4, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }

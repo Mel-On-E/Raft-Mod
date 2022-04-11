@@ -29,6 +29,8 @@ function LogBook.server_onCreate( self )
 	--raft
 	local world = locations["crashedShip"].world
 	locations["radio quest"] = { world = world, pos = sm.vec3.new(-1820.5, 167.5, -7)}
+	locations["trader"] = { world = world, pos = sm.vec3.new(1536, 2048, 20)}
+	locations["veggies"] = { world = world, pos = sm.vec3.new(-768, 1280, 20)}
 
 
 
@@ -99,6 +101,9 @@ function LogBook.client_onCreate( self )
 
 		Client_registerOnCompleteQuestObserver( quest_radio_location, function( observedCompletion )
 			self:cl_addLog( log_find_trader, observedCompletion )
+			if observedCompletion then
+				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
+			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end
@@ -112,6 +117,12 @@ function LogBook.client_onCreate( self )
 		end)
 
 		Client_registerOnCompleteQuestObserver( quest_deliver_vegetables, function( observedCompletion )
+			if observedCompletion then
+				sm.gui.displayAlertText( "Talk to Trader!", 5 )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_return_to_trader1, function( observedCompletion )
 			self:cl_addLog( log_sunshake, observedCompletion )
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
@@ -119,6 +130,12 @@ function LogBook.client_onCreate( self )
 		end)
 
 		Client_registerOnCompleteQuestObserver( quest_sunshake, function( observedCompletion )
+			if observedCompletion then
+				sm.gui.displayAlertText( "Talk to Trader!", 5 )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_return_to_trader2, function( observedCompletion )
 			self:cl_addLog( log_deliver_fruits, observedCompletion )
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
@@ -126,6 +143,12 @@ function LogBook.client_onCreate( self )
 		end)
 
 		Client_registerOnCompleteQuestObserver( quest_fruits, function( observedCompletion )
+			if observedCompletion then
+				sm.gui.displayAlertText( "Talk to Trader!", 5 )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_return_to_trader3, function( observedCompletion )
 			self:cl_addLog( log_scrap_city, observedCompletion )
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
@@ -133,6 +156,12 @@ function LogBook.client_onCreate( self )
 		end)
 
 		Client_registerOnCompleteQuestObserver( quest_scrap_city, function( observedCompletion )
+			if observedCompletion then
+				sm.gui.displayAlertText( "Talk to Trader!", 5 )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_return_to_trader4, function( observedCompletion )
 			self:cl_addLog( log_warehouse, observedCompletion )
 			if observedCompletion then	
 				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
@@ -143,6 +172,12 @@ function LogBook.client_onCreate( self )
 		end)
 
 		Client_registerOnCompleteQuestObserver( quest_warehouse, function( observedCompletion )
+			if observedCompletion then
+				sm.gui.displayAlertText( "Talk to Trader!", 5 )
+			end
+		end)
+
+		Client_registerOnCompleteQuestObserver( quest_return_to_trader5, function( observedCompletion )
 			self:cl_addLog( log_chpater2, observedCompletion )
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
