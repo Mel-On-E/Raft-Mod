@@ -39,7 +39,7 @@ local minThrowForce = 0.25
 local minWaitTime = 10*40
 local maxWaitTime = 30*40
 
-local CatchTime = 1.0
+local CatchTime = 0.75
 local minBites = 1
 local maxBites = 6
 

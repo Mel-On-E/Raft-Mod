@@ -28,7 +28,7 @@ function BeeHive.sv_onHit( self )
 
 			--raft
 			lootList = {}
-			if math.random(1,100) > 90 then --10%
+			if math.random(1,100) > 85 then --15%
 				lootList[1] = { uuid = obj_bee_queen, quantity = 1 }
 				SpawnLoot( self.harvestable, lootList )
 			end
