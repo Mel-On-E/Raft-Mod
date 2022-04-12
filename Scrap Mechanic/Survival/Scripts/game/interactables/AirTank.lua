@@ -17,6 +17,8 @@ function AirTank:server_onFixedUpdate(dt)
 		elseif not parent.active and shape.uuid == obj_airtank_full then
 			shape:replaceShape(obj_airtank_empty)
 		end
+	elseif shape.uuid == obj_airtank_full then
+		shape:replaceShape(obj_airtank_empty)
 	end
 end
 
