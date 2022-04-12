@@ -67,6 +67,7 @@ POI_CAMP_LARGE = 106
 POI_CAPSULESCRAPYARD_MEDIUM = 107
 POI_LABYRINTH_MEDIUM = 108
 
+
 -- Special (MEADOW)
 POI_MECHANICSTATION_MEDIUM = 109 -- roads
 POI_PACKINGSTATIONVEG_MEDIUM = 110 -- roads
@@ -121,6 +122,7 @@ POI_TEST = 99
 
 --RAFT
 POI_RAFT_CRASHEDSHIP = 98
+POI_WOCTEMPLE_XL = 148
 
 --------------------------------------------------------------------------------
 -- Cell data

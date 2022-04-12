@@ -245,6 +245,9 @@ function initPoiTiles()
 	g_poiTiles[POI_RAFT_CRASHEDSHIP] = {
 		addPoiTile( POI_RAFT_CRASHEDSHIP, 1, "$SURVIVAL_DATA/RaftMod/Tiles/AbandonedBoat(RaftMod).tile" )
 	}
+	g_poiTiles[POI_WOCTEMPLE_XL] = {
+		addPoiTile( POI_WOCTEMPLE_XL, 1, "$SURVIVAL_DATA/RaftMod/Tiles/WocTemple.tile" )
+	}
 end
 
 ----------------------------------------------------------------------------------------------------
