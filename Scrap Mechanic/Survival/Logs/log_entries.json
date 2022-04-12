@@ -61,7 +61,7 @@
 			"name": "log_sunshake",
 			"uuid": "6160a79b-08c6-4546-872c-48730b53118b",
 			"type": "tutorial",
-			"photo": "gui_logbook_welcome.png",			
+			"photo": "gui_logbook_photoframe_woc_temple.png",			
 			"location": "wocTemple",
 			"icon": "sus"
 		},
@@ -77,7 +77,7 @@
 			"name": "log_scrap_city",
 			"uuid": "310434f1-84ca-41d1-a60d-ab91dea2aa04",
 			"type": "tutorial",
-			"photo": "gui_logbook_welcome.png",			
+			"photo": "gui_logbook_photoframe_scrap_city.png",			
 			"location": "scrapcity",
 			"icon": "sus"
 		},
