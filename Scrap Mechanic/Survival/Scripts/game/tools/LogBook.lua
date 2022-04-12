@@ -31,7 +31,7 @@ function LogBook.server_onCreate( self )
 	locations["radio quest"] = { world = world, pos = sm.vec3.new(-1820.5, 167.5, -7)}
 	locations["trader"] = { world = world, pos = sm.vec3.new(1536, 2048, 20)}
 	locations["veggies"] = { world = world, pos = sm.vec3.new(-768, 1280, 20)}
-	locations["wocTemple"] = { world = world, pos = sm.vec3.new(-3040, 2592, 20)}
+	locations["wocTemple"] = { world = world, pos = sm.vec3.new(3187, 2632, 50)}
 	locations["fruits"] = { world = world, pos = sm.vec3.new(0, -1344, 20)}
 	locations["scrapcity"] = { world = world, pos = sm.vec3.new(1600.25, -2064.75, 55)}
 
