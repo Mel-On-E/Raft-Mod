@@ -86,3 +86,4 @@ hvs_logfile_picturelog = sm.uuid.new( "3d5d1c0b-08c0-4ee6-9445-20ec983ca936" )
 -- Raft
 
 hvs_raft_trader_notes_ship = sm.uuid.new( "148c965c-84e5-41e8-8289-750b73d8c773" )
+hvs_raft_woctemple_sunshake_recipe = sm.uuid.new( "148c965c-84e5-41e8-8289-750b73cf9932" )
