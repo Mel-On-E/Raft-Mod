@@ -474,6 +474,11 @@ function SurvivalPlayer.server_onFixedUpdate( self, dt )
 			self.network:setClientData( self.sv.saved )
 		end
 	end
+
+	--RAFT
+	if Server_isQuestActive(quest_scrap_city) and sm.container.canSpend( self.player:getInventory(), obj_survivalobject_keycard, 1 ) then
+		Server_completeQuest(quest_scrap_city)
+	end
 end
 
 function SurvivalPlayer.server_onProjectile( self, hitPos, hitTime, hitVelocity, projectileName, attacker, damage )

@@ -328,6 +328,12 @@ end
 function HideoutTrader.cl_updateTradeGrid( self )
 	self.cl.guiInterface:clearGrid( "TradeGrid" )
 	self.cl.guiInterface:addGridItemsFromFile( "TradeGrid", "$SURVIVAL_DATA/CraftingRecipes/hideout.json" )
+	if g_questManager:cl_isQuestCompleted(quest_fruits) then
+		self.cl.guiInterface:addGridItemsFromFile( "TradeGrid", "$SURVIVAL_DATA/CraftingRecipes/sunshake.json" )
+	end
+	if g_questManager:cl_isQuestCompleted(quest_scrap_city) then
+		self.cl.guiInterface:addGridItemsFromFile( "TradeGrid", "$SURVIVAL_DATA/CraftingRecipes/warehousekey.json" )
+	end
 end
 
 function HideoutTrader.cl_n_addVacuumItem( self, params )

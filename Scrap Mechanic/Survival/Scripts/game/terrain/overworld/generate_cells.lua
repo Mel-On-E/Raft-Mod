@@ -89,6 +89,7 @@ function generateOverworldCelldata( xMin, xMax, yMin, yMax, seed, data, padding 
 	end
 
 	------------------------------------------------------------------------------------------------
+	--RAFT
 
 	-- Crash site
 	pois[#pois + 1] = { x = -36, y = -40, type = POI_CRASHSITE_AREA, size = 1, road = false, flat = false, cliffLevel = 0, cellDebug = DEBUG_R, edges = {} }
@@ -103,22 +104,27 @@ function generateOverworldCelldata( xMin, xMax, yMin, yMax, seed, data, padding 
 	local packingStation1 = pois[#pois]
 	pois[#pois + 1] = { x = 0, y = -21, type = POI_PACKINGSTATIONFRUIT_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 	local packingStation2 = pois[#pois]
-	pois[#pois + 1] = { x = -16, y = -16, type = POI_RUINCITY_XL, rotation = 0, size = 8, road = false, flat = true, cliffLevel = 0, cellDebug = DEBUG_R, edges = {} }
+	pois[#pois + 1] = { x = 24, y = -32, type = POI_RUINCITY_XL, rotation = 0, size = 8, road = false, flat = true, cliffLevel = 0, cellDebug = DEBUG_R, edges = {} }
 	local hideout = pois[#pois]
 
-	--DELETE
+	
 	pois[#pois + 1] = { x = 24, y = 32, type = POI_HIDEOUT_XL, size = 8, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 	pois[#pois + 1] = { x = 40, y = 0, type = POI_SILODISTRICT_XL, rotation = 1, size = 8, road = true, flat = true, cellDebug = DEBUG_R, edges = {} }
 
-	pois[#pois + 1] = { x = -48, y = 40, type = POI_CRASHEDSHIP_LARGE, size = 4, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
+
+	--WocTemple
+	pois[#pois + 1] = { x = -48, y = 40, type = POI_RAFT_CRASHEDSHIP, size = 1, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
+
+
 	pois[#pois + 1] = { x = -56, y = 0, type = POI_CAMP_LARGE, rotation = 0, size = 4, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 
 	pois[#pois + 1] = { x = 24, y = 0, type = POI_CAPSULESCRAPYARD_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, terrainType = TYPE_LAKE, edges = {} }
 	pois[#pois + 1] = { x = 24, y = -20, type = POI_LABYRINTH_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, terrainType = TYPE_LAKE, edges = {} }
 
-	pois[#pois + 1] = { x = 0, y = 10, type = POI_MECHANICSTATION_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 	pois[#pois + 1] = { x = -12, y = 20, type = POI_PACKINGSTATIONVEG_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
-	pois[#pois + 1] = { x = 12, y = 20, type = POI_PACKINGSTATIONFRUIT_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
+
+
+
 
 	------------------------------------------------------------------------------------------------
 

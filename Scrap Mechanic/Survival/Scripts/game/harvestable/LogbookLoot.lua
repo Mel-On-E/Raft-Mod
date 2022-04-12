@@ -32,7 +32,6 @@ function LogbookLoot.sv_n_pickup( self, params, player )
 				sm.event.sendToPlayer( player, "sv_e_onLoot", { name = "New Log Entry", pos = self.harvestable:getPosition(), effectName = "Loot - LogfilesPickup" } )
 				Server_completeQuest( quest_radio_location )
 			elseif Server_isQuestActive( quest_sunshake ) then
-				sm.event.sendToPlayer( player, "sv_e_onLoot", { name = "New Log Entry", pos = self.harvestable:getPosition(), effectName = "Loot - LogfilesPickup" } )
 				Server_completeQuest( quest_sunshake )
 			end
 

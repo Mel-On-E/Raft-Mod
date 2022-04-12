@@ -62,7 +62,7 @@
 			"uuid": "6160a79b-08c6-4546-872c-48730b53118b",
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
-			"location": "none",
+			"location": "wocTemple",
 			"icon": "sus"
 		},
 		{
@@ -70,7 +70,7 @@
 			"uuid": "51c6d229-15a2-4834-a164-e37634fe5b9d",
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
-			"location": "none",
+			"location": "fruits",
 			"icon": "sus"
 		},
 		{
@@ -78,7 +78,7 @@
 			"uuid": "310434f1-84ca-41d1-a60d-ab91dea2aa04",
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
-			"location": "none",
+			"location": "scrapcity",
 			"icon": "sus"
 		},
 		{
