@@ -182,7 +182,46 @@
         },
 		{
 			"name": "hvs_raft_trader_notes_ship",
-            			"uuid": "148c965c-84e5-41e8-8289-750b73d8c773",
+            "uuid": "148c965c-84e5-41e8-8289-750b73d8c773",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+									"textureList": [
+										"$SURVIVAL_DATA/Harvestables/Textures/logfiles/hvs_logfiles_picturelog_dif.tga",
+										"$SURVIVAL_DATA/Harvestables/Textures/logfiles/hvs_logfiles_picturelog_asg.tga",
+										"$SURVIVAL_DATA/Harvestables/Textures/logfiles/hvs_logfiles_picturelog_nor.tga"
+									],
+									"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$SURVIVAL_DATA/Harvestables/Mesh/logfiles/hvs_logfiles_picturelog.fbx"
+					}
+				]
+			},
+		                  "color": "",
+			"col": "$SURVIVAL_DATA/Harvestables/Collision/Loot/hvs_loot_bigger_col.obj", 
+			"collides": {
+				"character": false,
+				"body": false,
+				"projectile": false,
+				"melee": false
+			},
+			"removable": true,
+		   	"size": 1,
+			"type": "logfiles",
+			"material": "Wood",
+			"mass": 15000,		
+			"script": { 
+				"file": "$SURVIVAL_DATA/Scripts/game/harvestable/LogbookLoot.lua", 
+				"class": "LogbookLoot", 
+				"data": {} 
+			}
+		},
+		{
+			"name": "hvs_raft_woctemple_sunshake_recipe",
+            "uuid": "148c965c-84e5-41e8-8289-750b73cf9932",
 			"renderable": {
 				"lodList": [
 					{
