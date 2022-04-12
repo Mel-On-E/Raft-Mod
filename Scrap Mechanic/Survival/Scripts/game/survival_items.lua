@@ -38,6 +38,13 @@ obj_fish = sm.uuid.new("7c440c4a-5919-4baa-a946-0bb89b8c4d5d")
 obj_fish_cooked = sm.uuid.new("c57fe6d6-03b1-46d4-9104-29cf19f176ab")
 obj_arrow = sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4857")
 
+tool_fishing_rod = sm.uuid.new("e3bcf8fa-68d7-49a8-b17b-c1e864d53b69")
+tool_hook = sm.uuid.new("b5ade3b0-be48-4a61-a8c2-13a4cedf1343")
+tool_axe = sm.uuid.new("1daebe24-4e16-422c-b5e7-c3f45f9296d8")
+tool_pickaxe = sm.uuid.new("c883b283-ea7a-4bba-af0d-5c13fd73051d")
+tool_spear = sm.uuid.new("0db1ecd5-503d-4dd3-807e-869c243a7c08")
+tool_harpoon = sm.uuid.new("e34387d3-fa29-4831-89b8-c94417b6fce6")
+
 ----------------------------------------
 -- appliances.json
 ----------------------------------------

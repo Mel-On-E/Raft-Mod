@@ -150,6 +150,9 @@ function LogBook.client_onCreate( self )
 
 		Client_registerOnCompleteQuestObserver( quest_return_to_trader3, function( observedCompletion )
 			self:cl_addLog( log_scrap_city, observedCompletion )
+			if observedCompletion then	
+				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
+			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end

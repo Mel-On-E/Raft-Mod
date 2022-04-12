@@ -112,6 +112,8 @@ local crafters = {
 			{ name = "quest1", locked = true },
 			{ name = "questsail", locked = true },
 			{ name = "questpropeller", locked = true },
+			{ name = "questveggies", locked = true },
+			{ name = "questharpoon", locked = true },
 			{ name = "questfinal", locked = true }
 		},
 		subTitle = "Workbench",
@@ -581,6 +583,10 @@ function Crafter.cl_updateRecipeGrid( self )
 			locked = not g_questManager:cl_isQuestCompleted(quest_radio_interactive)
 		elseif recipeSet.name == "questpropeller" then
 			locked = not g_questManager:cl_isQuestCompleted(quest_find_trader)
+		elseif recipeSet.name == "questveggies" then
+			locked = not g_questManager:cl_isQuestCompleted(quest_return_to_trader1)
+		elseif recipeSet.name == "questharpoon" then
+			locked = not g_questManager:cl_isQuestCompleted(quest_return_to_trader3)
 		elseif recipeSet.name == "questfinal" then
 			locked = not g_questManager:cl_isQuestCompleted(quest_return_to_trader4)
 		end

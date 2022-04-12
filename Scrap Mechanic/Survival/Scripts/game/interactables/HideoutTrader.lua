@@ -262,6 +262,10 @@ function HideoutTrader.server_onFixedUpdate( self, timeStep )
 				Server_completeQuest(quest_fruits)
 			end
 		end
+	elseif not g_questManager:sv_isQuestCompleted(quest_warehouse) then
+		if sm.container.canSpend(self.interactable:getContainer(), obj_survivalobject_farmerball, 1) then
+			Server_completeQuest(quest_warehouse)
+		end
 	end
 end
 
