@@ -18,7 +18,7 @@ sm.tool.preloadRenderables( renderablesTp )
 sm.tool.preloadRenderables( renderablesFp )
 
 local Range = 3.0
-local SwingStaminaSpend = 1.5
+local SwingStaminaSpend = 0.75
 
 Sledgehammer.swingCount = 2
 Sledgehammer.mayaFrameDuration = 1.0/30.0

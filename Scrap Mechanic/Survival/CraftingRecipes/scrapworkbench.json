@@ -17,6 +17,22 @@
 			}
 		]
 	},
+	//Hook
+	{
+		"itemId": "b5ade3b0-be48-4a61-a8c2-13a4cedf1343",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			{
+				"quantity": 5,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 15,
+				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
+			}
+		]
+	},
 		//Spear
 		{
 		"itemId": "0db1ecd5-503d-4dd3-807e-869c243a7c08",
@@ -68,7 +84,7 @@
 				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
 			},
 			{
-				"quantity": 20,
+				"quantity": 15,
 				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39"
 			}
 		]
@@ -316,7 +332,7 @@
 		"craftTime": 62,
 		"ingredientList": [
 			{
-				"quantity": 40,
+				"quantity": 25,
 				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39"
 			},
 			{

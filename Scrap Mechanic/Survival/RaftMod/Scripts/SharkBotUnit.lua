@@ -879,49 +879,14 @@ function SharkBotUnit.sv_onDeath( self, impact )
 		self.saved.stats.hp = 0
 		self.unit:destroy()
 		print("'SharkBotUnit' killed!")
-		self:sv_spawnParts( impact )
 		if SurvivalGame then
-			local loot = SelectLoot( "loot_totebot_green" )
+			local loot = SelectLoot( "loot_farmbot" )
 			SpawnLoot( self.unit, loot )
 		end
 		self.destroyed = true
 	end
 end
 
-function SharkBotUnit.sv_spawnParts( self, impact )
-	local character = self.unit:getCharacter()
-
-	local lookDirection = character:getDirection()
-	local bodyPos = character.worldPosition
-	local bodyRot = sm.quat.identity()
-	lookDirection = sm.vec3.new( lookDirection.x, lookDirection.y, 0 )
-	if lookDirection:length() >= FLT_EPSILON then
-		lookDirection = lookDirection:normalize()
-		bodyRot = sm.vec3.getRotation( sm.vec3.new( 0, 1, 0 ), lookDirection  ) --Turn parts sideways
-	end
-	local bodyOffset = bodyRot * sm.vec3.new( -0.25, 0.25, 0.375 )
-	bodyPos = bodyPos - bodyOffset
-
-	local color = self.unit.character:getColor()
-	if SurvivalGame then
-		if math.random( 1, 5 ) == 1 then
-			local headBody = sm.body.createBody( bodyPos, bodyRot, true )
-			local headShape = headBody:createPart( obj_resource_steak, sm.vec3.new( 0, 1, 2 ), sm.vec3.new( 0, 1, 0 ), sm.vec3.new( -1, 0, 0 ), true )
-			headShape.color = color
-			sm.physics.applyImpulse( headShape, impact * headShape.mass, true )
-		end
-	end
-
-	local middleBody = sm.body.createBody( bodyPos, bodyRot, true )
-	local middleShape = middleBody:createPart( obj_robotpart_totebotbody, sm.vec3.new( 0, 0, 0 ), sm.vec3.new( 0, 1, 0 ), sm.vec3.new( -1, 0, 0 ), true )
-	middleShape.color = color
-	sm.physics.applyImpulse( middleShape, impact * middleShape.mass, true )
-	
-	local legBody = sm.body.createBody( bodyPos, bodyRot, true )
-	local legShape = legBody:createPart( obj_robotpart_totebotleg, sm.vec3.new( 1, 2, 0 ), sm.vec3.new( 0, 1, 0 ), sm.vec3.new( -1, 0, 0 ), true )
-	legShape.color = color
-	sm.physics.applyImpulse( legShape, impact * legShape.mass, true )
-end
 
 function SharkBotUnit.sv_e_receiveTarget( self, params )
 	if self.unit ~= params.unit then
