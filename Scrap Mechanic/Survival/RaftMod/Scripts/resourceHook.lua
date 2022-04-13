@@ -53,7 +53,7 @@ function Hook.client_onCreate( self )
 	self.ropeEffect:setParameter("color", sm.color.new(0,0,0))
 
 	self.hookEffect = sm.effect.createEffect("ShapeRenderable")
-	self.hookEffect:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
+	self.hookEffect:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c8735"))
 	self.hookEffect:setParameter("color", sm.color.new(1,0,0))
 	self.hookEffect:setScale(hookSize)
 
