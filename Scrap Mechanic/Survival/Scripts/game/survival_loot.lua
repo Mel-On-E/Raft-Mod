@@ -246,7 +246,7 @@ local loot_tapebot = {
 }
 
 local loot_farmbot = {
-	slots = function() return randomStackAmount( 3, 3, 4 ) end,
+	slots = function() return randomStackAmount( 2, 2, 3 ) end,
 	randomLoot = {
 		{ uuid = obj_consumable_component,		chance = 2,		quantity = randomStackAmountAvg2 },
 		{ uuid = obj_resource_circuitboard,		chance = 1,		quantity = randomStackAmountAvg2 },
