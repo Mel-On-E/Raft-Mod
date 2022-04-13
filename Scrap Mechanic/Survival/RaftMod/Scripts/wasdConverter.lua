@@ -61,23 +61,23 @@ function Converter:server_onFixedUpdate( dt )
     local steer = parent:getSteeringAngle()
 
     if forward ~= 0 and inputs.forward[forward] == selectedInput then
-        self:sv_updateState( { active = true, power = forward, index = 6 } )
+        self:sv_updateState( { active = true, power = forward } )
         return
-    elseif forward == 0 and isAnyOf(selectedInput, inputs.forward) and self.interactable:isActive() then
-        self:sv_updateState( { active = false, power = 0, index = 0 } )
+    else
+        self:sv_updateState( { active = false, power = 0 } )
     end
 
     if steer ~= 0 and inputs.steer[steer] == selectedInput then
-        self:sv_updateState( { active = true, power = steer, index = 6 } )
+        self:sv_updateState( { active = true, power = steer } )
         return
-    elseif steer == 0 and isAnyOf(selectedInput, inputs.steer) and self.interactable:isActive() then
-        self:sv_updateState( { active = false, power = 0, index = 0 } )
+    else
+        self:sv_updateState( { active = false, power = 0 } )
     end
 end
 
 function Converter:sv_updateState( args )
     self.interactable:setActive( args.active )
-    self.interactable:setPower( args.power )
+    self.interactable:setPower( math.abs(args.power) ) --thank you thrusters
 
     self:sv_updateUV( args.power )
 end
@@ -97,7 +97,8 @@ function Converter:cl_uvUpdate( index )
 end
 
 function Converter:client_canInteract()
-	sm.gui.setInteractionText( "", "Current mode: "..self.modes.modes[self.modes.count]:upper() )
+	sm.gui.setInteractionText( "", "Current mode: #df7f00"..self.modes.modes[self.modes.count]:upper() )
+    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."' to cycle forwards, '"..sm.gui.getKeyBinding( "Tinker" ).."' to cycle backwards.")
 
     return true
 end
@@ -105,6 +106,14 @@ end
 function Converter:client_onInteract( char, lookAt )
     if lookAt then
         self.modes.count = self.modes.count < #self.modes.modes and self.modes.count + 1 or 1
+        sm.audio.play("PaintTool - ColorPick")
+        self.network:sendToServer("sv_save")
+    end
+end
+
+function Converter:client_onTinker( char, lookAt )
+    if lookAt then
+        self.modes.count = self.modes.count > 1 and self.modes.count - 1 or #self.modes.modes
         sm.audio.play("PaintTool - ColorPick")
         self.network:sendToServer("sv_save")
     end

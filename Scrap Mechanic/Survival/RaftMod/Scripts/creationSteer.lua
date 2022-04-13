@@ -37,8 +37,9 @@ function Steer:server_onFixedUpdate( dt )
 
     local charDir = seatedChar:getDirection()
     local parentShape = parent:getShape()
-    local parentDir = parentShape:getRight():cross(parentShape:getAt()) --a seat's getAt is upwards
+    local parentDir = parentShape:getRight():cross(parentShape:getAt()) --a seat's getAt is upwards, I want a forward direction
     local forceDir = parentDir:cross(charDir)
+    --self.network:sendToClients("cl_visualise", { charDir, parentDir, forceDir })
 
     local bodyToRotate = parentShape:getBody()
     local creationMass = 0
@@ -57,8 +58,16 @@ function Steer:server_onFixedUpdate( dt )
         forceDir = parentDir * parent:getSteeringAngle()
     end
 
-    sm.physics.applyTorque( bodyToRotate, forceDir * (creationMass / 75) * forceDir:length(), true )
-    self:sv_updateState( { active = true, power = 1, index = 7 } )
+    sm.physics.applyTorque( bodyToRotate, forceDir * (creationMass / 2.5) * dt, true )
+    if not self.interactable:isActive() then
+        self:sv_updateState( { active = true, power = 1, index = 7 } )
+    end
+end
+
+function Steer:cl_visualise( dir )
+    for v, k in pairs(dir) do
+        sm.particle.createParticle( "paint_smoke", self.shape:getWorldPosition() + k, sm.quat.identity(), sm.color.new(v/10, v/10, v/10) )
+    end
 end
 
 function Steer:sv_updateState( args )
@@ -77,7 +86,8 @@ function Steer:cl_uvUpdate( index )
 end
 
 function Steer:client_canInteract()
-	sm.gui.setInteractionText( "", "Current mode: "..self.modes.modes[self.modes.count] )
+	sm.gui.setInteractionText( "", "Current mode: #df7f00"..self.modes.modes[self.modes.count] )
+    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."' to cycle forwards, '"..sm.gui.getKeyBinding( "Tinker" ).."' to cycle backwards." )
 
     return true
 end
@@ -85,6 +95,14 @@ end
 function Steer:client_onInteract( char, lookAt )
     if lookAt then
         self.modes.count = self.modes.count < #self.modes.modes and self.modes.count + 1 or 1
+        sm.audio.play("PaintTool - ColorPick")
+        self.network:sendToServer("sv_save")
+    end
+end
+
+function Steer:client_onTinker( char, lookAt )
+    if lookAt then
+        self.modes.count = self.modes.count > 1 and self.modes.count - 1 or #self.modes.modes
         sm.audio.play("PaintTool - ColorPick")
         self.network:sendToServer("sv_save")
     end

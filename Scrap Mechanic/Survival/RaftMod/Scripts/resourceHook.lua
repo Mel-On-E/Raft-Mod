@@ -168,14 +168,16 @@ function Hook:sv_collectItems( container )
 			for v, shape in pairs(sm.body.getCreationShapes( body )) do
 				local blocks = 1
 
-				if not isAnyOf(shapeUuid, ignoreSizeCheck) then
-					local boundingBox = shape:getBoundingBox() * 4
-					blocks = boundingBox.x * boundingBox.y * boundingBox.z
-				end
-
-				print(sm.shape.getShapeTitle( shapeUuid ), blocks)
 				local shapeUUID = shape:getShapeUuid()
 				if isAnyOf(shapeUUID, collectables) then
+					if not isAnyOf(shapeUUID, ignoreSizeCheck) then
+						local boundingBox = shape:getBoundingBox() * 4
+						blocks = boundingBox.x * boundingBox.y * boundingBox.z
+					else
+						blocks = shape.stackedAmount
+					end
+					print(sm.shape.getShapeTitle( shapeUUID ), blocks)
+
 					for i = 1, blocks do
 						shapesToCollect[#shapesToCollect+1] = shapeUUID
 					end
@@ -252,7 +254,7 @@ function Hook.client_onUpdate( self, dt )
 				self.isReversing = true
 				self.throwForce = 0
 			elseif not hitWater and hit then
-				if not result:getShape() or not isAnyOf(result:getShape(), collectables) then
+				if not result:getShape() or not isAnyOf(result:getShape():getShapeUuid(), collectables) then
 					self:cl_reset()
 				end
 			end
@@ -275,9 +277,9 @@ function Hook.client_onUpdate( self, dt )
 			self.network:sendToServer("sv_manageTrigger")
 			for _, body in ipairs( self.shapeTrigger:getContents() ) do
 				if sm.exists( body ) then
-					if body:getMass() < 100 then
+					--if body:getMass() < 100 then
 						self.network:sendToServer("sv_applyImpulse", body)
-					end
+					--end
 				end
 			end
 

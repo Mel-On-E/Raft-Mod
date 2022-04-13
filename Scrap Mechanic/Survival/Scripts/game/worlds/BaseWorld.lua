@@ -125,99 +125,105 @@ function BaseWorld.server_onFixedUpdate( self )
 
 	for tablePos, spear in pairs(self.data.spears) do
 		if spear.lifeTime >= 30 then
-			spear.effect:stop()
 			self:sv_spearCollect( { player = spear.owner, index = tablePos } )
 			self.data.spears[tablePos] = nil
 		else
 			if spear.trigger ~= nil and sm.exists(spear.trigger) then
-				local pos = spear.attached and spear.attachedTarget == nil and spear.pos or spear.pos + spear.dir
-				local scale = spear.attached and spear.attachedTarget == nil and sm.vec3.one() or sm.vec3.new(0.25,0.25,0.25)
+				local pos = spear.attached and spear.pos or spear.pos + spear.dir
+				local scale = spear.attached and sm.vec3.one() or sm.vec3.new(0.25,0.25,0.25)
 				spear.trigger:setSize( scale )
 				spear.trigger:setWorldPosition( pos )
 			end
 
-			if not spear.attached then
-				local hit, result = sm.physics.raycast( spear.pos, spear.pos + spear.dir * 2 )
-				if result.type == "terrainSurface" or result.type == "terrainAsset" then
-					spear.attached = true
-				elseif result.type == "character" and not result:getCharacter():isPlayer() then
-					spear.attached = true
-					spear.attachedTarget = result:getCharacter()
-					spear.attachPos = result.pointLocal
-					spear.attachDir = spear.dir
-
-					sm.event.sendToUnit(spear.attachedTarget:getUnit(), "sv_raft_takeDamage", { damage = Damage, impact = spear.dir * spearImpact, hitPos = spear.attachPos })
-				elseif result.type == "body" then
-					spear.attached = true
-					spear.attachedTarget = result:getBody()
-					spear.attachPos = result.pointLocal
-					spear.attachDir = spear.dir
+			local alive = true
+			for _, content in ipairs( spear.trigger:getContents() ) do
+				local obj = content
+				if sm.exists( obj ) then
+					if type(obj) == "Character" and obj:isPlayer() then
+						self:sv_spearCollect( { player = obj:getPlayer(), index = tablePos } )
+						--self.data.spears[tablePos] = nil
+						spear.lifeTime = 31
+						alive = false
+						break
+					end
 				end
+			end
 
-				spear.lifeTime = spear.lifeTime + dt
+			if alive then
+				if not spear.attached then
+					local hit, result = sm.physics.raycast( spear.pos, spear.pos + spear.dir * 2 )
+					if result.type == "terrainSurface" or result.type == "terrainAsset" then
+						spear.attached = true
+					elseif result.type == "character" and not result:getCharacter():isPlayer() then
+						spear.attached = true
+						spear.attachedTarget = result:getCharacter()
+						spear.attachPos = result.pointLocal
+						spear.attachDir = spear.dir
 
-				local inWater = false
-				if sm.exists(spear.trigger) then
-					for _, result in ipairs( spear.trigger:getContents() ) do
-						if sm.exists( result ) then
-							if type(result) == "AreaTrigger" then
-								local userData = result:getUserData()
-								if userData and userData.water then
-									inWater = true
-									
-									local reductionMult = inWater and 0.25 or 1
-									if spear.speed > sm.vec3.one() / 10 and spear.lifeTime > 0.5 then
-										spear.speed = spear.speed - sm.vec3.one() / 5 * reductionMult * dt
+						sm.event.sendToUnit(spear.attachedTarget:getUnit(), "sv_raft_takeDamage", { damage = Damage, impact = spear.dir * spearImpact, hitPos = spear.attachPos })
+					elseif result.type == "body" then
+						spear.attached = true
+						spear.attachedTarget = result:getBody()
+						spear.attachPos = result.pointLocal
+						spear.attachDir = spear.dir
+					end
+
+					spear.lifeTime = spear.lifeTime + dt
+
+					local inWater = false
+					if sm.exists(spear.trigger) then
+						for _, result in ipairs( spear.trigger:getContents() ) do
+							if sm.exists( result ) then
+								if type(result) == "AreaTrigger" then
+									local userData = result:getUserData()
+									if userData and userData.water then
+										inWater = true
+
+										local reductionMult = inWater and 0.25 or 1
+										if spear.speed > sm.vec3.one() / 10 and spear.lifeTime > 0.5 then
+											spear.speed = spear.speed - sm.vec3.one() / 5 * reductionMult * dt
+										end
 									end
 								end
 							end
 						end
 					end
-				end
 
-				if spear.dir.z > -1 then
-					local gravity = inWater and sm.vec3.new(0,0,0.000005) or sm.vec3.new(0,0,0.005)
-					spear.dir = spear.dir - gravity / spear.speed
-				end
-
-				local newPos = spear.pos + spear.speed * spear.dir * dt * 50
-				spear.pos = newPos
-			else
-				local hit, result = sm.physics.raycast( spear.pos - spear.dir, spear.pos + spear.dir * 2 ) --this is shit
-				local attachedCheck
-				if type(spear.attachedTarget) == "Character" then
-					attachedCheck = result:getCharacter()
-				elseif type(spear.attachedTarget) == "Body" then
-					attachedCheck = result:getBody()
-				end
-
-				if result:getCharacter() and result:getCharacter():isPlayer() then
-					attachedCheck = spear.attachedTarget
-				end
-
-				if spear.attachedTarget == nil then
-					for _, content in ipairs( spear.trigger:getContents() ) do
-						local obj = content
-						if sm.exists( obj ) then
-							if type(obj) == "Character" and obj:isPlayer() then
-								self:sv_spearCollect( { player = obj:getPlayer(), index = tablePos } )
-								self.data.spears[tablePos] = nil
-								break
-							end
-						end
+					if spear.dir.z > -1 then
+						local gravity = inWater and sm.vec3.new(0,0,0.000005) or sm.vec3.new(0,0,0.005)
+						spear.dir = spear.dir - gravity / spear.speed
 					end
-				elseif spear.attachedTarget ~= attachedCheck or not sm.exists(spear.attachedTarget) then
-					spear.attached = false
-					spear.attachedTarget = nil
-					spear.speed = sm.vec3.one() / 10
-					spear.dir.z = -1
+
+					local newPos = spear.pos + spear.speed * spear.dir * dt * 50
+					spear.pos = newPos
 				else
-					if type(spear.attachedTarget) == "Body" then
-						spear.pos = spear.attachedTarget:transformPoint(spear.attachPos)
-						spear.dir = sm.body.getWorldRotation(spear.attachedTarget) * spear.attachDir
-					elseif type(spear.attachedTarget) == "Character" then
-						spear.pos = spear.attachedTarget:getWorldPosition()
-						spear.dir = spear.attachedTarget:getDirection() * spear.attachDir
+					local hit, result = sm.physics.raycast( spear.pos - spear.dir, spear.pos + spear.dir * 2 ) --this is shit
+					local attachedCheck = spear.attachedTarget
+					if type(spear.attachedTarget) == "Character" then
+						attachedCheck = result:getCharacter()
+					elseif type(spear.attachedTarget) == "Body" then
+						attachedCheck = result:getBody()
+					end
+
+					if result:getCharacter() and result:getCharacter():isPlayer() then
+						attachedCheck = spear.attachedTarget
+					end
+
+					if spear.attachedTarget == nil then
+
+					elseif spear.attachedTarget ~= attachedCheck or not sm.exists(spear.attachedTarget) then
+						spear.attached = false
+						spear.attachedTarget = nil
+						spear.speed = sm.vec3.one() / 10
+						spear.dir.z = -1
+					else
+						if type(spear.attachedTarget) == "Body" then
+							spear.pos = spear.attachedTarget:transformPoint(spear.attachPos)
+							spear.dir = sm.body.getWorldRotation(spear.attachedTarget) * spear.attachDir
+						elseif type(spear.attachedTarget) == "Character" then
+							spear.pos = spear.attachedTarget:getWorldPosition()
+							spear.dir = spear.attachedTarget:getDirection() * spear.attachDir
+						end
 					end
 				end
 			end
