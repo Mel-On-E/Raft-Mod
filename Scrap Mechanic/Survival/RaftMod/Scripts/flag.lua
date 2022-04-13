@@ -5,10 +5,10 @@ Flag = class()
 
 function Flag.client_onCreate(self)
     self.effect = sm.effect.createEffect("ShapeRenderable", self.interactable)
-    self.effect:setOffsetPosition(sm.vec3.new(0, 0.5, 0))
-    self.effect:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
+    self.effect:setOffsetPosition(sm.vec3.new(0, -0.28, 0))
+    self.effect:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4857"))
 	self.effect:setParameter("color", sm.color.new(1,0,0))
-	self.effect:setScale(sm.vec3.new(0.4, 0.4, 0.1))
+	self.effect:setScale(sm.vec3.new(0.15, 0.15, 0.4))
     self.effect:start()
 end
 
