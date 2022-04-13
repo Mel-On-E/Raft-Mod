@@ -25,13 +25,13 @@ end
 function Steer:server_onFixedUpdate( dt )
     local parent = self.interactable:getSingleParent()
     if not parent then
-        self:sv_updateState( { active = false, power = 0, index = 0  } )
+        self:sv_updateState( { active = false, power = 0, index = 1  } )
         return
     end
 
     local seatedChar = parent:getSeatCharacter()
     if not seatedChar then
-        self:sv_updateState( { active = false, power = 0, index = 0  } )
+        self:sv_updateState( { active = false, power = 0, index = 1  } )
         return
     end
 
@@ -58,7 +58,7 @@ function Steer:server_onFixedUpdate( dt )
     end
 
     sm.physics.applyTorque( bodyToRotate, forceDir * (creationMass / 75) * forceDir:length(), true )
-    self:sv_updateState( { active = true, power = 1, index = 6 } )
+    self:sv_updateState( { active = true, power = 1, index = 7 } )
 end
 
 function Steer:sv_updateState( args )

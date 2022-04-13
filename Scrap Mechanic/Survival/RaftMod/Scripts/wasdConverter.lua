@@ -17,6 +17,25 @@ local inputs = {
     }
 }
 
+local uv = {
+    w = {
+        [0] = 0,
+        [1] = 6,
+    },
+    a = {
+        [0] = 1,
+        [1] = 7,
+    },
+    s = {
+        [0] = 2,
+        [1] = 8,
+    },
+    d = {
+        [0] = 3,
+        [1] = 9,
+    }
+}
+
 function Converter:server_onCreate()
     self.modes = self.storage:load()
 
@@ -60,11 +79,17 @@ function Converter:sv_updateState( args )
     self.interactable:setActive( args.active )
     self.interactable:setPower( args.power )
 
-    self.network:sendToClients("cl_uvUpdate", args.index)
+    self:sv_updateUV( args.power )
+end
+
+function Converter:sv_updateUV( power )
+    local index = uv[self.modes.modes[self.modes.count]][math.abs(power)]
+    self.network:sendToClients("cl_uvUpdate", index)
 end
 
 function Converter:sv_save()
     self.storage:save( self.modes )
+    self:sv_updateUV(0)
 end
 
 function Converter:cl_uvUpdate( index )
