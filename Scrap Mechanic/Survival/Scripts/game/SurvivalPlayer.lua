@@ -802,9 +802,9 @@ function SurvivalPlayer.sv_onSpawnCharacter( self )
 			self.sv.saved.stats.food = self.sv.saved.stats.maxfood
 			self.sv.saved.stats.water = self.sv.saved.stats.maxwater
 		else
-			self.sv.saved.stats.hp = 30
-			self.sv.saved.stats.food = 30
-			self.sv.saved.stats.water = 30
+			self.sv.saved.stats.hp = 50
+			self.sv.saved.stats.food = 50
+			self.sv.saved.stats.water = 50
 		end
 		self.sv.saved.isConscious = true
 		self.sv.saved.hasRevivalItem = false

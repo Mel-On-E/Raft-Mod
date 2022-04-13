@@ -2,7 +2,7 @@
 dofile "$GAME_DATA/Scripts/game/AnimationUtil.lua"
 dofile "$SURVIVAL_DATA/Scripts/util.lua"
 
-local Damage = 20
+local Damage = 30
 
 Spear = class()
 

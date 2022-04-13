@@ -491,11 +491,27 @@ function Eat.sv_n_stopEat( self, params, player )
 	self.network:sendToClients( "cl_n_stopEat", params )
 end
 
+
 function Eat.cl_n_stopEat( self, params )
 	if self.tool:isLocal() then
 		if params and params.itemId then
 			self.activeItem = sm.localPlayer.getActiveItem()
 			self:cl_updateEatRenderables()
+			if params.itemId == obj_consumable_sunshake then
+				local messages = {
+					"Free the woc inside you!",
+					"How about UDDrink?",
+					"It's always a bright day with Sunshake!",
+					"Pure as Sunlight!",
+					"Whenever you think of dehydration, think Sunshake!",
+					"Sunshake gives you udders!",
+					"Your one and only friend!",
+					"Untamed Energy for all Humans!",
+					"Straight from the udder to your mouth!",
+					"Don’t be depressed just drink"
+				}
+				sm.gui.chatMessage("#ff88ff" .. messages[math.random(1,#messages)])
+			end
 		end
 	else
 		self:stopEat()

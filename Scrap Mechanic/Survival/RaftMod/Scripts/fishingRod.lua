@@ -15,8 +15,9 @@ sm.tool.preloadRenderables( renderablesTp )
 sm.tool.preloadRenderables( renderablesFp )
 
 local normalLoot = {
-	{ uuid = obj_fish,						chance = 100,			quantity = 1 },
-	{ uuid = blk_scrapwood, 				chance = 20,			quantity = function() return math.random(5, 10) end },
+	{ uuid = obj_fish,						chance = 110,			quantity = 1 },
+	{ uuid = blk_plastic, 					chance = 20,			quantity = function() return math.random(8, 16) end },
+	{ uuid = blk_scrapwood, 				chance = 15,			quantity = function() return math.random(5, 10) end },
 	{ uuid = blk_scrapmetal, 				chance = 10,			quantity = function() return math.random(2, 5) end },
 	{ uuid = obj_decor_boot, 				chance = 5,				quantity = 1 }
 }
@@ -24,7 +25,6 @@ local normalLoot = {
 local rareLoot = {
 	{ uuid = obj_consumable_component,		chance = 1,				quantity = function() return math.random(1, 2) end },
 	{ uuid = obj_consumable_fertilizer, 	chance = 1,				quantity = function() return math.random(1, 3) end },
-	{ uuid = obj_consumable_gas, 			chance = 1,				quantity = function() return math.random(2, 5) end },
 	{ uuid = obj_consumable_chemical, 		chance = 1,				quantity = function() return math.random(1, 10) end }
 }
 

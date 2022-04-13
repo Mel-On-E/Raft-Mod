@@ -1,3 +1,6 @@
+dofile( "$SURVIVAL_DATA/Scripts/game/survival_quests.lua" )
+dofile( "$SURVIVAL_DATA/Scripts/game/managers/QuestManager.lua" )
+
 Sail = class()
 Sail.maxParentCount = 1
 Sail.maxChildCount = 0
@@ -6,8 +9,8 @@ Sail.connectionOutput = sm.interactable.connectionType.none
 Sail.colorNormal = sm.color.new( 0xff8000ff )
 Sail.colorHighlight = sm.color.new( 0xff9f3aff )
 
-local POWER = 10000
-local MAX_SPEED = 10
+local POWER = 25000
+local MAX_SPEED = 25
 
 
 function Sail.server_onCreate(self)
@@ -32,8 +35,24 @@ function Sail.server_onFixedUpdate(self, dt)
     if self.sv.active and self.shape:getVelocity():length() < MAX_SPEED then
         local up = sm.vec3.new(0, 0, 1)
         local dirMiddle = self.shape:getWorldPosition():normalize()
-        local windDirection = -dirMiddle:cross(up):normalize()
+        local windDirection = -dirMiddle:cross(up)
+        windDirection.z = 0
+        windDirection = windDirection:normalize()
+
+        --Quest helper
+        if not Server_isQuestCompleted(quest_radio_location) then
+            windDirection = self.shape:getWorldPosition() - sm.vec3.new(-1820.5, 167.5, -7)
+            windDirection.z = 0
+            windDirection = windDirection:normalize()
+        elseif not Server_isQuestCompleted(quest_find_trader) then
+            windDirection = self.shape:getWorldPosition() - sm.vec3.new(1536, 2048, 20)
+            windDirection.z = 0
+            windDirection = windDirection:normalize()
+        end
+
         local sailDirection = -self.shape:getUp()
+        sailDirection.z = 0
+        sailDirection = sailDirection:normalize()
 
         local cosine = windDirection:dot(sailDirection)/(windDirection:length() + sailDirection:length())*-2
         --sm.gui.chatMessage(tostring(cosine))
