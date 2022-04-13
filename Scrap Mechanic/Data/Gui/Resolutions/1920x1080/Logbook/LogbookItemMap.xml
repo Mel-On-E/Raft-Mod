@@ -11,6 +11,12 @@
             <Index name="tutorial">
                 <Frame point="180 0" />
             </Index>
+            <Index name="notes">
+                <Frame point="270 0" />
+            </Index>
+            <Index name="quest">
+                <Frame point="360 0" />
+            </Index>
         </Group>
     </Resource>
 </MyGUI>

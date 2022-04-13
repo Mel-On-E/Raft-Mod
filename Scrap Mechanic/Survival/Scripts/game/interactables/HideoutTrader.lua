@@ -408,20 +408,20 @@ function HideoutTrader.client_onInteract( self, character, state )
 			end
 			
 			if not g_questManager:cl_isQuestCompleted(quest_deliver_vegetables) then
-				NPC_message("I'm glad to see another soul! I know of a way we can escape this planet and go home. For this you will need to grow some veggies, pack them, and put them right under big ol' bertha. That's what I call my pump. I know of a nearby packing station. Bring me 2 crates of carrots and 2 crates of redbeet.")
+				NPC_message("#{RAFT_TRADER_DIALOGUE_1}")
 				if not g_questManager:cl_isQuestCompleted(quest_find_trader) then
 					Server_completeQuest( quest_find_trader )
 				end
 			elseif not g_questManager:cl_isQuestCompleted(quest_sunshake) then
-				NPC_message("What a delight to see you again! (Not that I doubted you would survive) Sadly, the veggies are only part of the plan. The other ingredi- resources are a well hidden secret. I suspect that it is hidden an ancient temple nearby. You should investigate this.")
+				NPC_message("#{RAFT_TRADER_DIALOGUE_2}")
 			elseif not g_questManager:cl_isQuestCompleted(quest_fruits) then
-				NPC_message("Perfect! Soon will I- ah, we be able to leave this planet. *stares at notes* Ah... YES.. I KNEW IT! Hahahahaa- Oh, sorry I'm not used to company, at least since the acciden- Anyway, you'll need to bring me 2 crates each of blueberries and bannas. I've marked a nearby packing station for you.")
+				NPC_message("#{RAFT_TRADER_DIALOGUE_3}")
 			elseif not g_questManager:cl_isQuestCompleted(quest_scrap_city) then
-				NPC_message("*Slurps* AH, just what I needed! It's been so long without you sunshake... Where are my manners? Why not get yourself some sunshake? I can make as much as you need, as long as you bring me fresh supplies. Eh, of course this was neccessary.. because.. the.. ah.. sunshake cotains, ah, coordinates to some ruins. Since my life is saved by sunshake now, you might as well try to free the others. I heard rumors about some key hidden in that ruined city. Find it and come back.")
+				NPC_message("#{RAFT_TRADER_DIALOGUE_4}")
 			elseif not g_questManager:cl_isQuestCompleted(quest_warehouse) then
-				NPC_message("I can't believe you are aliv- ah, so adventurous! Let me have a look at this key. *examines it thouroughly* Yes, I should be able to recreate it's circuitry. But with this key, you should be able to enter the warehouses where the rest of my crew is held hostage. Reach the top of a warehouse and rescue one of them! Then come over to me and big ol' bertha will take care of them.")
+				NPC_message("#{RAFT_TRADER_DIALOGUE_5}")
 			elseif not g_questManager:cl_isQuestCompleted(quest_chapter2) then
-				NPC_message("I've missed company for so long *sobs*. Keep rescuing more of my crew. In the meantime I'll think of a plan to get us all of this planet and return home.")
+				NPC_message("#{RAFT_TRADER_DIALOGUE_6}")
 			end
 		end
 	end

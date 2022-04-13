@@ -12,39 +12,39 @@
 		"description": "According to the ships navigational unit there should be an outpost somewhere. Maybe I can send a distress signal there? Looking at its picture a bit more, it seems rundown i wonder what happened to it..."
 	},
 	"b7ebd326-60c5-4ee7-a35f-1bd3ef408ded": {
-		"title": "Cry for help",
+		"title": "Antenna Status",
 		"description": "The Communication Antenna in the outpost has been damaged by 'haybots'. However I should be able to build a small radio to send and receive local distress signals."
 	},
 	"0ccc96c2-97dd-47d9-af8b-0ae2343a939e": {
 		"title": "Rescue mission",
-		"description": "I picked up a weird signal not far from here. If I can build a sail, I should be able to get there."
+		"description": "I picked up a weird signal not far from here, apparently it's marked as 'URGENT'. If I can build a sail, I should be able to get there."
 	},
 	"826a19db-2d2e-46fa-9ade-7bcdd8514572": {
-		"title": "Find Trader",
-		"description": "waypoint go brrrr"
+		"title": "Trader's Notes",
+		"description": "Day 3\n I was flying near a planet, when i hit something. It was big and alive, but not like an animal, more of a robot. Probably won't be able to deliver my fruit crates, but i have to patch up the holes in the ship fast, or i will drown.\n\n Day 4\n Floor is very wet, i should get out of here, im leaving these notes behind, aswell as my possible location, i found an island there. If you are reading this, go pay me a visit."
 	},
 	"9ff5727d-f8d7-4bfd-8c39-04ff194f61bc": {
-		"title": "Vegetables",
-		"description": "he wants plant stuff"
+		"title": "Vegetables for Trader",
+		"description": "Trader needs 2 crates of carrots and 2 crates of redbeet. He also gave me waypoint to nearest packing station."
 	},
 	"6160a79b-08c6-4546-872c-48730b53118b": {
-		"title": "Sunshake",
-		"description": "Steal recipe"
+		"title": "Woc Temple",
+		"description": "Im supposted to travel here and steal recipe from there, don't know where the recipe is - exploration time!"
 	},
 	"51c6d229-15a2-4834-a164-e37634fe5b9d": {
-		"title": "Fruits",
-		"description": "Now he wants fruits"
+		"title": "Fruits for Trader",
+		"description": "Now he wants fruits! To be exact 2 crates of blueberries and bananas."
 	},
 	"310434f1-84ca-41d1-a60d-ab91dea2aa04": {
-		"title": "(S)crap City",
-		"description": "git gud"
+		"title": "Scrap City",
+		"description": "There is a key in there hiding apparently, need to find it. Hopefully it will be cake walk!"
 	},
 	"cad33bbf-5fc6-433a-b2f5-ae65ca3b43c6": {
-		"title": "War(e)house",
-		"description": "Bezos will not be happy..."
+		"title": "Warehouse raid",
+		"description": "So, trader now requires one of his crewmates, apparently tapebots trapped them in warehouses. I should get some ranged defense if i want to attempt it. Bezos will not be happy..."
 	},
 	"cfee3c4f-e70d-4017-a963-177c4a19ecd2": {
 		"title": "Chapter 2",
-		"description": "Thanks for playing. Chapter 2 of story coming soon™"
+		"description": "Thanks for playing. Chapter 2 of story coming soon™ and don't forget to check out Dr Pixel Plays on youtube!"
 	}
 }
