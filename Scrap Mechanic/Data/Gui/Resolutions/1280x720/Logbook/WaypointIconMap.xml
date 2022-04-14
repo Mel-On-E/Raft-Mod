@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MyGUI type="Resource" version="1.1">
+    <Resource name="WaypointIconMap" type="ResourceImageSet">
+        <Group name="WaypointIconMap" size="99 99" texture="WaypointIcons@1080.png">
+            <Index name="mechanicstation">
+                <Frame point="0 0" />
+            </Index>
+            <Index name="crashedship">
+                <Frame point="99 0" />
+            </Index>
+            <Index name="sus">
+                <Frame point="198 0" />
+            </Index>
+        </Group>
+    </Resource>
+</MyGUI>
