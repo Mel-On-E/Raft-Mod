@@ -258,6 +258,43 @@
 		"flammable": true
 	},
 	{
+		"uuid": "4a971f7d-14e6-454d-bce8-0879243c8735",
+		"name": "obj_hook_render",
+		"renderable": {
+			"lodList": [
+				{
+					"subMeshMap": {
+						"Hook":{
+							"textureList": [
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkhook_dif.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkhook_asg.tga",
+								"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkhook_nor.tga"
+							],
+							"material": "DifAsgNor"
+						}
+					},
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/HookRender.fbx"
+				}
+			]
+		},
+		"color": "008ae1",
+		"box": {
+			"x": 1,
+			"y": 1,
+			"z": 3
+		},
+		"rotationSet": "PropZ",
+		"sticky": "-Z",
+		"physicsMaterial": "Plastic",
+		"ratings": {
+			"density": 1,
+			"durability": 3,
+			"friction": 10,
+			"buoyancy": 10
+		},
+		"flammable": true
+	},
+	{
 		"uuid": "4a971f7d-14e6-454d-bce8-0879243c4859",
 		"name": "obj_windsock_render",
 		"renderable": {
@@ -1694,6 +1731,55 @@
 							}
 						},
 						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/FishAlive.fbx"
+				}
+			]
+			},
+			"color": "696969",
+			"cylinder": {
+				"diameter": 1,
+				"depth": 1,
+				"margin": 0.1,
+				"axis": "Y"
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 2,
+				"durability": 4,
+				"friction": 5,
+				"buoyancy": 8
+			},
+			"flammable": true,
+			"consumable": true,
+			"stackSize": 5,
+			"restrictions": {
+				"erasable": true
+			},
+			"edible": {
+				"hpGain": 0,
+				"foodGain": 15,
+				"waterGain": -10
+			},
+			"autoTool": "2bff990a-0e74-43c7-b7dc-889b3a086fa3"
+		},
+		{
+			"uuid": "7c440c4a-5919-4baa-a946-0bb89b8c4d85",
+			"name": "obj_fishus",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshMap": {
+							"lambert2SG": {
+								"material": "Dif",
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Raft/Textures/Fishus.png",
+									"",
+									""
+								]
+							}
+						},
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Fishus.fbx"
 				}
 			]
 			},
