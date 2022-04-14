@@ -47,7 +47,7 @@
 	},
 	"8f460344-ef34-42ab-99e3-d3bed9af4b52": {
 		"description": "Shows you the direction of the wind",
-		"title": "Flag"
+		"title": "Wind Sock"
 	},
 	
 	//parts
@@ -56,7 +56,7 @@
 		"title": "Scrap Field"
 	},
 	"c80e2932-0d21-48bb-b5a2-dba03d73cfb7": {
-		"description": "Can be used to farm crops on your raft, unlike Scrap Field, youc an plant 2 crops, doesn't trigger raids.",
+		"description": "Can be used to farm crops on your raft, unlike Scrap Field, you can plant 2 crops, doesn't trigger raids.",
 		"title": "Big Farm"
 	},
 	"4a971f7d-14e6-454d-bce8-0879243c4474": {
