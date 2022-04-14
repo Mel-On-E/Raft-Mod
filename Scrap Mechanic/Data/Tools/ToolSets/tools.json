@@ -1,0 +1,30 @@
+{
+	"toolList":
+	[
+		{
+			"uuid": "5cc12f03-275e-4c8e-b013-79fc0f913e1b",
+			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_lift_preview.rend",
+			"previewRotation": [ 1, 0, 0, 0, 0, -1, 0, 1, 0 ],
+			"script": { "file": "$GAME_DATA/Scripts/game/Lift.lua", "class": "Lift" }
+		},
+		{
+			"uuid": "ed185725-ea12-43fc-9cd7-4295d0dbf88b",
+			
+			"previewRenderable": "$SURVIVAL_DATA/Character/Char_Tools/Char_woodsledgehammer/char_woodsledgehammer_preview.rend",
+			"previewRotation": [  -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
+			"script": { "file": "$SURVIVAL_DATA/Scripts/game/tools/Sledgehammer.lua", "class": "Sledgehammer" }
+
+			//"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_sledgehammer_preview.rend",
+			//"previewRotation": [ -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
+			//"sledgehammer": { }
+		}
+	]
+}
+//			"previewRotation": [ 1, 0, 0, 0, 0, -1, 0, 1, 0 ], //Point Forward (Default)
+//			"previewRotation": [ -1, 0, 0, 0, 0, 1, 0, 1, 0 ], //Point Backward
+//			"previewRotation": [ 0, 0, 1, 1, 0, 0, 0, 1, 0 ], //Point Right
+//			"previewRotation": [ 0, 0, -1, -1, 0, 0, 0, 1, 0 ], //Point Left
+//			"previewRotation": [ 1, 0, 0, 0, 1, 0, 0, 0, 1 ], //Point Up
+//			"previewRotation": [ 1, 0, 0, 0, -1, 0, 0, 0, -1 ], //Point Down
+//			"previewRotation": [ 0, 0, 1, -1, 0, 0, 0, 1, 0 ], //Turn Right
+//			"previewRotation": [ 0, 0, -1, 1, 0, 0, 0, 1, 0 ], //Turn Left
