@@ -62,15 +62,13 @@ function Converter:server_onFixedUpdate( dt )
 
     if forward ~= 0 and inputs.forward[forward] == selectedInput then
         self:sv_updateState( { active = true, power = forward } )
-        return
-    else
+    elseif selectedInput == "s" or selectedInput == "w" then
         self:sv_updateState( { active = false, power = 0 } )
     end
 
     if steer ~= 0 and inputs.steer[steer] == selectedInput then
         self:sv_updateState( { active = true, power = steer } )
-        return
-    else
+    elseif selectedInput == "a" or selectedInput == "d" then
         self:sv_updateState( { active = false, power = 0 } )
     end
 end
