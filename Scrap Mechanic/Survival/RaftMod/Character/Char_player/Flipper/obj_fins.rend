@@ -1,0 +1,66 @@
+{
+	"lodList": [{
+		"mesh": "$SURVIVAL_DATA/RaftMod/Character/Char_player/Flipper/Flipper.dae",
+		"includes" : ["POSITION", "UV0", "NORMAL", "TANGENTS", "BLEND_INDICES", "BLEND_WEIGHTS"],
+		"subMeshMap": {
+            "outfit_farmer_shoes": {  
+                "material": "DifAsgNor",
+                    "textureList":	[
+                    	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_dif.tga",
+                    	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_asg.tga",
+                    	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_nor.tga"
+                    ]
+                },
+            "FlipperPart": {  
+                "material": "DifAsgNor",
+                "textureList":	[
+                   	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_dif.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_asg.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_nor.tga"
+				]
+            },
+			"outfit_farmer_shoes": {  
+                "material": "DifAsgNor",
+                "textureList":	[
+                    "$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_dif.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_asg.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_nor.tga"
+			    ]
+      	  	},
+			"lambert2": {  
+                "material": "DifAsgNor",
+                "textureList":	[
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_dif.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_asg.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_nor.tga"
+				]
+            },
+			"Shark": {  
+                "material": "DifAsgNor",
+                "textureList":	[
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_dif.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_asg.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Outfit/Shoes/Outfit_demolition_shoes/outfit_demolition_shoes_nor.tga"
+				]
+            },
+            "default_body_male": {
+                "material": "Skin",
+                "textureList": [
+                	"$SURVIVAL_DATA/Character/Char_Male/Body/Male/char_male_body_dif.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Body/Male/char_male_body_asg.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Body/Male/char_male_body_nor.tga",
+                    "$SURVIVAL_DATA/Character/Char_Male/Body/Male/char_male_body_tkn.tga"
+                ]
+            },
+            "default_body_male_cloth": {
+                "material": "DifAsgNor",
+                "textureList": [
+                	"$SURVIVAL_DATA/Character/Char_Male/Body/Male/char_male_body_dif.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Body/Male/char_male_body_asg.tga",
+                	"$SURVIVAL_DATA/Character/Char_Male/Body/Male/char_male_body_nor.tga"
+                ]
+            }
+        },
+		"maxViewDistance": 1000.0
+	}]
+}

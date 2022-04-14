@@ -138,6 +138,8 @@ function SurvivalPlayer.client_onCreate( self )
 		self.cl.underwaterEffect = sm.effect.createEffect( "Mechanic - StatusUnderwater" )
 	end
 
+	self:cl_checkFinRenderable({ char = sm.localPlayer.getPlayer():getCharacter(), inv = sm.localPlayer.getInventory() }) --Raft
+
 	self:cl_init()
 end
 
@@ -259,7 +261,32 @@ function SurvivalPlayer.client_onUpdate( self, dt )
 	if self.player == sm.localPlayer.getPlayer() then
 		self:cl_localPlayerUpdate( dt )
 	end
+
+	--Raft
+	local player = sm.localPlayer.getPlayer()
+	local character = player:getCharacter()
+	local inv = sm.game.getLimitedInventory() and sm.localPlayer.getInventory() or sm.localPlayer.getHotbar()
+
+	self.network:sendToServer("sv_checkFinRenderable", { player = player, char = character, inv = inv })
+
+	local speed = sm.container.canSpend( inv, obj_fins, 1 ) and character:isSwimming() and not self.cl.inChemical and not self.cl.inOil and 2 or 1
+	character:setMovementSpeedFraction(speed)
 end
+
+function SurvivalPlayer:sv_checkFinRenderable( args )
+	if not args.inv:hasChanged( sm.game.getCurrentTick() - 1 ) then return end
+
+	self.network:sendToClient( args.player, "cl_checkFinRenderable", { char = args.char, inv = args.inv })
+end
+
+function SurvivalPlayer:cl_checkFinRenderable( args )
+	if sm.container.canSpend( args.inv, obj_fins, 1 ) then
+		args.char:addRenderable( "$SURVIVAL_DATA/RaftMod/Character/Char_player/Flipper/obj_fins.rend" )
+	else
+		args.char:removeRenderable( "$SURVIVAL_DATA/RaftMod/Character/Char_player/Flipper/obj_fins.rend" )
+	end
+end
+--Raft
 
 function SurvivalPlayer.cl_localPlayerUpdate( self, dt )
 	self:cl_updateCamera( dt )
@@ -295,10 +322,6 @@ function SurvivalPlayer.cl_localPlayerUpdate( self, dt )
 
 	if character and character:isSwimming() and not self.cl.inChemical and not self.cl.inOil then
 		self:cl_n_fillWater()
-		--Raft
-		if sm.container.canSpend( sm.localPlayer.getInventory(), obj_fins, 1 ) then
-			character:setMovementSpeedFraction(1.5)
-		end
 	end
 
 	if character then
