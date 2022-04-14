@@ -10,7 +10,7 @@ local renderables = {
 	"$SURVIVAL_DATA/Character/Char_Tools/Char_spear/char_spear.rend"
 }
 
-local renderablesTp = {"$GAME_DATA/Character/Char_Male/Animations/char_male_tp_sledgehammer.rend", "$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_tp_animlist.rend"}
+local renderablesTp = {"$GAME_DATA/Character/Char_Male/Animations/char_male_tp_spear.rend", "$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_tp_animlist.rend"}
 local renderablesFp = {"$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_fp_animlist.rend"}
 
 sm.tool.preloadRenderables( renderables )
