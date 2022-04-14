@@ -23,6 +23,7 @@ local CornRenderables = { "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char
 --RAFT
 local WatercleanRenderables = { "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_waterclean.rend" }
 local RawfishRenderables = { "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_rawfish.rend" }
+local RawfishusRenderables = { "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_rawfishus.rend" }
 local CookedfishRenderables = { "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_cookedfish.rend" }
 
 local RenderablesEattoolTp = { "$SURVIVAL_DATA/Character/Char_Male/Animations/char_male_tp_eattool.rend", "$SURVIVAL_DATA/Character/Char_Tools/Char_eattool/char_eattool_tp.rend" }
@@ -47,6 +48,7 @@ sm.tool.preloadRenderables( RenderablesEattoolFp )
 --RAFT
 sm.tool.preloadRenderables( WatercleanRenderables )
 sm.tool.preloadRenderables( RawfishRenderables )
+sm.tool.preloadRenderables( RawfishusRenderables )
 sm.tool.preloadRenderables( CookedfishRenderables )
 
 local FoodUuidToRenderable =
@@ -68,6 +70,7 @@ local FoodUuidToRenderable =
 	--RAFT
 	[tostring( obj_water_clean )] = WatercleanRenderables,
 	[tostring( obj_fish )] = RawfishRenderables,
+	[tostring( obj_fishus )] = RawfishusRenderables,
 	[tostring( obj_fish_cooked )] = CookedfishRenderables
 }
 
