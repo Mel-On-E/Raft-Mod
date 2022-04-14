@@ -28,13 +28,6 @@
 			"autoTool": true
 		},
 		{
-			"uuid": "2bff990a-0e74-43c7-b7dc-889b3a086fa3",
-			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_spudgun_preview.rend",
-			"previewRotation": [ 1, 0, 0, 0, 0, -1, 0, 1, 0 ],
-			"script": { "file": "$SURVIVAL_DATA/Scripts/game/tools/Eat.lua", "class": "Eat" },
-			"autoTool": true
-		},
-		{
 			"uuid": "87cf94fa-a52a-47bd-8d62-47a2e10fe2af",
 			"previewRenderable": "$GAME_DATA/Character/Char_Tools/char_spudgun_preview.rend",
 			"previewRotation": [ 1, 0, 0, 0, 0, -1, 0, 1, 0 ],
