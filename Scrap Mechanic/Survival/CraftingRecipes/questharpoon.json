@@ -18,5 +18,17 @@
 				"itemId": "2d7f1278-ac93-4039-9eb2-d31715ea10ff"
 			}
 		]
+	},
+	//Projectile
+	{
+		"itemId": "4a971f7d-14e6-454d-bce8-0879243c4857",
+		"quantity": 1,
+		"craftTime": 17,
+		"ingredientList": [
+			{
+				"quantity": 20,
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e"
+			}
+		]
 	}
 ]

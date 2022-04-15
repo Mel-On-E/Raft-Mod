@@ -248,13 +248,14 @@
 		},
 		"rotationSet": "PropZ",
 		"sticky": "-Z",
-		"physicsMaterial": "Plastic",
+		"physicsMaterial": "Meatal",
 		"ratings": {
 			"density": 1,
 			"durability": 3,
 			"friction": 10,
 			"buoyancy": 10
 		},
+		"stackSize": 5,
 		"flammable": true
 	},
 	{
