@@ -1979,6 +1979,36 @@
 			<Index name="4e69beb8-4519-4fff-a382-fdcfffbad6c2">
                 <Frame point="2496 1440"/>
             </Index>
+			<Index name="0db1ecd5-503d-4dd3-807e-869c243a7c08">
+                <Frame point="2592 1440"/>
+            </Index>
+			<Index name="509505f1-b772-4acd-9827-f9a605a979ec">
+                <Frame point="2688 1440"/>
+            </Index>
+			<Index name="6db7aacf-f2b3-4cbb-a6d2-2a01d5ee5562">
+                <Frame point="2784 1440"/>
+            </Index>
+			<Index name="71ac7645-57f5-4d49-9574-c8482b431862">
+                <Frame point="2880 1440"/>
+            </Index>
+			<Index name="f95beb80-49c8-4d4c-98e9-5b87225c4570">
+                <Frame point="2976 1440"/>
+            </Index>
+			<Index name="e9c7d080-ae4b-4fec-b626-34afda6f5114">
+                <Frame point="3072 1440"/>
+            </Index>
+			<Index name="8f460344-ef34-42ab-99e3-d3bed9af4b52">
+                <Frame point="3168 1440"/>
+            </Index>
+			<Index name="4c1aed86-a402-4240-81e7-b67edf433fd5">
+                <Frame point="3264 1440"/>
+            </Index>
+			<Index name="b5ade3b0-be48-4a61-a8c2-13a4cedf1343">
+                <Frame point="3360 1440"/>
+            </Index>
+			<Index name="e34387d3-fa29-4831-89b8-c94417b6fce6">
+                <Frame point="3456 1440"/>
+            </Index>
         </Group>
     </Resource>
 </MyGUI>
