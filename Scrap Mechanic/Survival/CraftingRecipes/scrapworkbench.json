@@ -469,6 +469,30 @@
 			}
 		]
 	},
+	//Hammock
+	{
+		"itemId": "4c1aed86-a402-4240-81e7-b67edf433fd5",
+		"quantity": 1,
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"quantity": 50,
+				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
+			},
+			{
+				"quantity": 20,
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39"
+			},
+			{
+				"quantity": 5,
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad"
+			},
+			{
+				"quantity": 5,
+				"itemId": "c7322cd1-3158-41d9-b15a-eff2f2f8d9f7"
+			}
+		]
+	},
 	//ScrapWorkbench
 	{
 		"itemId": "f3163e62-e6c3-475c-805e-559f8bb07ad1",
