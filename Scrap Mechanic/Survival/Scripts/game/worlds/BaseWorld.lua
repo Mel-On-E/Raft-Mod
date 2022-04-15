@@ -140,8 +140,6 @@ function BaseWorld.server_onFixedUpdate( self )
 				local obj = content
 				if sm.exists( obj ) then
 					if type(obj) == "Character" and obj:isPlayer() then
-						self:sv_spearCollect( { player = obj:getPlayer(), index = tablePos } )
-						--self.data.spears[tablePos] = nil
 						spear.lifeTime = 31
 						alive = false
 						break
