@@ -1,62 +1,65 @@
 {
-	"LoadingTexts":
-	[
+    "LoadingTexts":
+    [
+        {
+            "text": "Stay afloat!"
+        },
+        {
+            "text": "AD: SunShake - Free the Woc inside You!"
+        },
+        {
+            "text": "SM Developers totally approve this!"
+        },
+        {
+            "text": "AMOGUS"
+        },
+        {
+            "text": "We don't know how robots work without energy, but we know you need some!"
+        },
+        {
+            "text": "Is this the wrong game?"
+        },
+        {
+            "text": "Sharks do in fact bite. Stay away from them!"
+        },
+        {
+            "text": "Scrap Mechanic is still in development: changes and improvements are happening less than once a year!"
+        },
+        {
+            "text": "The Logbook is a lot more useful now. Don't forget about it!"
+        },
+        {
+            "text": "It's not a bug, it's a feature!"
+        },
+        {
+            "text": "If your Raft fails to work as you intended, let’s just call it ocean junk!"
+        },
+        {
+            "text": "Thanks for playing with the Raft Mechanic mod!"
+        },
+        {
+            "text": "Drink the Sea - The Glitch Woc"
+        },
+        {
+            "text": "Underwater ROCKS!"
+        },
+        {
+            "text": "Never gonna give you up, never gonna let you down, never gonna run around and desert you..."
+        },
+        {
+            "text": "Achievement Got!: Loading Screen Text Reader level 1!"
+        },
+        {
+            "text": "69 facts about oceans"
+        },
+        {
+            "text": "*insert random fact or stupid text here*"
+        },
+        {
+            "text": "Stay safe Raft Mechanic!"
+        },
 		{
-			"text": "Stay afloat!"
-		},
-		{
-			"text": "AD: SunShake - Free the Woc inside You!"
-		},
-		{
-			"text": "SM Developers totally approve this!"
-		},
-		{
-			"text": "Haha funny ඞ sus text lol"
-		},
-		{
-			"text": "We don't know how robots can work without energy, but we know you need some!"
-		},
-		{
-			"text": "Is this the wrong game?"
-		},
-		{
-			"text": "Sharks do in fact bite, stay away from them!"
-		},
-		{
-			"text": "Scrap Mechanic is still in development: changes and improvements are happening less than once a year!"
-		},
-		{
-			"text": "Logbook is way more useful now. Don't forget about it!"
-		},
-		{
-			"text": "Its not a bug, its a feature!"
-		},
-		{
-			"text": "If your RAFT fails to work as you intended, let’s just call it ocean junk!"
-		},
-		{
-			"text": "Thanks for playing with Raft Mechanic mod!"
-		},
-		{
-			"text": "Challenge: empty the sea"
-		},
-		{
-			"text": "UnderwaterROCKS!"
-		},
-		{
-			"text": "Never gonna give you up, never gonna let you down, never gonna run around and desert you..."
-		},
-		{
-			"text": "Achievement got: Actual Loading Screen Text Reader level 1!"
-		},
-		{
-			"text": "69 facts about oceans"
-		},
-		{
-			"text": "*insert random fact or stupid text here*"
-		},
-		{
-			"text": "Stay safe RaftMechanic!"
-		}
-	]
+            "text": "Stay hydrated!"
+        }
+    ]
 }
