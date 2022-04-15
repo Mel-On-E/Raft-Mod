@@ -50,7 +50,7 @@
 					"color" : "00ffff",
 					"controller" : 
 					{
-						"id" : 48.0
+						"id" : 1.0
 					},
 					"pos" : 
 					{
@@ -224,7 +224,7 @@
 					"controller" : 
 					{
 						"data" : "gExVQQAAAAEFBQDwBwIAAAAFAGNyYWZ0QXJyYXkFAAAAAAA",
-						"id" : 46.0
+						"id" : 2.0
 					},
 					"pos" : 
 					{
@@ -233,23 +233,6 @@
 						"z" : 2.0
 					},
 					"shapeId" : "f3163e62-e6c3-475c-805e-559f8bb07ad1",
-					"xaxis" : -1.0,
-					"zaxis" : 2.0
-				},
-				
-				{
-					"color" : "3e9ffe",
-					"controller" : 
-					{
-						"id" : 47.0
-					},
-					"pos" : 
-					{
-						"x" : 25.0,
-						"y" : 5.0,
-						"z" : 2.0
-					},
-					"shapeId" : "5eb8975b-0acf-43a7-ab4e-62ce661c0df7",
 					"xaxis" : -1.0,
 					"zaxis" : 2.0
 				},
@@ -437,6 +420,23 @@
 					"shapeId" : "1fc74a28-addb-451a-878d-c3c605d63811",
 					"xaxis" : 1.0,
 					"zaxis" : 3.0
+				},
+				
+				{
+					"color" : "3e9ffe",
+					"controller" : 
+					{
+						"id" : 54.0
+					},
+					"pos" : 
+					{
+						"x" : 20.0,
+						"y" : 15.0,
+						"z" : 2.0
+					},
+					"shapeId" : "4c1aed86-a402-4240-81e7-b67edf433fd5",
+					"xaxis" : 1.0,
+					"zaxis" : -2.0
 				}
 			],
 			"type" : 0.0
