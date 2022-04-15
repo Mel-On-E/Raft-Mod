@@ -509,7 +509,7 @@
 				"classname": "AirTank"
 			},
 			"rotationSet": "PropZ",
-			"sticky": "-Z+Z",
+			"sticky": "-Z",
 			"physicsMaterial": "Metal",
 			"ratings": {
 				"density": 10,
@@ -575,7 +575,7 @@
 				"classname": "AirTank"
 			},
 			"rotationSet": "PropZ",
-			"sticky": "-Z+Z",
+			"sticky": "-Z",
 			"physicsMaterial": "Metal",
 			"ratings": {
 				"density": 1,
