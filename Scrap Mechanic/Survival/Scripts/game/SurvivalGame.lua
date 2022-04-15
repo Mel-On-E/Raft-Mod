@@ -673,7 +673,9 @@ function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 		--Raft
 		if player.id == 1 then
 			spawnRaft = true
+			sm.gui.chatMessage("#00ccffThanks for playing the Raft Mechanic Mod! Check out the logbook to get started!")
 		end
+
 	else
 		local inventory = player:getInventory()
 
