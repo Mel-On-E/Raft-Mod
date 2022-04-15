@@ -32,13 +32,11 @@ function Steer:client_onCreate()
 	self.gui:setText( "Interaction", "Force multiplier" )
 	self.gui:setSliderCallback( "Setting", "cl_onSliderChange" )
 	self.gui:setIconImage( "Icon", obj_creationSteer )
-
-    self:cl_refreshGUI()
 end
 
 function Steer:cl_refreshGUI()
-	self.gui:setSliderData( "Setting", maxForceMult + 1, self.data.slider )
-	self.gui:setText( "SubTitle", "Multiplier: " .. tostring( self.data.slider ) )
+    self.gui:setSliderData( "Setting", maxForceMult + 1, self.data.slider )
+    self.gui:setText( "SubTitle", "Multiplier: " .. tostring( self.data.slider ) )
 end
 
 function Steer:cl_onSliderChange( sliderName, sliderPos )
@@ -127,7 +125,7 @@ end
 
 function Steer:client_canInteract()
 	sm.gui.setInteractionText( "", "Current mode: #df7f00"..modes[self.data.count] )
-    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."' to cycle forwards, '"..sm.gui.getKeyBinding( "Crawl" ).."' + '"..sm.gui.getKeyBinding( "Use" ).."' to cycle backwards and '"..sm.gui.getKeyBinding( "Tinker" ).."' to adjust the force multiplier." )
+    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."' to cycle forwards, '"..sm.gui.getKeyBinding( "Tinker" ).."' to cycle backwards and '"..sm.gui.getKeyBinding( "Crawl" ).."' + '"..sm.gui.getKeyBinding( "Use" ).."' to adjust the force multiplier." )
 
     return true
 end
@@ -135,19 +133,20 @@ end
 function Steer:client_onInteract( char, lookAt )
     if lookAt then
         if char:isCrouching() then
-            self.data.count = self.data.count > 1 and self.data.count - 1 or #modes
+            self:cl_refreshGUI()
+            self.gui:open()
         else
             self.data.count = self.data.count < #modes and self.data.count + 1 or 1
+            sm.audio.play("PaintTool - ColorPick")
+            self.network:sendToServer("sv_save")
         end
-
-        sm.audio.play("PaintTool - ColorPick")
-        self.network:sendToServer("sv_save")
     end
 end
 
 function Steer:client_onTinker( char, lookAt )
     if lookAt then
-        self:cl_refreshGUI()
-        self.gui:open()
+        self.data.count = self.data.count > 1 and self.data.count - 1 or #modes
+        sm.audio.play("PaintTool - ColorPick")
+        self.network:sendToServer("sv_save")
     end
 end
