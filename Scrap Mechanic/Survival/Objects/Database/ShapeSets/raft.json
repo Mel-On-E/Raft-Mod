@@ -2148,7 +2148,7 @@
 			"physicsMaterial": "Metal",
 			"ratings": {
 				"density": 1,
-				"durability": 3,
+				"durability": 5,
 				"friction": 4,
 				"buoyancy": 6
 			},
