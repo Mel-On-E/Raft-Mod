@@ -1,0 +1,34 @@
+{
+	"lodList": [
+		{
+			"minViewSize": 55,
+			"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/Hammock.fbx",
+			"subMeshMap": {
+                    "lambert2":{
+					"textureList": [
+						"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_dif.tga",
+						"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_asg.tga",
+						"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_seed_nor.tga"
+				  	],
+				  	"material": "DifAsgNor"
+				},
+                "shark": {
+				  "material": "DifAsgNor",
+				  "textureList": [
+						"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_dif.tga",
+						"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_asg.tga",
+						"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sharkwood_nor.tga"
+				  ]
+				},
+                "bed": {
+					"material": "DifAsgNor",
+					"textureList": [
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_dif.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_asg.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_nor.tga"
+					]
+				}
+			}
+		}
+	]
+}
