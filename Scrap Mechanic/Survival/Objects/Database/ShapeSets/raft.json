@@ -2147,7 +2147,7 @@
 			"sticky": "-Z+Z-Y-X+X",
 			"physicsMaterial": "Metal",
 			"ratings": {
-				"density": 3,
+				"density": 1,
 				"durability": 3,
 				"friction": 4,
 				"buoyancy": 6
