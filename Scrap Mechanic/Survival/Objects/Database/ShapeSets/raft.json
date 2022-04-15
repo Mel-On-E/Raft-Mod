@@ -2096,6 +2096,68 @@
 			"flammable": true
 		},
 		{
+			"uuid": "4c1aed86-a402-4240-81e7-b67edf433fd5",
+			"name": "obj_interactive_comfybed",
+			"renderable": "$SURVIVAL_DATA/Objects/Raft/Renderable/obj_interactive_hammock.rend",
+			"color": "3e9ffe",
+			"box": {
+				"x": 5, //Hauteur 4 largeur 5 longueur 12
+				"y": 2,
+				"z": 12
+			},
+			"scripted": {
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Bed.lua",
+				"classname": "Bed",
+				"data": {},
+				"seat": {
+					"bones": [
+						{
+							"name": "root_jnt",
+							"offset": {
+								"x": 0.0,
+								"y": 1.0,
+								"z": 0.3
+							}
+						},
+						{
+							"name": "LeftForeArm",
+							"offset": {
+								"x": 1.5,
+								"y": 1.1,
+								"z": 1.1
+							},
+							"freeRotation": true
+						},
+						{
+							"name": "RightForeArm",
+							"offset": {
+								"x": -1.5,
+								"y": 1.1,
+								"z": 1.1
+							},
+							"freeRotation": true
+						}
+					],
+					"ragdollFile": "$SURVIVAL_DATA/Character/bed_ragdoll.json",
+					"enterAudio": "Seat seated",
+					"exitAudio": "Seat unseated"
+				}
+			},
+			"rotationSet": "PropFullMinusNegY",
+			"sticky": "-Z+Z-Y-X+X",
+			"physicsMaterial": "Metal",
+			"ratings": {
+				"density": 3,
+				"durability": 3,
+				"friction": 4,
+				"buoyancy": 6
+			},
+			"flammable": true,
+			"restrictions": {
+				"usable": true
+			}
+		},
+		{
 			"uuid": "4c1aed86-a402-4240-81e7-b67edf433fa2",
 			"name": "obj_log_file_text",
 			"renderable": {
