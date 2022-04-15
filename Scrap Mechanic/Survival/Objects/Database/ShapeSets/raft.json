@@ -1668,7 +1668,7 @@
 							"seed_texture": {
 								"material": "DifAsgNor",
 								"textureList": [
-									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_potato_dif.tga",
+									"$SURVIVAL_DATA/RaftMod/Textures/obj_consumable_seedbag_potato_dif.tga",
 									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_asg.tga",
 									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_nor.tga"
 								]
@@ -1676,7 +1676,7 @@
 							"seed_texture.001": {
 								"material": "DifAsgNor",
 								"textureList": [
-									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_tomato_dif.tga",
+									"$SURVIVAL_DATA/RaftMod/Textures/obj_consumable_seedbag_tomato_dif.tga",
 									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_asg.tga",
 									"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_seedbag_nor.tga"
 								]
