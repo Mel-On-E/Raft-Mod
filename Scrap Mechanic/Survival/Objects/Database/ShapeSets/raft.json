@@ -1579,7 +1579,7 @@
 			"uuid": "f95beb80-49c8-4d4c-98e9-5b87225c4570",
 			"name": "obj_radio_antenna",
 			"renderable": "$SURVIVAL_DATA/Objects/Raft/Renderable/obj_interactive_antenna.rend",
-			"color": "000000",
+			"color": "FF6600",
 			"box": {
 				"x": 4,
 				"y": 3,
@@ -1694,7 +1694,7 @@
 				}
 			]
 			},
-			"color": "000000",
+			"color": "FF6600",
 			"box": {
 				"x": 4,
 				"y": 4,
