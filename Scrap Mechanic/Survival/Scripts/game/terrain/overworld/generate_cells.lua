@@ -113,7 +113,6 @@ function generateOverworldCelldata( xMin, xMax, yMin, yMax, seed, data, padding 
 
 
 	--WocTemple
-	pois[#pois + 1] = { x = -48, y = 40, type = POI_RAFT_CRASHEDSHIP, size = 1, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 	pois[#pois + 1] = { x = 50, y = 42, type = POI_WOCTEMPLE_XL, rotation = 0, size = 8, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 
 
