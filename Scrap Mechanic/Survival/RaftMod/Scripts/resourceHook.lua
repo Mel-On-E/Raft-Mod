@@ -39,10 +39,11 @@ local ignoreSizeCheck = {
 local hookSize = vec3Num(0.25)
 local hookDirAdjustThreshold = 2
 local colllectHookRange = 0.75
-local hookPullForce = 2
 local maxThrowForce = 25
 local minThrowForce = 5
-local chargeUpTime = 2
+local chargeUpTime = 1.75
+local ThrowSpeed = 4.5
+local PullSpeed = 2
 
 
 function Hook.client_onCreate( self )
@@ -144,7 +145,7 @@ function Hook:sv_manageTrigger( action )
 	if action ~= nil then
 		if action == "create" then
 			self.waterTrigger = sm.areaTrigger.createBox( hookSize * 2, self.hookPos, sm.quat.identity(), sm.areaTrigger.filter.areaTrigger )
-			self.shapeTrigger = sm.areaTrigger.createBox( hookSize * 8, self.hookPos, sm.quat.identity(), sm.areaTrigger.filter.dynamicBody + sm.areaTrigger.filter.staticBody )
+			self.shapeTrigger = sm.areaTrigger.createBox( hookSize * 12, self.hookPos, sm.quat.identity(), sm.areaTrigger.filter.dynamicBody + sm.areaTrigger.filter.staticBody )
 		else
 			sm.areaTrigger.destroy(self.waterTrigger)
 			sm.areaTrigger.destroy(self.shapeTrigger)
@@ -158,42 +159,10 @@ end
 
 function Hook:sv_applyImpulse( body )
 	local dir = self.hookDir --(self.hookPos + self.hookDir) - body:getWorldPosition()
-	sm.physics.applyImpulse( body, dir * body:getMass() / 100, true )
-end
-
-function Hook:sv_collectItems( container )
-	local shapesToCollect = {}
-	for _, body in ipairs( self.shapeTrigger:getContents() ) do
-		if sm.exists( body ) then
-			for v, shape in pairs(sm.body.getCreationShapes( body )) do
-				local blocks = 1
-
-				local shapeUUID = shape:getShapeUuid()
-				if isAnyOf(shapeUUID, collectables) then
-					if not isAnyOf(shapeUUID, ignoreSizeCheck) then
-						local boundingBox = shape:getBoundingBox() * 4
-						blocks = boundingBox.x * boundingBox.y * boundingBox.z
-					else
-						blocks = shape.stackedAmount
-					end
-					print(sm.shape.getShapeTitle( shapeUUID ), blocks)
-
-					for i = 1, blocks do
-						shapesToCollect[#shapesToCollect+1] = shapeUUID
-					end
-					shape:destroyShape()
-				end
-			end
-		end
+	local distance = self.player:getCharacter():getWorldPosition() - body:getWorldPosition()
+	if body:getVelocity():length() < PullSpeed * 3 * math.max(distance:length()/10, 1) then
+		sm.physics.applyImpulse( body, dir * body:getMass() / 75 * math.max(distance:length()/20, 1), true )
 	end
-
-	sm.container.beginTransaction()
-	for v, uuid in pairs(shapesToCollect) do
-		if sm.container.canCollect( container, uuid, 1 ) then
-			sm.container.collect( container, uuid, 1, 1 )
-		end
-	end
-	sm.container.endTransaction()
 end
 
 function Hook:cl_calculateRodEffectData()
@@ -232,7 +201,7 @@ function Hook.client_onUpdate( self, dt )
 	if sm.exists(self.ropeEffect) and self.ropeEffect:isPlaying() then
 		if self.isThrowing then
 			self.hookDir = self.hookDir - sm.vec3.new(0,0,0.05 / self.throwForce)
-			self.hookPos = self.hookPos + vec3Num(self.throwForce) * 3 * self.hookDir * dt
+			self.hookPos = self.hookPos + vec3Num(self.throwForce) * ThrowSpeed * self.hookDir * dt
 			self.network:sendToServer("sv_manageTrigger")
 
 			local hitWater = false
@@ -272,19 +241,18 @@ function Hook.client_onUpdate( self, dt )
 				self.hookDir = sm.vec3.new(dir.x, dir.y, 0)
 			--end
 
-			self.hookPos = self.hookPos + sm.vec3.one() / 4 * self.hookDir * dt
+			self.hookPos = self.hookPos + sm.vec3.one() / 4 * self.hookDir * PullSpeed * dt
 
 			self.network:sendToServer("sv_manageTrigger")
 			for _, body in ipairs( self.shapeTrigger:getContents() ) do
 				if sm.exists( body ) then
-					--if body:getMass() < 100 then
+					if body:getMass() < 100 then
 						self.network:sendToServer("sv_applyImpulse", body)
-					--end
+					end
 				end
 			end
 
 			if distance:length() <= colllectHookRange then
-				self.network:sendToServer("sv_collectItems", sm.localPlayer.getInventory())
 				self.network:sendToServer("sv_manageTrigger", "destroy")
 				self:cl_reset()
 			end
