@@ -339,6 +339,66 @@
 		},
 		"flammable": true
 	},
+	{
+		"uuid": "4a971f7d-14e6-454d-bce8-0879243c7642",
+		"name": "obj_fishingfloat_render",
+		"renderable": {
+			"lodList": [
+				{
+					"subMeshMap": {
+						"obj_consumable_milk_mat":{
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_milk_dif.tga",
+                    		    "$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_milk_asg.tga",
+                    		    "$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_milk_nor.tga"
+							],
+							"material": "DifAsgNor"
+						},
+						"initialShadingGroup":{
+							"textureList": [
+								"$SURVIVAL_DATA/Character/Char_Tools/Char_fishingrod/FishingRod.png",
+								"",
+								""
+							],
+							"material": "Dif"
+						},
+						"campfire_mat":{
+							"textureList": [
+								"$SURVIVAL_DATA/Terrain/Textures/Camping/env_camping_campfire_dif.tga",
+                    			"$SURVIVAL_DATA/Terrain/Textures/Camping/env_camping_campfire_asg.tga",
+                    			"$SURVIVAL_DATA/Terrain/Textures/Camping/env_camping_campfire_nor.tga"
+							],
+							"material": "DifAsgNor"
+						},
+						"glass_mat": {
+							"material": "Glass",
+							"textureList": [
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_milk_dif.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_milk_asg.tga",
+								"$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_milk_nor.tga"
+							]
+						}
+					},
+					"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/FishingFloatRender.fbx"
+				}
+			]
+		},
+		"color": "008ae1",
+		"box": {
+			"x": 1,
+			"y": 1,
+			"z": 1
+		},
+		"rotationSet": "PropFull",
+		"physicsMaterial": "Plastic",
+		"ratings": {
+			"density": 1,
+			"durability": 3,
+			"friction": 10,
+			"buoyancy": 10
+		},
+		"flammable": true
+	},
 		{
 			"uuid": "7ece8b10-5cc0-4791-b75e-09858ef1b9c4",
 			"name": "obj_fins",
