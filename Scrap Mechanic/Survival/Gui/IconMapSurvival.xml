@@ -2009,6 +2009,9 @@
 			<Index name="e34387d3-fa29-4831-89b8-c94417b6fce6">
                 <Frame point="3456 1440"/>
             </Index>
+			<Index name="4a971f7d-14e6-454d-bce8-0879243c4857">
+                <Frame point="3552 1440"/>
+            </Index>
         </Group>
     </Resource>
 </MyGUI>
