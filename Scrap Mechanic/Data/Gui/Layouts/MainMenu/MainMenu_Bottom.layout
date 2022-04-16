@@ -10,7 +10,7 @@
             <Property key="TextShadowColour" value="0 0 0 0.2" />
         </Widget>
 		<Widget type="TextBox" skin="TextBox" name="Version" position_real="0 0.6 1 0.147727">
-			<Property key="Caption" value="#FF0000 YOUR MENU CREATIONS ARE #00FF1BSAFE#FF0000, BUT ARE DISABLED!" />
+			<Property key="Caption" value="." />
 			<Property key="FontName" value="SM_TextTiny" />
 			<Property key="TextAlign" value="Center" />
 			<Property key="TextShadow" value="true" />
