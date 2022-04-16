@@ -453,22 +453,6 @@
 			}
 		]
 	},
-	//ScrapSeat
-	{
-		"itemId": "847daf20-02bf-4170-8699-9ab106acd29a",
-		"quantity": 1,
-		"craftTime": 22,
-		"ingredientList": [
-			{
-				"quantity": 50,
-				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
-			},
-			{
-				"quantity": 1,
-				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3"
-			}
-		]
-	},
 	//Hammock
 	{
 		"itemId": "4c1aed86-a402-4240-81e7-b67edf433fd5",
@@ -490,22 +474,6 @@
 			{
 				"quantity": 5,
 				"itemId": "c7322cd1-3158-41d9-b15a-eff2f2f8d9f7"
-			}
-		]
-	},
-	//ScrapWorkbench
-	{
-		"itemId": "f3163e62-e6c3-475c-805e-559f8bb07ad1",
-		"quantity": 1,
-		"craftTime": 32,
-		"ingredientList": [
-			{
-				"quantity": 45,
-				"itemId": "1fc74a28-addb-451a-878d-c3c605d63811"
-			},
-			{
-				"quantity": 10,
-				"itemId": "628b2d61-5ceb-43e9-8334-a4135566df7a"
 			}
 		]
 	}

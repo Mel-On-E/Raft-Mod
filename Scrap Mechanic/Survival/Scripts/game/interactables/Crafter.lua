@@ -108,6 +108,7 @@ local crafters = {
 		slots = 8,
 		speed = 1,
 		recipeSets = {
+			{ name = "workbench", locked = false },
 			{ name = "scrapworkbench", locked = false },
 			{ name = "quest1", locked = true },
 			{ name = "questsail", locked = true },
