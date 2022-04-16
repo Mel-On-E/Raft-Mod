@@ -1,0 +1,51 @@
+{
+	"menuScenes": [
+		{
+			"tile": "$GAME_DATA/Menu/MAINMENU256_01.TILE",
+
+			// MainCharacter
+			"character": {
+				"pos": { "x": 128.862, "y": 15.35, "z":5.055 },
+				"angle": 2.25,
+				"renderables": [
+					"$GAME_DATA/Character/Char_Male/Animations/char_male_tp_spudgun.rend",
+					"$SURVIVAL_DATA/Character/Char_Tools/Char_harpoon/char_harpoon_preview.rend"
+				],
+				"animation": "spudgun_idle"
+			},
+
+			// CustomizeCharacter
+			"customizeCharacter": {
+				"pos": { "x": 157.513, "y": 33.013, "z":5.830 },
+				"angle": 2.7
+			},
+
+			// MainCamera
+			"camera": {
+				"pos": { "x": 128.0, "y": 13.457, "z": 6.141 },
+				"lookAt": { "x": 128.0, "y": 29.858, "z": 4.347 }
+			},
+			"playCamera": {
+				"time": 0.7,
+				"pos": { "x": 107.0, "y": 60.600, "z": 5.769 },
+				"lookAt": { "x": 96.0, "y": 88.0, "z": 4.400 },
+				"easingIn": "easeOutCubic",
+				"easingOut": "easeOutCubic"
+			},
+			"customizeCamera": {
+				"time": 1.1,
+				"pos": { "x": 156.200, "y": 30.499, "z": 7.028 },
+				"lookAt": { "x": 157.513, "y": 38.013, "z":5.941 },
+				"easingIn": "easeOutCubic",
+				"easingOut": "easeOutCubic"
+			},
+			"optionsCamera": {
+				"time": 0.75,
+				"pos": { "x": 116.59, "y": 22.11, "z": 6.345 },
+				"lookAt": { "x": 115.223, "y": 24.749, "z": 5.897 },
+				"easingIn": "easeOutCubic",
+				"easingOut": "easeOutCubic"
+			}
+		}
+	]
+}

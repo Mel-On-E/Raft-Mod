@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<MyGUI type="Layout" version="3.2.0">
+    <Widget type="Widget" skin="PanelEmpty" name="BottomPanel" position_real="0.260156 0.877778 0.478906 0.122222">
+        <Property key="NeedKey" value="false" />
+        <Widget type="TextBox" skin="TextBox" name="Version" position_real="0 0.75 1 0.147727">
+            <Property key="Caption" value="Scrap Mechanic BETA Ver 0.3.5. Build 479. 2019 Axolot Games. All rights reserved." />
+            <Property key="FontName" value="SM_TextTiny" />
+            <Property key="TextAlign" value="Center" />
+            <Property key="TextShadow" value="true" />
+            <Property key="TextShadowColour" value="0 0 0 0.2" />
+        </Widget>
+		<Widget type="TextBox" skin="TextBox" name="Version" position_real="0 0.6 1 0.147727">
+			<Property key="Caption" value="#FF0000 YOUR MENU CREATIONS ARE #00FF1BSAFE#FF0000, BUT ARE DISABLED!" />
+			<Property key="FontName" value="SM_TextTiny" />
+			<Property key="TextAlign" value="Center" />
+			<Property key="TextShadow" value="true" />
+			<Property key="TextShadowColour" value="0 0 0 0.2" />
+		</Widget>
+    </Widget>
+    <CodeGeneratorSettings />
+</MyGUI>
