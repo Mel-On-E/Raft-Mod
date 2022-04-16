@@ -32,7 +32,7 @@ function Sail.server_onFixedUpdate(self, dt)
         end
     end
 
-    if self.sv.active and self.shape:getVelocity():length() < MAX_SPEED then
+    if self.sv.active and self.shape:getVelocity():length() < MAX_SPEED and self.shape:getWorldPosition().z > -1.9 then
         local up = sm.vec3.new(0, 0, 1)
         local dirMiddle = self.shape:getWorldPosition():normalize()
         local windDirection = -dirMiddle:cross(up)
