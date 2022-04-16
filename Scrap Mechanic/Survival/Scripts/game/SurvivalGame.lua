@@ -392,6 +392,8 @@ function SurvivalGame.cl_onChatCommand( self, params )
 				spawnParams.uuid = unit_worm
 			elseif params[2] == "farmbot" or params[2] == "f" then
 				spawnParams.uuid = unit_farmbot
+			elseif params[2] == "shark" or params[2] == "s" then
+				spawnParams.uuid = sm.uuid.new("817c128f-c3c0-4e9e-bfa6-30337bbfb0a4")
 			elseif params[2] then
 				spawnParams.uuid = sm.uuid.new( params[2] )
 			end
