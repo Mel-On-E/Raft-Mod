@@ -34,6 +34,7 @@ local FleeTimeMax = 40 * 20 -- 20 seconds
 local fleeSpeed = 3
 local attackSpeed = 2.5
 local rushRange = 15
+local BreachTime = 40*20 --20 seconds
 
 function SharkBotUnit.server_onCreate( self )
 	
@@ -44,6 +45,7 @@ function SharkBotUnit.server_onCreate( self )
 	self.predictedVelocity = sm.vec3.new( 0, 0, 0 )
 	self.lastTargetPosition = nil
 	self.flee = false
+	self.breachTimer = 0
 	self.land = 0
 	self.saved = self.storage:load()
 	if self.saved == nil then
@@ -421,6 +423,18 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 	elseif attackResult == "finished" then
 		self.fleeFrom = self.target:getPlayer()
 	end
+	
+	if self.currentState == self.breachState then
+		if self.BreachTimer < sm.game.getCurrentTick() then
+			self.fleeFrom = self.target:getPlayer()
+			self:sv_flee( self.fleeFrom )
+			prevState = self.currentState
+			self.fleeFrom = nil
+			print("stop breach")
+		end
+	else
+		self.BreachTimer = 0
+	end
 	_, attackResult = self.breachState:isDone()
 	if attackResult == "fail" or attackResult == "timeout" then
 		self.fleeFrom = self.target:getPlayer()
@@ -583,6 +597,7 @@ function SharkBotUnit.server_onUnitUpdate( self, dt )
 			-- Start breaching path obstacle
 			self.breachState:sv_setDestination( breachDestination )
 			self.currentState = self.breachState
+			self.BreachTimer = sm.game.getCurrentTick() + BreachTime
 		elseif self.currentState == self.pathingState and result == "failed" then
 			self.avoidState.desiredDirection = self.unit.character.direction
 			self.avoidState.desiredPosition = self.unit.character.worldPosition - self.avoidState.desiredDirection:normalize() * 2
