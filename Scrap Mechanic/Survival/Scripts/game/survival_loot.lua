@@ -223,14 +223,14 @@ local loot_glow_goop = {
 }
 
 local loot_totebot_green = {
-	slots = function() return randomStackAmount( 1, 2, 2 ) end,
+	slots = function() return randomStackAmount( 1, 1.5, 2 ) end,
 	randomLoot = {
 		{ uuid = obj_resource_circuitboard,		chance = 1 },
 	}
 }
 
 local loot_haybot = {
-	slots = function() return randomStackAmount( 1, 2, 3 ) end,
+	slots = function() return randomStackAmount( 1, 1.5, 2 ) end,
 	randomLoot = {
 		{ uuid = obj_consumable_component,		chance = 3 },
 		{ uuid = obj_resource_circuitboard,		chance = 2 },
@@ -238,7 +238,7 @@ local loot_haybot = {
 }
 
 local loot_tapebot = {
-	slots = function() return randomStackAmount( 0, 0.5, 1 ) end,
+	slots = function() return randomStackAmount( 0, 1, 2 ) end,
 	randomLoot = {
 		{ uuid = obj_consumable_component,		chance = 2 },
 		{ uuid = obj_consumable_battery,		chance = 5 },
