@@ -16,27 +16,34 @@ local modes = {
 local maxForceMult = 25
 
 function Steer:server_onCreate()
-    self.data = self.storage:load()
+    self.sv = {}
+    self.sv.data = self.storage:load()
 
-    if self.data == nil then
-        self.data = {
+    if self.sv.data == nil then
+        self.sv.data = {
             count = 1,
             slider = 1
         }
     end
+
+    self.network:sendToClients("cl_updateData", self.sv.data)
 end
 
 function Steer:client_onCreate()
-    self.gui = sm.gui.createEngineGui()
-    self.gui:setText( "Name", "Creation Rotator" )
-	self.gui:setText( "Interaction", "Force multiplier" )
-	self.gui:setSliderCallback( "Setting", "cl_onSliderChange" )
-	self.gui:setIconImage( "Icon", obj_creationSteer )
+    self.cl = {
+        data = {},
+        gui = sm.gui.createEngineGui()
+    }
+
+    self.cl.gui:setText( "Name", "Creation Rotator" )
+	self.cl.gui:setText( "Interaction", "Force multiplier" )
+	self.cl.gui:setSliderCallback( "Setting", "cl_onSliderChange" )
+	self.cl.gui:setIconImage( "Icon", obj_creationSteer )
 end
 
 function Steer:cl_refreshGUI()
-    self.gui:setSliderData( "Setting", maxForceMult + 1, self.data.slider )
-    self.gui:setText( "SubTitle", "Multiplier: " .. tostring( self.data.slider ) )
+    self.cl.gui:setSliderData( "Setting", maxForceMult + 1, self.cl.data.slider )
+    self.cl.gui:setText( "SubTitle", "Multiplier: " .. tostring( self.cl.data.slider ) )
 end
 
 function Steer:cl_onSliderChange( sliderName, sliderPos )
@@ -45,11 +52,14 @@ function Steer:cl_onSliderChange( sliderName, sliderPos )
 end
 
 function Steer:sv_onSliderChange( sliderPos )
-    self.data.slider = sliderPos
+    self.sv.data.slider = sliderPos
     self:sv_save()
 end
 
 function Steer:server_onFixedUpdate( dt )
+    if not self.sv or not self.sv.data then return end
+    self.network:sendToClients("cl_updateData", self.sv.data)
+
     local logicParent = self.interactable:getParents( sm.interactable.connectionType.logic )[1]
     local seatParent = self.interactable:getParents( sm.interactable.connectionType.power )[1]
     if not seatParent or logicParent and not logicParent:isActive() then
@@ -75,7 +85,7 @@ function Steer:server_onFixedUpdate( dt )
         creationMass = creationMass + k:getBody():getMass()
     end
 
-    local selectedMode = modes[self.data.count]
+    local selectedMode = modes[self.sv.data.count]
     if selectedMode == modes[2] then
         forceDir.z = 0
     elseif selectedMode == modes[3] then
@@ -86,10 +96,14 @@ function Steer:server_onFixedUpdate( dt )
         forceDir = parentDir * seatParent:getSteeringAngle()
     end
 
-    sm.physics.applyTorque( bodyToRotate, forceDir * (creationMass / 2.5) * dt * self.data.slider, true )
+    sm.physics.applyTorque( bodyToRotate, forceDir * (creationMass / 2.5) * dt * self.sv.data.slider, true )
     if not self.interactable:isActive() then
         self:sv_updateState( { active = true, power = 1, index = 7 } )
     end
+end
+
+function Steer:cl_updateData( data )
+    self.cl.data = data
 end
 
 function Steer.client_getAvailableParentConnectionCount( self, connectionType )
@@ -116,7 +130,7 @@ function Steer:sv_updateState( args )
 end
 
 function Steer:sv_save()
-    self.storage:save( self.data )
+    self.storage:save( self.sv.data )
 end
 
 function Steer:cl_uvUpdate( index )
@@ -124,7 +138,7 @@ function Steer:cl_uvUpdate( index )
 end
 
 function Steer:client_canInteract()
-	sm.gui.setInteractionText( "", "Current mode: #df7f00"..modes[self.data.count] )
+	sm.gui.setInteractionText( "", "Current mode: #df7f00"..modes[self.cl.data.count] )
     sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."' to cycle forwards, '"..sm.gui.getKeyBinding( "Tinker" ).."' to cycle backwards and '"..sm.gui.getKeyBinding( "Crawl" ).."' + '"..sm.gui.getKeyBinding( "Use" ).."' to adjust the force multiplier." )
 
     return true
@@ -134,19 +148,27 @@ function Steer:client_onInteract( char, lookAt )
     if lookAt then
         if char:isCrouching() then
             self:cl_refreshGUI()
-            self.gui:open()
+            self.cl.gui:open()
         else
-            self.data.count = self.data.count < #modes and self.data.count + 1 or 1
+            self.network:sendToServer("sv_changeCount", "add")
             sm.audio.play("PaintTool - ColorPick")
-            self.network:sendToServer("sv_save")
         end
     end
 end
 
 function Steer:client_onTinker( char, lookAt )
     if lookAt then
-        self.data.count = self.data.count > 1 and self.data.count - 1 or #modes
+        self.network:sendToServer("sv_changeCount", "subtract")
         sm.audio.play("PaintTool - ColorPick")
-        self.network:sendToServer("sv_save")
     end
+end
+
+function Steer:sv_changeCount( type )
+    if type == "add" then
+        self.sv.data.count = self.sv.data.count < #modes and self.sv.data.count + 1 or 1
+    else
+        self.sv.data.count = self.sv.data.count > 1 and self.sv.data.count - 1 or #modes
+    end
+
+    self:sv_save()
 end

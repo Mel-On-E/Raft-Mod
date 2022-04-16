@@ -6,6 +6,13 @@ Converter.connectionOutput = sm.interactable.connectionType.logic
 Converter.colorNormal = sm.color.new("#ff3200")
 Converter.colorHighlight = sm.color.new("#ff1100")
 
+local modes = {
+    "w",
+    "a",
+    "s",
+    "d"
+}
+
 local inputs = {
     forward = {
         [1] = "w",
@@ -37,26 +44,32 @@ local uv = {
 }
 
 function Converter:server_onCreate()
-    self.modes = self.storage:load()
+    self.sv = {}
+    self.sv.data = self.storage:load()
 
-    if self.modes == nil then
-        self.modes = {
-            modes = {
-                "w",
-                "a",
-                "s",
-                "d"
-            },
+    if self.sv.data == nil then
+        self.sv.data = {
             count = 1
         }
     end
+
+    self.network:sendToClients("cl_updateData", self.sv.data)
+end
+
+function Converter:client_onCreate()
+    self.cl = {
+        data = {}
+    }
 end
 
 function Converter:server_onFixedUpdate( dt )
+    if not self.sv or not self.sv.data then return end
+    self.network:sendToClients("cl_updateData", self.sv.data)
+
     local parent = self.interactable:getSingleParent()
     if not parent then return end
 
-    local selectedInput = self.modes.modes[self.modes.count]
+    local selectedInput = modes[self.sv.data.count]
     local forward = parent:getSteeringPower()
     local steer = parent:getSteeringAngle()
 
@@ -73,6 +86,10 @@ function Converter:server_onFixedUpdate( dt )
     end
 end
 
+function Converter:cl_updateData( data )
+    self.cl.data = data
+end
+
 function Converter:sv_updateState( args )
     self.interactable:setActive( args.active )
     self.interactable:setPower( math.abs(args.power) ) --thank you thrusters
@@ -81,12 +98,12 @@ function Converter:sv_updateState( args )
 end
 
 function Converter:sv_updateUV( power )
-    local index = uv[self.modes.modes[self.modes.count]][math.abs(power)]
+    local index = uv[modes[self.sv.data.count]][math.abs(power)]
     self.network:sendToClients("cl_uvUpdate", index)
 end
 
 function Converter:sv_save()
-    self.storage:save( self.modes )
+    self.storage:save( self.sv.data )
     self:sv_updateUV(0)
 end
 
@@ -95,7 +112,7 @@ function Converter:cl_uvUpdate( index )
 end
 
 function Converter:client_canInteract()
-	sm.gui.setInteractionText( "", "Current mode: #df7f00"..self.modes.modes[self.modes.count]:upper() )
+	sm.gui.setInteractionText( "", "Current mode: #df7f00"..modes[self.cl.data.count]:upper() )
     sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."' to cycle forwards, '"..sm.gui.getKeyBinding( "Tinker" ).."' to cycle backwards.")
 
     return true
@@ -103,16 +120,24 @@ end
 
 function Converter:client_onInteract( char, lookAt )
     if lookAt then
-        self.modes.count = self.modes.count < #self.modes.modes and self.modes.count + 1 or 1
+        self.network:sendToServer("sv_changeCount", "add")
         sm.audio.play("PaintTool - ColorPick")
-        self.network:sendToServer("sv_save")
     end
 end
 
 function Converter:client_onTinker( char, lookAt )
     if lookAt then
-        self.modes.count = self.modes.count > 1 and self.modes.count - 1 or #self.modes.modes
+        self.network:sendToServer("sv_changeCount", "subtract")
         sm.audio.play("PaintTool - ColorPick")
-        self.network:sendToServer("sv_save")
     end
+end
+
+function Converter:sv_changeCount( type )
+    if type == "add" then
+        self.sv.data.count = self.sv.data.count < #modes and self.sv.data.count + 1 or 1
+    else
+        self.sv.data.count = self.sv.data.count > 1 and self.sv.data.count - 1 or #modes
+    end
+
+    self:sv_save()
 end
