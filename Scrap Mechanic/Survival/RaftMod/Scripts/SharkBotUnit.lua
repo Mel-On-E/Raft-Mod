@@ -880,7 +880,7 @@ function SharkBotUnit.sv_onDeath( self, impact )
 		self.unit:destroy()
 		print("'SharkBotUnit' killed!")
 		if SurvivalGame then
-			local loot = SelectLoot( "loot_farmbot" )
+			local loot = SelectLoot( "loot_sharkbot" )
 			SpawnLoot( self.unit, loot )
 		end
 		self.destroyed = true

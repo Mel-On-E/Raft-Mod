@@ -253,6 +253,18 @@ local loot_farmbot = {
 	}
 }
 
+local loot_sharkbot = {
+	slots = function() return randomStackAmount( 2, 2, 3 ) end,
+	selectOne = {
+		{ uuid = obj_interactive_raftshark, 	chance = 1,		quantity = 1 },
+		{ uuid = nil,							chance = 2 }, -- No loot from selectOne
+	},
+	randomLoot = {
+		{ uuid = obj_consumable_component,		chance = 2,		quantity = randomStackAmountAvg2 },
+		{ uuid = obj_resource_circuitboard,		chance = 1,		quantity = randomStackAmountAvg2 },
+	}
+}
+
 local lootTables = {
 	["loot_crate_startarea"] = loot_crate_startarea,
 	["loot_ruinchest_startarea"] = loot_ruinchest_startarea,
@@ -268,6 +280,7 @@ local lootTables = {
 	["loot_haybot"] = loot_haybot,
 	["loot_tapebot"] = loot_tapebot,
 	["loot_farmbot"] = loot_farmbot,
+	["loot_sharkbot"] = loot_sharkbot
 }
 
 function SelectOne( list )
