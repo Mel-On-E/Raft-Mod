@@ -25,5 +25,5 @@ function Flag.client_onFixedUpdate( self, dt )
     
     local direction = self.shape:transformPoint(point)
     direction.y = 0
-    self.effect:setOffsetRotation(sm.vec3.getRotation(sm.vec3.new(0, 0, 1), -direction))
+    self.effect:setOffsetRotation(sm.vec3.getRotation(sm.vec3.new(0, 0, 0), -direction))
 end
