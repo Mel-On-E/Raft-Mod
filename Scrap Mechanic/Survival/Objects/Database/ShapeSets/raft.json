@@ -472,40 +472,41 @@
 			"renderable": {
 				"lodList": [
 					{
-						"minViewSize": 12,
-						"subMeshList": [
-							{
-									"textureList": [
-										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
-									],
-									"material": "DifAsgNor"
+						"subMeshMap": {
+							"Material": {  
+								"material": "DifAsgNor",
+								"textureList":	[
+									"$SURVIVAL_DATA/Objects/Raft/Textures/char_spudgun_tank_basic_dif.tga",
+									"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic_asg.tga",
+									"$GAME_DATA/Character/Char_Tools/Char_spudgun/Tank/Tank_basic/char_spudgun_tank_basic_nor.tga"
+								]
+								},
+							"blinn1": {  
+								"material": "DifAsgNor",
+								"textureList":	[
+									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+									"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+								]
+								},
+							"Tube": { 
+								"material": "DifAsgNor",
+								"textureList":	[
+									"$SURVIVAL_DATA/Objects/Textures/building/obj_building_barracksupport_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/building/obj_building_barracksupport_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/building/obj_building_barracksupport_nor.tga"
+								]
 							}
-						],
-						"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
-					},
-					{
-						"subMeshList": [
-							{
-									"textureList": [
-										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-										"$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-										""
-									],
-									"material": "DifAsg"
-							}
-						],
-						"mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+						},
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/AirtankGround.fbx"
 					}
 				]
 			},
-			"color": "00ff00",
-			"cylinder": {
-				"diameter": 1,
-				"depth": 1,
-				"margin": 0.1,
-				"axis": "Y"
+			"color": "FFCC00",
+			"box": {
+				"x": 2,
+				"y": 1,
+				"z": 3
 			},
 			"rotationSet": "PropY",
 			"sticky": "-Y",
