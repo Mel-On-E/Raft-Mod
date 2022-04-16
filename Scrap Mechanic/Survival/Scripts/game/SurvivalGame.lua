@@ -629,10 +629,6 @@ function SurvivalGame.server_spawnRaft()
 	for _, player in pairs(sm.player.getAllPlayers()) do
 		if player.id == 1 then
 			sm.creation.importFromFile( player:getCharacter():getWorld(), "$SURVIVAL_DATA/LocalBlueprints/RAFT.blueprint", vec )
-			
-			params = {"/disableraids", "true"}
-			params.player = player
-			sm.event.sendToWorld( player.character:getWorld(), "sv_e_onChatCommand", params )
 		end
 	end
 end
