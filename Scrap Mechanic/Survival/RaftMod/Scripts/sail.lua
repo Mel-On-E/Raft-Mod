@@ -9,7 +9,7 @@ Sail.connectionOutput = sm.interactable.connectionType.none
 Sail.colorNormal = sm.color.new( 0xff8000ff )
 Sail.colorHighlight = sm.color.new( 0xff9f3aff )
 
-local POWER = 15000
+local POWER = 5000
 local MAX_SPEED = 10
 
 
