@@ -1558,10 +1558,10 @@
 			"sticky": "-Y",
 			"physicsMaterial": "Wood",
 			"ratings": {
-				"density": 2,
+				"density": 6,
 				"durability": 4,
 				"friction": 5,
-				"buoyancy": 8
+				"buoyancy": 2
 			},
 			"flammable": true
 		},
