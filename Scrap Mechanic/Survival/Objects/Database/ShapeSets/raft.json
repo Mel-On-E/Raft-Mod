@@ -218,7 +218,8 @@
 			"friction": 10,
 			"buoyancy": 10
 		},
-		"flammable": true
+		"flammable": true,
+		"showInInventory": false
 	},
 	{
 		"uuid": "4a971f7d-14e6-454d-bce8-0879243c4857",
@@ -293,7 +294,8 @@
 			"friction": 10,
 			"buoyancy": 10
 		},
-		"flammable": true
+		"flammable": true,
+		"showInInventory": false
 	},
 	{
 		"uuid": "4a971f7d-14e6-454d-bce8-0879243c4859",
@@ -337,7 +339,8 @@
 			"friction": 10,
 			"buoyancy": 10
 		},
-		"flammable": true
+		"flammable": true,
+		"showInInventory": false
 	},
 	{
 		"uuid": "4a971f7d-14e6-454d-bce8-0879243c7642",
@@ -397,7 +400,8 @@
 			"friction": 10,
 			"buoyancy": 10
 		},
-		"flammable": true
+		"flammable": true,
+		"showInInventory": false
 	},
 		{
 			"uuid": "7ece8b10-5cc0-4791-b75e-09858ef1b9c4",
@@ -2267,7 +2271,8 @@
 				"convertibleToDynamic": true,
 				"paintable": false
 			},
-			"flammable": false
+			"flammable": false,
+			"showInInventory": false
 		}
 	]
 }
