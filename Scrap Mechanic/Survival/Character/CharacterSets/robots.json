@@ -484,8 +484,8 @@
 		"hit": 
 		{
 			"stand":{
-				"col": "$SURVIVAL_DATA/Character/Char_Totebot/char_totebot_hit_col.obj",
-				"offset": [0.0, 0.0, 0.9] }
+				"col": "$SURVIVAL_DATA/Character/Char_Cow/char_cow_hit_col.obj",
+				"offset": [0.0, 0.0, 0.848] }
 		},
 		"unit":
 		{
