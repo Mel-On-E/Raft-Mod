@@ -56,6 +56,8 @@ local MaxTumbleImpulseSpeed = 35
 local RecentTumblesTickTimeInterval = 30.0 * 40 -- Time frame to count amount of tumbles in a row
 local MaxRecentTumbles = 3
 
+local maxTankCharge = 30 --Raft
+
 function SurvivalPlayer.server_onCreate( self )
 	self.sv = {}
 	self.sv.saved = self.storage:load()
@@ -72,8 +74,17 @@ function SurvivalPlayer.server_onCreate( self )
 		self.sv.saved.isNewPlayer = true
 		self.sv.saved.inChemical = false
 		self.sv.saved.inOil = false
+
+		--Raft
+		--tbh I only added these to self.sv.saved so that I can access them easily in client_onClientDataUpdate
+		self.sv.saved.wearingTank = false
+		self.sv.saved.tankCharge = maxTankCharge
+		self.sv.saved.usedTanks = 0
+		--Raft
+
 		self.storage:save( self.sv.saved )
 	end
+
 	self:sv_init()
 end
 
@@ -138,7 +149,10 @@ function SurvivalPlayer.client_onCreate( self )
 		self.cl.underwaterEffect = sm.effect.createEffect( "Mechanic - StatusUnderwater" )
 	end
 
-	self.checkFins = true --Raft
+	--Raft
+	self.checkFins = true
+	self.checkTank = true
+	--Raft
 
 	self:cl_init()
 end
@@ -205,6 +219,11 @@ function SurvivalPlayer.client_onClientDataUpdate( self, data )
 			g_survivalHud:setSliderData( "Breath", data.stats.maxbreath * 10 + 1, data.stats.breath * 10 )
 		end
 
+		--Raft
+		--g_survivalHud:setVisible( "TankChargeSlider", data.wearingTank )
+		--g_survivalHud:setSliderData( "TankCharge", maxTankCharge * 10 + 1, data.tankCharge * 10 )
+		--Raft
+
 		if self.cl.hasRevivalItem ~= data.hasRevivalItem then
 			self.cl.revivalChewCount = 0
 		end
@@ -268,16 +287,40 @@ function SurvivalPlayer.client_onUpdate( self, dt )
 	if character == nil then return end
 	local inv = sm.game.getLimitedInventory() and sm.localPlayer.getInventory() or sm.localPlayer.getHotbar()
 
-	self.network:sendToServer("sv_checkFinRenderable", { player = player, char = character, inv = inv, check = self.checkFins })
+	self.network:sendToServer("sv_checkRenderables", { player = player, char = character, inv = inv, checkFins = self.checkFins, checkTank = self.checkTank })
 
 	local speed = sm.container.canSpend( inv, obj_fins, 1 ) and character:isSwimming() and not self.cl.inChemical and not self.cl.inOil and 2 or 1
 	character:setMovementSpeedFraction(speed)
 end
 
-function SurvivalPlayer:sv_checkFinRenderable( args )
-	if not args.inv:hasChanged( sm.game.getCurrentTick() - 1 ) and not args.check then return end
+function SurvivalPlayer:sv_checkRenderables( args )
+	local hasChanged = args.inv:hasChanged( sm.game.getCurrentTick() - 1 )
 
-	self.network:sendToClient( args.player, "cl_checkFinRenderable", { char = args.char, inv = args.inv })
+	if hasChanged or args.checkFins then
+		self.network:sendToClient( args.player, "cl_checkFinRenderable", { char = args.char, inv = args.inv })
+	end
+
+	if hasChanged or args.checkTank then
+		self.sv.saved.wearingTank = sm.container.canSpend( args.inv, obj_oxygen_tank, 1 )
+
+		if self.sv.saved.wearingTank then
+			local tanks = 0
+			for i = 1, args.inv:getSize() do
+				local item = args.inv:getItem( i )
+				if item.uuid == obj_oxygen_tank then
+					tanks = tanks + 1
+				end
+			end
+
+			if self.sv.saved.usedTanks < tanks then
+				self.sv.saved.usedTanks = tanks
+				self.sv.saved.tankCharge = maxTankCharge
+				self.storage:save( self.sv.saved )
+			end
+		end
+
+		self.network:sendToClient( args.player, "cl_checkTankRenderable", { char = args.char, inv = args.inv })
+	end
 end
 
 function SurvivalPlayer:cl_checkFinRenderable( args )
@@ -288,6 +331,19 @@ function SurvivalPlayer:cl_checkFinRenderable( args )
 	end
 
 	self.checkFins = false
+end
+
+function SurvivalPlayer:cl_checkTankRenderable( args )
+	if sm.container.canSpend( args.inv, obj_oxygen_tank, 1 ) then
+		args.char:addRenderable( "$SURVIVAL_DATA/RaftMod/Character/Char_player/AirTank/Airtank.rend" )
+	else
+		args.char:removeRenderable( "$SURVIVAL_DATA/RaftMod/Character/Char_player/AirTank/Airtank.rend" )
+	end
+	self.checkTank = false
+end
+
+function SurvivalPlayer:cl_displayMsg( msg )
+	sm.gui.displayAlertText(msg, 2.5)
 end
 --Raft
 
@@ -358,7 +414,6 @@ function SurvivalPlayer.client_onInteract( self, character, state )
 end
 
 function SurvivalPlayer.server_onFixedUpdate( self, dt )
-
 	if g_survivalDev and not self.sv.saved.isConscious and not self.sv.saved.hasRevivalItem then
 		if sm.container.canSpend( self.player:getInventory(), obj_consumable_longsandwich, 1 ) then
 			if sm.container.beginTransaction() then
@@ -375,6 +430,23 @@ function SurvivalPlayer.server_onFixedUpdate( self, dt )
 	local character = self.player:getCharacter()
 	if character then
 		self:sv_updateTumbling()
+
+		--Raft
+		if self.sv.saved.wearingTank then
+			local tankChange = dt
+			if character:isDiving() then
+				tankChange = -dt
+			end
+
+			if self.sv.saved.tankCharge + tankChange == 0 and tankChange < 0 then
+				self.network:sendToClient(self.player, "cl_displayMsg", "Your Oxygen Tank has ran out of air!")
+			elseif self.sv.saved.tankCharge > dt and tankChange < 0 then
+				self.network:sendToClient(self.player, "cl_displayMsg", "Oxygen tank will run out of air in: #df7f00"..tostring(math.floor(self.sv.saved.tankCharge)).." seconds")
+			end
+
+			self.sv.saved.tankCharge = sm.util.clamp(self.sv.saved.tankCharge + tankChange, 0, maxTankCharge)
+		end
+		--Raft
 	end
 
 	-- Delays the respawn so clients have time to fade to black
@@ -412,14 +484,11 @@ function SurvivalPlayer.server_onFixedUpdate( self, dt )
 	if character then
 		if character:isDiving() then
 			--Raft
-			inventory = self.player:getInventory()
-			quantity = sm.container.totalQuantity(inventory, obj_oxygen_tank)
-			if quantity > 0 then
-				self.sv.saved.stats.breath = math.max( self.sv.saved.stats.breath - BreathLostPerTick/(1 + quantity/2), 0 )
-			else
+			if not self.sv.saved.wearingTank or self.sv.saved.wearingTank and self.sv.saved.tankCharge == 0 then
 				self.sv.saved.stats.breath = math.max( self.sv.saved.stats.breath - BreathLostPerTick, 0 )
 			end
-			
+			--Raft
+
 			if self.sv.saved.stats.breath == 0 then
 				self.sv.drownTimer:tick()
 				if self.sv.drownTimer:done() then
