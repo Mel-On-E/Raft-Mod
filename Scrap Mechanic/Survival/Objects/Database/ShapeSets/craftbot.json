@@ -7,7 +7,7 @@
 			"color": "336699",
 			"hull": {
 				"x": 10,
-				"y": 5,
+				"y": 8,
 				"z": 9,
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
@@ -50,7 +50,7 @@
 			"color": "336699",
 			"hull": {
 				"x": 10,
-				"y": 5,
+				"y": 8,
 				"z": 9,
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
@@ -94,7 +94,7 @@
 			"color": "336699",
 			"hull": {
 				"x": 10,
-				"y": 5,
+				"y": 8,
 				"z": 9,
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
@@ -138,7 +138,7 @@
 			"color": "336699",
 			"hull": {
 				"x": 10,
-				"y": 5,
+				"y": 8,
 				"z": 9,
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
@@ -182,7 +182,7 @@
 			"color": "336699",
 			"hull": {
 				"x": 10,
-				"y": 5,
+				"y": 8,
 				"z": 9,
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
