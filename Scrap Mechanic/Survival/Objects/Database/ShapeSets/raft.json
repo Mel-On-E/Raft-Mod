@@ -1255,11 +1255,16 @@
 				]
 			},
 			"color": "d8b589",
-			"cylinder": {
-				"diameter": 5,
-				"depth": 1,
-				"margin": 0.04,
-				"axis": "Y"
+			"hull": {
+				"x":1,"y":1,"z":1,"margin":0.05,
+				"pointList":[
+					{"x":0,"y":-0,"z":0},
+					{"x":0,"y":-0,"z":0},
+					{"x":0,"y":0.8,"z":0},
+					{"x":0,"y":-0,"z":0},
+					{"x":0,"y":-0,"z":0},
+					{"x":0,"y":0,"z":0}
+				]
 			},
 			"scripted": {
 				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Propeller.lua",
@@ -2097,11 +2102,16 @@
 				]
 			},
 			"color": "ff0000",
-			"cylinder": {
-				"diameter": 3,
-				"depth": 1,
-				"margin": 0.04,
-				"axis": "Y"
+			"hull": {
+				"x":1,"y":1,"z":1,"margin":0.05,
+				"pointList":[
+					{"x":0,"y":-0,"z":0},
+					{"x":0,"y":-0,"z":0},
+					{"x":0,"y":0.8,"z":0},
+					{"x":0,"y":-0,"z":0},
+					{"x":0,"y":-0,"z":0},
+					{"x":0,"y":0,"z":0}
+				]
 			},
 			"scripted": {
 				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Propeller.lua",
