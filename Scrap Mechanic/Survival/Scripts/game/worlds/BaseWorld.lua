@@ -23,15 +23,15 @@ function BaseWorld.server_onCreate( self )
 	self.kinematicManager = KinematicManager()
 
 	--Raft
-	self.data = self.storage:load()
-	if self.data == nil then
-		self.data = {
+	self.spearStuff = self.storage:load()
+	if self.spearStuff == nil then
+		self.spearStuff = {
 			spears = {},
 			effects = {}
 		}
 	end
 
-	self.network:sendToClients("cl_setEffects", self.data.spears)
+	self.network:sendToClients("cl_setEffects", self.spearStuff.spears)
 	--Raft
 end
 
@@ -55,12 +55,12 @@ function BaseWorld:sv_shootSpear( args )
 	spear.trigger = sm.areaTrigger.createBox( sm.vec3.new(0.25,0.25,0.25), spear.pos + spear.dir, sm.quat.identity() )
 
 	local effectData = { effect = spear.effect, pos = args.pos, dir = args.dir }
-	self.data.effects[#self.data.effects+1] = effectData
+	self.spearStuff.effects[#self.spearStuff.effects+1] = effectData
 	self.network:sendToClients("cl_shootSpear", effectData)
 
-	self.data.spears[#self.data.spears+1] = spear
+	self.spearStuff.spears[#self.spearStuff.spears+1] = spear
 
-	--self.storage:save( self.data )
+	--self.storage:save( self.spearStuff )
 end
 
 function BaseWorld:cl_shootSpear( args )
@@ -121,12 +121,12 @@ function BaseWorld.server_onFixedUpdate( self )
 	local dt = 0.025 --bruh
 
 	--Raft
-	if #self.data.spears == 0 then return end
+	if #self.spearStuff.spears == 0 then return end
 
-	for tablePos, spear in pairs(self.data.spears) do
+	for tablePos, spear in pairs(self.spearStuff.spears) do
 		if spear.lifeTime >= 30 then
 			self:sv_spearCollect( { player = spear.owner, index = tablePos } )
-			self.data.spears[tablePos] = nil
+			self.spearStuff.spears[tablePos] = nil
 		else
 			if spear.trigger ~= nil and sm.exists(spear.trigger) then
 				local pos = spear.attached and spear.pos or spear.pos + spear.dir
@@ -229,12 +229,12 @@ function BaseWorld.server_onFixedUpdate( self )
 	end
 
 	local effects = {}
-	for v, k in pairs(self.data.spears) do
+	for v, k in pairs(self.spearStuff.spears) do
 		effects[#effects+1] = { effect = k.effect, pos = k.pos, dir = k.dir }
 	end
 
 	self.network:sendToClients("cl_drawEffects", effects)
-	--self.storage:save(self.data)
+	--self.storage:save(self.spearStuff)
 end
 
 function BaseWorld:cl_drawEffects( effects )
