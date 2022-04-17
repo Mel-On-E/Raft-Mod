@@ -11,13 +11,13 @@ function CreativeBaseWorld.server_onCreate( self )
 	self.pesticideManager:sv_onCreate()
 
 	--Raft
-	self.spearStuff = self.storage:load()
-	if self.spearStuff == nil then
+	--self.spearStuff = self.storage:load()
+	--if self.spearStuff == nil then
 		self.spearStuff = {
 			spears = {},
 			effects = {}
 		}
-	end
+	--end
 
 	self.network:sendToClients("cl_setEffects", self.spearStuff.spears)
 	--Raft

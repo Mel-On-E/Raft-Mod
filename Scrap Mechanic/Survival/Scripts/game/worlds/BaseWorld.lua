@@ -23,13 +23,13 @@ function BaseWorld.server_onCreate( self )
 	self.kinematicManager = KinematicManager()
 
 	--Raft
-	self.spearStuff = self.storage:load()
-	if self.spearStuff == nil then
+	--self.spearStuff = self.storage:load()
+	--if self.spearStuff == nil then
 		self.spearStuff = {
 			spears = {},
 			effects = {}
 		}
-	end
+	--end
 
 	self.network:sendToClients("cl_setEffects", self.spearStuff.spears)
 	--Raft
