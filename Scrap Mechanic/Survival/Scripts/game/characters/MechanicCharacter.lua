@@ -40,7 +40,7 @@ function MechanicCharacter.client_onRefresh( self )
 end
 
 --Raft
-function MechanicCharacter:sv_refreshFinRenderable( player )
+function MechanicCharacter:sv_refreshRenderables( player )
 	sm.event.sendToPlayer(player, "sv_checkRenderables", { player = player, char = player:getCharacter(), inv = player:getInventory(), checkFins = true, checkTank = true })
 end
 --Raft
@@ -48,7 +48,7 @@ end
 function MechanicCharacter.client_onGraphicsLoaded( self )
 	print("'client_onGraphicsLoaded'")
 
-	self.network:sendToServer("sv_refreshFinRenderable", sm.localPlayer.getPlayer()) --Raft
+	self.network:sendToServer("sv_refreshRenderables", sm.localPlayer.getPlayer()) --Raft
 
 	self.isLocal = self.character:getPlayer() == sm.localPlayer.getPlayer()
 	self.diveEffect = sm.effect.createEffect( "Mechanic underwater", self.character, "jnt_head" )
