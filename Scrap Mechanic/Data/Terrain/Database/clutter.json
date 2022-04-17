@@ -1,0 +1,270 @@
+{
+	"clutterList": [
+	{
+		"uuid": "326c0d2e-fb43-4a08-bd85-da03e4ea2eb9",
+		"name": "env_clutter_grass",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_shortgrass_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_shortgrass_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_shortgrass.mesh",
+		"material": "GroundVegetation",
+		"height": 1.0,
+		"wind": true,
+		"groundNormal": true,
+		"slope": "skew"
+	},
+	{
+		"uuid": "7ef13d32-eb11-414a-bed3-cb2cffe1cbff",
+		"name": "env_clutter_witheredgrass",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass02_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass02_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_grass.mesh",
+		"material": "GroundVegetation",
+		"height": 0.8,
+		"wind": true,
+		"groundNormal": true,
+		"slope": "skew"
+	},
+	{
+		"uuid": "b2530412-1b21-44b3-8bc5-e4a24ab33ba5",
+		"name": "env_clutter_chervil",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass03_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass03_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_grass.mesh",
+		"material": "GroundVegetation",
+		"height": 1.0,
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "83534f73-bad7-4d10-b59c-b07e55688e74",
+		"name": "env_clutter_wheat",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_wheat01_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_wheat01_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_grass.mesh",
+		"material": "GroundVegetation",
+		"height": 2.25,
+		"wind": true,
+		"groundNormal": true,
+		"slope": "skew"
+	},
+	{
+		"uuid": "ff174ecb-fcf0-4e5f-a2ba-d3d60cce63e7",
+		"name": "env_clutter_flowerwhite",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_flower01_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_flower01.mesh",
+		"material": "GroundVegetation",
+		"height": 0.8,
+		"groundNormal": true,
+		"wind": true
+	},
+	{
+		"uuid": "13d053e5-a6ef-4e19-9f6a-d3de4077e80a",
+		"name": "env_clutter_rock",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_stone02_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_stone02.mesh",
+		"material": "GroundClutter",
+		"height": 1.0,
+		"scaleVariance": 0.5,
+		"slope": "rotate"
+	},
+	{
+		"uuid": "e784a69d-4d32-4f2c-b1be-c1fb1716678a",
+		"name": "env_clutter_floweryellow",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_flower02_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_flower02.mesh",
+		"material": "GroundVegetation",
+		"height": 0.8,
+		"slope": "skew",
+		"groundNormal": true,
+		"wind": true
+	},
+	{
+		"uuid": "1da91b58-0a46-4b8f-af8e-a97195a87c4d",
+		"name": "env_clutter_flowerred",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_flower03_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_flower03.mesh",
+		"material": "GroundVegetation",
+		"height": 0.8,
+		"groundNormal": true,
+		"wind": true
+	},
+	{
+		"uuid": "4a9c7175-ecce-4a5b-bb79-29246eb39a37",
+		"name": "env_clutter_flowerblue",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_flower04_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_flower04.mesh",
+		"material": "GroundVegetation",
+		"height": 0.8,
+		"groundNormal": true,
+		"wind": true
+	},
+	{
+		"uuid": "e4d54b65-0488-4e05-b740-f49b075f2261",
+		"name": "env_clutter_tallgrass",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_tallgrass01_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_tallgrass01_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_tallgrass01.mesh",
+		"material": "GroundVegetation",
+		"height": 0.7,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "f63d0128-130a-4865-88b6-5cd16f3165c8",
+		"name": "env_clutter_sandstone",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_stone01_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_stone01.mesh",
+		"material": "GroundClutter",
+		"height": 1.0,
+		"slope": "rotate"
+	},
+	{
+		"uuid": "caed4102-3779-4e2e-a0e7-76bf55e23bba",
+		"name": "env_clutter_pads",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_pads_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_pads01.mesh",
+		"material": "GroundVegetation",
+		"height": 1.0,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "4a3d41fb-0de6-44b2-997e-8f9e545e1758",
+		"name": "env_clutter_shrooms01",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_shroom01_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_shroom01.mesh",
+		"material": "GroundClutter",
+		"height": 1.0,
+		"slope": "rotate"
+	},
+	{
+		"uuid": "a31d9767-1a67-4d87-9fef-52bbf9e7a45a",
+		"name": "env_clutter_moss01",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_moss01_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_moss01.mesh",
+		"material": "GroundVegetation",
+		"height": 1.0,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "5baf3def-7921-46c7-b832-f4cb3acb4906",
+		"name": "env_clutter_redleaf",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_redleaf_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_redleaf.mesh",
+		"material": "GroundVegetation",
+		"height": 1.0,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "7d3d3404-2717-4059-a18c-712bdad5bfd7",
+		"name": "env_clutter_weeds01",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_weeds01_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_weeds01_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_weeds01.mesh",
+		"material": "GroundVegetation",
+		"height": 2.0,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "3e7fa347-74fc-42b6-9c51-242aeb5fbb78",
+		"name": "env_clutter_grass02",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass05_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass05_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_grass.mesh",
+		"material": "GroundVegetation",
+		"height": 0.8,
+		"wind": true,
+		"groundNormal": true,
+		"slope": "skew"
+	},
+	{
+		"uuid": "74764649-864b-4861-9312-dc37f310715c",
+		"name": "env_clutter_grass03",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass06_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass06_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_grass.mesh",
+		"material": "GroundVegetation",
+		"height": 0.8,
+		"wind": true,
+		"groundNormal": true,
+		"slope": "skew"
+	},
+	{
+		"uuid": "b55ef6b6-dfd1-43b1-9c8c-ab5c4ae0eb3b",
+		"name": "env_clutter_fishbones",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_fishbones_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_fishbones.mesh",
+		"material": "GroundClutter",
+		"height": 1.0,
+		"scaleVariance": 0.25,
+		"wind": false,
+		"groundNormal": false,
+		"slope": "rotate"
+	},
+	{
+		"uuid": "fe54480b-1bdf-4f16-aed9-e60b0c998e3d",
+		"name": "env_clutter_darkgrass",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass07_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_grass07_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_darkgrass01.mesh",
+		"material": "GroundVegetation",
+		"height": 0.8,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "7eda0391-b816-41c7-8b4c-545516986d04",
+		"name": "env_clutter_greenleaf",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_greenleaf_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_greenleaf.mesh",
+		"material": "GroundVegetation",
+		"height": 1.0,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "ed25a492-fb2f-4243-b9ee-cf2f24585203",
+		"name": "env_clutter_rootpads",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_rootpads_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_rootpads01.mesh",
+		"material": "GroundVegetation",
+		"height": 2.0,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "93c0a8bd-902c-44ee-a21a-4b4e01b1540b",
+		"name": "env_clutter_tallgrass02",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_tallgrass01_dif.tga",
+		"impostor_texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_tallgrass01_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_tallgrass01.mesh",
+		"material": "GroundVegetation",
+		"height": 1.0,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	},
+	{
+		"uuid": "28cb538f-7510-4685-8b1b-726128e8f67e",
+		"name": "env_clutter_cheeselillys",
+		"texture": "$GAME_DATA/Terrain/Textures/Clutter/env_clutter_cheeselillys_dif.tga",
+		"mesh": "$GAME_DATA/Terrain/Mesh/Clutter/env_clutter_cheeselillys.mesh",
+		"material": "GroundVegetation",
+		"height": 1.0,
+		"slope": "skew",
+		"wind": true,
+		"groundNormal": true
+	}
+	]
+}

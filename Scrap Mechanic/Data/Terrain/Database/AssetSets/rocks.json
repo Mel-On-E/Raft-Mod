@@ -1,0 +1,2503 @@
+{
+	"assetListRenderable": [
+		{
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_rock01_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_rock01",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock01.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock",
+                                    "textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock01_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 200,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock01_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock01_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock01_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock01_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "18d95c10-63a3-40a5-8edc-dc062d547b70"
+        },
+        {
+        "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_rock02_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_rock02",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock02.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock02_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 160,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock02_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock02_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 240,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock02_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock02_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "194e7c7f-26de-48a1-b8ee-775e68100ed1"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_rock03_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_rock03",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+               "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock03.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock03_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock03_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock03_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock03_lod2.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock03_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "6e8d9830-c956-4b1a-bb3e-bdf724ced968"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_rock04_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_rock04",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 40, "impostorPush": 2.0,
+                "lodList": [
+                    {
+                        "maxViewDistance": 75,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock04.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock04_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock04_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock04_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 225,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock04_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock04_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "dabe4e2b-f8f6-49df-8f20-6e31999c887d"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_rock05_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_rock05",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 40, "impostorPush": 2.0,
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock05.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock05_nor.TGA",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock05_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock05_nor.TGA",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 225,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock05_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock05_nor.TGA",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "84b1af25-76ce-48a5-8049-2f042e76985f"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_rock06_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_rock06",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 125,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock06.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock06_nor.TGA",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 250,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock06_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock06_nor.TGA",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2555,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock06_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock06_nor.TGA",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "1454cc81-b071-48f2-bf50-8a0d8b93e393"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_rock07_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_rock07",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 75,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock07.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock07_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2555,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock07_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock07_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "2161d53a-1166-400f-a692-7055865d9fb9"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_rock08_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_rock08",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock08.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock08_nor.TGA",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 200,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock08_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock08_nor.TGA",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_rock08_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_rock08_nor.TGA",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "388fdf39-b223-4649-aceb-eb609aee87ef"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_column01_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_rocks_column01",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 75,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column01.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column01_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 225,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column01_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column01_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "6cb26785-c4db-4358-96b7-60d7fd301c25"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_column02_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_rocks_column02",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 75,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column02.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column02_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 225,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column02_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column02_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "df5f6444-ad07-4e2d-a2f4-d9e7685a4e17"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_column03_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_rocks_column03",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 75,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column03.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 125,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column03_lod1.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 225,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column03_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_column03_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "187b7f8a-9b63-4f2e-a8ae-9f82d1ddcec2"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_columnbig01_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_rocks_columnbig01",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnbig01.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnbig_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnbig01_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnbig_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 450,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnbig01_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnbig_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "338946f8-2215-4356-84e2-6c27411e89ac"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_columnbig02_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_rocks_columnbig02",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnbig02.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnbig_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnbig02_lod1.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnbig_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 450,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnbig02_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnbig_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "798e5093-9197-4cd5-b53b-5bba910b4aa3"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_columnbig03_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_rocks_columnbig03",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnbig03.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnbig_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnbig03_lod1.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnbig_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 450,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnbig03_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnbig_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "a03b994e-49ef-4005-bae3-03fc3cf85969"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_columnwall01_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_rocks_columnwall01",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall01.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall01_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall01_lod1.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall01_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 450,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall01_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall01_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall01_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall01_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "c7d34786-cbc9-4877-b41f-3d7ac685839b"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_columnwall02_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_rocks_columnwall02",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall02.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall02_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 280,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall02_lod1.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall02_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 400,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall02_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall02_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall02_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall02_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "78c96044-a4e0-45d3-91b7-de95ee023fdd"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_columnwall03_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_rocks_columnwall03",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall03.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall03_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall03_lod1.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [4,4,1,4] 
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall03_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 450,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall03_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall03_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_column_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_columnwall03_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Rocks/env_rocks_columnwall03_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "3f730b20-ae9b-44fc-aaf6-dea55975154c"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock01_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock01",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock01.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock01/env_rocks_bigrock01_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 160,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock01_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock01/env_rocks_bigrock01_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 235,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock01_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock01/env_rocks_bigrock01_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 335,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock01_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock01/env_rocks_bigrock01_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "60fd7f16-7aa6-4f03-90f8-1346d5a0ba99"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock02_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock02",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock02.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock02/env_rocks_bigrock02_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 160,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock02_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock02/env_rocks_bigrock02_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 235,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock02_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock02/env_rocks_bigrock02_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 400,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock02_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock02/env_rocks_bigrock02_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "ad415d92-4933-4b3b-b48e-5faf84ab5651"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock03_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock03",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 110,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock03.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock03/env_rocks_bigrock03_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 185,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock03_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock03/env_rocks_bigrock03_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 235,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock03_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock03/env_rocks_bigrock03_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 310,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock03_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock03/env_rocks_bigrock03_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "233f71e5-bbb6-4763-a865-e7d89e607fc0"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock04_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock04",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 160,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock04.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock04/env_rocks_bigrock04_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 210,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock04_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock04/env_rocks_bigrock04_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 260,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock04_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock04/env_rocks_bigrock04_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 360,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock04_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock04/env_rocks_bigrock04_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "b8213a87-50af-4b40-ad9c-3513df1f269c"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock05_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock05",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 230,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock05.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock05/env_rocks_bigrock05_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 330,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock05_lod1.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock05/env_rocks_bigrock05_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2555,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock05_lod2.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock05/env_rocks_bigrock05_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "68e8e124-9c20-4370-acd9-e88ef70e3709"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock06_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock06",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock06.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" :[6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock06/env_rocks_bigrock06_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 175,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock06_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock06/env_rocks_bigrock06_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 250,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock06_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock06/env_rocks_bigrock06_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 325,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock06_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock06/env_rocks_bigrock06_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "8769123f-3fd7-449d-b01c-167e305b2ba0"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock07_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock07",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock07.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock07/env_rocks_bigrock07_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 200,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock07_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock07/env_rocks_bigrock07_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock07_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock07/env_rocks_bigrock07_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 400,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock07_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6]  
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock07/env_rocks_bigrock07_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "ac8bbe6f-5178-4912-9ce1-5fb6c111c1d0"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock08_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock08",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock08.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock08/env_rocks_bigrock08_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 175.15,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock08_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock08/env_rocks_bigrock08_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 250.225,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock08_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock08/env_rocks_bigrock08_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 325.3,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock08_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock08/env_rocks_bigrock08_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "6e05606c-5ede-4835-9b76-a4cddcf5a787"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock09_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock09",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 175,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock09.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6]  
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock09/env_rocks_bigrock09_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 250,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock09_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock09/env_rocks_bigrock09_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 325,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock09_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock09/env_rocks_bigrock09_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2555,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock09_lod3.Fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock09/env_rocks_bigrock09_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "9fdd02a6-03d0-4852-9739-6b3bba377324"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock10_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock10",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock10.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6]  
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock10/env_rocks_bigrock10_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 190,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock10_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6]  
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock10/env_rocks_bigrock10_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 265,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock10_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock10/env_rocks_bigrock10_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 340,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock10_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6]  
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock10/env_rocks_bigrock10_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "22789151-6a1b-4c11-bee9-667df9afc883"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock11_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock11",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 125,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock11.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6]  
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock11/env_rocks_bigrock11_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 250,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock11_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock11/env_rocks_bigrock11_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 400,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock11_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6]  
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock11/env_rocks_bigrock11_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2555,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock11_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock11/env_rocks_bigrock11_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "a1eba609-b1b6-4e13-a461-410f74a53c26"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock12_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock12",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock12.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock12/env_rocks_bigrock12_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 275,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock12_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock12/env_rocks_bigrock12_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 400,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock12_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6]  
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock12/env_rocks_bigrock12_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock12_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock12/env_rocks_bigrock12_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "0da8e4ac-7921-44f1-9f86-44da83ea87df"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_rocks_bigrock13_col.obj",
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_rocks_bigrock13",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                 "impostorThreshold": 80, "impostorPush": 0.7,
+                "lodList": [
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock13.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock13/env_rocks_bigrock13_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 275,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock13_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6]  
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock13/env_rocks_bigrock13_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 400,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock13_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock13/env_rocks_bigrock13_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_generic_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Rocks/env_rocks_bigrock13_lod3.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock", 
+									"textureTiling" : [6,6,1,6] 
+                                },
+                                "material": "DifAsgNorNorD",
+                                "textureList": [
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_dif.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Rocks/bigrock13/env_rocks_bigrock13_nor.tga",
+                                    "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Nature/Rocks/t_tiled_rocks_cracked_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "slope": "skew",
+            "uuid": "a5d325bd-2af7-4222-be6d-d6b1018e6918"
+        }
+	]
+}

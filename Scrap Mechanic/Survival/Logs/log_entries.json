@@ -31,7 +31,7 @@
 			"type": "photo",
 			"photo": "gui_logbook_antenna.png",
 			"location": "none",
-			"icon": "sus"
+			"icon": ""
 		},
 		{
 			"name": "log_radio_signal",
@@ -87,7 +87,7 @@
 			"type": "quest",
 			"photo": "gui_logbook_warehouse.png",			
 			"location": "none",
-			"icon": "sus"
+			"icon": ""
 		},
 		{
 			"name": "log_chpater2",

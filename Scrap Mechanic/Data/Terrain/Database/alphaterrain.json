@@ -1,0 +1,103 @@
+{
+	"normal": [
+		{ "name": "START64_01.TILE", "size": 64 },
+		{ "name": "GROUND64_01.TILE", "size": 64 },
+		{ "name": "GROUND64_02.TILE", "size": 64 },
+		{ "name": "GROUND64_03.TILE", "size": 64 },
+		{ "name": "MEADOW64_01.TILE", "size": 64 },
+		{ "name": "MEADOW64_02.TILE", "size": 64 },
+		{ "name": "MEADOW64_03.TILE", "size": 64 },
+		{ "name": "MEADOW64_04.TILE", "size": 64 },
+		{ "name": "MEADOW64_05.TILE", "size": 64 },
+		{ "name": "MEADOW64_06.TILE", "size": 64 },
+		{ "name": "MEADOW64_07.TILE", "size": 64 },
+		{ "name": "MEADOW64_08.TILE", "size": 64 },
+		{ "name": "MEADOW64_09.TILE", "size": 64 },
+		{ "name": "MEADOW64_10.TILE", "size": 64 },
+		{ "name": "MEADOW64_11.TILE", "size": 64 },
+		{ "name": "MEADOW64_12.TILE", "size": 64 },
+		{ "name": "MEADOW64_13.TILE", "size": 64 },
+		{ "name": "MEADOW64_14.TILE", "size": 64 },
+		{ "name": "MEADOW64_15.TILE", "size": 64 },
+		{ "name": "MEADOW64_16.TILE", "size": 64 },
+		{ "name": "MEADOW64_17.TILE", "size": 64 },
+		{ "name": "MEADOW64_18.TILE", "size": 64 },
+		{ "name": "MEADOW64_19.TILE", "size": 64 },
+		{ "name": "MEADOW64_20.TILE", "size": 64 },
+		{ "name": "GROUND128_01.TILE", "size": 128 },
+		{ "name": "GROUND128_02.TILE", "size": 128 },
+		{ "name": "GROUND128_03.TILE", "size": 128 },
+		{ "name": "GROUND128_04.TILE", "size": 128 },
+		{ "name": "MEADOW128_01.TILE", "size": 128 },
+		{ "name": "MEADOW128_02.TILE", "size": 128 },
+		{ "name": "MEADOW128_03.TILE", "size": 128 },
+		{ "name": "MEADOW128_04.TILE", "size": 128 },
+		{ "name": "MEADOW128_05.TILE", "size": 128 },
+		{ "name": "MEADOW128_06.TILE", "size": 128 },
+		{ "name": "MEADOW128_07.TILE", "size": 128 },
+		{ "name": "MEADOW128_08.TILE", "size": 128 },
+		{ "name": "MEADOW128_09.TILE", "size": 128 },
+		{ "name": "MEADOW128_10.TILE", "size": 128 },
+		{ "name": "MEADOW128_11.TILE", "size": 128 },
+		{ "name": "MEADOW128_12.TILE", "size": 128 },
+		{ "name": "FOREST256_01.TILE", "size": 256 },
+		{ "name": "GROUND256_01.TILE", "size": 256 },
+		{ "name": "GROUND256_02.TILE", "size": 256 },
+		{ "name": "GROUND256_03.TILE", "size": 256 },
+		{ "name": "GROUND256_04.TILE", "size": 256 },
+		{ "name": "HILLS256_01.TILE", "size": 256 },
+		{ "name": "MEADOW256_01.TILE", "size": 256 },
+		{ "name": "GROUND512_01.TILE", "size": 512 },
+		{ "name": "HILLS512_01.TILE", "size": 512 }
+	],
+	"desertFade": [
+		{ "name": "Auto/BORDERFADE128_01.TILE", "size": 128 },
+		{ "name": "Auto/BORDERFADE128_02.TILE", "size": 128 }
+	],
+	"desert": [
+		{ "name": "Auto/DESERT64_01.tile", "size": 64 },
+		{ "name": "Auto/DESERT64_02.tile", "size": 64 },
+		{ "name": "Auto/DESERT64_03.tile", "size": 64 },
+		{ "name": "Auto/DESERT64_04.tile", "size": 64 },
+		{ "name": "Auto/DESERT64_05.tile", "size": 64 }
+	],
+	"barrierE": [
+		{ "name": "Auto/FenceE_01.tile", "size": 64 },
+		{ "name": "Auto/FenceE_02.tile", "size": 64 },
+		{ "name": "Auto/FenceE_03.tile", "size": 64 }
+	],
+	"barrierNE": [
+		{ "name": "Auto/FenceNE.tile", "size": 64 }
+	],
+	"barrierN": [
+		{ "name": "Auto/FenceN_01.tile", "size": 64 },
+		{ "name": "Auto/FenceN_02.tile", "size": 64 },
+		{ "name": "Auto/FenceN_03.tile", "size": 64 }
+	],
+	"barrierNW": [
+		{ "name": "Auto/FenceNW.tile", "size": 64 }
+	],
+	"barrierW": [
+		{ "name": "Auto/FenceW_01.tile", "size": 64 },
+		{ "name": "Auto/FenceW_02.tile", "size": 64 },
+		{ "name": "Auto/FenceW_03.tile", "size": 64 }
+	],
+	"barrierSW": [
+		{ "name": "Auto/FenceSW.tile", "size": 64 }
+	],
+	"barrierS": [
+		{ "name": "Auto/FenceS_01.tile", "size": 64 },
+		{ "name": "Auto/FenceS_02.tile", "size": 64 },
+		{ "name": "Auto/FenceS_03.tile", "size": 64 }
+	],
+	"barrierSE": [
+		{ "name": "Auto/FenceSE.tile", "size": 64 }
+	],
+	"unreachable": [
+		{ "name": "Auto/DESERT64_01.tile", "size": 64 },
+		{ "name": "Auto/DESERT64_02.tile", "size": 64 },
+		{ "name": "Auto/DESERT64_03.tile", "size": 64 },
+		{ "name": "Auto/DESERT64_04.tile", "size": 64 },
+		{ "name": "Auto/DESERT64_05.tile", "size": 64 }
+	]
+}

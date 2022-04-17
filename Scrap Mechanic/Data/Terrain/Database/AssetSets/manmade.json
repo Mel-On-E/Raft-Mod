@@ -1,0 +1,537 @@
+{
+	"assetListRenderable": [
+		{
+            "hidden": false,
+            "name": "env_manmade_borderfence",
+            "physics": {
+                "mass": 20000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 125,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_borderfence01.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {},
+                                "material": "DifAsgNorAlphaFlip",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfence_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfence_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfence_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 250,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_borderfence01_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {},
+                                "material": "DifAsgNorAlphaFlip",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfence_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfence_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfence_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_borderfence01_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {},
+                                "material": "DifAsgNorAlphaFlip",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfence_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfence_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfence_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "9a9e35ec-029f-45f1-8896-cc6314e144cf"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Manmade/env_manmade_spawnplatform_col.obj",
+            "name": "env_manmade_spawnplatform",
+            "physics": {
+                "mass": 20000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 200,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_spawnplatform.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {},
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatform_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatform_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatform_nor.tga"
+                                ]
+                            },
+                            {
+                                "custom": {},
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatformlogo_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatformlogo_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatformlogo_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_spawnplatform_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {},
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatform_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatform_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatform_nor.tga"
+                                ]
+                            },
+                            {
+                                "custom": {},
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatformlogo_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatformlogo_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_spawnplatformlogo_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "995f8c61-307e-47ce-a519-07bc04016a88"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Manmade/env_manmade_antenna_col.obj",
+            "name": "env_manmade_antenna",
+            "physics": {
+                "mass": 20000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 300,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_antenna.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {},
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_antenna_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_antenna_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_antenna_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_antenna_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {},
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_antenna_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_antenna_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_antenna_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "66929701-591f-4054-aa35-6ef9d025bd50"
+        },
+        {
+            "hidden": false,
+            "name": "env_manmade_borderfencecorner",
+            "physics": {
+                "mass": 20000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_borderfencecorner.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {},
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfencecorner_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_borderfencecorner_asg.tga",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "090772df-faa2-407b-88c5-872ec33b1354"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Manmade/env_manmade_billboard01_col.obj",
+            "defaultColors": {
+                "stripe": "8ad2d9"
+            },
+            "name": "env_manmade_billboard01",
+            "physics": {
+                "mass": 20000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 85,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_billboard01.fbx",
+                        "subMeshMap": {
+                            "lamp_grid": {
+                                "custom": {},
+                                "material": "DifAlphaFlip",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboardlampshade_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            },
+                            "billboard": {
+                                "custom": {
+                                    "color": "frames"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboard01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboard01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboard01_nor.tga"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "maxViewDistance": 250,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_billboard01_lod1.fbx",
+                        "subMeshMap": {
+                            "billboard": {
+                                "custom": {
+                                    "color": "frames"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboard01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboard01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboard01_nor.tga"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_billboard01_lod2.fbx",
+                        "subMeshMap": {
+                            "billboard": {
+                                "custom": {
+                                    "color": "frames"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboard01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboard01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_billboard01_nor.tga"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "uuid": "413af0ef-1f7a-466c-ac5d-c550b7a7638c"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Manmade/env_manmade_tank01_col.obj",
+            "defaultColors": {
+                "stripe": "8ad2d9"
+            },
+            "name": "env_manmade_tank",
+            "physics": {
+                "mass": 20000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 250,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tank.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "stripe"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tank_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tank_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tank_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 350,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tank_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "stripe"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tank_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tank_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tank_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tank_lod2.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "stripe"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tank_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tank_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tank_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "d69a8fb8-33c8-46b1-817c-2cf5fd6f71f1"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Manmade/env_manmade_tankpipe01_col.obj",
+            "defaultColors": {
+                "fabric": "8ad2d9"
+            },
+            "name": "env_manmade_tankpipe01",
+            "physics": {
+                "mass": 10000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 375,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tankpipe01.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "fabric"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tankpipe01_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "fabric"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "ae7ddee5-2201-4f98-bbf3-f94853eab59a"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Manmade/env_manmade_tankpipe02_col.obj",
+            "defaultColors": {
+                "fabric": "8ad2d9"
+            },
+            "name": "env_manmade_tankpipe02",
+            "physics": {
+                "mass": 10000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 375,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tankpipe02.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "fabric"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tankpipe02_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "fabric"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "11be64c0-814f-43d3-8699-6b07347cc226"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Manmade/env_manmade_tankpipe03_col.obj",
+            "defaultColors": {
+                "fabric": "8ad2d9"
+            },
+            "name": "env_manmade_tankpipe03",
+            "physics": {
+                "mass": 10000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 375,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tankpipe03.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "fabric"
+                                },
+                                "material": "DifNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tankpipe03_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "fabric"
+                                },
+                                "material": "DifNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "d8207488-ec02-4f71-a865-c05ed5d0b175"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Manmade/env_manmade_tankpipe04_col.obj",
+            "defaultColors": {
+                "fabric": "8ad2d9"
+            },
+            "name": "env_manmade_tankpipe04",
+            "physics": {
+                "mass": 10000,
+                "material": "Metal"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 375,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tankpipe04.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "fabric"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_nor.tga"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 2500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Manmade/env_manmade_tankpipe04_lod1.fbx",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "fabric"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/Manmade/env_manmade_tankpipe01_nor.tga"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "4f763d27-df3c-4926-ae05-ce314093171e"
+        }
+	]
+}
