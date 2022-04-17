@@ -6,6 +6,8 @@ CreativeBaseWorld = class( nil )
 
 local PotatoProjectiles = { "potato", "smallpotato", "fries" }
 
+local spearBeginFallingLifeTime = 1 --Raft
+
 function CreativeBaseWorld.server_onCreate( self )
 	self.pesticideManager = PesticideManager()
 	self.pesticideManager:sv_onCreate()
@@ -39,7 +41,7 @@ function CreativeBaseWorld:cl_setEffects( args )
 end
 
 function CreativeBaseWorld:sv_shootSpear( args )
-	local spear = { effect = nil, owner = args.owner, speed = sm.vec3.one() * 0.75, trigger = nil, pos = args.pos, dir = args.dir, lifeTime = 0, attached = false, attachedTarget = nil, attachPos = sm.vec3.zero(), attachDir = sm.vec3.zero() }
+	local spear = { effect = nil, owner = args.owner, speed = sm.vec3.one(), trigger = nil, pos = args.pos, dir = args.dir, lifeTime = 0, attached = false, attachedTarget = nil, attachPos = sm.vec3.zero(), attachDir = sm.vec3.zero() }
 	spear.trigger = sm.areaTrigger.createBox( sm.vec3.new(0.25,0.25,0.25), spear.pos + spear.dir, sm.quat.identity() )
 
 	local effectData = { effect = spear.effect, pos = args.pos, dir = args.dir }
@@ -113,15 +115,16 @@ function CreativeBaseWorld.server_onFixedUpdate( self )
 			end
 
 			local alive = true
-			for _, content in ipairs( spear.trigger:getContents() ) do
-				local obj = content
-				if sm.exists( obj ) then
-					if type(obj) == "Character" and obj:isPlayer() then
-						self:sv_spearCollect( { player = obj:getPlayer(), index = tablePos } )
-						--self.spearStuff.spears[tablePos] = nil
-						spear.lifeTime = 31
-						alive = false
-						break
+			if spear.attached then
+				for _, content in ipairs( spear.trigger:getContents() ) do
+					local obj = content
+					if sm.exists( obj ) then
+						if type(obj) == "Character" and obj:isPlayer() then
+							spear.lifeTime = 31
+							spear.owner = obj:getPlayer()
+							alive = false
+							break
+						end
 					end
 				end
 			end
@@ -137,7 +140,9 @@ function CreativeBaseWorld.server_onFixedUpdate( self )
 						spear.attachPos = result.pointLocal
 						spear.attachDir = spear.dir
 
-						sm.event.sendToUnit(spear.attachedTarget:getUnit(), "sv_raft_takeDamage", { damage = Damage, impact = spear.dir * spearImpact, hitPos = spear.attachPos })
+						local unit = spear.attachedTarget:getUnit()
+						local damage = isAnyOf(spear.attachedTarget:getCharacterType(), g_tapebots) and Damage / 3 or Damage
+						sm.event.sendToUnit(unit, "sv_raft_takeDamage", { damage = damage, impact = spear.dir * spearImpact, hitPos = spear.attachPos, attacker = spear.owner })
 					elseif result.type == "body" then
 						spear.attached = true
 						spear.attachedTarget = result:getBody()
@@ -157,7 +162,7 @@ function CreativeBaseWorld.server_onFixedUpdate( self )
 										inWater = true
 
 										local reductionMult = inWater and 0.25 or 1
-										if spear.speed > sm.vec3.one() / 10 and spear.lifeTime > 0.5 then
+										if spear.speed > sm.vec3.one() / 10 and spear.lifeTime >= spearBeginFallingLifeTime then
 											spear.speed = spear.speed - sm.vec3.one() / 5 * reductionMult * dt
 										end
 									end
@@ -167,14 +172,14 @@ function CreativeBaseWorld.server_onFixedUpdate( self )
 					end
 
 					if spear.dir.z > -1 then
-						local gravity = inWater and sm.vec3.new(0,0,0.000005) or sm.vec3.new(0,0,0.005)
+						local gravity = inWater and spear.lifeTime >= spearBeginFallingLifeTime and sm.vec3.new(0,0,0.0000005) or sm.vec3.new(0,0,0.000005)
 						spear.dir = spear.dir - gravity / spear.speed
 					end
 
-					local newPos = spear.pos + spear.speed * spear.dir * dt * 50
+					local newPos = spear.pos + spear.speed * spear.dir
 					spear.pos = newPos
 				else
-					local hit, result = sm.physics.raycast( spear.pos - spear.dir, spear.pos + spear.dir * 2 ) --this is shit
+					local hit, result = sm.physics.raycast( spear.pos - spear.dir, spear.pos + spear.dir * 3 ) --this is shit
 					local attachedCheck = spear.attachedTarget
 					if type(spear.attachedTarget) == "Character" then
 						attachedCheck = result:getCharacter()

@@ -92,7 +92,7 @@ end
 
 --Raft
 function GlobUnit:sv_raft_takeDamage( args )
-	self:sv_takeDamage(args.damage)
+	self:server_onMelee(args.hitPos, args.attacker, args.damage, args.impact:length())
 end
 --Raft
 

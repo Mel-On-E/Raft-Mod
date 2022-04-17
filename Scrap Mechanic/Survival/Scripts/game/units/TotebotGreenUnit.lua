@@ -210,7 +210,7 @@ end
 
 --Raft
 function TotebotGreenUnit:sv_raft_takeDamage( args )
-	self:sv_takeDamage(args.damage, args.impact, args.hitPos)
+	self:server_onMelee(args.hitPos, args.attacker, args.damage)
 end
 --Raft
 
