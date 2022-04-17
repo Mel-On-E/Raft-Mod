@@ -293,7 +293,7 @@ function SurvivalGame.server_onFixedUpdate( self, timeStep )
 	end
 
 	--RAFT
-	if not Server_isQuestCompleted(quest_find_trader) and sm.game.getCurrentTick() % 40*60*10 == 0 then
+	if not Server_isQuestCompleted(quest_find_trader) and sm.game.getCurrentTick() % (40*60*10) == 0 then
 		self.network:sendToClients("cl_msg", "Feeling stuck? The logbook can help you out.")
 	end
 end
