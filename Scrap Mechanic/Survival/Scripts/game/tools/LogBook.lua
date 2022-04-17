@@ -55,6 +55,12 @@ function LogBook.sv_n_readLog( self, uuid )
 	self.storage:save( saved )
 end
 
+function LogBook.recipeMessage(self, recipes)
+	for _, name in ipairs(recipes) do
+		sm.gui.chatMessage("Recipe unlocked: #88ff00" .. name)
+	end
+end
+
 function LogBook.client_onCreate( self )
 	self.cl = {}
 
@@ -85,7 +91,7 @@ function LogBook.client_onCreate( self )
 		Client_registerOnCompleteQuestObserver( quest_mechanic_station, function( observedCompletion )
 			self:cl_addLog( log_radio, observedCompletion )
 			if observedCompletion then
-				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
+				self:recipeMessage({"Makeshift Antenna"})
 			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
@@ -95,7 +101,7 @@ function LogBook.client_onCreate( self )
 		Client_registerOnCompleteQuestObserver( quest_radio_interactive, function( observedCompletion )
 			self:cl_addLog( log_radio_signal, observedCompletion )
 			if observedCompletion then	
-				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
+				self:recipeMessage({"Sail", "Wind Sock"})
 			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
@@ -104,9 +110,6 @@ function LogBook.client_onCreate( self )
 
 		Client_registerOnCompleteQuestObserver( quest_radio_location, function( observedCompletion )
 			self:cl_addLog( log_find_trader, observedCompletion )
-			if observedCompletion then
-				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
-			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end
@@ -114,6 +117,9 @@ function LogBook.client_onCreate( self )
 
 		Client_registerOnCompleteQuestObserver( quest_find_trader, function( observedCompletion )
 			self:cl_addLog( log_deliver_vegetables, observedCompletion )
+			if observedCompletion then	
+				self:recipeMessage({"Propeller", "Small Propeller"})
+			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end
@@ -127,6 +133,9 @@ function LogBook.client_onCreate( self )
 
 		Client_registerOnCompleteQuestObserver( quest_return_to_trader1, function( observedCompletion )
 			self:cl_addLog( log_sunshake, observedCompletion )
+			if observedCompletion then	
+				self:recipeMessage({"Air Tank", "WASD Converter", "Water Sensor"})
+			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
 			end
@@ -154,7 +163,7 @@ function LogBook.client_onCreate( self )
 		Client_registerOnCompleteQuestObserver( quest_return_to_trader3, function( observedCompletion )
 			self:cl_addLog( log_scrap_city, observedCompletion )
 			if observedCompletion then	
-				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
+				self:recipeMessage({"Harpoon Gun", "Harpoon"})
 			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
@@ -170,7 +179,7 @@ function LogBook.client_onCreate( self )
 		Client_registerOnCompleteQuestObserver( quest_return_to_trader4, function( observedCompletion )
 			self:cl_addLog( log_warehouse, observedCompletion )
 			if observedCompletion then	
-				sm.gui.displayAlertText( "New Recipes Unlocked!", 5 )
+				self:recipeMessage({"Creation Rotator"})
 			end
 			if g_survivalHud then
 				g_survivalHud:setImage( "LogbookImageBox", "gui_icon_hud_logbook_active.png" )
