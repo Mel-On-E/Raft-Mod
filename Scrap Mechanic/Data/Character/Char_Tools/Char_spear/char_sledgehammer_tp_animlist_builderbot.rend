@@ -1,0 +1,7 @@
+{
+	"lodList": [{
+		"mesh": "$GAME_DATA/Character/Char_Tools/Char_sledgehammer/Animations/ani_char_sledgehammer_position_builderbot.dae",
+		"includes" : ["POSITION", "UV0", "NORMAL", "TANGENTS", "BLEND_INDICES", "BLEND_WEIGHTS"],
+		"maxViewDistance": 1000.0
+	}]
+}
