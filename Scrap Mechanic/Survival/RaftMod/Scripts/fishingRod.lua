@@ -57,7 +57,7 @@ function Rod.client_onCreate( self )
 
 	self.ropeEffect = sm.effect.createEffect("ShapeRenderable")
 	self.ropeEffect:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
-	self.ropeEffect:setParameter("color", sm.color.new(0,0,0))
+	self.ropeEffect:setParameter("color", sm.color.new(1,1,1))
 
 	self.hookEffect = sm.effect.createEffect("ShapeRenderable")
 	self.hookEffect:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c7642"))
@@ -232,7 +232,7 @@ function Rod:cl_setTriggers( triggers )
 				else
 					local rope = sm.effect.createEffect("ShapeRenderable")
 					rope:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
-					rope:setParameter("color", sm.color.new(0,0,0))
+					rope:setParameter("color", sm.color.new(1,1,1))
 				
 					local hook = sm.effect.createEffect("ShapeRenderable")
 					hook:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
@@ -297,8 +297,15 @@ function Rod:cl_cancel( state )
 			sm.effect.playEffect("Loot - Pickup", self.hookPos)
 
 			self.network:sendToServer("sv_playWaterSplash", { pos = self.hookPos, effect = "Water - HitWaterMassive", force = 10000 } )
-		else
+		elseif self.isFishing then
 			self.network:sendToServer("sv_playWaterSplash", { pos = self.hookPos, effect = "Water - HitWaterTiny", force = 10000 } )
+			
+			if sm.game.getCurrentTick() < self.dropTimer then
+				sm.gui.displayAlertText("Let the fish nibble before you pull")
+			end
+			
+			print(self.catchTimer)
+			print(self.dropTimer)
 		end
 
 		if self.isFishing or self.isThrowing then
