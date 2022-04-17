@@ -41,7 +41,7 @@ end
 
 --Raft
 function MechanicCharacter:sv_refreshFinRenderable( player )
-	sm.event.sendToPlayer(player, "sv_checkFinRenderable", { player = player, char = player:getCharacter(), inv = player:getInventory(), check = true })
+	sm.event.sendToPlayer(player, "sv_checkRenderables", { player = player, char = player:getCharacter(), inv = player:getInventory(), checkFins = true, checkTank = true })
 end
 --Raft
 
