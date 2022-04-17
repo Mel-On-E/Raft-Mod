@@ -1,0 +1,19 @@
+{
+	"lodList": [{
+		"mesh": "$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer.dae",
+		"includes" : ["POSITION", "UV0", "NORMAL", "TANGENTS", "BLEND_INDICES", "BLEND_WEIGHTS"],
+
+		"subMeshList" : [
+			{
+				    "textureList": [
+						"$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_dif.tga",
+						"$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_asg.tga",
+						"$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_nor.tga"
+				    ],
+				"color": "ffffff",
+				"material": "DifAsgNor"
+			}
+		],
+		"maxViewDistance": 1000.0
+	}]
+}
