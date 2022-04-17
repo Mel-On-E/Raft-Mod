@@ -1,0 +1,335 @@
+{
+	"assetListRenderable": [
+		{
+			"hidden": true,
+			"name": "env_menu_mountains02",
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 200,
+						"mesh": "$GAME_DATA/Terrain/Mesh/Menu/env_menu_mountains02.mesh",
+						"subMeshList": [
+							{
+								"custom": {},
+								"material": "Dif",
+								"textureList": [
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_mountains01_dif.tga",
+									"",
+									""
+								]
+							}
+						]
+					}
+				]
+			},
+			"uuid": "06addf2e-c867-4793-84d0-729fd7261dd5"
+		},
+		{
+			"hidden": true,
+			"name": "env_menu_backdropmountains01",
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 200,
+						"mesh": "$GAME_DATA/Terrain/Mesh/Menu/env_menu_backdropmountains01.mesh",
+						"subMeshList": [
+							{
+								"custom": {},
+								"material": "Background_Unlit",
+								"textureList": [
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_backdropmountains_dif.tga",
+									"",
+									""
+								]
+							}
+						]
+					}
+				]
+			},
+			"uuid": "4d731377-f54d-4c55-a7cd-30e8fbdf69e0"
+		},
+		{
+			"hidden": true,
+			"name": "env_menu_backdropmountains02",
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 200,
+						"mesh": "$GAME_DATA/Terrain/Mesh/Menu/env_menu_backdropmountains02.mesh",
+						"subMeshList": [
+							{
+								"custom": {},
+								"material": "Background_Unlit",
+								"textureList": [
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_backdropmountains_dif.tga",
+									"",
+									""
+								]
+							}
+						]
+					}
+				]
+			},
+			"uuid": "605b0f98-d80f-4a15-a22f-6290067f44c3"
+		},
+		{
+			"hidden": true,
+			"name": "env_menu_backdropmountains03",
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 200,
+						"mesh": "$GAME_DATA/Terrain/Mesh/Menu/env_menu_backdropmountains03.mesh",
+						"subMeshList": [
+							{
+								"custom": {},
+								"material": "Background_Unlit",
+								"textureList": [
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_backdropmountains_dif.tga",
+									"",
+									""
+								]
+							}
+						]
+					}
+				]
+			},
+			"uuid": "d400d9dd-77b4-4a15-8bf9-cd9889f1e841"
+		},
+		{
+			"hidden": true,
+			"name": "env_menu_backdropmountains04",
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 200,
+						"mesh": "$GAME_DATA/Terrain/Mesh/Menu/env_menu_backdropmountains04.mesh",
+						"subMeshList": [
+							{
+								"custom": {},
+								"material": "DifAlphaFlip",
+								"textureList": [
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_backdropmountains02_dif.tga",
+									"",
+									""
+								]
+							}
+						]
+					}
+				]
+			},
+			"uuid": "c16c75d5-9e46-4181-a465-258c29f0941f"
+		},
+		{
+			"hidden": true,
+			"name": "env_menu_backdropmountains05",
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 200,
+						"mesh": "$GAME_DATA/Terrain/Mesh/Menu/env_menu_backdropmountains05.mesh",
+						"subMeshList": [
+							{
+								"custom": {},
+								"material": "DifAlphaFlip",
+								"textureList": [
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_backdropmountains02_dif.tga",
+									"",
+									""
+								]
+							}
+						]
+					}
+				]
+			},
+			"uuid": "b4bb34ac-b647-4fe5-bfb5-a338c12e7b6f"
+		},
+		{
+			"uuid": "3b27030b-0c08-48cc-9054-43e38b679af5",
+			"hidden": true,
+			"name": "env_menu_sky01",
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 200,
+						"mesh": "$GAME_DATA/Terrain/Mesh/Menu/env_menu_sky01.mesh",
+						"subMeshList": [
+							{
+								"custom": {},
+								"material": "Dif",
+								"textureList": [
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_sky01_dif.tga",
+									"",
+									""
+								]
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"hidden": false,
+			"uuid": "ce106c70-b9bd-4347-8b6c-fd8a394e23bb",
+			"col": "$GAME_DATA/Terrain/Collision/Menu/env_menu_buildplatform_col.obj",
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 2500,
+						"mesh": "$GAME_DATA/Terrain/Mesh/Menu/env_menu_buildplatform.fbx",
+						"subMeshMap": {
+							"platform": {
+								"material": "DifAsgNor",
+								"textureList": [
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_buildplatform_dif.tga",
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_buildplatform_asg.tga",
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_buildplatform_nor.tga"
+								]
+							},
+							"tiling": {
+								"material": "DifAsgNorNorD_UV1",
+								"custom": {
+									"textureTiling" : [1,1,1,1]
+								},
+								"textureList": [
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_buildplatform_dif.tga",
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_buildplatform_asg.tga",
+									"$GAME_DATA/Terrain/Textures/Menu/env_menu_buildplatform_nor.tga",
+									"$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/Metal/env_tiling_pillmesh_nor.tga"
+								]
+							}
+						}
+					}
+				]
+			},
+			"name": "env_menu_buildplatform",
+			"physics": {
+				"mass": 20000,
+				"material": "Metal"
+			}
+		},
+		{
+			"hidden": true,
+			"uuid": "95d3586a-d9b6-4759-9380-932646ea26aa",
+			"defaultColors": {
+				"leaves": ["ff00ffff"]
+			},
+			"renderable": "$GAME_DATA/Terrain/Renderable/Menu/menu_trees_birch01.rend",
+			"name": "env_menu_tree_birch01"
+		},
+		{
+			"hidden": true,
+			"uuid": "f3d7f7ce-8f26-41ce-94dd-64947b98daf6",
+			"defaultColors": {
+				"leaves": ["ff00ffff"]
+			},
+			"renderable": "$GAME_DATA/Terrain/Renderable/Menu/menu_trees_leafy01.rend",
+			"name": "env_menu_tree_leafy01"
+		},
+		{
+			"hidden": true,
+			"uuid": "cde2918b-b24e-4296-8611-c88b3653ee42",
+			"defaultColors": {
+				"leaves": ["ff00ffff"]
+			},
+			"renderable": "$GAME_DATA/Terrain/Renderable/Menu/menu_trees_leafy02.rend",
+			"name": "env_menu_tree_leafy02"
+		},
+		{
+			"hidden": true,
+			"uuid": "bdd17e02-cf87-4e84-95d3-f94e7538258a",
+			"defaultColors": {
+				"leaves": ["ff00ffff"]
+			},
+			"renderable": "$GAME_DATA/Terrain/Renderable/Menu/menu_trees_pine01.rend",
+			"name": "env_menu_tree_pine01"
+		},
+		{
+			"hidden": true,
+			"uuid": "8a57f43b-08ef-4307-832a-8aaa8a7656b6",
+			"defaultColors": {
+				"leaves": ["ff00ffff"]
+			},
+			"renderable": "$GAME_DATA/Terrain/Renderable/Menu/menu_trees_pine03.rend",
+			"name": "env_menu_tree_pine03"
+		},
+		{
+			"hidden": true,
+			"uuid": "1a42442c-c774-4b24-83d2-5c0a6eb19fbf",
+			"defaultColors": {
+				"leaves": ["ff00ffff"]
+			},
+			"renderable": "$GAME_DATA/Terrain/Renderable/Menu/menu_trees_Spruce01.rend",
+			"name": "env_menu_tree_Spruce01"
+		},
+		{
+			"hidden": true,
+			"uuid": "5f6f14ba-bfd4-49da-b80f-b3f8908b3ebd",
+			"defaultColors": {
+				"leaves": ["ff00ffff"]
+			},
+			"renderable": "$GAME_DATA/Terrain/Renderable/Menu/menu_trees_Spruce03.rend",
+			"name": "env_menu_tree_Spruce03"
+		},
+		{
+			"hidden": true,
+			"uuid": "e602d0f0-65ff-464f-a29e-718012ee57c0",
+			"defaultColors": {
+				"plank": "ff00ffff"
+			},
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 2500,
+						"mesh": "$SURVIVAL_DATA/Harvestables/Mesh/Fences/hvs_plank_long.fbx",
+						"subMeshList": [
+							{
+								"custom": {
+									"color": "plank"
+								},
+								"material": "DifAsgNorAo",
+								"textureList": [
+									"$SURVIVAL_DATA/Harvestables/Textures/Fences/hvs_plank_dif.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Fences/hvs_plank_asg.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Fences/hvs_plank_nor.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Fences/hvs_plank_long_ao.tga"
+								]
+							}
+						]
+					}
+				]
+			},
+			"name": "env_menu_plank_long"
+		},
+		{
+			"hidden": true,
+			"uuid": "30c6f690-080b-4432-9ce6-bb51a5ceafbc",
+			"defaultColors": {
+				"plank": "ff00ffff"
+			},
+			"renderable": {
+				"lodList": [
+					{
+						"maxViewDistance": 2500,
+						"mesh": "$SURVIVAL_DATA/Harvestables/Mesh/Fences/hvs_plank_short.fbx",
+						"subMeshList": [
+							{
+								"custom": {
+									"color": "plank"
+								},
+								"material": "DifAsgNorAo",
+								"textureList": [
+									"$SURVIVAL_DATA/Harvestables/Textures/Fences/hvs_plank_dif.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Fences/hvs_plank_asg.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Fences/hvs_plank_nor.tga",
+									"$SURVIVAL_DATA/Harvestables/Textures/Fences/hvs_plank_short_ao.tga"
+								]
+							}
+						]
+					}
+				]
+			},
+			"name": "env_menu_plank_short"
+		}
+	]
+}

@@ -1,0 +1,320 @@
+{
+	"assetListRenderable": [
+		{
+            "defaultColors": {
+                "leaves": "8bad02"
+            },
+            "name": "env_foliage_plantexotic01",
+            "physics": {
+                "mass": 10000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_plantexotic01.rend",
+            "uuid": "92f4eb24-e611-4091-a9de-3acdcf53bd9f"
+        },
+        {
+            "defaultColors": {
+                "leaves": "8bad02"
+            },
+            "name": "env_foliage_plantexotic02",
+            "physics": {
+                "mass": 10000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_plantexotic02.rend",
+            "uuid": "ac030d02-b931-4113-81d4-b36a3400e1ba"
+        },
+        {
+            "defaultColors": {
+                "leaves": "8bad02"
+            },
+            "name": "env_foliage_plantexotic03",
+            "physics": {
+                "mass": 10000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_plantexotic03.rend",
+            "uuid": "29a78f09-9c21-45b4-b738-f2cd6e078031"
+        },
+		{
+			"uuid": "4bd88efa-949c-4c0b-8517-2f2b1b2bdb01",
+            "name": "env_foliage_smallbirch01",
+			"defaultColors": {
+                "leaves": ["b0a926ff","f1e929ff","f1ac28ff","cd7d00ff","f5de00ff","f5de00ff","bef319ff"]
+            },
+            "physics": {
+                "mass": 10000,
+                "material": "Wood"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_smallbirch01.rend"
+        },
+        {
+            "uuid": "f741ad80-c99a-4cec-b67d-e53ec82a7bd0",
+            "name": "env_foliage_smallbirch02",
+			"defaultColors": {
+                "leaves": ["b0a926ff","f1e929ff","f1ac28ff","cd7d00ff","f5de00ff","f5de00ff","bef319ff"]
+            },
+            "physics": {
+                "mass": 10000,
+                "material": "Wood"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_smallbirch02.rend"
+        },
+		{
+            "defaultColors": {
+                "leaves": ["097b81ff","12784eff","0c8120ff","4cc569ff","32931aff","a3d821ff","d8bc21ff","d83f21ff"]
+            },
+            "name": "env_nature_foliage_wildbush01",
+            "physics": {
+                "mass": 10000,
+                "material": "Wood"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_wildbush01.rend",
+            "uuid": "09a5a0ee-0fd1-4b32-86c0-9e6f2b701546"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["097b81ff","12784eff","0c8120ff","4cc569ff","32931aff","a3d821ff","d8bc21ff","d83f21ff"]
+            },
+           "name": "env_nature_foliage_wildbush02",
+            "physics": {
+                "mass": 10000,
+                "material": "Wood"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_wildbush02.rend",
+            "uuid": "b1e1b1bf-6175-465e-81c6-9ec9d0bf83d0"
+        },
+        {
+            "defaultColors": {
+                "leaves": "60a140ff"
+            },
+            "name": "env_foliage_padplant01",
+            "physics": {
+                "mass": 10000,
+                "material": "Wood"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_padplant01.rend",
+            "uuid": "2947c3b7-6816-4deb-b8ee-c95065e930ef"
+        },
+        {
+            "defaultColors": {
+                "leaves": "60a140ff"
+            },
+            "name": "env_foliage_padplant02",
+            "physics": {
+                "mass": 10000,
+                "material": "Wood"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_padplant02.rend",
+            "uuid": "6dd42da5-fdf3-4497-9b44-8dc99b12133d"
+        },
+        {
+            "name": "env_foliage_cornplant01",
+			"uuid": "86295daf-3857-47ac-9fe5-6ce232d4b124",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_cornplant01.rend"
+        },
+        {
+            "name": "env_foliage_cornplant02",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_cornplant02.rend",
+            "uuid": "b9a94f83-e670-4f5c-a212-8862b51b3f62"
+        },
+        {
+            "name": "env_foliage_cornplant03",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_cornplant03.rend",
+            "uuid": "db01052e-a805-48fb-b302-7f4ad4908f74"
+        },
+		{
+            "name": "env_foliage_cornplant04",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_cornplant04.rend",
+            "uuid": "deedd485-711e-4bed-b2ba-028a1c803948"
+        },
+        {
+            "name": "env_foliage_cucumberplant01",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_cucumberplant01.rend",
+            "uuid": "7f09455e-14ea-4174-9c9d-50e8932daa8e"
+        },
+		{
+            "name": "env_foliage_cucumberplant02",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_cucumberplant02.rend",
+            "uuid": "8c6f94eb-3555-4f79-8d0a-eb8086af49e1"
+        },
+        {
+            "name": "env_foliage_eggplant01",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_eggplant01.rend",
+            "uuid": "dbb276df-90c9-4fb1-b9d3-cc6b297c2156"
+        },
+		{
+            "name": "env_foliage_eggplant02",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_eggplant02.rend",
+            "uuid": "07f28c2f-0256-4a37-a730-b3df8a705357"
+        },
+		{
+            "defaultColors": {
+                "plant": ["00a314ff","00a314ff","4b8b0cff","00a62cff","00b08aff","106167ff","592d75ff","a35f00ff"]
+            },
+            "name": "env_foliage_fern",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_fern.rend",
+            "uuid": "213a5264-bcf6-4ef9-bd1e-bf46df8d087e"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["5f8d0bff","0f6026ff","0f411cff","2f4b00ff","1c5a31ff","193033ff","4b3400ff"]
+            },
+            "name": "env_foliage_perennial",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_perennial.rend",
+            "uuid": "e9525271-f759-42dc-85ab-4779a8b4fbb8"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["018132ff","76e200ff","7ac51aff","64ff4aff","49ff7fff","237471ff","7d6d34ff","f1bc38ff","c5761aff","7a1823ff"]
+            },
+            "name": "env_nature_foliage_greensprout01",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_greensprout01.rend",
+            "uuid": "a5708a7e-4612-4080-8ba3-3e09eca3fcf7"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["018132ff","76e200ff","7ac51aff","64ff4aff","49ff7fff","237471ff","7d6d34ff","f1bc38ff","c5761aff","7a1823ff"]
+            },
+            "name": "env_nature_foliage_greensprout02",
+            "physics": {
+                "mass": 1000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_greensprout02.rend",
+            "uuid": "ccf07c0d-f33b-4218-9324-8acbd6b6e418"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["0c7d35ff","499931ff","2c7f0fff","5b7f13ff","5c7c23ff","75a80fff","797f12ff","a8850fff","7f4b0fff","7f0f23ff"]
+            },
+            "name": "env_nature_foliage_buxus01",
+            "physics": {
+                "mass": 5000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_buxus01.rend",
+            "uuid": "796cabcd-5703-42af-b4e9-512c85abcf59",
+			"slope": "rotate"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["0c7d35ff","499931ff","2c7f0fff","5b7f13ff","5c7c23ff","75a80fff","797f12ff","a8850fff","7f4b0fff","7f0f23ff"]
+            },
+            "name": "env_nature_foliage_buxus02",
+            "physics": {
+                "mass": 5000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_buxus02.rend",
+            "uuid": "df1a36a3-6be0-4681-845e-d89d6c80d1a6",
+			"slope": "rotate"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["0c7d35ff","499931ff","2c7f0fff","5b7f13ff","5c7c23ff","75a80fff","797f12ff","a8850fff","7f4b0fff","7f0f23ff"]
+            },
+            "name": "env_nature_foliage_buxus03",
+            "physics": {
+                "mass": 5000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_buxus03.rend",
+            "uuid": "73acaa1d-d208-450b-8159-99d5914bbcde",
+			"slope": "rotate"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["5b7f13","678f0aff","317f0fff","0f7f52ff","0f7f23ff","3f5900ff","576828ff","636d48ff","66552cff","592300ff","593e00ff"]
+            },
+            "name": "env_nature_foliage_boxwood",
+            "physics": {
+                "mass": 5000,
+                "material": "Grass"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_boxwood.rend",
+            "uuid": "c63b9bff-0c25-460b-a1a3-af3161592170"
+        },
+		{
+            "defaultColors": {
+                "leaves": ["0c7d35ff","499931ff","2c7f0fff","5b7f13ff","5c7c23ff","75a80fff","797f12ff","a8850fff","7f4b0fff","7f0f23ff","8bad02","8bad02","b1a803ff","a1bc05ff"]
+
+            },
+            "name": "env_nature_foliage_columnshrub01",
+            "physics": {
+                "mass": 10000,
+                "material": "Wood"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_columnshrub01.rend",
+            "uuid": "fd3844b5-58eb-4cb0-96d6-383b7fa83923"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["0c7d35ff","499931ff","2c7f0fff","5b7f13ff","5c7c23ff","75a80fff","797f12ff","a8850fff","7f4b0fff","7f0f23ff","8bad02","8bad02","b1a803ff","a1bc05ff"]
+            },
+            "name": "env_nature_foliage_columnshrub02",
+            "physics": {
+                "mass": 10000,
+                "material": "Wood"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_columnshrub02.rend",
+            "uuid": "fe134420-39cb-450b-9560-5d3401556f7a"
+        },
+        {
+            "defaultColors": {
+                "leaves": ["0c7d35ff","499931ff","2c7f0fff","5b7f13ff","5c7c23ff","75a80fff","797f12ff","a8850fff","7f4b0fff","7f0f23ff","8bad02","8bad02","b1a803ff","a1bc05ff"]
+            },
+            "name": "env_nature_foliage_columnshrub03",
+            "physics": {
+                "mass": 10000,
+                "material": "Wood"
+            },
+            "renderable": "$GAME_DATA/Terrain/Renderable/Nature/env_nature_columnshrub03.rend",
+            "uuid": "40ff23e6-3914-4d85-9048-fe012f72cba1"
+        }
+	]
+}

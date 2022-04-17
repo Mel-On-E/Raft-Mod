@@ -1,0 +1,90 @@
+{
+    "assetSetList": [
+		{
+			"hidden": false,
+		    "assetSet": "$GAME_DATA/Terrain/Database/AssetSets/menu.json",
+		    "category": "Menu"
+		},
+		{
+		    "assetSet": "$GAME_DATA/Terrain/Database/AssetSets/manmade.json",
+		    "category": "Manmade"
+		},
+		{
+		    "assetSet": "$GAME_DATA/Terrain/Database/AssetSets/forest.json",
+		    "category": "Forest"
+		},
+		{
+		    "assetSet": "$GAME_DATA/Terrain/Database/AssetSets/foliage.json",
+		    "category": "Foliage"
+		},
+		{
+		    "assetSet": "$GAME_DATA/Terrain/Database/AssetSets/smallstone.json",
+		    "category": "Small Stones"
+		},
+		{
+		    "assetSet": "$GAME_DATA/Terrain/Database/AssetSets/rocks.json",
+		    "category": "Rocks"
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Nature/Rocks.json",
+		    "category": "Survival Rocks"
+		},
+		{
+		    "assetSet": "$GAME_DATA/Terrain/Database/AssetSets/racetrack.json",
+		    "category": "Racetrack"
+		},
+		{
+			"hidden": false,
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Water.json",
+		    "category": "Water"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Forest.json",
+		    "category" : "Survival Forest"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Building.json",
+		    "category" : "Survival Building"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Manmade.json",
+		    "category" : "Survival Manmade"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Hideout.json",
+		    "category" : "Survival Hideout"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Nature/Foliage.json",
+		    "category" : "Survival Foliage"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Burntforest.json",
+		    "category" : "Survival Burntforest"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Road.json",
+		    "category" : "Road"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Ruin.json",
+		    "category" : "Ruin"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/SurvivalObjects.json",
+		    "category" : "Survival Objects"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Camping.json",
+		    "category" : "Camping"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Mecanicstation.json",
+		    "category" : "Mecanicstation"
+		},
+		{
+		    "assetSet" : "$SURVIVAL_DATA/Terrain/Database/AssetSets/Spaceship.json",
+		    "category" : "Spaceship"
+		}
+    ]
+}

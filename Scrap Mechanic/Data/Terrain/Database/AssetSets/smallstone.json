@@ -1,0 +1,656 @@
+{
+	"assetListRenderable": [
+		{
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder01",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder01.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_boulder_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "e5ab05ee-fac2-484e-9303-0d1714a348bf"
+        },
+        {
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder02",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder02.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_boulder_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "f695d49a-72b7-4fbe-94d7-6431b9b02fff"
+        },
+        {
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder03",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder03.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_boulder_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "febe352e-972b-4b37-9692-8a94d2c97a68"
+        },
+        {
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder04",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder04.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_boulder_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "25d2bd5d-75a7-4324-9a8c-097115005aa3"
+        },
+        {
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder05",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder05.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_boulder_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "0ae557a0-1ab7-4de2-aece-a2b6f212e38e"
+        },
+        {
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder06",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder06.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_boulder_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "d5883203-d5ad-4a1d-a71b-2f7c4e2523fa"
+        },
+        {
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder07",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder07.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "25e45250-bc31-40ee-b0c0-9bfdc0977501"
+        },
+        {
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder08",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder08.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "eee44137-ff14-474a-9143-e4b23612ae8c"
+        },
+        {
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder09",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder09.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "64ef6077-dc5c-4838-8be5-892365874458"
+        },
+        {
+            "defaultColors": {
+                "rock": "6e7569"
+            },
+            "name": "env_smallstone_boulder10",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_boulder10.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "8b549a68-40f8-4b3e-ac56-6e33a460d410"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_smallstone_columnrubble01_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_smallstone_columnrubble01",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble01.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "f6a8c6a7-b38b-4324-8faa-946704a4b1b9"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_smallstone_columnrubble02_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_smallstone_columnrubble02",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble02.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "6f727add-d632-4a3a-b018-92f0ea5b7bf0"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_smallstone_columnrubble03_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_smallstone_columnrubble03",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble03.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "f249f2c2-4ec9-4d6d-8d05-70397a307475"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_smallstone_columnrubble04_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_smallstone_columnrubble04",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 100,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble04.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "9080a477-2c58-4541-affb-f6a1e6686046"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_smallstone_columnrubble05_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_smallstone_columnrubble05",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble05.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble05_lod1.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "5bc248a4-3c36-448b-9c17-ac6a35941d8c"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_smallstone_columnrubble06_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_smallstone_columnrubble06",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble06.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble06_lod1.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "afeb2ad5-764b-4ac8-9364-1421ff865b96"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_smallstone_columnrubble07_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_smallstone_columnrubble07",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble07.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble07_lod1.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "d70d66ca-ccd2-425b-b0e7-e105a9631945"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/Rocks/env_smallstone_columnrubble08_col.obj",
+            "defaultColors": {
+                "rock": "84845d"
+            },
+            "name": "env_smallstone_columnrubble08",
+            "physics": {
+                "mass": 10000,
+                "material": "Rock"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "maxViewDistance": 50,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble08.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "maxViewDistance": 150,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/Smallstone/env_smallstone_columnrubble08_lod1.mesh",
+                        "subMeshList": [
+                            {
+                                "custom": {
+                                    "color": "rock"
+                                },
+                                "material": "Dif",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/Smallstone/env_smallstone_columnrubble_dif.tga",
+                                    "",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "uuid": "9f05a6bc-265e-4c63-bb66-8a283f91ca8f"
+        }
+	]
+}

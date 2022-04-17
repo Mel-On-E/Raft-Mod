@@ -1,0 +1,213 @@
+
+{
+	"assetListRenderable": [
+		{
+            "col": "$GAME_DATA/Terrain/Collision/racetrack/env_racetrack_45degreeturn_col.obj",
+            "defaultColors": {
+                "concrete": "2e2e2e",
+                "racetrack": "bc2020"
+            },
+            "name": "env_racetrack_turn01",
+            "physics": {
+                "mass": 10000,
+                "material": "Plastic"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "includes": [
+                            "POSITION",
+                            "NORMAL",
+                            "UV0",
+                            "TANGENT"
+                        ],
+                        "maxViewDistance": 4500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/racetrack/env_racetrack_45degreeturn.fbx",
+                        "subMeshMap": {
+                            "racetrack": {
+                                "custom": {
+                                    "color": "racetrack",
+                                    "shadow": true
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_nor.tga"
+                                ]
+                            },
+                            "concrete": {
+                                "custom": {
+                                    "color": "concrete"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_nor.tga"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "uuid": "28c90d70-deb5-41b7-a440-20da40381fff"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/racetrack/env_racetrack_90degreeturn_col.obj",
+            "defaultColors": {
+                "concrete": "2e2e2e",
+                "racetrack": "bc2020"
+            },
+            "name": "env_racetrack_turn02",
+            "physics": {
+                "mass": 10000,
+                "material": "Plastic"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "includes": [
+                            "POSITION",
+                            "NORMAL",
+                            "UV0",
+                            "TANGENT"
+                        ],
+                        "maxViewDistance": 4500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/racetrack/env_racetrack_90degreeturn.fbx",
+                        "subMeshMap": {
+                            "racetrack": {
+                                "custom": {
+                                    "color": "racetrack",
+                                    "shadow": true
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_nor.tga"
+                                ]
+                            },
+                            "concrete": {
+                                "custom": {
+                                    "color": "concrete"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_nor.tga"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "uuid": "12f750c1-05b1-471b-a10f-8850b7def8aa"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/racetrack/env_racetrack_straight_col.obj",
+            "defaultColors": {
+                "concrete": "2e2e2e",
+                "racetrack": "bc2020"
+            },
+            "name": "env_racetrack_straight",
+            "physics": {
+                "mass": 10000,
+                "material": "Plastic"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "includes": [
+                            "POSITION",
+                            "NORMAL",
+                            "UV0",
+                            "TANGENT"
+                        ],
+                        "maxViewDistance": 4500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/racetrack/env_racetrack_straight.fbx",
+                        "subMeshMap": {
+                            "racetrack": {
+                                "custom": {
+                                    "color": "racetrack",
+                                    "shadow": true
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_nor.tga"
+                                ]
+                            },
+                            "concrete": {
+                                "custom": {
+                                    "color": "concrete"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_nor.tga"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "uuid": "0e6b60f3-dab2-4859-80a3-fa86e9b16523"
+        },
+        {
+            "col": "$GAME_DATA/Terrain/Collision/racetrack/env_racetrack_90degreeramp_col.obj",
+            "defaultColors": {
+                "concrete": "2e2e2e",
+                "racetrack": "bc2020"
+            },
+            "name": "env_racetrack_straight",
+            "physics": {
+                "mass": 10000,
+                "material": "Plastic"
+            },
+            "renderable": {
+                "lodList": [
+                    {
+                        "includes": [
+                            "POSITION",
+                            "NORMAL",
+                            "UV0",
+                            "TANGENT"
+                        ],
+                        "maxViewDistance": 4500,
+                        "mesh": "$GAME_DATA/Terrain/Mesh/racetrack/env_racetrack_90degreeramp.fbx",
+                        "subMeshMap": {
+                            "racetrack": {
+                                "custom": {
+                                    "color": "racetrack",
+                                    "shadow": true
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_nor.tga"
+                                ]
+                            },
+                            "concrete": {
+                                "custom": {
+                                    "color": "concrete"
+                                },
+                                "material": "DifAsgNor",
+                                "textureList": [
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_dif.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_asg.tga",
+                                    "$GAME_DATA/Terrain/Textures/racetrack/env_racetrack_tarmac_nor.tga"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "uuid": "4147d2ca-30ba-45d9-b252-4e327446c801"
+        }
+	]
+}
