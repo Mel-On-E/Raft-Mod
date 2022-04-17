@@ -35,7 +35,7 @@ function CreativePlayer.client_onUpdate( self, dt )
 
 	self.network:sendToServer("sv_checkFinRenderable", { player = player, char = character, inv = inv })
 
-	local speed = sm.container.canSpend( inv, obj_fins, 1 ) and character:isSwimming() and 2 or 1
+	local speed = sm.container.canSpend( inv, obj_fins, 1 ) and (character:isSwimming() or character:isDiving()) and 2 or 1
 	character:setMovementSpeedFraction(speed)
 end
 
