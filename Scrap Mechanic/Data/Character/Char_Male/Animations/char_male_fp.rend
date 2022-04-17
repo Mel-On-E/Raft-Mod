@@ -1,0 +1,178 @@
+{
+	"lodList": [{
+		"mesh": "$GAME_DATA/Character/Char_Male/Animations/Animationrefs/aniref_char_male_tpose.dae",
+		"includes" : ["POSITION", "UV0", "NORMAL", "TANGENTS", "BLEND_INDICES", "BLEND_WEIGHTS"],
+		"animationList" : [
+
+			// Override tools
+
+			{ "name" : "crowbar_idle", 					"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Crowbar/ani_char_male_fp_crowbar_idle.dae", "looping": true },
+			{ "name" : "crowbar_idlein", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Crowbar/ani_char_male_fp_crowbar_idlein.dae" },
+			{ "name" : "crowbar_idleout", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Crowbar/ani_char_male_fp_crowbar_idleout.dae" },
+			{ "name" : "crowbar_use", 					"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Crowbar/ani_char_male_fp_crowbar_use.dae" },
+			{ "name" : "crowbar_use2", 					"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Crowbar/ani_char_male_fp_crowbar_use.dae" },
+
+			{ "name" : "smallhammer_use", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Smallhammer/ani_char_male_fp_smallhammer_use.dae" },
+			{ "name" : "smallhammer_use2", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Smallhammer/ani_char_male_fp_smallhammer_use.dae" },
+
+			{ "name" : "impactdriver_use", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Impactdriver/ani_char_male_fp_impactdriver_use.dae" },
+			{ "name" : "impactdriver_use2", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Impactdriver/ani_char_male_fp_impactdriver_use.dae" },
+
+			{ "name" : "gardenshovel_use", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Gardenshovel/ani_char_male_fp_gardenshovel_use.dae" },
+			{ "name" : "gardenshovel_use2", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Gardenshovel/ani_char_male_fp_gardenshovel_use.dae" },
+ 
+			{ "name" : "multiknife_use", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Multiknife/ani_char_male_fp_multiknife_use.dae", "looping": true },
+
+			// Handbook
+
+			{ "name" : "handbook_idle", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Handbook/ani_char_male_fp_handbook_idle.dae" },
+
+			{ "name" : "handbook_pickup", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Handbook/ani_char_male_fp_handbook_pickup.dae" },
+			{ "name" : "handbook_pickup_special",		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Handbook/ani_char_male_fp_handbook_pickup.dae" },
+			{ "name" : "handbook_putdown", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Handbook/ani_char_male_fp_handbook_putdown.dae" },
+
+			{ "name" : "handbook_use_exit", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Handbook/ani_char_male_fp_handbook_use_exit.dae" },
+			{ "name" : "handbook_use_exit_special", 	"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Handbook/ani_char_male_fp_handbook_use_exit.dae" },
+			{ "name" : "handbook_use_idle", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Handbook/ani_char_male_fp_handbook_use_idle.dae" },
+			{ "name" : "handbook_use_into", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Handbook/ani_char_male_fp_handbook_use_into.dae" },
+			
+
+
+			// Paint Tool
+
+			{ "name" : "painttool_idle", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_idle.dae" },
+			{ "name" : "painttool_idle_select", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_idle_select.dae" },
+			{ "name" : "painttool_reload", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_reload.dae" },
+
+			{ "name" : "painttool_pickup", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_pickup.dae" },
+			{ "name" : "painttool_putdown", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_putdown.dae" },
+
+			{ "name" : "painttool_sprint_into", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_sprint_into.dae" },
+			{ "name" : "painttool_sprint_exit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_sprint_exit.dae" },
+			{ "name" : "painttool_sprint_idle", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_sprint_idle.dae" },
+
+			{ "name" : "painttool_paint", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_use_paint.dae" },
+			{ "name" : "painttool_erase", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_use_erase.dae" },
+			{ "name" : "painttool_colorpick", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_colorpick.dae" },
+			{ "name" : "painttool_colorpick_exit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_colorpick_exit.dae" },
+			{ "name" : "painttool_colorpick_idle", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Painttool/ani_char_male_fp_painttool_colorpick_idle.dae" },
+
+			// Weld Tool
+
+			{ "name" : "weldtool_idle", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_idle.dae" },
+
+			{ "name" : "weldtool_use_into", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_use_into.dae" },
+			{ "name" : "weldtool_use_idle", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_use_idle.dae" },
+			{ "name" : "weldtool_use_exit", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_use_exit.dae" },
+			{ "name" : "weldtool_use_error", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_use_error.dae" },
+
+			{ "name" : "weldtool_pickup", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_pickup.dae" },
+			{ "name" : "weldtool_putdown", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_putdown.dae" },
+
+			{ "name" : "weldtool_sprint_into", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_sprint_into.dae" },
+			{ "name" : "weldtool_sprint_exit", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_sprint_exit.dae" },
+			{ "name" : "weldtool_sprint_idle", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_sprint_idle.dae" },
+
+			{ "name" : "weldtool_use_lift_into", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_use_lift_into.dae" },
+			{ "name" : "weldtool_use_lift_idle", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_use_lift_idle.dae" },
+			{ "name" : "weldtool_use_lift_exit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Weldtool/ani_char_male_fp_weldtool_use_lift_exit.dae" },
+
+
+			// Connect tool
+
+			{ "name" : "connecttool_idle", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_idle.dae" },
+			{ "name" : "connecttool_idle_flip", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_idle_flip.dae" },
+
+			{ "name" : "connecttool_use_idle", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_use_idle.dae" },
+			{ "name" : "connecttool_use_connect", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_use_connect.dae" },
+			{ "name" : "connecttool_use_disconnect", 	"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_use_disconnect.dae" },
+
+			{ "name" : "connecttool_pickup", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_pickup.dae" },
+			{ "name" : "connecttool_putdown", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_putdown.dae" },
+
+			{ "name" : "connecttool_sprint_into", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_sprint_into.dae" },
+			{ "name" : "connecttool_sprint_exit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_sprint_exit.dae" },
+			{ "name" : "connecttool_sprint_idle", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_sprint_idle.dae" },
+
+			{ "name" : "connecttool_rotate_in", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_rotate_in.dae" },
+			{ "name" : "connecttool_rotate_out", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_rotate_out.dae" },
+			{ "name" : "connecttool_rotate_right", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_rotate_right.dae" },
+			{ "name" : "connecttool_rotate_left", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Connecttool/ani_char_male_fp_connecttool_rotate_left.dae" },
+
+			// Sledgehammer
+
+			{ "name" : "sledgehammer_idle", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_idle.dae" },
+
+			{ "name" : "sledgehammer_attack1", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_attack1.dae" },
+			{ "name" : "sledgehammer_exit1", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_attack1_exit.dae" },
+
+
+			{ "name" : "sledgehammer_attack2", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_attack2.dae" },
+			{ "name" : "sledgehammer_exit2", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_attack2_exit.dae" },
+
+			{ "name" : "sledgehammer_pickup", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_pickup.dae" },
+			{ "name" : "sledgehammer_putdown", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_putdown.dae" },
+
+			{ "name" : "sledgehammer_guard_into", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_guard_into.dae" },
+			{ "name" : "sledgehammer_guard_exit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_guard_exit.dae" },
+			{ "name" : "sledgehammer_guard_idle", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_guard_idle.dae" },
+			{ "name" : "sledgehammer_guard_hit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_guard_hit.dae" },
+			{ "name" : "sledgehammer_guard_break", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_guard_break.dae" },
+
+			{ "name" : "sledgehammer_sprint_into", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_sprint_into.dae" },
+			{ "name" : "sledgehammer_sprint_exit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_sprint_exit.dae" },
+			{ "name" : "sledgehammer_sprint_idle", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Sledgehammer/ani_char_male_fp_sledgehammer_sprint_idle.dae" },
+
+			// Spear
+
+			{ "name" : "spear_idle", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_idle.dae" },
+
+			{ "name" : "spear_attack1", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_attack1.dae" },
+			{ "name" : "spear_exit1", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_attack1_exit.dae" },
+
+
+			{ "name" : "spear_attack2", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_attack2.dae" },
+			{ "name" : "spear_exit2", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_attack2_exit.dae" },
+
+			{ "name" : "spear_pickup", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_pickup.dae" },
+			{ "name" : "spear_putdown", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_putdown.dae" },
+
+			{ "name" : "spear_guard_into", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_guard_into.dae" },
+			{ "name" : "spear_guard_exit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_guard_exit.dae" },
+			{ "name" : "spear_guard_idle", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_guard_idle.dae" },
+			{ "name" : "spear_guard_hit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_guard_hit.dae" },
+			{ "name" : "spear_guard_break", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_guard_break.dae" },
+
+			{ "name" : "spear_sprint_into", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_sprint_into.dae" },
+			{ "name" : "spear_sprint_exit", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_sprint_exit.dae" },
+			{ "name" : "spear_sprint_idle", 		"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spear/ani_char_male_fp_sledgehammer_sprint_idle.dae" },
+
+
+			// Spudgun
+
+			{ "name" : "spudgun_idle", 					"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_normal_idle.dae" },
+			{ "name" : "spudgun_shoot", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_normal_shoot.dae" },
+
+			{ "name" : "spudgun_pickup", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_normal_pickup.dae" },
+			{ "name" : "spudgun_putdown", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_normal_putdown.dae" },
+
+			{ "name" : "spudgun_sprint_into", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_sprint_into.dae" },
+			{ "name" : "spudgun_sprint_exit", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_sprint_exit.dae" },
+			{ "name" : "spudgun_sprint_idle", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_sprint_idle.dae" },
+
+			{ "name" : "spudgun_aim_into", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_aim_into.dae" },
+			{ "name" : "spudgun_aim_exit", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_aim_exit.dae" },
+			{ "name" : "spudgun_aim_shoot", 			"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_aim_shoot.dae" },
+			{ "name" : "spudgun_aim_idle", 				"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Spudgun/ani_char_male_fp_spudgun_aim_idle.dae" },
+
+
+			// Swim
+
+			{ "name" : "swim_fwd", 						"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Swim/ani_char_male_fp_swim_fwd.dae", "looping" : true },
+			{ "name" : "swim_right", 					"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Swim/ani_char_male_fp_swim_right.dae", "looping" : true },
+			{ "name" : "swim_left", 					"file" : "$GAME_DATA/Character/Char_Male/Animations/Firstperson/Swim/ani_char_male_fp_swim_left.dae", "looping" : true }
+
+		],
+		"maxViewDistance": 1000.0
+	}]
+} 
