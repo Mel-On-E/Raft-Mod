@@ -473,7 +473,7 @@ function LogBook.cl_setWaypoint( self, position, world, icon )
 	self.cl.waypointGui:setWorldPosition( position, world )
 	self.cl.waypointGui:setItemIcon( "Icon", "WaypointIconMap", "WaypointIconMap", icon or "mechanicstation" )
 	self.cl.waypointGui:setRequireLineOfSight( false )
-	self.cl.waypointGui:setMaxRenderDistance( 10000 )
+	self.cl.waypointGui:setMaxRenderDistance( 100000 )
 	self.cl.waypointGui:open()
 	self.cl.icon = icon
 end
@@ -503,6 +503,8 @@ function LogBook.cl_onLogItemClicked( self, _, _, log )
 
 	if log and log.uuid then
 		self.cl.gui:setVisible( "WaypointButtonIcon", self.cl.icon == self.cl.log.icon )
+		--hide waypoint button if no waypoint
+		self.cl.gui:setVisible( "WaypointButton", self.cl.log.icon ~= "" )
 	end
 
 	if log and log.uuid and not self.cl.mapReadLogs[log.uuid] then

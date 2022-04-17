@@ -279,6 +279,8 @@ function SurvivalGame.server_onFixedUpdate( self, timeStep )
 	g_unitManager:sv_onFixedUpdate()
 	g_questManager:sv_onFixedUpdate()
 	
+	--RAFT
+
 	if spawnRaft then
 		for _, player in pairs(sm.player.getAllPlayers()) do
 			if player.id == 1 then
@@ -289,6 +291,15 @@ function SurvivalGame.server_onFixedUpdate( self, timeStep )
 			end
 		end
 	end
+
+	--RAFT
+	if not Server_isQuestCompleted(quest_find_trader) and sm.game.getCurrentTick() % 40*60*10 == 0 then
+		self.network:sendToClients("cl_msg", "Feeling stuck? The logbook can help you out.")
+	end
+end
+
+function SurvivalGame.cl_msg( self, msg )
+	sm.gui.chatMessage(msg)
 end
 
 function SurvivalGame.sv_updateClientData( self )

@@ -7,7 +7,7 @@
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
 			"location": "none",
-			"icon": "welcome"
+			"icon": ""
 		},
 		{
 			"name": "log_crashedship",
@@ -15,7 +15,7 @@
 			"type": "notes",
 			"photo": "gui_logbook_photoframe_crashedship.png",			
 			"location": "none",
-			"icon": "crashedship"
+			"icon": ""
 		},
 		{
 			"name": "log_mechanicstation",
@@ -95,7 +95,7 @@
 			"type": "tutorial",
 			"photo": "gui_logbook_welcome.png",			
 			"location": "none",
-			"icon": "sus"
+			"icon": ""
 		}
 	]
 }
