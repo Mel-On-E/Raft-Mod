@@ -301,7 +301,7 @@ function Rod:cl_cancel( state )
 			self.network:sendToServer("sv_playWaterSplash", { pos = self.hookPos, effect = "Water - HitWaterTiny", force = 10000 } )
 			
 			if sm.game.getCurrentTick() < self.dropTimer then
-				sm.gui.displayAlertText("Let the fish nibble before you pull")
+				sm.gui.displayAlertText("Wait until the fish *bites*\n(You'll see a much bigger splash)")
 			end
 			
 			print(self.catchTimer)
