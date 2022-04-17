@@ -13,6 +13,8 @@ local random_loot = {
 	{ uuid = obj_plantables_blueberry, 		chance = 10,	quantity = 1 },
 	{ uuid = obj_plantables_orange, 		chance = 10,	quantity = 1 },
 	{ uuid = obj_plantables_potato, 		chance = 20,	quantity = randomStackAmountAvg5 },
+	{ uuid = obj_seed_cotton, 				chance = 10,	quantity = 1 },
+	{ uuid = obj_resource_cotton, 			chance = 10,	quantity = 1 },
 
 	{ uuid = obj_consumable_sunshake, 		chance = 15 },
 

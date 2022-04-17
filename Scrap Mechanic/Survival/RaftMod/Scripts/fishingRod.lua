@@ -15,10 +15,11 @@ sm.tool.preloadRenderables( renderablesTp )
 sm.tool.preloadRenderables( renderablesFp )
 
 local normalLoot = {
-	{ uuid = obj_fish,						chance = 110,			quantity = 1 },
+	{ uuid = obj_fish,						chance = 112,			quantity = 1 },
 	{ uuid = blk_plastic, 					chance = 20,			quantity = function() return math.random(8, 16) end },
 	{ uuid = blk_scrapwood, 				chance = 15,			quantity = function() return math.random(5, 10) end },
 	{ uuid = blk_scrapmetal, 				chance = 10,			quantity = function() return math.random(2, 5) end },
+	{ uuid = obj_resource_cotton, 			chance = 5,				quantity = 1 },
 	{ uuid = obj_decor_boot, 				chance = 5,				quantity = 1 }
 }
 
