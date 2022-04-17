@@ -11,7 +11,7 @@ local renderables = {
 }
 
 local renderablesTp = {"$GAME_DATA/Character/Char_Male/Animations/char_male_tp_spear.rend", "$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_tp_animlist.rend"}
-local renderablesFp = {"$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_fp_animlist.rend"}
+local renderablesFp = {"$GAME_DATA/Character/Char_Tools/Char_spear/char_sledgehammer_fp_animlist.rend"}
 
 sm.tool.preloadRenderables( renderables )
 sm.tool.preloadRenderables( renderablesTp )
@@ -24,9 +24,9 @@ Spear.swingCount = 2
 Spear.mayaFrameDuration = 1.0/30.0
 Spear.freezeDuration = 0.075
 
-Spear.swings = { "sledgehammer_attack1", "sledgehammer_attack2" }
+Spear.swings = { "spear_attack1", "spear_attack2" }
 Spear.swingFrames = { 4.2 * Spear.mayaFrameDuration, 4.2 * Spear.mayaFrameDuration }
-Spear.swingExits = { "sledgehammer_exit1", "sledgehammer_exit2" }
+Spear.swingExits = { "spear_exit1", "spear_exit2" }
 
 function Spear.client_onCreate( self )
 	self.isLocal = self.tool:isLocal()
@@ -74,47 +74,47 @@ function Spear.loadAnimations( self )
 	self.tpAnimations = createTpAnimations(
 		self.tool,
 		{
-			equip = { "sledgehammer_pickup", { nextAnimation = "idle" } },
-			unequip = { "sledgehammer_putdown" },
-			idle = {"sledgehammer_idle", { looping = true } },
-			idleRelaxed = {"sledgehammer_idle_relaxed", { looping = true } },
+			equip = { "spear_pickup", { nextAnimation = "idle" } },
+			unequip = { "spear_putdown" },
+			idle = {"spear_idle", { looping = true } },
+			idleRelaxed = {"spear_idle_relaxed", { looping = true } },
 			
-			sledgehammer_attack1 = { "sledgehammer_attack1", { nextAnimation = "sledgehammer_exit1" } },
-			sledgehammer_attack2 = { "sledgehammer_attack2", { nextAnimation = "sledgehammer_exit2" } },
-			sledgehammer_exit1 = { "sledgehammer_exit1", { nextAnimation = "idle" } },
-			sledgehammer_exit2 = { "sledgehammer_exit2", { nextAnimation = "idle" } },
+			spear_attack1 = { "spear_attack1", { nextAnimation = "spear_exit1" } },
+			spear_attack2 = { "spear_attack2", { nextAnimation = "spear_exit2" } },
+			spear_exit1 = { "spear_exit1", { nextAnimation = "idle" } },
+			spear_exit2 = { "spear_exit2", { nextAnimation = "idle" } },
 			
-			guardInto = { "sledgehammer_guard_into", { nextAnimation = "guardIdle" } },
-			guardIdle = { "sledgehammer_guard_idle", { looping = true } },
-			guardExit = { "sledgehammer_guard_exit", { nextAnimation = "idle" } },
+			guardInto = { "spear_guard_into", { nextAnimation = "guardIdle" } },
+			guardIdle = { "spear_guard_idle", { looping = true } },
+			guardExit = { "spear_guard_exit", { nextAnimation = "idle" } },
 			
-			guardBreak = { "sledgehammer_guard_break", { nextAnimation = "idle" } }--,
-			--guardHit = { "sledgehammer_guard_hit", { nextAnimation = "guardIdle" } }
+			guardBreak = { "spear_guard_break", { nextAnimation = "idle" } }--,
+			--guardHit = { "spear_guard_hit", { nextAnimation = "guardIdle" } }
 			--guardHit is missing for tp
 			
 		
 		}
 	)
 	local movementAnimations = {
-		idle = "sledgehammer_idle",
-		idleRelaxed = "sledgehammer_idle_relaxed",
+		idle = "spear_idle",
+		idleRelaxed = "spear_idle_relaxed",
 
-		runFwd = "sledgehammer_run_fwd",
-		runBwd = "sledgehammer_run_bwd",
+		runFwd = "spear_run_fwd",
+		runBwd = "spear_run_bwd",
 
-		sprint = "sledgehammer_sprint",
+		sprint = "spear_sprint",
 
-		jump = "sledgehammer_jump",
-		jumpUp = "sledgehammer_jump_up",
-		jumpDown = "sledgehammer_jump_down",
+		jump = "spear_jump",
+		jumpUp = "spear_jump_up",
+		jumpDown = "spear_jump_down",
 
-		land = "sledgehammer_jump_land",
-		landFwd = "sledgehammer_jump_land_fwd",
-		landBwd = "sledgehammer_jump_land_bwd",
+		land = "spear_jump_land",
+		landFwd = "spear_jump_land_fwd",
+		landBwd = "spear_jump_land_bwd",
 
-		crouchIdle = "sledgehammer_crouch_idle",
-		crouchFwd = "sledgehammer_crouch_fwd",
-		crouchBwd = "sledgehammer_crouch_bwd"
+		crouchIdle = "spear_crouch_idle",
+		crouchFwd = "spear_crouch_fwd",
+		crouchBwd = "spear_crouch_bwd"
 		
 	}
     
@@ -128,33 +128,33 @@ function Spear.loadAnimations( self )
 		self.fpAnimations = createFpAnimations(
 			self.tool,
 			{
-				equip = { "sledgehammer_pickup", { nextAnimation = "idle" } },
-				unequip = { "sledgehammer_putdown" },				
-				idle = { "sledgehammer_idle",  { looping = true } },
+				equip = { "spear_pickup", { nextAnimation = "idle" } },
+				unequip = { "spear_putdown" },				
+				idle = { "spear_idle",  { looping = true } },
 				
-				sprintInto = { "sledgehammer_sprint_into", { nextAnimation = "sprintIdle" } },
-				sprintIdle = { "sledgehammer_sprint_idle", { looping = true } },
-				sprintExit = { "sledgehammer_sprint_exit", { nextAnimation = "idle" } },
+				sprintInto = { "spear_sprint_into", { nextAnimation = "sprintIdle" } },
+				sprintIdle = { "spear_sprint_idle", { looping = true } },
+				sprintExit = { "spear_sprint_exit", { nextAnimation = "idle" } },
 				
-				sledgehammer_attack1 = { "sledgehammer_attack1", { nextAnimation = "sledgehammer_exit1" } },
-				sledgehammer_attack2 = { "sledgehammer_attack2", { nextAnimation = "sledgehammer_exit2" } },
-				sledgehammer_exit1 = { "sledgehammer_exit1", { nextAnimation = "idle" } },
-				sledgehammer_exit2 = { "sledgehammer_exit2", { nextAnimation = "idle" } },
+				spear_attack1 = { "spear_attack1", { nextAnimation = "spear_exit1" } },
+				spear_attack2 = { "spear_attack2", { nextAnimation = "spear_exit2" } },
+				spear_exit1 = { "spear_exit1", { nextAnimation = "idle" } },
+				spear_exit2 = { "spear_exit2", { nextAnimation = "idle" } },
 				
-				guardInto = { "sledgehammer_guard_into", { nextAnimation = "guardIdle" } },
-				guardIdle = { "sledgehammer_guard_idle", { looping = true } },
-				guardExit = { "sledgehammer_guard_exit", { nextAnimation = "idle" } },
+				guardInto = { "spear_guard_into", { nextAnimation = "guardIdle" } },
+				guardIdle = { "spear_guard_idle", { looping = true } },
+				guardExit = { "spear_guard_exit", { nextAnimation = "idle" } },
 				
-				guardBreak = { "sledgehammer_guard_break", { nextAnimation = "idle" } },
-				guardHit = { "sledgehammer_guard_hit", { nextAnimation = "guardIdle" } }
+				guardBreak = { "spear_guard_break", { nextAnimation = "idle" } },
+				guardHit = { "spear_guard_hit", { nextAnimation = "guardIdle" } }
 			
 			}
 		)
 		setFpAnimation( self.fpAnimations, "idle", 0.0 )
 	end
-	--self.swingCooldowns[1] = self.fpAnimations.animations["sledgehammer_attack1"].info.duration
+	--self.swingCooldowns[1] = self.fpAnimations.animations["spear_attack1"].info.duration
 	self.swingCooldowns[1] = 0.6
-	--self.swingCooldowns[2] = self.fpAnimations.animations["sledgehammer_attack2"].info.duration
+	--self.swingCooldowns[2] = self.fpAnimations.animations["spear_attack2"].info.duration
 	self.swingCooldowns[2] = 0.6
 	
 	self.animationsLoaded = true
