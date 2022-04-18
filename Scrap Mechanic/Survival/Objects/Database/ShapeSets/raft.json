@@ -165,7 +165,8 @@
 				"y": 4,
 				"z": 2
 			},
-			"rotationSet": "PropFull",
+			"rotationSet": "StaticXY",
+			"sticky": "+X-X+Y-Y+Z",
 			"physicsMaterial": "Plastic",
 			"stackSize": 10,
 			"ratings": {
@@ -2220,7 +2221,7 @@
 			},
 			"rotationSet": "PropFullMinusNegY",
 			"sticky": "-Z+Z-Y-X+X",
-			"physicsMaterial": "Metal",
+			"physicsMaterial": "Wood",
 			"ratings": {
 				"density": 1,
 				"durability": 5,
