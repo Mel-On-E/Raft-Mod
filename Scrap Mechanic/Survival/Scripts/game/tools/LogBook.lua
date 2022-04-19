@@ -173,6 +173,7 @@ function LogBook.client_onCreate( self )
 		Client_registerOnCompleteQuestObserver( quest_scrap_city, function( observedCompletion )
 			if observedCompletion then
 				sm.gui.displayAlertText( "Talk to Trader!", 5 )
+				sm.gui.chatMessage("Return to trader!")
 			end
 		end)
 
