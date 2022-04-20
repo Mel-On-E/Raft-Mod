@@ -178,6 +178,52 @@
 			"flammable": true
 		},
 		{
+			"uuid": "4a971f7d-14e6-454d-bce8-0879243c4575",
+			"name": "obj_reinforcedraft_base",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshMap": {
+							"lambert7":{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_stack_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_stack_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_stack_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+						"lambert3": {
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/construction/obj_construction_ramp01_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/construction/obj_construction_ramp01_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/construction/obj_construction_ramp01_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						},
+						"mesh": "$SURVIVAL_DATA/Objects/Raft/Mesh/ReinforcedRaftBlock.fbx"
+					}
+				]
+			},
+			"color": "008ae1",
+			"box": {
+				"x": 4,
+				"y": 4,
+				"z": 2
+			},
+			"rotationSet": "StaticXY",
+			"sticky": "+X-X+Y-Y+Z",
+			"physicsMaterial": "Plastic",
+			"stackSize": 10,
+			"ratings": {
+				"density": 1,
+				"durability": 4,
+				"friction": 10,
+				"buoyancy": 10
+			},
+			"flammable": true
+		},
+		{
 		"uuid": "4a971f7d-14e6-454d-bce8-0879243c4934",
 		"name": "obj_sail_render",
 		"renderable": {
