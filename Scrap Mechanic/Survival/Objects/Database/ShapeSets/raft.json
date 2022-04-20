@@ -213,11 +213,11 @@
 			},
 			"rotationSet": "StaticXY",
 			"sticky": "+X-X+Y-Y+Z",
-			"physicsMaterial": "Plastic",
+			"physicsMaterial": "Wood",
 			"stackSize": 10,
 			"ratings": {
 				"density": 1,
-				"durability": 4,
+				"durability": 7,
 				"friction": 10,
 				"buoyancy": 10
 			},
