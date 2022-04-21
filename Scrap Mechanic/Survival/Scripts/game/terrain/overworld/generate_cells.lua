@@ -124,11 +124,6 @@ function generateOverworldCelldata( xMin, xMax, yMin, yMax, seed, data, padding 
 	pois[#pois + 1] = { x = -12, y = 20, type = POI_PACKINGSTATIONVEG_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 
 
-	--raft tiles
-	pois[#pois + 1] = { x = 24, y = 20, type = POI_RAFT_MAZE, size = 1, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
-	pois[#pois + 1] = { x = 0, y = 0, type = POI_RAFT_RUIN, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
-
-
 
 
 	------------------------------------------------------------------------------------------------
@@ -815,6 +810,12 @@ function generateOverworldCelldata( xMin, xMax, yMin, yMax, seed, data, padding 
 	-- RAFT
 	writeTile( getPoiId( POI_RAFT_CRASHEDSHIP, 1 ), -29, 2, 1, 0 )
 	_addPoi( -29, 2, 1 )
+
+	writeTile( getPoiId( POI_RAFT_MAZE, 1 ), 24, 20, 1, 0 )
+	_addPoi( 24, 20, 1 )
+
+	writeTile( getPoiId( POI_RAFT_RUIN, 1 ), 0, 0, 2, 0 )
+	_addPoi( 0, 0, 2 )
 
 
 
