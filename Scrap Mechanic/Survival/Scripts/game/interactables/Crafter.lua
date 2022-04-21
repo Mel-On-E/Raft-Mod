@@ -115,7 +115,8 @@ local crafters = {
 			{ name = "questpropeller", locked = true },
 			{ name = "questveggies", locked = true },
 			{ name = "questharpoon", locked = true },
-			{ name = "questfinal", locked = true }
+			{ name = "questfinal", locked = true },
+			{ name = "scrapdecor", locked = false }
 		},
 		subTitle = "Workbench",
 		createGuiFunction = sm.gui.createCraftBotGui
