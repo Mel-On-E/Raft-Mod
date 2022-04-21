@@ -115,8 +115,7 @@ local crafters = {
 			{ name = "questpropeller", locked = true },
 			{ name = "questveggies", locked = true },
 			{ name = "questharpoon", locked = true },
-			{ name = "questfinal", locked = true },
-			{ name = "scrapdecor", locked = false }
+			{ name = "questfinal", locked = true }
 		},
 		subTitle = "Workbench",
 		createGuiFunction = sm.gui.createCraftBotGui
@@ -162,7 +161,8 @@ local crafters = {
 		upgrade = tostring( obj_craftbot_craftbot2 ),
 		upgradeCost = 5,
 		recipeSets = {
-			{ name = "craftbot", locked = false }
+			{ name = "craftbot", locked = false },
+			{ name = "scrapdecor", locked = false }
 		},
 		subTitle = "#{LEVEL} 1",
 		createGuiFunction = sm.gui.createCraftBotGui
@@ -175,7 +175,8 @@ local crafters = {
 		upgrade = tostring( obj_craftbot_craftbot3 ),
 		upgradeCost = 5,
 		recipeSets = {
-			{ name = "craftbot", locked = false }
+			{ name = "craftbot", locked = false },
+			{ name = "scrapdecor", locked = false }
 		},
 		subTitle = "#{LEVEL} 2",
 		createGuiFunction = sm.gui.createCraftBotGui
@@ -188,7 +189,8 @@ local crafters = {
 		upgrade = tostring( obj_craftbot_craftbot4 ),
 		upgradeCost = 5,
 		recipeSets = {
-			{ name = "craftbot", locked = false }
+			{ name = "craftbot", locked = false },
+			{ name = "scrapdecor", locked = false }
 		},
 		subTitle = "#{LEVEL} 3",
 		createGuiFunction = sm.gui.createCraftBotGui
@@ -201,7 +203,8 @@ local crafters = {
 		upgrade = tostring( obj_craftbot_craftbot5 ),
 		upgradeCost = 20,
 		recipeSets = {
-			{ name = "craftbot", locked = false }
+			{ name = "craftbot", locked = false },
+			{ name = "scrapdecor", locked = false }
 		},
 		subTitle = "#{LEVEL} 4",
 		createGuiFunction = sm.gui.createCraftBotGui
@@ -212,7 +215,8 @@ local crafters = {
 		slots = 8,
 		speed = 2,
 		recipeSets = {
-			{ name = "craftbot", locked = false }
+			{ name = "craftbot", locked = false },
+			{ name = "scrapdecor", locked = false }
 		},
 		subTitle = "#{LEVEL} 5",
 		createGuiFunction = sm.gui.createCraftBotGui
