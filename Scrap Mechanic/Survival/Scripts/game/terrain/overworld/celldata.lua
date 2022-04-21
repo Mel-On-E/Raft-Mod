@@ -123,6 +123,8 @@ POI_TEST = 99
 --RAFT
 POI_RAFT_CRASHEDSHIP = 98
 POI_WOCTEMPLE_XL = 148
+POI_RAFT_MAZE = 97
+POI_RAFT_RUIN = 96
 
 --------------------------------------------------------------------------------
 -- Cell data
