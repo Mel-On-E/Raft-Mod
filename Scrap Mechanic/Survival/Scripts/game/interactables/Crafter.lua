@@ -11,18 +11,30 @@ Crafter.colorHighlight = sm.color.new( 0xa7ff4fff )
 
 --raft
 dofile "$SURVIVAL_DATA/Scripts/game/survival_quests.lua"
-local raftbots = {obj_scrap_field, obj_scrap_purifier, obj_scrap_tree_grower, obj_apiary, obj_scrap_workbench, obj_large_field, obj_seed_press, obj_grill}
-local crops = { obj_plantables_redbeet,
-						obj_plantables_carrot,
-						obj_plantables_tomato,
-						obj_plantables_potato,
-						obj_resource_cotton,
-						obj_plantables_banana,
-						obj_plantables_blueberry,
-						obj_plantables_orange,
-						obj_plantables_broccoli,
-						obj_plantables_pineapple,
-						obj_resource_flower}
+local raftbots = {
+	obj_scrap_field,
+	obj_scrap_purifier,
+	obj_scrap_tree_grower,
+	obj_apiary,
+	obj_scrap_workbench,
+	obj_large_field,
+	obj_seed_press,
+	obj_grill
+}
+
+local crops = {
+	obj_plantables_redbeet,
+	obj_plantables_carrot,
+	obj_plantables_tomato,
+	obj_plantables_potato,
+	obj_resource_cotton,
+	obj_plantables_banana,
+	obj_plantables_blueberry,
+	obj_plantables_orange,
+	obj_plantables_broccoli,
+	obj_plantables_pineapple,
+	obj_resource_flower
+}
 
 local crafters = {
 	-- Workbench
@@ -67,6 +79,7 @@ local crafters = {
 			{ name = "farm", locked = false }
 		},
 		subTitle = "Scrap Field",
+		name = "Tiny Field",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- BigFarm
@@ -78,6 +91,7 @@ local crafters = {
 			{ name = "bigfarm", locked = false }
 		},
 		subTitle = "Large Field",
+		name = "Big Field",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- ScrapPurifier
@@ -89,6 +103,7 @@ local crafters = {
 			{ name = "scrappurifier", locked = false }
 		},
 		subTitle = "Scrap Purifier",
+		name = "Purifier",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- ScrapTreeGrower
@@ -100,6 +115,7 @@ local crafters = {
 			{ name = "scraptrees", locked = false }
 		},
 		subTitle = "Tree Farm",
+		name = "Tree Farm",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- ScrapWorkbench
@@ -118,6 +134,7 @@ local crafters = {
 			{ name = "questfinal", locked = true }
 		},
 		subTitle = "Workbench",
+		name = "Workbench",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Apiary
@@ -129,6 +146,7 @@ local crafters = {
 			{ name = "apiary", locked = false }
 		},
 		subTitle = "Apiary",
+		name = "Apiary",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Seed Press
@@ -140,6 +158,7 @@ local crafters = {
 			{ name = "seedpress", locked = false }
 		},
 		subTitle = "Seed Press",
+		name = "Seed Press",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Grill
@@ -151,6 +170,7 @@ local crafters = {
 			{ name = "grill", locked = false }
 		},
 		subTitle = "Grill",
+		name = "Grill",
 		createGuiFunction = sm.gui.createCraftBotGui
 	},
 	-- Craftbot 1
@@ -568,6 +588,12 @@ end
 
 function Crafter.cl_setupUI( self, stringUuid )
 	self.cl.guiInterface = self.crafter.createGuiFunction()
+
+	--Raft
+	if isAnyOf(self.shape:getShapeUuid(), raftbots) then
+		self.cl.guiInterface:setText("CraftBot_Title", self.crafter.name)
+	end
+	--Raft
 
 	self.cl.guiInterface:setButtonCallback( "Upgrade", "cl_onUpgrade" )
 	self.cl.guiInterface:setGridButtonCallback( "Craft", "cl_onCraft" )
