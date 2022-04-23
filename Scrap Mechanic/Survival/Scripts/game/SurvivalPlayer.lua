@@ -314,7 +314,7 @@ function SurvivalPlayer:sv_checkRenderables( args )
 
 			if self.sv.saved.usedTanks < tanks then
 				self.sv.saved.usedTanks = tanks
-				self.sv.saved.tankCharge = maxTankCharge
+				self.sv.saved.tankCharge = maxTankCharge * tanks
 				self.storage:save( self.sv.saved )
 			end
 		end
