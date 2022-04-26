@@ -68,18 +68,20 @@ end
 
 
 function Sail.client_onCreate(self)
-    self.effect = sm.effect.createEffect("ShapeRenderable", self.interactable)
-    self.effect:setOffsetPosition(sm.vec3.new(0, 1, 0))
-    self.effect:setScale(sm.vec3.new(0.118, 0.135, 0.1))
-    self.effect:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4934"))
+    self.cl = {}
+    self.cl.effect = sm.effect.createEffect("ShapeRenderable", self.interactable)
+    self.cl.effect:setOffsetPosition(sm.vec3.new(0, 1, 0))
+    self.cl.effect:setScale(sm.vec3.new(0.118, 0.135, 0.1))
+    self.cl.effect:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c4934"))
+    self.cl.active = false
 end
 
 function Sail.client_onClientDataUpdate( self, state )
-	self.active = state
-    if self.active and not self.effect:isPlaying() then
-        self.effect:start()
-    elseif not self.active and self.effect:isPlaying() then
-        self.effect:stop()
+	self.cl.active = state
+    if self.cl.active and not self.cl.effect:isPlaying() then
+        self.cl.effect:start()
+    elseif not self.cl.active and self.cl.effect:isPlaying() then
+        self.cl.effect:stop()
     end
 end
 
@@ -91,7 +93,7 @@ function Sail.client_canInteract( self, character, state )
     end
 
     local keyBindingText = sm.gui.getKeyBinding( "Use" )
-    if self.active then
+    if self.cl.active then
         sm.gui.setInteractionText("", keyBindingText, "Tie up sail")
     else
         sm.gui.setInteractionText("", keyBindingText, "Lower sail")
