@@ -349,7 +349,7 @@ function Rod:client_onFixedUpdate( dt )
 
 	--if self.isFishing or self.isThrowing then
 		--print()
-	end
+	--end
 
 	if self.tool:isEquipped() and self.primaryState == 1 or self.primaryState == 2 then
 		self.throwForce = self.throwForce < maxThrowForce and self.throwForce + dt*2 or maxThrowForce
