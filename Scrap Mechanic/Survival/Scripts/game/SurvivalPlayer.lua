@@ -297,7 +297,7 @@ function SurvivalPlayer:sv_checkRenderables( args )
 	local hasChanged = args.inv:hasChanged( sm.game.getCurrentTick() - 1 )
 
 	if hasChanged or args.checkFins then
-		self.network:sendToClient( args.player, "cl_checkFinRenderable", { char = args.char, inv = args.inv })
+		self.network:sendToClients("cl_checkFinRenderable", { wornBy = args.player, char = args.char, inv = args.inv })
 	end
 
 	if hasChanged or args.checkTank then
@@ -319,7 +319,7 @@ function SurvivalPlayer:sv_checkRenderables( args )
 			end
 		end
 
-		self.network:sendToClient( args.player, "cl_checkTankRenderable", { char = args.char, inv = args.inv })
+		self.network:sendToClients("cl_checkTankRenderable", { wornBy = args.player, char = args.char, inv = args.inv })
 	end
 end
 
@@ -330,7 +330,9 @@ function SurvivalPlayer:cl_checkFinRenderable( args )
 		args.char:removeRenderable( "$SURVIVAL_DATA/RaftMod/Character/Char_player/Flipper/obj_fins.rend" )
 	end
 
-	self.checkFins = false
+	if args.wornBy == sm.localPlayer.getPlayer() then
+		self.checkFins = false
+	end
 end
 
 function SurvivalPlayer:cl_checkTankRenderable( args )
@@ -339,7 +341,10 @@ function SurvivalPlayer:cl_checkTankRenderable( args )
 	else
 		args.char:removeRenderable( "$SURVIVAL_DATA/RaftMod/Character/Char_player/AirTank/Airtank.rend" )
 	end
-	self.checkTank = false
+
+	if args.wornBy == sm.localPlayer.getPlayer() then
+		self.checkTank = false
+	end
 end
 
 function SurvivalPlayer:cl_displayMsg( msg )
