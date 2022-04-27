@@ -1,0 +1,65 @@
+[h1]Info On Installing The Mod At The Bottom[/h1]
+
+[h1]This Mod Adds Features From Axolot Games' Other Title, [url=https://store.steampowered.com/app/648800/Raft/]Raft[/url]![/h1]
+[b]Play the game in a completely new and different way than ever before![/b]
+
+Features:
+[list]
+[*][b]A story with quests that you have to complete to unlock new parts[/b]
+[*]Entirely new world generation, turning the world into a beautiful ocean to explore
+[*]New tiles
+[*]A sharkbot that lurks beneath the water
+[*]New tools and weapons:
+[list]
+[*]Axe
+[*]Pickaxe
+[*]Harpoon Gun
+[*]Pulling Hook
+[*]Fishing Rod
+[/list]
+[*]New logic blocks:
+[list]
+[*]WASD Converter
+[*]Water Sensor
+[/list]
+[*]New parts:
+[list]
+[*]Propeller(small and big)
+[*]Sail
+[*]Wind Sock
+[*]Air Tank
+[*]Water Purifier
+[*]Apiary
+[*]Creation Rotator
+[*][i]And many more![/i]
+[/list]
+[*]Adjusted some things:
+[list]
+[*]Component kits drop more frequently
+[*]Component kits can now be crafted
+[*]Circuit Boards can now be crafted
+[*]Wood 1 and Metal 1 can now be crafted back into Scrap Wood and Scrap Metal
+[*]Farmbots no longer drop warehouse keys
+[/list]
+[/list]
+
+
+[h1]How to install[/h1]
+[h3]Watch my video on how to install mods![/h3]
+https://www.youtube.com/watch?v=ZbfB5nJ_BaM
+[olist]
+    [*]Subscribe to the mod and wait for it to download.
+    [*]Go to your Steam library and right-click Scrap Mechanic. Click "Manage" -> "Browse Local Files"
+    [*]This should open the folder: [i]Steam\steamapps\common\[b]Scrap Mechanic[/b][/i]
+    [*]Move two folders upward to the folder: [i]Steam\[b]steamapps[/b][/i]
+    [*]Then navigate to "workshop" -> "content" -> "387990" where our mod should be in the most recent folder ("2799002815").
+    [*]Open the "Scrap Mechanic" folder and copy the "Survival" and "Data" folders.
+    [*]Repeat step 2
+    [*]Paste the two folders in the [i]Steam\steamapps\common\[b]Scrap Mechanic[/b][/i] folder. You'll need to click [b]'replace files in destination'[/b] when prompted.
+[/olist]
+To uninstall the mod, [b]verify the integrity[/b] of your game files.
+[h1]Do NOT load into unmodded worlds with the mod installed![/h1]
+[h2][b]WARNING![/b] This mod [i]cannot[/i] be mixed with other mods easily! It will break if you don't merge them correctly.[/h2]
+
+If you enjoy this mod, don't forget to rate it!
+[img]https://i.imgur.com/p7Fv1Z6.gif[/img]
