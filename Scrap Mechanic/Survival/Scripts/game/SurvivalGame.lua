@@ -69,6 +69,12 @@ function SurvivalGame.server_onCreate( self )
 	--raft
 	g_questManager:sv_completeQuest( quest_pickup_logbook )
 
+	if self.sv.showHelpMessages == nil then -- first time setup
+		self.sv.saved.showHelpMessages = true 
+	end
+
+	--raft END
+
 	-- Game script managed global warehouse table
 	self.warehouses = sm.storage.load( STORAGE_CHANNEL_WAREHOUSES )
 	if self.warehouses then
@@ -110,7 +116,7 @@ function SurvivalGame.client_onCreate( self )
 	self.cl.time.timeOfDay = 0.0
 	self.cl.time.timeProgress = true
 
-	if true then
+	if sm.isHost then
 		self:bindChatCommands()
 	end
 
@@ -151,7 +157,10 @@ function SurvivalGame.client_onCreate( self )
 	assert(g_survivalHud)
 end
 
-function SurvivalGame.bindChatCommands( self )
+function SurvivalGame.bindChatCommands( self ) 
+	--Raft
+	sm.game.bindChatCommand("/togglehelpmessages", {}, "cl_onChatCommand", "Toggle help messages")
+	--Raft End
 	sm.game.bindChatCommand( "/ammo", { { "int", "quantity", true } }, "cl_onChatCommand", "Give ammo (default 50)" )
 	sm.game.bindChatCommand( "/spudgun", {}, "cl_onChatCommand", "Give the spudgun" )
 	sm.game.bindChatCommand( "/gatling", {}, "cl_onChatCommand", "Give the potato gatling gun" )
@@ -293,8 +302,8 @@ function SurvivalGame.server_onFixedUpdate( self, timeStep )
 		end
 	end
 
-	--RAFT
-	if not Server_isQuestCompleted(quest_find_trader) and sm.game.getCurrentTick() % (40*60*10) == 0 then
+	--RAFT //TODO make quest_find_trader disable it by default.
+	if self.sv.saved.showHelpMessages and sm.game.getCurrentTick() % (40*60*10) == 0 then
 		self.network:sendToClients("cl_msg", "Feeling stuck? The logbook can help you out.")
 	end
 end
@@ -556,6 +565,16 @@ function SurvivalGame.sv_importCreation( self, params )
 end
 
 function SurvivalGame.sv_onChatCommand( self, params, player )
+	--Raft 
+	if params[1] == "/togglehelpmessages" then
+		self.sv.saved.showHelpMessages = not self.sv.saved.showHelpMessages
+
+		self.network:sendToClients( "client_showMessage", "You have toggled help messages: " .. ( self.sv.saved.showHelpMessages and "On" or "Off" ) )
+
+		--self.storage:save( self.sv.saved ) -- force save to disk
+	end
+	--Raft END
+
 	if params[1] == "/tumble" then
 		if params[2] ~= nil then
 			player.character:setTumbling( params[2] )
@@ -636,14 +655,16 @@ end
 
 --Raft
 function SurvivalGame.server_spawnRaft()
-	local vec = START_AREA_SPAWN_POINT
+	local vec = START_AREA_SPAWN_POINT 
 	vec.z = 0
 	for _, player in pairs(sm.player.getAllPlayers()) do
 		if player.id == 1 then
+
 			sm.creation.importFromFile( player:getCharacter():getWorld(), "$SURVIVAL_DATA/LocalBlueprints/RAFT.blueprint", vec )
 		end
 	end
 end
+--Raft end
 
 function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 	print( player.name, "joined the game" )
