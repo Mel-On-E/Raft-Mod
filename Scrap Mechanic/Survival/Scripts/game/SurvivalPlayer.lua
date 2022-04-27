@@ -150,8 +150,8 @@ function SurvivalPlayer.client_onCreate( self )
 	end
 
 	--Raft
-	self.checkFins = true
-	self.checkTank = true
+	self.cl.checkFins = true
+	self.cl.checkTank = true
 	--Raft
 
 	self:cl_init()
@@ -287,7 +287,7 @@ function SurvivalPlayer.client_onUpdate( self, dt )
 	if character == nil then return end
 	local inv = sm.game.getLimitedInventory() and sm.localPlayer.getInventory() or sm.localPlayer.getHotbar()
 
-	self.network:sendToServer("sv_checkRenderables", { player = player, char = character, inv = inv, checkFins = self.checkFins, checkTank = self.checkTank })
+	self.network:sendToServer("sv_checkRenderables", { player = player, char = character, inv = inv, checkFins = self.cl.checkFins, checkTank = self.cl.checkTank })
 
 	local speed = sm.container.canSpend( inv, obj_fins, 1 ) and (character:isSwimming() or character:isDiving()) and not self.cl.inChemical and not self.cl.inOil and 2 or 1
 	character:setMovementSpeedFraction(speed)
@@ -331,7 +331,7 @@ function SurvivalPlayer:cl_checkFinRenderable( args )
 	end
 
 	if args.wornBy == sm.localPlayer.getPlayer() then
-		self.checkFins = false
+		self.cl.checkFins = false
 	end
 end
 
@@ -343,7 +343,7 @@ function SurvivalPlayer:cl_checkTankRenderable( args )
 	end
 
 	if args.wornBy == sm.localPlayer.getPlayer() then
-		self.checkTank = false
+		self.cl.checkTank = false
 	end
 end
 
