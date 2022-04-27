@@ -42,7 +42,7 @@ function Sapling.client_canInteract(self)
 	elseif self.valid then
 		sm.gui.setInteractionText("Splash with", "Water")
 	else
-		sm.gui.setInteractionText("Place on", "#ff0000TerrainSurface")
+		sm.gui.setInteractionText("Place on the", "#ff0000Surface")
 	end
 	return true
 end

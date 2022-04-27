@@ -38,3 +38,5 @@ luac.out
 *.x86_64
 *.hex
 
+# build files for development
+build.*

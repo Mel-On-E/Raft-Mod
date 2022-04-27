@@ -300,11 +300,11 @@
 	//ArmoredRaftFoundation
 	{
 		"itemId": "4a971f7d-14e6-454d-bce8-0879243c4575",
-		"quantity": 1,
+		"quantity": 2,
 		"craftTime": 22,
 		"ingredientList": [
 			{
-				"quantity": 1,
+				"quantity": 2,
 				"itemId": "4a971f7d-14e6-454d-bce8-0879243c4474"
 			},
 			{

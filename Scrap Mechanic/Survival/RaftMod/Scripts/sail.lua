@@ -9,7 +9,7 @@ Sail.connectionOutput = sm.interactable.connectionType.none
 Sail.colorNormal = sm.color.new( 0xff8000ff )
 Sail.colorHighlight = sm.color.new( 0xff9f3aff )
 
-local POWER = 5000
+local POWER = 6250
 local MAX_SPEED = 10
 
 
@@ -54,7 +54,7 @@ function Sail.server_onFixedUpdate(self, dt)
         sailDirection.z = 0
         sailDirection = sailDirection:normalize()
 
-        local cosine = windDirection:dot(sailDirection)/(windDirection:length() + sailDirection:length())*-2
+        local cosine = windDirection:dot(sailDirection)/(windDirection:length() + sailDirection:length()) * -2
         --sm.gui.chatMessage(tostring(cosine))
 
         local speedFraction = 1 - (self.shape:getVelocity():length() / MAX_SPEED)

@@ -19,6 +19,7 @@ local normalLoot = {
 	{ uuid = blk_plastic, 					chance = 20,			quantity = function() return math.random(8, 16) end },
 	{ uuid = blk_scrapwood, 				chance = 15,			quantity = function() return math.random(5, 10) end },
 	{ uuid = blk_scrapmetal, 				chance = 10,			quantity = function() return math.random(2, 5) end },
+	{ uuid = obj_consumable_soilbag, 		chance = 8,				quantity = function() return math.random(1, 2) end },
 	{ uuid = obj_resource_cotton, 			chance = 5,				quantity = 1 },
 	{ uuid = obj_decor_boot, 				chance = 5,				quantity = 1 }
 }
@@ -26,7 +27,8 @@ local normalLoot = {
 local rareLoot = {
 	{ uuid = obj_consumable_component,		chance = 1,				quantity = function() return math.random(1, 2) end },
 	{ uuid = obj_consumable_fertilizer, 	chance = 1,				quantity = function() return math.random(1, 3) end },
-	{ uuid = obj_consumable_chemical, 		chance = 1,				quantity = function() return math.random(1, 10) end }
+	{ uuid = obj_consumable_chemical, 		chance = 1,				quantity = function() return math.random(1, 10) end },
+	{ uuid = obj_consumable_soilbag, 		chance = 1,				quantity = function() return math.random(2, 4) end }
 }
 
 function vec3Num( num )
@@ -37,8 +39,8 @@ local hookSize = vec3Num(0.1)
 local premiumDropChance = 0.1
 local maxThrowForce = 5
 local minThrowForce = 0.25
-local minWaitTime = 10*40
-local maxWaitTime = 30*40
+local minWaitTime = 7.5*40
+local maxWaitTime = 25*40
 
 local CatchTime = 0.75
 local minBites = 1
@@ -345,7 +347,7 @@ function Rod:client_onFixedUpdate( dt )
 		return
 	end
 
-	if self.isFishing or self.isThrowing then
+	--if self.isFishing or self.isThrowing then
 		--print()
 	end
 
