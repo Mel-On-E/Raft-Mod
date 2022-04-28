@@ -234,8 +234,8 @@ local loot_totebot_green = {
 local loot_haybot = {
 	slots = function() return randomStackAmount( 1, 1.5, 2 ) end,
 	randomLoot = {
-		{ uuid = obj_consumable_component,		chance = 3 },
-		{ uuid = obj_resource_circuitboard,		chance = 2 },
+		{ uuid = obj_consumable_component,		chance = 2 },
+		{ uuid = obj_resource_circuitboard,		chance = 3 },
 	}
 }
 
@@ -256,14 +256,14 @@ local loot_farmbot = {
 }
 
 local loot_sharkbot = {
-	slots = function() return randomStackAmount( 2, 2, 3 ) end,
+	slots = function() return randomStackAmount( 2, 2, 2 ) end,
 	selectOne = {
 		{ uuid = obj_interactive_raftshark, 	chance = 1,		quantity = 1 },
 		{ uuid = nil,							chance = 2 }, -- No loot from selectOne
 	},
 	randomLoot = {
-		{ uuid = obj_consumable_component,		chance = 2,		quantity = randomStackAmountAvg2 },
-		{ uuid = obj_resource_circuitboard,		chance = 1,		quantity = randomStackAmountAvg2 },
+		{ uuid = obj_consumable_component,		chance = 1,		quantity = randomStackAmountAvg2 },
+		{ uuid = obj_resource_circuitboard,		chance = 2,		quantity = randomStackAmountAvg2 },
 	}
 }
 
