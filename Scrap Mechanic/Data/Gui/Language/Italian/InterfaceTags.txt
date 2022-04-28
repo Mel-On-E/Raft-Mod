@@ -1,0 +1,795 @@
+LANGUAGE_CODE IT
+
+HANDBOOK_TOOLTIP_HOW_TO_PLAY COME SI GIOCA
+HANDBOOK_TOOLTIP_HOW_TO_BUILD_A_VEHICLE COME SI COSTRUISCE UN VEICOLO
+HANDBOOK_TOOLTIP_BEARING CUSCINETTI
+HANDBOOK_TOOLTIP_LIFT PIATTAFORMA
+HANDBOOK_TOOLTIP_CONNECT_TOOL CONNETTORE
+HANDBOOK_TOOLTIP_DRIVERS_SEAT SEDILE DI GUIDA
+HANDBOOK_TOOLTIP_GAS_ENGINE MOTORE A BENZINA
+HANDBOOK_TOOLTIP_THRUSTER PROPULSORE
+HANDBOOK_TOOLTIP_TRIGGERS INTERRUTTORI
+HANDBOOK_TOOLTIP_CONTROLLER UNITÀ DI CONTROLLO
+HANDBOOK_TOOLTIP_LOGIC_GATE PORTA LOGICA
+HANDBOOK_TOOLTIP_FREQUENTLY_ASKED_QUESTIONS DOMANDE FREQUENTI
+
+HANDBOOK_HOLD_AND_DRAG Prendi e trascina
+HANDBOOK_PRESS Premi
+HANDBOOK_RELEASE Lascia
+HANDBOOK_HOLD Prendi
+HANDBOOK_ARROW_KEYS Tasti Freccia
+
+HANDBOOK_HOW_TO_PLAY_TITLE COME SI GIOCA
+
+HANDBOOK_HOW_TO_PLAY_PAGE1_SUBTITLE1 • Navigazione e comandi dei movimenti.
+HANDBOOK_HOW_TO_PLAY_PAGE1_SUBTITLE2 • Come usare l’inventario e la barra di controllo.
+HANDBOOK_HOW_TO_PLAY_PAGE1_MOVE Muoviti
+HANDBOOK_HOW_TO_PLAY_PAGE1_LOOK Guarda
+HANDBOOK_HOW_TO_PLAY_PAGE1_CAMERA Visuale
+HANDBOOK_HOW_TO_PLAY_PAGE1_IN_OUT Più / Meno
+HANDBOOK_HOW_TO_PLAY_PAGE1_JUMP Salta
+HANDBOOK_HOW_TO_PLAY_PAGE1_SPRINT Scatta
+HANDBOOK_HOW_TO_PLAY_PAGE1_CROUCH Abbassati
+HANDBOOK_HOW_TO_PLAY_PAGE1_INVENTORY Inventario
+HANDBOOK_HOW_TO_PLAY_PAGE1_HOTBAR Barra di Controllo
+
+HANDBOOK_HOW_TO_PLAY_PAGE2_SUBTITLE1 • Come posizionare, ruotare e rimuovere oggetti.
+HANDBOOK_HOW_TO_PLAY_PAGE2_SUBTITLE2 • Altera la dimensione dei materiali di base e cambia la direzione di ridimensionamento.
+HANDBOOK_HOW_TO_PLAY_PAGE2_ADJUST_POSITION Regola la posizione
+HANDBOOK_HOW_TO_PLAY_PAGE2_OBJECT_PLACE Posiziona oggetto
+HANDBOOK_HOW_TO_PLAY_PAGE2_OBJECT_REMOVE Rimuovi oggetto
+HANDBOOK_HOW_TO_PLAY_PAGE2_OBJECT_ROTATE Ruota oggetto
+HANDBOOK_HOW_TO_PLAY_PAGE2_ROTATE_DIRECTION Ruota direzione
+
+HANDBOOK_HOW_TO_PLAY_PAGE3_SUBTITLE • Informazioni sui blocchi e sulle parti di Scrap Mechanic.
+HANDBOOK_HOW_TO_PLAY_PAGE3_BLOCKS Blocchi
+HANDBOOK_HOW_TO_PLAY_PAGE3_BLOCKS_TEXT I componenti per costruire più comuni. I blocchi di materiale possono essere fatti di pietra, legno, plastica o metallo e possono essere ridimensionati semplicemente trascinando e rilasciando. Ideali per costruire grandi strutture con velocità e facilità. Per eliminarli, basta tenere premuto il pulsante destro del mouse e trascinarli. I blocchi sono delineati in blu nell’inventario.
+HANDBOOK_HOW_TO_PLAY_PAGE3_INTERACTIVE_PARTS Parti interattive
+HANDBOOK_HOW_TO_PLAY_PAGE3_INTERACTIVE_PARTS_TEXT Tutte le parti interattive hanno una funzione speciale che porterà in vita le tue creazioni facendole muovere, ruotare, marciare, volare e altro. Possono essere qualsiasi cosa, da un motore a benzina a una radio perfettamente funzionante, e sono delineate in arancione nell’inventario.
+HANDBOOK_HOW_TO_PLAY_PAGE3_PARTS Parti
+HANDBOOK_HOW_TO_PLAY_PAGE3_PARTS_TEXT Costruisci parti dalla forma unica, perfette per personalizzare le tue creazioni. Le parti possono essere qualsiasi cosa, dai telai di supporto in acciaio industriale a delle simpatiche paperelle di plastica, e sono delineate in verde nell’inventario.
+HANDBOOK_HOW_TO_PLAY_PAGE3_CONSUMABLES Consumabili
+HANDBOOK_HOW_TO_PLAY_PAGE3_CONSUMABLES_TEXT In arrivo...
+
+HANDBOOK_HOW_TO_PLAY_PAGE4_SUBTITLE • Tutto sugli strumenti di Scrap Mechanic.
+HANDBOOK_HOW_TO_PLAY_PAGE4_CONNECT_TOOL Connettore
+HANDBOOK_HOW_TO_PLAY_PAGE4_CONNECT_TOOL_TEXT Il migliore amico di ogni meccanico! Usalo per collegare parti interattive come, ad esempio, un motore a benzina ai cuscinetti o un propulsore a un sedile di guida. C’è una moltitudine di cose che puoi collegare, e il connettore è lo strumento che ti permette di farlo.
+HANDBOOK_HOW_TO_PLAY_PAGE4_LIFT Piattaforma
+HANDBOOK_HOW_TO_PLAY_PAGE4_LIFT_TEXT Costruendo sulla piattaforma creerai strutture che possono muoversi liberamente e non saranno ancorate al terreno; inoltre, i cuscinetti saranno stabili e ti permetteranno di costruire più facilmente. Puoi riposizionare qualsiasi creazione disancorata sulla piattaforma quando lo desideri.
+HANDBOOK_HOW_TO_PLAY_PAGE4_SLEDGEHAMMER Martello
+HANDBOOK_HOW_TO_PLAY_PAGE4_SLEDGEHAMMER_TEXT Con questo potente martello puoi muovere oggetti liberi colpendoli. Puoi anche difenderti dagli attacchi usando il pulsante destro del mouse.
+HANDBOOK_HOW_TO_PLAY_PAGE4_PAINT_TOOL Pennello
+HANDBOOK_HOW_TO_PLAY_PAGE4_PAINT_TOOL_TEXT Dipingi parti o blocchi per personalizzare le tue creazioni o persino creare opere d’arte! Dipingi con il pulsante sinistro del mouse e cancella con quello destro. Premi Q per scegliere il colore. Ti basta tenere premuto il pulsante sinistro del mouse e trascinare per dipingere superfici più grandi.
+HANDBOOK_HOW_TO_PLAY_PAGE4_WELD_TOOL Saldatore
+HANDBOOK_HOW_TO_PLAY_PAGE4_WELD_TOOL_TEXT Salda le tue creazioni! Seleziona il saldatore e clicca col pulsante sinistro del mouse su una creazione libera, quindi clicca con il pulsante sinistro del mouse sulla superficie di un’altra creazione per unirle. Puoi anche unire parti che si toccano sulla piattaforma. Tieni premuto il pulsante sinistro del mouse sulla prima parte e trascinala verso quella a cui vuoi unirla.
+
+HANDBOOK_HOW_TO_BUILD_A_VEHICLE_TITLE COME SI COSTRUISCE UN VEICOLO
+
+HANDBOOK_HOW_TO_BUILD_A_VEHICLE_PAGE1_SUBTITLE1 • Metti la piattaforma sul terreno, dopodiché costruisci una base di blocchi su di essa come mostrato.
+HANDBOOK_HOW_TO_BUILD_A_VEHICLE_PAGE1_SUBTITLE2 • Aggiungi i cuscinetti, le ruote, il sedile e il motore a benzina.
+HANDBOOK_HOW_TO_BUILD_A_VEHICLE_PAGE1_SUBTITLE3 • Collega il tutto usando il connettore.
+
+HANDBOOK_HOW_TO_BUILD_A_VEHICLE_PAGE2_SUBTITLE1 • Assicurati che tutti i collegamenti siano come mostrato.
+HANDBOOK_HOW_TO_BUILD_A_VEHICLE_PAGE2_SUBTITLE2 • Imposta tutti i cuscinetti sulla corretta rotazione e avvia il motore.
+HANDBOOK_HOW_TO_BUILD_A_VEHICLE_PAGE2_SUBTITLE3 Puoi costruire infiniti veicoli seguendo questi semplici passi, quindi continua a fare esperimenti!
+
+HANDBOOK_BEARING_TITLE CUSCINETTI
+
+HANDBOOK_BEARING_PAGE1_SUBTITLE1 • Tutto ciò che colleghi a un cuscinetto ruoterà.
+HANDBOOK_BEARING_PAGE1_SUBTITLE2 • Possono essere alimentati da un motore oppure se collegati a un’unità di controllo tramite il connettore.
+HANDBOOK_BEARING_PAGE1_SUBTITLE3 • Se collegati a un sedile di guida, i cuscinetti si possono controllare con la tastiera.
+
+HANDBOOK_LIFT_TITLE PIATTAFORMA
+
+HANDBOOK_LIFT_PAGE1_SUBTITLE1 • Costruisci sulla piattaforma per evitare che le tue creazioni vengano ancorate al terreno.
+HANDBOOK_LIFT_PAGE1_SUBTITLE2 • Impedirà ai cuscinetti di muoversi facilitando la costruzione.
+HANDBOOK_LIFT_PAGE1_SUBTITLE3 • Rimuovendo la piattaforma rilascerai la tua creazione, ma puoi sempre riposizionare le costruzioni libere su di essa quando lo desideri.
+HANDBOOK_LIFT_PAGE1_ADJUST_HEIGHT Regolare l’altezza
+HANDBOOK_LIFT_PAGE1_PICKING_UP_OBJECTS Raccogliere oggetti liberi
+HANDBOOK_LIFT_PAGE1_PICKING_UP_OBJECTS_CLICK_ON_OBJECT Clicca sull'oggetto
+HANDBOOK_LIFT_PAGE1_PICKING_UP_OBJECTS_CLICK_ON_GROUND Clicca sul terreno
+
+HANDBOOK_CONNECT_TOOL_TITLE CONNETTORE
+
+HANDBOOK_CONNECT_TOOL_PAGE1_SUBTITLE1 • Ti permette di collegare parti interattive trascinando da un punto di collegamento ad un altro come mostrato.
+HANDBOOK_CONNECT_TOOL_PAGE1_SUBTITLE2 • Se colleghi un motore a un cuscinetto, puoi cliccare col pulsante destro del mouse per cambiarne il senso di rotazione.
+
+HANDBOOK_DRIVERS_SEAT_TITLE SEDILE DI GUIDA
+
+HANDBOOK_DRIVERS_SEAT_PAGE1_SUBTITLE1 • Se unisci il sedile di guida a un cuscinetto con il connettore, puoi avere il controllo diretto del cuscinetto
+HANDBOOK_DRIVERS_SEAT_PAGE1_SUBTITLE2 da seduto. Lo stesso vale per i motori.
+HANDBOOK_DRIVERS_SEAT_PAGE1_SUBTITLE3 • Anche i pulsanti e gli interruttori collegati possono essere attivati dal sedile.
+
+HANDBOOK_ENGINE_TITLE MOTORE A BENZINA
+
+HANDBOOK_ENGINE_PAGE1_SUBTITLE1 • Fa ruotare fino a 5 cuscinetti collegati.
+HANDBOOK_ENGINE_PAGE1_SUBTITLE2 • Avviamento e velocità vengono controllate tramite il tasto E.
+HANDBOOK_ENGINE_PAGE1_SUBTITLE3 • Può essere collegato al sedile di guida come mostrato.
+
+HANDBOOK_THRUSTER_TITLE PROPULSORE
+
+HANDBOOK_THRUSTER_PAGE1_SUBTITLE1 I propulsori fanno spiccare il volo alle tue creazioni!
+HANDBOOK_THRUSTER_PAGE1_SUBTITLE2 • Si attivano collegando qualsiasi tipo di attivatore o sedile di guida.
+HANDBOOK_THRUSTER_PAGE1_SUBTITLE3 • Assicurati che gli oggetti a cui vuoi far spiccare il volo non siano ancorati al suolo.
+
+HANDBOOK_TRIGGERS_TITLE INTERRUTTORI
+
+HANDBOOK_TRIGGERS_PAGE1_SUBTITLE1 • Si usano per attivare altre parti interattive come motori, propulsori, unità di controllo e altro.
+HANDBOOK_TRIGGERS_PAGE1_SUBTITLE2 • Ce ne sono di 3 tipi che funzionano in modi differenti.
+HANDBOOK_TRIGGERS_PAGE1_SWITCH Interruttore
+HANDBOOK_TRIGGERS_PAGE1_SWITCH_TEXT Accende o spegne le creazioni.
+HANDBOOK_TRIGGERS_PAGE1_BUTTON Pulsante
+HANDBOOK_TRIGGERS_PAGE1_BUTTON_TEXT Attiva parti collegate finché il pulsante rimane premuto.
+HANDBOOK_TRIGGERS_PAGE1_SENSOR Sensore
+HANDBOOK_TRIGGERS_PAGE1_SENSOR_TEXT Attiva creazioni collegate quando rileva un movimento nel suo raggio d'azione.
+
+HANDBOOK_CONTROLLER_TITLE UNITÀ DI CONTROLLO
+
+HANDBOOK_CONTROLLER_PAGE1_SUBTITLE1 • Permette di creare macchine che si trasformano e si muovono.
+HANDBOOK_CONTROLLER_PAGE1_SUBTITLE2 • Programma la rotazione in sequenza dei cuscinetti a determinati gradi e attivali con un attivatore.
+HANDBOOK_CONTROLLER_PAGE1_SUBTITLE3 Impariamo le basi per costruire una porta automatica.
+
+HANDBOOK_CONTROLLER_PAGE2_SUBTITLE1 • Tieni premuto il pulsante sinistro del mouse e trascina a destra o a sinistra per impostare i gradi sul quadrante come mostrato.
+HANDBOOK_CONTROLLER_PAGE2_SUBTITLE2 • Attiva la porta con l’attivatore che hai collegato all'unità di controllo.
+HANDBOOK_CONTROLLER_PAGE2_SUBTITLE3 L’unità di controllo è una parte interattiva indispensabile con possibilità infinite.
+HANDBOOK_CONTROLLER_PAGE2_ADJUST_SPEED Regola la velocità dell’unità di controllo
+HANDBOOK_CONTROLLER_PAGE2_ADJUST_START_ANGLE Regola la posizione di partenza
+HANDBOOK_CONTROLLER_PAGE2_FINE_TUNE_ANGLE Aggiusta l’angolo tenendo premuto
+HANDBOOK_CONTROLLER_PAGE2_TOGGLE_REPEAT Aziona la sequenza per ripetere indefinitamente
+HANDBOOK_CONTROLLER_PAGE2_TOGGLE_BACK_AND_FORTH Aziona la sequenza per andare avanti e indietro
+
+HANDBOOK_LOGIC_GATE_TITLE PORTA LOGICA
+
+HANDBOOK_LOGIC_GATE_PAGE1_SUBTITLE1 • Ti permette di creare soluzioni basate sulla logica.
+HANDBOOK_LOGIC_GATE_PAGE1_SUBTITLE2 • La porta logica è un potente blocco che ti permette di programmare in forma fisica.
+HANDBOOK_LOGIC_GATE_PAGE1_SUBTITLE3 • Segui questi passi per imparare la configurazione di base per aprire una porta con due attivatori separati.
+
+HANDBOOK_FAQ_TITLE DOMANDE FREQUENTI
+
+HANDBOOK_FAQ_PAGE1_SUBTITLE1 • Ti senti perso/a e non sai cosa fare?
+HANDBOOK_FAQ_PAGE1_SUBTITLE2 • Qui troverai le risposte alle tue domande.
+HANDBOOK_FAQ_PAGE1_CREATION_FELL_OVER Oh, no! La mia creazione è caduta, come faccio a raddrizzarla?
+HANDBOOK_FAQ_PAGE1_CREATION_FELL_OVER_ANSWER Con la piattaforma selezionata, clicca sulla tua creazione col pulsante sinistro del mouse, quindi punta uno spazio vuoto sul suolo e premi di nuovo il pulsante sinistro del mouse per posizionare la tua creazione. Questa apparirà sul suolo e potrà essere di nuovo posizionata sulla piattaforma.
+HANDBOOK_FAQ_PAGE1_FINDING_THE_INVENTORY Dove si trova l'inventario con altre parti per costruire?
+HANDBOOK_FAQ_PAGE1_FINDING_THE_INVENTORY_ANSWER You open the inventory by pressing the "I" key. When you find a part you want to use, drag it from the inventory in to your hotbar below.
+HANDBOOK_FAQ_PAGE1_ROTATE_PARTS Come si ruotano le parti?
+HANDBOOK_FAQ_PAGE1_ROTATE_PARTS_ANSWER You rotate parts by pressing the "Q" key or "Shift + Q"
+HANDBOOK_FAQ_PAGE1_PARTS_PLACE_OR_REMOVE Come si posizionano o rimuovono le parti?
+HANDBOOK_FAQ_PAGE1_PARTS_PLACE_ANSWER Per posizionare una parte, seleziona una parte per costruire nella tua barra di controllo e premi il pulsante sinistro del mouse.
+HANDBOOK_FAQ_PAGE1_PARTS_REMOVE_ANSWER Per riprenderla, punta la parte e tieni premuto il pulsante destro del mouse.
+HANDBOOK_FAQ_PAGE1_REMOVE_CONNECTIONS Come si rimuovono i collegamenti con il connettore?
+HANDBOOK_FAQ_PAGE1_REMOVE_CONNECTIONS_ANSWER Ti basta afferrare il collegamento a una delle estremità e trascinalo di nuovo verso l'altro punto di collegamento.
+HANDBOOK_FAQ_PAGE1_CAMERA_ANGLE Come si cambia l'inquadratura?
+HANDBOOK_FAQ_PAGE1_CAMERA_ANGLE_ANSWER Tieni premuto il tasto ALT e usa la rotellina del mouse per aumentare o diminuire lo zoom.
+
+ALERT_CONTROL_OVERRIDE Controllato da un altro oggetto interattivo.
+ALERT_CONTROLLER_CONNECTION_ERROR Errore di connessione dell’unità di controllo.
+ALERT_DRIVERS_SEAT_OCCUPIED Questo sedile è occupato.
+ALERT_DRIVERS_SEAT_ON_LIFT Assicurati di rimuovere la piattaforma prima di usare il sedile di guida.
+ALERT_EMPTY_RIGID_BODY Corpo rigido vuoto
+ALERT_FAILED_TO_BUILD_SHAPE Creazione della forma non riuscita
+ALERT_FAILED_TO_PARSE_JSON Analisi JSON non riuscita
+ALERT_FARMING_DETECTED RILEVATA COLTIVAZIONE NON AUTORIZZATA!
+ALERT_HUNGER Affamato
+ALERT_INSUFFICIENT_MATERIALS Parti insufficienti
+ALERT_INVALID_JOINT_POSITIONS Posizione snodo non valida
+ALERT_INVALID_JSON JSON non valido
+ALERT_JOINT_CONNECTION_ERROR Errore di connessione dello snodo
+ALERT_MAX_CONNECTIONS Numero max di connessioni raggiunto
+ALERT_MAX_CONNECTIONS_BEARINGS Numero max di cuscinetti raggiunto
+ALERT_NO_CONNECTIONS Nessuna connessione
+ALERT_NON_EXISTING_SHAPE Forma inesistente
+ALERT_NOT_THE_CREATOR_OF_BLUEPRINT NON SEI IL CREATORE DI QUESTA APPARECCHIATURA
+ALERT_STONE_TOO_BIG Questa pietra è troppo grande per il martello.
+ALERT_THIRST Assetato
+ALERT_TREE_TOO_BIG Questo albero è troppo grande per il martello.
+ALERT_UNABLE_TO_COLLECT_ALL Impossibile raccogliere tutte le parti.
+
+ALL_CAPS TUTTI
+BACK INDIETRO
+BROWSE SFOGLIA
+BUILD COSTRUISCI
+
+CHALLENGE_BUILDER COSTRUTTORE SFIDA
+CHALLENGE_BUILDER_2 COSTRUTTORE SFIDA
+CHALLENGE_BUILDER_ADD AGGIUNGI AL PACCHETTO SFIDA
+CHALLENGE_BUILDER_CHALLENGE_NAME Nome sfida
+CHALLENGE_BUILDER_CHALLENGE_PACK_NAME Nome pacchetto sfida
+CHALLENGE_BUILDER_CHALLENGE_PACK_NAME_2 NOME PACCHETTO SFIDA
+CHALLENGE_BUILDER_CHALLENGE_PACKS PACCHETTI SFIDA
+CHALLENGE_BUILDER_CHAT_MESSAGE Ti diamo il benvenuto a Scrap Mechanic: Costruttore Sfida! Dai un’occhiata alla piattaforma per vedere qualche creazione prefabbricata che potrebbe tornarti utile. Sono presenti i comandi della chat per determinare con quali strumenti un giocatore può iniziare la tua sfida. Digita “/help” nella chat per ottenere una lista di tutti i comandi disponibili.
+CHALLENGE_BUILDER_HAVE_TO_BEAT_LINE_1 Devi superare la sfida
+CHALLENGE_BUILDER_HAVE_TO_BEAT_LINE_2 prima di poterla condividere.
+CHALLENGE_BUILDER_NEW_CHALLENGE NUOVA SFIDA
+CHALLENGE_BUILDER_NEW_CHALLENGE_PACK NUOVO PACCHETTO SFIDA
+CHALLENGE_BUILDER_NO_PACKS_LINE_1 Non hai ancora nessun pacchetto sfida.
+CHALLENGE_BUILDER_NO_PACKS_LINE_2 Per crearne uno, premi
+CHALLENGE_BUILDER_SAVE_BEFORE_EXIT SALVARE PRIMA DI USCIRE?
+CHALLENGE_BUILDER_SAVE_REMINDER Ricorda di salvare la tua sfida di tanto in tanto.
+
+CHALLENGE_FINISH FINE
+CHALLENGE_MENU_BUILDER_DESCRIPTION_LINE_1 Dai libero sfogo alla tua creatività.
+CHALLENGE_MENU_BUILDER_DESCRIPTION_LINE_2 Crea le tue tortuose sfide e
+CHALLENGE_MENU_BUILDER_DESCRIPTION_LINE_3 metti alla prova i tuoi amici.
+CHALLENGE_MENU_BUILDER_TITLE_LINE_2 TUE
+CHALLENGE_MENU_BUILDER_TITLE_LINE_3 SFIDE
+CHALLENGE_MENU_SELECT_CHALLENGE SCEGLI SFIDA
+CHALLENGE_MENU_TITLE SFIDA
+CHALLENGE_NEW_RECORD NUOVO RECORD
+CHALLENGE_NEXT SUCCESSIVO
+CHALLENGE_PACK_MENU_TITLE PACCHETTO SFIDA
+CHALLENGE_RESET AZZERA
+CHALLENGE_RESTART RICOMINCIA
+CHALLENGE_WIN HAI VINTO!
+
+CHARACTER_CUSTOMIZATION_CATEGORY_BACKPACK Zainetto
+CHARACTER_CUSTOMIZATION_CATEGORY_FACE Volto
+CHARACTER_CUSTOMIZATION_CATEGORY_GLOVES Guanti
+CHARACTER_CUSTOMIZATION_CATEGORY_HAIR Capelli
+CHARACTER_CUSTOMIZATION_CATEGORY_HAIR_FACIAL Barba
+CHARACTER_CUSTOMIZATION_CATEGORY_HATS Cappelli
+CHARACTER_CUSTOMIZATION_CATEGORY_LEGS Gambe
+CHARACTER_CUSTOMIZATION_CATEGORY_SHOES Scarpe
+CHARACTER_CUSTOMIZATION_CATEGORY_TORSO Torso
+CHARACTER_CUSTOMIZATION_TITLE PERSONAGGIO
+
+CHAT_PLAYER_DISCONNECTED è stato disconnesso/a.
+CHAT_PLAYER_JOINED ha iniziato a giocare.
+CHAT_PLAYER_KICKED è stato cacciato/a.
+CHAT_PLAYER_LEFT ha abbandonato la partita.
+CHAT_PLAYER_RECONNECTED si è ricollegato/a.
+
+CHEST_TITLE_CHEST CASSA
+CHEST_TITLE_LOST_ITEMS OGGETTI PERDUTI
+
+COLLECT Raccogli
+
+CONTAINER_TITLE_AMMUNITION MUNIZIONI
+CONTAINER_TITLE_BATTERY BATTERIA
+CONTAINER_TITLE_CHEMICAL SOSTANZA CHIMICA
+CONTAINER_TITLE_FERTILIZER FERTILIZZANTE
+CONTAINER_TITLE_GAS BENZINA
+CONTAINER_TITLE_GENERIC CONTENUTI
+CONTAINER_TITLE_REFINERY RENDIMENTO RAFFINERIA
+CONTAINER_TITLE_SEED SEME
+CONTAINER_TITLE_WATER ACQUA
+
+CONTROLLER_DRIVER_SEAT_LOCK Blocco cuscinetto
+CONTROLLER_DRIVER_SEAT_SETTINGS Impostazioni
+CONTROLLER_DRIVER_SEAT_TITLE SEDILE DI GUIDA
+CONTROLLER_DRIVER_SEAT_TURN_LEFT Sterzata a sinistra
+CONTROLLER_DRIVER_SEAT_TURN_RIGHT Sterzata a destra
+CONTROLLER_DRIVER_SEAT_TURN_SPEED Velocità di sterzata
+CONTROLLER_DRIVER_SEAT_TURNING STERZATA
+
+CONTROLLER_ENGINE_ELECTRIC_TITLE MOTORE ELETTRICO
+CONTROLLER_ENGINE_GAS_SCRAP Di scarto
+CONTROLLER_ENGINE_GAS_TITLE MOTORE A BENZINA
+CONTROLLER_ENGINE_INSTRUCTION Trascina per regolare la potenza erogata.
+
+CONTROLLER_LIGHT_TITLE LUCI
+
+CONTROLLER_LOGIC_DESCRIPTION_AND Attivo se tutti gli attivatori collegati sono attivi.
+CONTROLLER_LOGIC_DESCRIPTION_NAND Attivo se uno qualsiasi degli attivatori collegati è inattivo.
+CONTROLLER_LOGIC_DESCRIPTION_NOR Attivo se tutti gli attivatori collegati sono inattivi.
+CONTROLLER_LOGIC_DESCRIPTION_OR Attivo se uno qualsiasi degli attivatori collegati è attivo.
+CONTROLLER_LOGIC_DESCRIPTION_XNOR Attivo se un numero pari di attivatori collegati è attivo.
+CONTROLLER_LOGIC_DESCRIPTION_XOR Attivo solo se uno degli attivatori collegati è attivo.
+CONTROLLER_LOGIC_TITLE PORTA LOGICA
+
+CONTROLLER_PISTON_RANGE Portata
+CONTROLLER_PISTON_SPEED Velocità
+CONTROLLER_PISTON_TITLE PISTONE
+
+CONTROLLER_SENSOR_COLOR Modalità colore
+CONTROLLER_SENSOR_COLOR_PICKER_TITLE_1 SELEZIONA
+CONTROLLER_SENSOR_COLOR_PICKER_TITLE_2 COLORE
+CONTROLLER_SENSOR_MODE Modalità
+CONTROLLER_SENSOR_MODE_BUTTON Pulsante
+CONTROLLER_SENSOR_MODE_SWITCH Interruttore
+CONTROLLER_SENSOR_SOUND Suoni
+CONTROLLER_SENSOR_TITLE SENSORE
+
+CONTROLLER_SEQUENCE_LOOP CICLO
+CONTROLLER_SEQUENCE_NOT_USED Non in uso
+CONTROLLER_SEQUENCE_TITLE EDITOR ROTAZIONE
+CONTROLLER_SEQUENCE_UNLOCK Si sblocca al livello
+
+CONTROLLER_SUSPENSION_INTERACTION Trascina per regolare la rigidità.
+CONTROLLER_SUSPENSION_TITLE SOSPENSIONI
+
+CONTROLLER_THRUSTER_INSTRUCTION Trascina per regolare la potenza.
+CONTROLLER_THRUSTER_TITLE PROPULSORE
+
+CONTROLLER_TIMER_DELAY IMPOSTA RITARDO
+CONTROLLER_TIMER_SECONDS SECONDI
+CONTROLLER_TIMER_TICKS TICK
+CONTROLLER_TIMER_TITLE TIMER
+
+CONTROLLER_TONE_BUTTON_DANCE DANZA
+CONTROLLER_TONE_BUTTON_RETRO RETRO
+CONTROLLER_TONE_DRUM_GLITCH Glitch
+CONTROLLER_TONE_DRUM_HIHAT Charleston
+CONTROLLER_TONE_DRUM_KICK Calcia
+CONTROLLER_TONE_DRUM_MISC Varie
+CONTROLLER_TONE_STYLE Stile
+CONTROLLER_TONE_TITLE NOTE ROBOTRASPORTATORE
+CONTROLLER_TONE_VOLUME Volume
+
+CONTROLLER_UPGRADE MIGLIORA
+CONTROLLER_UPGRADE_Bearings Cuscinetti
+CONTROLLER_UPGRADE_Colors Colori
+CONTROLLER_UPGRADE_Connections Connessioni
+CONTROLLER_UPGRADE_Efficiency Efficienza
+CONTROLLER_UPGRADE_Force Forza
+CONTROLLER_UPGRADE_Gears Marce
+CONTROLLER_UPGRADE_Range Portata
+CONTROLLER_UPGRADE_Settings Impostazioni
+CONTROLLER_UPGRADE_Speed Velocità
+CONTROLLER_UPGRADE_Stiffness Rigidità
+CONTROLLER_UPGRADE_Thrust Propulsione
+
+COOKBOT_PIZZA PIZZA BURGER
+COOKBOT_REVIVAL BAGUETTE DI RIANIMAZIONE
+COOKBOT_TITLE ROBOCHEF
+COOKBOT_VEGGIE HAMBURGER VEGETARIANO
+
+CRAFT COSTRUISCI
+
+CRAFTBOT_TITLE ROBOARTIGIANO
+
+DAMAGE_BREATH Stai annegando
+DAMAGE_HUNGER Stai morendo di fame
+DAMAGE_THIRST Disidratato
+
+DATE DATA
+
+DELETE ELIMINA
+
+DESCRIPTION Descrizione
+DESCRIPTION_CAPS DESCRIZIONE
+
+DRESSBOT_BOX_COUNT_PART_1 Hai
+DRESSBOT_BOX_COUNT_PART_2 scatole di vestiti
+DRESSBOT_INSTRUCTION Trascina una scatola di vestiti qui
+DRESSBOT_MAKE CREA
+DRESSBOT_PICK_UP RACCOGLI
+DRESSBOT_RECEIVE CONGRATULAZIONI!
+DRESSBOT_TIME Tempo
+DRESSBOT_TITLE ROBOSARTO
+DRESSBOT_UNBOX DISIMBALLA
+
+ERRMSG_CONNECTION_LOST_LINE1 Connessione persa
+ERRMSG_CONNECTION_LOST_LINE2 Controlla la connessione a Internet.
+ERRMSG_CONNECTION_TIMEOUT_LINE1 Tempo scaduto per la connessione all'host
+ERRMSG_CONNECTION_TIMEOUT_LINE2 Controlla la connessione a Internet e riprova.
+ERRMSG_DATABASE_ISSUE Si è verificato un problema durante la gestione del file di salvataggio.
+ERRMSG_INVALID_SHAPE_ID Il mondo contiene una parte non supportata.
+ERRMSG_KICKED_FROM_SERVER_LINE1 Sei stato cacciato/a
+ERRMSG_KICKED_FROM_SERVER_LINE2 dall’host.
+ERRMSG_NO_WORLD_LINE1 Nessun mondo base creato per la modalità di gioco!
+ERRMSG_NO_WORLD_LINE2 Ti sei dimenticato/a di creare un mondo nello script di gioco?
+ERRMSG_OLD_TERRAIN_TEST_LINE_1 I file di salvataggio del costruttore terreni risalenti alle versioni precedenti
+ERRMSG_OLD_TERRAIN_TEST_LINE_2 del test non funzionano più
+ERRMSG_REQUIRED_MOD Mod richiesta
+ERRMSG_SAVE_ALREADY_EXISTS Esiste già un file di salvataggio con questo nome.
+ERRMSG_SERVER_SHUTDOWN_LINE1 L'host è stato chiuso
+ERRMSG_TITLE_CONNECTION_FAILED Connessione non riuscita
+ERRMSG_TITLE_CONNECTION_LOST Connessione persa
+ERRMSG_TITLE_ERROR ERRORE
+ERRMSG_TITLE_FAILED_TO_LOAD_WORLD Caricamento del mondo non riuscito
+ERRMSG_TITLE_SORRY Ci spiace!
+ERRMSG_TITLE_WARNING Avviso
+ERRMSG_UGC_DEPENDENCY_DELETED Una parte dei contenuti usata in questo mondo non esiste più!
+ERRMSG_UGC_UNPUBLISHED_LINE_1 non è stato pubblicato.
+ERRMSG_UGC_UNPUBLISHED_LINE_2 I tuoi amici non potranno unirsi
+ERRMSG_UNLOAD_MOD_LINE1 È stata rimossa una mod usata in precedenza!
+ERRMSG_UNLOAD_MOD_LINE2 Questo potrebbe impedire il caricamento del mondo.
+ERRMSG_UNLOAD_MOD_LINE3 Vuoi davvero procedere?
+ERRMSG_VERSION_MISMATCH_LINE1 Versione non corrispondente
+ERRMSG_VERSION_MISMATCH_LINE2 Aggiorna il client e riprova.
+
+GAME_MODE_MENU_CHALLENGE SFIDA
+GAME_MODE_MENU_CREATIVE CREATIVA
+GAME_MODE_MENU_SURVIVAL SOPRAVVIVENZA
+GAME_MODE_MENU_TITLE SCEGLI MODALITÀ DI GIOCO
+
+HIDEOUT_RECEIVE RICEVI
+HIDEOUT_TITLE NASCONDIGLIO
+HIDEOUT_TRADE SCAMBIA
+HIDEOUT_TRADING SCAMBIO
+
+INFO_BUSY Oggetto in uso
+INFO_HOME_CRASH_SITE Nuovo punto di rigenerazione: Astronave schiantata
+INFO_HOME_MECHANIC_STATION Nuovo punto di rigenerazione: Stazione meccanica
+INFO_HOME_NOT_STORED Dormire qui è troppo pericoloso.
+INFO_HOME_STORED Punto di rigenerazione salvato
+INFO_INVENTORY_FULL Inventario pieno
+INFO_NO_CORE Non hai un nucleo energetico!
+INFO_OUT_OF_ENERGY Energia esaurita
+INFO_OUT_OF_FUEL Benzina esaurita
+INFO_PICKED_LOOT Raccolto
+INFO_POWER_RESTORED L’energia è stata ripristinata!
+INFO_REQUIRES Richiede
+INFO_REQUIRES_POWER Richiede energia
+INFO_TOO_STEEP Troppo ripido
+
+INGREDIENTS INGREDIENTI
+
+INTERACTION_CHANGE_ROTATIONAL_DIRECTION Cambia rotazione
+INTERACTION_DESTROY Distruggi
+INTERACTION_DOWN Giù
+INTERACTION_EAT Mangia
+INTERACTION_FEED Nutri
+INTERACTION_FERTILIZE Fertilizza
+INTERACTION_FILL Riempi
+INTERACTION_FORCE_BUILD Forza costruzione
+INTERACTION_INSERT Inserisci
+INTERACTION_PICK_UP Raccogli
+INTERACTION_PLACE Posiziona
+INTERACTION_PLACE_CREATION_ON_LIFT Solleva creazione
+INTERACTION_PLACE_LIFT Posiziona piattaforma
+INTERACTION_PLACE_LIFT_ON_GROUND Posiziona la creazione sulla piattaforma
+INTERACTION_PLANT Pianta
+INTERACTION_PUT_DOWN Metti giù
+INTERACTION_PUT_SOIL Disponi terreno
+INTERACTION_REFINE Raffina
+INTERACTION_RESPAWN Rigenera
+INTERACTION_REVIVE Rianima
+INTERACTION_THROW Lancia
+INTERACTION_TINKER Migliora
+INTERACTION_UP Su
+INTERACTION_USE Usa
+INTERACTION_USE_DRESSBOT Usa Robosarto
+INTERACTION_USE_WARDROBE Usa armadio
+
+INVENTORY_BACKPACK ZAINETTO
+INVENTORY_NO_DESCRIPTION non ha ancora una descrizione.
+INVENTORY_TITLE ZAINETTO
+
+LEVEL LIVELLO
+
+LIFT_DELETE ELIMINA
+LIFT_EXPORT_SAVE SALVA
+LIFT_EXPORT_TITLE SALVA CREAZIONE
+LIFT_IMPORT_BUILD COSTRUISCI
+LIFT_IMPORT_SHARE CONDIVIDI
+LIFT_IMPORT_TITLE CARICA CREAZIONE
+
+MATERIAL MATERIALI
+
+MECHANIC_STATION_COOK_BOT Robochef
+MECHANIC_STATION_CRAFT_BOT Roboartigiano
+MECHANIC_STATION_DRESS_BOT Robosarto
+MECHANIC_STATION_REFINERY_BOT Roboraffinatore
+MECHANIC_STATION_RESOURCE_COLLECTOR Raccoglitore di risorse
+MECHANIC_STATION_TITLE_1 STAZIONE
+MECHANIC_STATION_TITLE_2 MECCANICA
+
+MENU_CREATIVE_GAME_NAME Rinomina la tua partita
+MENU_CREATIVE_NO_SAVES Per avviare una partita in modalità creativa, rinomina il tuo mondo nella casella sottostante e premi
+MENU_CREATIVE_SELECT_WORLD SELEZIONA MONDO
+MENU_CREATIVE_TILE_BUILDER COSTRUTTORE MATTONELLE
+MENU_CREATIVE_TILE_BUILDER_DESCRIPTION_LINE_1 Progetta e dai forma alle mattonelle del mondo
+MENU_CREATIVE_TILE_BUILDER_DESCRIPTION_LINE_2 da usare nel Costruttore Mattonelle.
+MENU_CREATIVE_TILE_BUILDER_TITLE_LINE_1 CREA
+MENU_CREATIVE_TILE_BUILDER_TITLE_LINE_2 MATTONELLE MONDO
+MENU_CREATIVE_TITLE CREATIVA
+MENU_CREATIVE_WORLD_BUILDER COSTRUTTORE MONDO
+MENU_CREATIVE_WORLD_BUILDER_DESCRIPTION_LINE_1 Cuci insieme le mattonelle
+MENU_CREATIVE_WORLD_BUILDER_DESCRIPTION_LINE_2 per creare mondi strabilianti.
+MENU_CREATIVE_WORLD_BUILDER_TITLE_LINE_1 CREA IL
+MENU_CREATIVE_WORLD_BUILDER_TITLE_LINE_2 TUO MONDO
+
+MENU_INGAME_EXIT ESCI
+MENU_INGAME_INVITE_FRIEND INVITA AMICI
+MENU_INGAME_RESUME RIPRENDI
+MENU_INGAME_SAVE SALVA
+MENU_INGAME_SAVE_AND_TEST SALVA E TESTA
+MENU_INGAME_STOP_TEST INTERROMPI TEST
+
+MENU_MAIN_CHARACTER PERSONAGGIO
+MENU_MAIN_COPYRIGHT © 2021 Axolot Games. Tutti i diritti riservati.
+MENU_MAIN_EXIT_GAME ESCI DAL GIOCO
+MENU_MAIN_OPTIONS OPZIONI
+MENU_MAIN_VERSION Scrap Mechanic ver. BETA
+
+MENU_MODS_DISABLE_ALL DISABILITA TUTTO
+MENU_MODS_ENABLE_ALL ABILITA TUTTO
+MENU_MODS_NO_MODS_PART_1 Non hai mod installate.
+MENU_MODS_NO_MODS_PART_2 per accedere a tutte le
+MENU_MODS_NO_MODS_PART_3 mod disponibili su Steam.
+MENU_MODS_SELECTED Seleziona mod
+MENU_MODS_SELECT_MODS SELEZIONA MOD
+MENU_MODS_TITLE MOD
+
+MENU_NEW_FLAT PIATTO
+MENU_NEW_TERRAIN TERRENO
+
+MENU_OPTION_ANISOTROPIC_16X Anisotropico 16x
+MENU_OPTION_ANISOTROPIC_2X Anisotropico 2x
+MENU_OPTION_ANISOTROPIC_4X Anisotropico 4x
+MENU_OPTION_ANISOTROPIC_8X Anisotropico 8x
+MENU_OPTION_APPLY APPLICA
+MENU_OPTION_BILINEAR Bilineare
+MENU_OPTION_DEFAULT PREDEFINITO
+MENU_OPTION_HIGH Alto
+MENU_OPTION_LOW Basso
+MENU_OPTION_MEDIUM Medio
+MENU_OPTION_TRILINEAR Trilineare
+MENU_OPTION_VERY_HIGH Molto alto
+MENU_OPTIONS_AUDIO AUDIO
+MENU_OPTIONS_AUDIO_AMBIENT Ambiente
+MENU_OPTIONS_AUDIO_EFFECT Effetti
+MENU_OPTIONS_AUDIO_GUI GUI
+MENU_OPTIONS_AUDIO_MASTER Volume principale
+MENU_OPTIONS_AUDIO_MUSIC Musica
+MENU_OPTIONS_CONTROLS COMANDI
+MENU_OPTIONS_CONTROLS_AIM_SENSITIVITY Sensibilità mira
+MENU_OPTIONS_CONTROLS_ATTACK Attacca
+MENU_OPTIONS_CONTROLS_BIND_CONFLICT_PART_1 Associazione attualmente assegnata a
+MENU_OPTIONS_CONTROLS_BIND_CONFLICT_PART_2 Sostituirla?
+MENU_OPTIONS_CONTROLS_BIND_TEXT_PART_1 Premi un tasto qualsiasi o
+MENU_OPTIONS_CONTROLS_BIND_TEXT_PART_2 per annullare.
+MENU_OPTIONS_CONTROLS_BIND_TITLE ASSOCIA
+MENU_OPTIONS_CONTROLS_BINDING_MOUSE_BUTTON_LEFT Pulsante sx mouse
+MENU_OPTIONS_CONTROLS_BINDING_MOUSE_BUTTON_RIGHT Pulsante dx mouse
+MENU_OPTIONS_CONTROLS_BINDING_NOT_SET Non impostato
+MENU_OPTIONS_CONTROLS_BINDING_SCROLL_DOWN Scorri in basso
+MENU_OPTIONS_CONTROLS_BINDING_SCROLL_UP Scorri in alto
+MENU_OPTIONS_CONTROLS_CANCEL Annulla
+MENU_OPTIONS_CONTROLS_CATEGORY_GAMEPLAY GAMEPLAY
+MENU_OPTIONS_CONTROLS_CATEGORY_HOTBAR BARRA DI CONTROLLO
+MENU_OPTIONS_CONTROLS_CATEGORY_MISC VARIE
+MENU_OPTIONS_CONTROLS_CATEGORY_MOVEMENT MOVIMENTO
+MENU_OPTIONS_CONTROLS_CHAT Chat
+MENU_OPTIONS_CONTROLS_CRAWL Striscia
+MENU_OPTIONS_CONTROLS_CREATE Crea
+MENU_OPTIONS_CONTROLS_FORCE_BUILD Forza costruzione
+MENU_OPTIONS_CONTROLS_HANDBOOK Manuale
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_1 Ogg. barra di controllo 1
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_10 Ogg. barra di controllo 10
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_2 Ogg. barra di controllo 2
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_3 Ogg. barra di controllo 3
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_4 Ogg. barra di controllo 4
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_5 Ogg. barra di controllo 5
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_6 Ogg. barra di controllo 6
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_7 Ogg. barra di controllo 7
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_8 Ogg. barra di controllo 8
+MENU_OPTIONS_CONTROLS_HOTBAR_ITEM_9 Ogg. barra di controllo 9
+MENU_OPTIONS_CONTROLS_HOTBAR_NEXT Ogg. barra di controllo succ.
+MENU_OPTIONS_CONTROLS_HOTBAR_NEXT_PAGE Barra di controllo succ.
+MENU_OPTIONS_CONTROLS_HOTBAR_PREVIOUS Ogg. barra di controllo prec.
+MENU_OPTIONS_CONTROLS_HOTBAR_PREVIOUS_PAGE Barra di controllo prec.
+MENU_OPTIONS_CONTROLS_HOTBAR_SELECT_1 Seleziona barra di controllo 1
+MENU_OPTIONS_CONTROLS_HOTBAR_SELECT_2 Seleziona barra di controllo 2
+MENU_OPTIONS_CONTROLS_HOTBAR_SELECT_3 Seleziona barra di controllo 3
+MENU_OPTIONS_CONTROLS_INVALID_ACTION non è un’azione valida
+MENU_OPTIONS_CONTROLS_INVENTORY Inventario
+MENU_OPTIONS_CONTROLS_INVERTED_Y_AXIS Asse Y invertito
+MENU_OPTIONS_CONTROLS_JUMP Salta
+MENU_OPTIONS_CONTROLS_LIFT_DOWN Abbassa
+MENU_OPTIONS_CONTROLS_LIFT_UP Solleva
+MENU_OPTIONS_CONTROLS_LOGBOOK Registro
+MENU_OPTIONS_CONTROLS_MOVE_BACKWARD Vai indietro
+MENU_OPTIONS_CONTROLS_MOVE_FORWARD Vai avanti
+MENU_OPTIONS_CONTROLS_RESET Azzera
+MENU_OPTIONS_CONTROLS_ROTATION_NEXT Rotazione successiva
+MENU_OPTIONS_CONTROLS_ROTATION_PREVIOUS Rotazione precedente
+MENU_OPTIONS_CONTROLS_SPRINT Scatta
+MENU_OPTIONS_CONTROLS_STRAFE_LEFT Slitta a sinistra
+MENU_OPTIONS_CONTROLS_STRAFE_RIGHT Slitta a destra
+MENU_OPTIONS_CONTROLS_TINKER Migliora
+MENU_OPTIONS_CONTROLS_USE Usa
+MENU_OPTIONS_CONTROLS_ZOOM_IN Ingrandisci
+MENU_OPTIONS_CONTROLS_ZOOM_OUT Riduci
+
+MENU_OPTIONS_DISPLAY SCHERMO
+MENU_OPTIONS_DISPLAY_DISPLAY_MODE Modalità di visualizzazione
+MENU_OPTIONS_DISPLAY_DISPLAY_MODE_BORDERLESS_WINDOW Finestra senza bordi
+MENU_OPTIONS_DISPLAY_DISPLAY_MODE_FULLSCREEN Schermo intero
+MENU_OPTIONS_DISPLAY_DISPLAY_MODE_WINDOWED A finestra
+MENU_OPTIONS_DISPLAY_FOV Campo visivo
+MENU_OPTIONS_DISPLAY_LANGUAGE Lingua
+MENU_OPTIONS_DISPLAY_RESOLUTION Risoluzione
+MENU_OPTIONS_DISPLAY_VEHICLE_CAMERA_MODE Modalità visuale veicolo
+MENU_OPTIONS_DISPLAY_VEHICLE_CAMERA_MODE_FOLLOW Visuale agganciata
+MENU_OPTIONS_DISPLAY_VEHICLE_CAMERA_MODE_FREE Visuale libera
+MENU_OPTIONS_DISPLAY_VEHICLE_CAMERA_MODE_STRICT_FOLLOW Visuale fissa
+MENU_OPTIONS_DISPLAY_VERTICAL_SYNCHRONIZATION Sincronizzazione Verticale
+
+MENU_OPTIONS_GRAPHICS GRAFICA
+MENU_OPTIONS_GRAPHICS_BLOOM Effetto blooming
+MENU_OPTIONS_GRAPHICS_CAMERA_SHAKE Vibrazioni visuale
+MENU_OPTIONS_GRAPHICS_CREATIVE_ONLY Solo creativa
+MENU_OPTIONS_GRAPHICS_DOF Profondità di campo
+MENU_OPTIONS_GRAPHICS_DRAW_DISTANCE Distanza di visualizzazione
+MENU_OPTIONS_GRAPHICS_DYNAMIC_LIGHTS Luci dinamiche
+MENU_OPTIONS_GRAPHICS_FOLIAGE Densità fogliame
+MENU_OPTIONS_GRAPHICS_FXAA Antialiasing
+MENU_OPTIONS_GRAPHICS_GODRAYS Raggi luminosi
+MENU_OPTIONS_GRAPHICS_PARTICLE_QUALITY Qualità particelle
+MENU_OPTIONS_GRAPHICS_REFLECTION_QUALITY Qualità riflessi
+MENU_OPTIONS_GRAPHICS_SHADER_QUALITY Qualità shader
+MENU_OPTIONS_GRAPHICS_SHADOW_QUALITY Qualità ombre
+MENU_OPTIONS_GRAPHICS_SHADOW_RESOLUTION Risoluzione ombre
+MENU_OPTIONS_GRAPHICS_SSAO SSAO
+MENU_OPTIONS_GRAPHICS_TEXTURE_FILTERING Filtraggio texture
+MENU_OPTIONS_GRAPHICS_TEXTURE_QUALITY Qualità texture
+
+MENU_OPTIONS_TITLE OPZIONI
+MENU_OPTOINS_CONTROLS_BINDING_MOUSE_BUTTON Pulsante mouse
+
+MENU_SURVIVAL_NO_SAVES_1 Per iniziare una nuova partita di sopravvivenza.
+MENU_SURVIVAL_NO_SAVES_2 Rinomina il tuo mondo nella casella sottostante
+MENU_SURVIVAL_NO_SAVES_3 e premi
+MENU_SURVIVAL_TITLE SOPRAVVIVENZA
+
+MENU_YN_CANCEL ANNULLA
+MENU_YN_MESSAGE_ACCEPT_DISPLAY Confermi queste impostazioni?
+MENU_YN_MESSAGE_CONFIRM Sei sicuro/a?
+MENU_YN_MESSAGE_DELETE_BLUEPRINT Vuoi eliminare questo progetto?
+MENU_YN_MESSAGE_DELETE_CHALLENGE_PACK Il pacchetto sfida verrà eliminato in modo permanente e non potrà essere ripristinato.
+MENU_YN_MESSAGE_DELETE_FROM_LIFT Vuoi eliminare questa creazione dalla piattaforma?
+MENU_YN_MESSAGE_OVERWRITE_BLUEPRINT Esiste già una creazione con questo nome. Vuoi sovrascriverla?
+MENU_YN_MESSAGE_REMOVE_CHALLENGE La sfida verrà rimossa dal relativo pacchetto.
+MENU_YN_MESSAGE_RESTORE_AUDIO Vuoi ripristinare tutte le impostazioni audio predefinite?
+MENU_YN_MESSAGE_RESTORE_CONTROLS Sei sicuro/a di voler ripristinare l’associazione dei tasti a quelle predefinite?
+MENU_YN_MESSAGE_RESTORE_DISPLAY Sei sicuro/a di voler ripristinare le impostazioni dello schermo a quelle predefinite?
+MENU_YN_MESSAGE_RESTORE_GRAPHICS Sei sicuro/a di voler ripristinare le impostazioni grafiche a quelle predefinite?
+MENU_YN_MESSAGE_RESTORE_TITLE_1 RIPRISTINA
+MENU_YN_MESSAGE_RESTORE_TITLE_2 A PREDEFINITI
+MENU_YN_MESSAGE_SHARE_CHALLENGE_PACK Così caricherai il pacchetto sfida sul Workshop.
+MENU_YN_MESSAGE_UPDATE_CHALLENGE_PACK Così sovrascriverai il pacchetto sfida esistente sul Workshop.
+MENU_YN_NO NO
+MENU_YN_OK OK
+MENU_YN_TITLE_ARE_YOU_SURE SEI SICURO/A?
+MENU_YN_YES SÌ
+
+MODS MOD
+NEW_GAME NUOVA PARTITA
+OFF Off
+OFF_CAPS OFF
+ON On
+ON_CAPS ON
+
+PAINT_TOOL_TITLE PENNELLO
+
+PART_FILTER_BLOCKS BLOCCHI
+PART_FILTER_CONSUMABLE CONSUMABILE
+PART_FILTER_INTERACTIVE INTERATTIVI
+PART_FILTER_MODS PARTI MOD
+PART_FILTER_PARTS PARTI
+PART_FILTER_TOOLS STRUMENTI
+PLAY GIOCA
+PLAYTIME TEMPO DI GIOCO
+PROPERTY_BUOYANCY GALLEGGIAMENTO
+PROPERTY_DURABILITY DUREVOLEZZA
+PROPERTY_FLAMMABLE INFIAMMABILE
+PROPERTY_FRICTION ATTRITO
+PROPERTY_WEIGHT PESO
+
+REMOVE RIMUOVI
+
+SCRAP_MECHANIC Scrap Mechanic
+
+SEARCH Ricerca
+SHARE CONDIVIDI
+
+SLIDER_FAST VELOCE
+SLIDER_LIMIT LIMITE
+SLIDER_MAX MAX
+SLIDER_SLOW LENTO
+
+STEAM_WORKSHOP WORKSHOP DI STEAM
+STEAM_WORKSHOP_2 Workshop di Steam
+STEAM_WORKSHOP_ACTION_VERIFY_INTEGRITY Controlla che i file di gioco siano integri
+STEAM_WORKSHOP_BY di
+STEAM_WORKSHOP_DOWNLOADING DOWNLOAD
+STEAM_WORKSHOP_EXPORT_UNNAMED Senza nome
+STEAM_WORKSHOP_FAILED_CREATE_ITEM Creazione dell’oggetto per il Workshop non riuscita
+STEAM_WORKSHOP_FAILED_DOWNLOAD Creazione dell'oggetto su workshop fallita
+STEAM_WORKSHOP_FAILED_FIND_FOLDER Impossibile creare la cartella per
+STEAM_WORKSHOP_FAILED_REASON Motivo
+STEAM_WORKSHOP_FAILED_REASON_ACCESS_DENIED Accesso negato
+STEAM_WORKSHOP_FAILED_REASON_DATA_CORRUPTION Dati danneggiati
+STEAM_WORKSHOP_FAILED_REASON_DISK_FULL Disco pieno
+STEAM_WORKSHOP_FAILED_REASON_ERROR_CODE Errore di codice
+STEAM_WORKSHOP_FAILED_UPLOAD Aggiornamento non riuscito
+STEAM_WORKSHOP_IMPORT_MODS_MISSING MOD MANCANTI
+STEAM_WORKSHOP_IMPORT_PARTS_MISSING PARTI INSUFFICIENTI
+STEAM_WORKSHOP_NO_DESCRIPTION Questo progetto non ha una descrizione.
+STEAM_WORKSHOP_SHARING CONDIVISIONE
+STEAM_WORKSHOP_UPDATE AGGIORNA
+STEAM_WORKSHOP_UPDATING AGGIORNAMENTO
+STEAM_WORKSHOP_UPLOAD_CHANGES_COMMIT Esecuzione delle modifiche
+STEAM_WORKSHOP_UPLOAD_CONFIG_PREP Preparazione configurazione
+STEAM_WORKSHOP_UPLOAD_CONTENT_PREP Preparazione dei contenuti
+STEAM_WORKSHOP_UPLOAD_CONTENT_UPLOAD Caricamento dei contenuti
+STEAM_WORKSHOP_UPLOAD_IMAGE_UPLOAD Immagine d’anteprima dell’aggiornamento
+STEAM_WORKSHOP_UPLOADING Aggiornamento
+
+TIME TEMPO
+TIME_DAYS giorni fa
+TIME_HOUR ora fa
+TIME_HOURS ore fa
+TIME_MINUTE minuto fa
+TIME_MINUTES minuti fa
+TIME_MONTH mese fa
+TIME_MONTHS mesi fa
+TIME_YEAR anno fa
+TIME_YEARS anni fa
+TIME_YESTERDAY Ieri
+
+TOOL_TIP_IE_BLOCK_NOT_FOUND BLOCCO NON TROVATO
+TOOL_TIP_IE_DRAG_TO_ROTATE TRASCINA PER RUOTARE
+
+UGC_AFFECTED_ITEMS Oggetti interessati
+UGC_AND_CONTENT e
+UGC_AND_CORE_GAME e gioco base!
+UGC_CANNOT_FIND Impossibile trovare
+UGC_CANNOT_FIND_FILE_ID Impossibile trovare il file ID di Steam
+UGC_ERROR_ID_CONFLICT Conflitto tra ID
+UGC_UNPUBLISHED_DEPENDENCY Uno degli oggetti richiesti non è stato pubblicato dal rispettivo autore. ID locale
+
+UNKNOWN_MOD <Mod sconosciuta>
+
+UNLOCK Sblocca
+UNLOCKED Sbloccato
+
+WARNING AVVISO
+WARNING_TUNNELING_LINE1 Stai giocando nel modo sbagliato!
+WARNING_TUNNELING_LINE2 Smettila!
+WARNING_TUNNELING_TITLE Ehi!
+
+WORLD_BUILDER_CLEAR_WORLD AZZERA MONDO
+WORLD_BUILDER_CONTINUE Vuoi continuare?
+WORLD_BUILDER_DELETE_WORLD_CONFIRM Sei sicuro/a di voler cancellare questo mondo?
+WORLD_BUILDER_FREE_PLACEMENT Collocazione libera
+WORLD_BUILDER_INVALID_NAME Nome del file non valido!
+WORLD_BUILDER_LOAD_WORLD CARICA
+WORLD_BUILDER_MAIN_MENU MENU PRINCIPALE
+WORLD_BUILDER_NAME_ALREADY_EXISTS Esiste già un mondo con questo nome.
+WORLD_BUILDER_OVERWRITE Vuoi sovrascriverlo?
+WORLD_BUILDER_REMOVE_ALL_TILES Proseguendo, rimuoverai tutte le mattonelle dal mondo attuale!
+WORLD_BUILDER_SAVE_WORLD SALVA MONDO
+WORLD_BUILDER_SAVE_WORLD_SUCCESS Mondo salvato
+WORLD_BUILDER_TITLE COSTRUTTORE MONDO
+WORLD_BUILDER_WORLD_NAME NOME MONDO        
+
+RAFT_PICKUP_HARPOON Raccolto Arpione
+RAFT_FISHED Pescato oggetto:
+RAFT_ADD_TO_LOGBOOK Aggiungi al giornale di bordo
+
+RAFT_CREATION_ROTATOR_TEXT Ruotatore della creazione
+RAFT_CREATION_ROTATOR_INTERACTION Moltiplicatore di forza
+RAFT_CREATION_ROTATOR_MODE_VERTICAL_HORIZONTAL Verticale + Orizzontale
+RAFT_CREATION_ROTATOR_MODE_VERTICAL Verticale
+RAFT_CREATION_ROTATOR_MODE_HORIZONTAL Orizzontale
+RAFT_CREATION_ROTATOR_MODE_ROLL Rotola
+RAFT_CREATION_ROTATOR_MULTIPLIER Moltiplicatore:
+RAFT_CREATION_ROTATOR_CURRENT_MODE Modalità corrente: #df7f00
+RAFT_CREATION_ROTATOR_FORWARD_CYCLE ' per scorrere avanti, '
+RAFT_CREATION_ROTATOR_BACKWARD_CYCLE ' per scorrere indietro e '
+RAFT_CREATION_ROTATOR_ADJUST_FORCE ' per modificare il moltiplicatore di forza.
+
+RAFT_WATER_SENSOR_TEXT Sensore d'acqua
+RAFT_WATER_SENSOR_SENSING_RADIUS Raggio di rilevamento(blocchi)
+RAFT_WATER_SENSOR_RADIUS Raggio: 
+RAFT_WATER_SENSOR_RADIUS_BLOCKS  blocchi
+RAFT_WATER_SENSOR_CURRENT_SENSING_RADIUS Raggio di rilevamento corrente: #df7f00
+RAFT_WATER_SENSOR_CURRENT_SENSING_RADIUS_BLOCKS  blocco(i)#4f4f4f, Visualizzazione: 
+RAFT_WATER_SENSOR_ADJUST_TIP ' per modificare il raggio di rilevamento e '
+RAFT_WATER_SENSOR_ADJUST_TIP_2 ' per attivare e disattivare la visualizzazione del raggio.
+
+RAFT_CYCLE_BACKWARDS ' per scorrere indietro.
+
+RAFT_SAIL_TIE_UP Lega la vela
+RAFT_SAIL_LOWER Abbassa la vela
+
+RAFT_TRADER_DIALOGUE_1 Mhh.. Bertha.. Io farò… OH! Tu.. Sei vivo?! Sono felice di vedere un'altra anima! Hm… Oh.. Penso di sapere un modo per eh- fuggire dal pianeta. Se potresti portare a Berth- eh, a me della verdura impacchettata,sarebbe grandioso! Hehe.. Ti ho segnato la posizione di una stazione di impacchettamento. Impacchetta 2 contenitori di carote e 2 di barbabietole rosse. Poi puoi portarli alla grande vecchia Bertha- eh, la grande pompa di là.. Hehe.
+RAFT_TRADER_DIALOGUE_2 Che bella sorpresa vederti qui di nuovo! Cioè, non che mi aspettavo di trovare i tuoi arti sulle sponde.. Ehm. Comuqnue, sfortunatamente le verdure sono solo parte della ricett- eh piano. Le altre risorse sono state mantenute segrete. Però ho rilevato attività anormale di.. Woc su un'isola strana qui vicino. Dovresti investigare.
+RAFT_TRADER_DIALOGUE_3 Perfetto! Presto sarà mi- eh, potremmo abbandonare questo pianeta. *fissa gli appunti* Ah... SI.. LO SAPEVO! Muhahahahaa- Oh, scusa Non sono abituato ad avere compagnia, almeno dopo l'incident- Comunque, mi devi portare altri 2 pacchi di mirtilli e 2 di banane. Ti ho segnato la posizione di una stazione di impacchettamento vicina.
+RAFT_TRADER_DIALOGUE_4 *Beve* AH, proprio quello che mi serve! Mi sei mancato così tanto sunshake... Dov'è la mia educazione? Perché non offro un sunshake pure a te? Posso crearne quanti ne vuoi, se mi porti ingredienti freschi. Eh, certo che questo era necessario.. perché.. il.. ah.. sunshake contiene, ah, coordinate di alcune rovine. Visto che la mia vita è ora salvata dal sunshake, potresti anche cercare di liberare il resto del mio equipaggio. Ho sentito dire che potrebbe esserci una chiave nella città in rovine. Se riuscissi a mettere le mie mani su questo dispositivo, potremmo iniziare una missione di salvataggio.
+RAFT_TRADER_DIALOGUE_5 Non riesco a crederci che sei viv- ah, così avventuroso! Fammi vedere questa chiave. AH.. SI.. Un circuito così semplice… Dovrei riuscire a ricrearlo facilmente con gli attrezzi giusti. Ma con questa chiave, dovresti riuscire ad entrare nei magazzini dove il resto del mio equipaggio è tenuto in ostaggio per aver usato i bagni al posto del.. Beh, non chiedere perché ci sono così tante bottiglie d'acqua nell'oceano.. Comunque, raggiungi il tetto di un magazzino e salva uno di loro! Poi torna da ma e la grande, vecchia Bertha se ne occuperà.
+RAFT_TRADER_DIALOGUE_6 Mi è mancato avere compagnia per così tanto tempo *singhiozza*. Continua a salvare il resto del mio equipaggio! Nel frattempo penserò ad un piano per portarci via dal pianeta e tornare a casa…                                                  
