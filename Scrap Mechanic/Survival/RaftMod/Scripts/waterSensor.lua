@@ -36,8 +36,8 @@ function Sensor:client_onCreate()
         visualization = sm.effect.createEffect("WaterSensor - Visualization", self.interactable)
     }
 
-    self.cl.gui:setText( "Name", "Water Sensor" )
-	self.cl.gui:setText( "Interaction", "Sensing Radius(blocks)" )
+    	self.cl.gui:setText( "Name", "#{RAFT_WATER_SENSOR_TEXT}" )
+	self.cl.gui:setText( "Interaction", "#{RAFT_WATER_SENSOR_SENSING_RADIUS}" )
 	self.cl.gui:setSliderCallback( "Setting", "cl_onSliderChange" )
 	self.cl.gui:setIconImage( "Icon", obj_waterSensor )
 
@@ -49,7 +49,7 @@ end
 
 function Sensor:cl_refreshGUI()
     self.cl.gui:setSliderData( "Setting", maxTriggerSize + 1, self.sv.data.slider )
-    self.cl.gui:setText( "SubTitle", "Radius: " .. tostring( self.sv.data.slider ).." blocks" )
+    self.cl.gui:setText( "SubTitle", "#{RAFT_WATER_SENSOR_RADIUS}" .. tostring( self.sv.data.slider ).."#{RAFT_WATER_SENSOR_RADIUS_BLOCKS}" )
 end
 
 function Sensor:cl_onSliderChange( sliderName, sliderPos )
@@ -110,8 +110,8 @@ end
 
 function Sensor:client_canInteract()
     local txt = self.cl.data.visualize and "#269e44ON" or "#9e2626OFF"
-	sm.gui.setInteractionText( "", "Current sensing radius: #df7f00"..tostring(self.cl.data.slider).." block(s)#4f4f4f, Visualization: "..txt )
-    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."' to adjust the sensing radius and '"..sm.gui.getKeyBinding( "Tinker" ).."' to toggle the radius visualisation." )
+	sm.gui.setInteractionText( "", "#{RAFT_WATER_SENSOR_CURRENT_SENSING_RADIUS}"..tostring(self.cl.data.slider).."#{RAFT_WATER_SENSOR_CURRENT_SENSING_RADIUS_BLOCKS}"..txt )
+    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."#{RAFT_WATER_SENSOR_ADJUST_TIP}"..sm.gui.getKeyBinding( "Tinker" ).."#{RAFT_WATER_SENSOR_ADJUST_TIP_2}" )
 
     return true
 end

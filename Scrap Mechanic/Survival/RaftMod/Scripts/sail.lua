@@ -88,15 +88,15 @@ end
 function Sail.client_canInteract( self, character, state )
     parent = self.interactable:getSingleParent()
     if parent then
-        sm.gui.setInteractionText("Controlled by interactable")
+        sm.gui.setInteractionText("", "#c60000X", "#{ALERT_CONTROL_OVERRIDE}")
         return false
     end
 
     local keyBindingText = sm.gui.getKeyBinding( "Use" )
     if self.cl.active then
-        sm.gui.setInteractionText("", keyBindingText, "Tie up sail")
+        sm.gui.setInteractionText("", keyBindingText, "#{RAFT_SAIL_TIE_UP}")
     else
-        sm.gui.setInteractionText("", keyBindingText, "Lower sail")
+        sm.gui.setInteractionText("", keyBindingText, "#{RAFT_SAIL_LOWER}")
     end
     return true
 end

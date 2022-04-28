@@ -7,10 +7,10 @@ Steer.colorNormal = sm.color.new("#00ff33")
 Steer.colorHighlight = sm.color.new("#00ff00")
 
 local modes = {
-    "Vertical + Horizontal",
-    "Vertical",
-    "Horizontal",
-    "Roll"
+    "#{RAFT_CREATION_ROTATOR_MODE_VERTICAL_HORIZONTAL}",
+    "#{RAFT_CREATION_ROTATOR_MODE_VERTICAL}",
+    "#{RAFT_CREATION_ROTATOR_MODE_HORIZONTAL}",
+    "#{RAFT_CREATION_ROTATOR_MODE_ROLL}"
 }
 
 local maxForceMult = 25
@@ -35,15 +35,15 @@ function Steer:client_onCreate()
         gui = sm.gui.createEngineGui()
     }
 
-    self.cl.gui:setText( "Name", "Creation Rotator" )
-	self.cl.gui:setText( "Interaction", "Force multiplier" )
+    self.cl.gui:setText( "Name", "#{RAFT_CREATION_ROTATOR_TEXT}" )
+	self.cl.gui:setText( "Interaction", "#{RAFT_CREATION_ROTATOR_INTERACTION}" )
 	self.cl.gui:setSliderCallback( "Setting", "cl_onSliderChange" )
 	self.cl.gui:setIconImage( "Icon", obj_creationSteer )
 end
 
 function Steer:cl_refreshGUI()
     self.cl.gui:setSliderData( "Setting", maxForceMult + 1, self.cl.data.slider )
-    self.cl.gui:setText( "SubTitle", "Multiplier: " .. tostring( self.cl.data.slider ) )
+    self.cl.gui:setText( "SubTitle", "#{RAFT_CREATION_ROTATOR_MULTIPLIER}" .. tostring( self.cl.data.slider ) )
 end
 
 function Steer:cl_onSliderChange( sliderName, sliderPos )
@@ -138,8 +138,8 @@ function Steer:cl_uvUpdate( index )
 end
 
 function Steer:client_canInteract()
-	sm.gui.setInteractionText( "", "Current mode: #df7f00"..modes[self.cl.data.count] )
-    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."' to cycle forwards, '"..sm.gui.getKeyBinding( "Tinker" ).."' to cycle backwards and '"..sm.gui.getKeyBinding( "Crawl" ).."' + '"..sm.gui.getKeyBinding( "Use" ).."' to adjust the force multiplier." )
+	sm.gui.setInteractionText( "", "#{RAFT_CREATION_ROTATOR_CURRENT_MODE}"..modes[self.cl.data.count] )
+    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."#{RAFT_CREATION_ROTATOR_FORWARD_CYCLE}"..sm.gui.getKeyBinding( "Tinker" ).."#{RAFT_CREATION_ROTATOR_BACKWARD_CYCLE}"..sm.gui.getKeyBinding( "Crawl" ).."' + '"..sm.gui.getKeyBinding( "Use" ).."#{RAFT_CREATION_ROTATOR_ADJUST_FORCE}" )
 
     return true
 end

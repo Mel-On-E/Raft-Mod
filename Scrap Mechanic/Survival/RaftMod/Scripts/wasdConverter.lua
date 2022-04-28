@@ -112,8 +112,8 @@ function Converter:cl_uvUpdate( index )
 end
 
 function Converter:client_canInteract()
-	sm.gui.setInteractionText( "", "Current mode: #df7f00"..modes[self.cl.data.count]:upper() )
-    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."' to cycle forwards, '"..sm.gui.getKeyBinding( "Tinker" ).."' to cycle backwards.")
+	sm.gui.setInteractionText( "", "#{RAFT_CREATION_ROTATOR_CURRENT_MODE}"..modes[self.cl.data.count]:upper() )
+    sm.gui.setInteractionText( "", "'"..sm.gui.getKeyBinding( "Use" ).."#{RAFT_CREATION_ROTATOR_FORWARD_CYCLE}"..sm.gui.getKeyBinding( "Tinker" ).."#{RAFT_CYCLE_BACKWARDS}")
 
     return true
 end
