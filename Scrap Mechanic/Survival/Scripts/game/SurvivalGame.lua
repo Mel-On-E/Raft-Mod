@@ -20,13 +20,30 @@ SurvivalGame.enableUpgradeCost = true
 local SyncInterval = 400 -- 400 ticks | 10 seconds
 
 --Raft
+local VERSION = 1.1
+local checkedForUpdates = false
 local spawnRaft = false
+local setRaftSpawn = true
 
---Raft
+function SurvivalGame:checkVersion() 
+	local success, data = pcall(sm.json.open, '$CONTENT_3df6725e-462a-47e3-92ed-e5b66883588c/description.json' )
+
+	if not success then return end -- If the file doesn't exist, don't bother checking the version
+
+	local modVersion = data.version
+	local needsUpdate = modVersion ~= nil and VERSION ~= modVersion -- maybe compare if Version < modVersion would be better
+	
+	if needsUpdate then
+		sm.gui.chatMessage("[Raft Mechanic] Your on version " .. VERSION .. " and version " .. modVersion .. " is available, please update!" )
+	--else 
+	--	sm.gui.chatMessage("[Raft Mechanic] You are on the latest version!" )
+	end
+end
+
 function SurvivalGame:sv_shootSpear( args )
 	sm.event.sendToWorld( args.world, "sv_shootSpear", args.data )
 end
---Raft
+--Raft END
 
 function SurvivalGame.server_onCreate( self )
 	print( "SurvivalGame.server_onCreate" )
@@ -296,6 +313,7 @@ function SurvivalGame.server_onFixedUpdate( self, timeStep )
 			if player.id == 1 then
 				if player:getCharacter() then
 					self:server_spawnRaft()
+					sm.event.sendToWorld( player:getCharacter():getWorld(), "sv_e_handleRaftSpawn", { player = player, vec = vec } )
 					spawnRaft = false
 				end
 			end
@@ -305,6 +323,11 @@ function SurvivalGame.server_onFixedUpdate( self, timeStep )
 	--RAFT //TODO make quest_find_trader disable it by default.
 	if self.sv.saved.showHelpMessages and sm.game.getCurrentTick() % (40*60*10) == 0 then
 		self.network:sendToClients("cl_msg", "Feeling stuck? The logbook can help you out.")
+	end
+
+	if not checkedForUpdates then
+		checkedForUpdates = true
+		self:checkVersion()
 	end
 end
 
@@ -659,7 +682,6 @@ function SurvivalGame.server_spawnRaft()
 	vec.z = 0
 	for _, player in pairs(sm.player.getAllPlayers()) do
 		if player.id == 1 then
-
 			sm.creation.importFromFile( player:getCharacter():getWorld(), "$SURVIVAL_DATA/LocalBlueprints/RAFT.blueprint", vec )
 		end
 	end
@@ -705,8 +727,9 @@ function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 		if player.id == 1 then
 			spawnRaft = true
 			sm.gui.chatMessage("#ff0000Thanks for playing the Raft Mechanic Mod! Check out the logbook to get started!")
+		elseif setRaftSpawn then
+			sm.event.sendToWorld( player:getCharacter():getWorld(), "sv_e_handleRaftSpawn", { player = player, vec = vec } ) -- spawn players on the raft
 		end
-
 	else
 		local inventory = player:getInventory()
 

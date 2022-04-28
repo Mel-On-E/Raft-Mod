@@ -28,6 +28,7 @@ obj_sail = sm.uuid.new("eea9794b-bcdf-431e-bdcd-7b2ff6ffa145")
 obj_bee_queen = sm.uuid.new("c2418698-7a91-40fa-95a3-3be5ddb3ec1d")
 obj_radio_antenna = sm.uuid.new("f95beb80-49c8-4d4c-98e9-5b87225c4570")
 obj_seed_press = sm.uuid.new("e9c7d080-ae4b-4fec-b626-34afda6f5114")
+obj_hammack = sm.uuid.new("4c1aed86-a402-4240-81e7-b67edf433fd5")
 
 obj_grill = sm.uuid.new("67dd0023-023d-46cb-9839-e4ada2609a9b")
 obj_flag = sm.uuid.new("8f460344-ef34-42ab-99e3-d3bed9af4b52")

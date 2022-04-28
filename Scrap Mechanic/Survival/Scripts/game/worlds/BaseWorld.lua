@@ -52,6 +52,24 @@ function BaseWorld:cl_setEffects( args )
 	end
 end
 
+--Raft
+function BaseWorld:sv_e_handleRaftSpawn( args )
+	-- search for raft using the hamock bed
+	for _, body in ipairs(sm.body.getAllBodies()) do 
+		for _, shape in ipairs(body:getShapes()) do
+			if shape:getShapeUuid() == obj_hammack then
+				local character = args.player:getCharacter()
+
+				shape:getInteractable():setSeatCharacter( character ) 
+
+				g_respawnManager:sv_registerBed( shape, character )
+				-- force sleep a character to the raft HEAVILY relies on the hammock
+			end
+		end
+	end
+end
+--Raft end
+
 function BaseWorld:sv_shootSpear( args )
 	local spear = { effect = nil, owner = args.owner, speed = sm.vec3.one(), trigger = nil, pos = args.pos, dir = args.dir, lifeTime = 0, attached = false, attachedTarget = nil, attachPos = sm.vec3.zero(), attachDir = sm.vec3.zero() }
 	spear.trigger = sm.areaTrigger.createBox( sm.vec3.new(0.25,0.25,0.25), spear.pos + spear.dir, sm.quat.identity() )

@@ -1,7 +1,11 @@
 ---------1.1-----------
 - new reinforced raft base texture
+- alert users of new version
 - sail are slightly more powerful
 - makeshift antenna now has a waypoint
+- new command /togglehelpmessages (toggle help messages)
+- new players now spawn in the hammock
 - balancing adjustments
 - various bug fixes
+- disabled dev mode for non host
 - multiplayer fixes
