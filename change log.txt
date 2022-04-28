@@ -1,3 +1,6 @@
 ---------1.1-----------
 - new reinforced raft base texture
+- sail are slightly more powerful
+- balancing adjustments
+- various bug fixes
 - multiplayer fixes
