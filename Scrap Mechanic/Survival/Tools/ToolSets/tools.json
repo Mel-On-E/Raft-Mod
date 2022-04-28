@@ -5,7 +5,14 @@
 			"uuid": "bb641a4f-e391-441c-bc6d-0ae21a069477",
 			"previewRenderable": "$SURVIVAL_DATA/Character/Char_Tools/Char_woodsledgehammer/char_woodsledgehammer_preview.rend",
 			"previewRotation": [  -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
-			"script": { "file": "$SURVIVAL_DATA/Scripts/game/tools/Sledgehammer.lua", "class": "Sledgehammer" }
+			"script": {
+				"file": "$SURVIVAL_DATA/Scripts/game/tools/Sledgehammer.lua",
+				"class": "Sledgehammer",
+				"data" : {
+					"damage": 10,
+					"renderableIndex": 1 
+				}
+			}
 		},
 		{
 			"uuid": "8f190ce2-3a59-423e-8483-a7aa67bd5bc0",

@@ -17,13 +17,27 @@
 			"uuid": "1daebe24-4e16-422c-b5e7-c3f45f9296d8",
 			"previewRenderable": "$SURVIVAL_DATA/Character/Char_Tools/Char_axe/char_axe_preview.rend",
 			"previewRotation": [  -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
-			"script": { "file": "$SURVIVAL_DATA/RaftMod/Scripts/axe.lua", "class": "Axe" }
+			"script": {
+				"file": "$SURVIVAL_DATA/Scripts/game/tools/Sledgehammer.lua",
+				"class": "Sledgehammer",
+				"data" : {
+					"damage": 20,
+					"renderableIndex": 2
+				}
+			}
 		},
 		{
 			"uuid": "c883b283-ea7a-4bba-af0d-5c13fd73051d",
 			"previewRenderable": "$SURVIVAL_DATA/Character/Char_Tools/Char_pickaxe/char_pickaxe_preview.rend",
 			"previewRotation": [  -1, 0, 0, 0, 0, 1, 0, 1, 0 ],
-			"script": { "file": "$SURVIVAL_DATA/RaftMod/Scripts/pickaxe.lua", "class": "Pickaxe" }
+			"script": {
+				"file": "$SURVIVAL_DATA/Scripts/game/tools/Sledgehammer.lua",
+				"class": "Sledgehammer",
+				"data" : {
+					"damage": 20,
+					"renderableIndex": 3
+				}
+			}
 		},
 		{
 			"uuid": "0db1ecd5-503d-4dd3-807e-869c243a7c08",

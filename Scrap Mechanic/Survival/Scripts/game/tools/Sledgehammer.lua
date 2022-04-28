@@ -2,14 +2,13 @@
 dofile "$GAME_DATA/Scripts/game/AnimationUtil.lua"
 dofile "$SURVIVAL_DATA/Scripts/util.lua"
 
-local Damage = 10
-
 Sledgehammer = class()
 
 local renderables = {
-	"$SURVIVAL_DATA/Character/Char_Tools/Char_woodsledgehammer/char_woodsledgehammer.rend"
+	"$SURVIVAL_DATA/Character/Char_Tools/Char_woodsledgehammer/char_woodsledgehammer.rend",
+	"$SURVIVAL_DATA/Character/Char_Tools/Char_axe/char_axe_preview.rend",
+	"$SURVIVAL_DATA/Character/Char_Tools/Char_pickaxe/char_pickaxe_preview.rend"
 }
-
 local renderablesTp = {"$GAME_DATA/Character/Char_Male/Animations/char_male_tp_sledgehammer.rend", "$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_tp_animlist.rend"}
 local renderablesFp = {"$GAME_DATA/Character/Char_Tools/Char_sledgehammer/char_sledgehammer_fp_animlist.rend"}
 
@@ -31,6 +30,10 @@ Sledgehammer.swingExits = { "sledgehammer_exit1", "sledgehammer_exit2" }
 function Sledgehammer.client_onCreate( self )
 	self.isLocal = self.tool:isLocal()
 	self:init()
+
+	self.renderables = {
+		renderables[self.data.renderableIndex]
+	}
 end
 
 function Sledgehammer.client_onRefresh( self )
@@ -335,7 +338,7 @@ function Sledgehammer.client_onEquippedUpdate( self, primaryState, secondaryStat
 			self.pendingRaycastFlag = false
 			local raycastStart = sm.localPlayer.getRaycastStart()
 			local direction = sm.localPlayer.getDirection()
-			sm.melee.meleeAttack( "Sledgehammer", Damage, raycastStart, direction * Range, self.tool:getOwner() )
+			sm.melee.meleeAttack( "Sledgehammer", self.data.damage, raycastStart, direction * Range, self.tool:getOwner() )
 			local success, result = sm.localPlayer.getRaycast( Range, raycastStart, direction )
 			if success then
 				self.freezeTimer = self.freezeDuration
@@ -402,10 +405,15 @@ function Sledgehammer.client_onEquip( self, animate )
 
 	self.equipped = true
 
-	for k,v in pairs( renderables ) do renderablesTp[#renderablesTp+1] = v end
-	for k,v in pairs( renderables ) do renderablesFp[#renderablesFp+1] = v end
-	
-	self.tool:setTpRenderables( renderablesTp )
+	local currentRenderablesTp = {}
+	local currentRenderablesFp = {}
+
+	for k,v in pairs( renderablesTp ) do currentRenderablesTp[#currentRenderablesTp+1] = v end
+	for k,v in pairs( renderablesFp ) do currentRenderablesFp[#currentRenderablesFp+1] = v end
+	for k,v in pairs( self.renderables ) do currentRenderablesTp[#currentRenderablesTp+1] = v end
+	for k,v in pairs( self.renderables ) do currentRenderablesFp[#currentRenderablesFp+1] = v end
+
+	self.tool:setTpRenderables( currentRenderablesTp )
 
 	self:init()
 	self:loadAnimations()
@@ -413,7 +421,7 @@ function Sledgehammer.client_onEquip( self, animate )
 	setTpAnimation( self.tpAnimations, "equip", 0.0001 )
 
 	if self.isLocal then
-		self.tool:setFpRenderables( renderablesFp )
+		self.tool:setFpRenderables( currentRenderablesFp )
 		swapFpAnimation( self.fpAnimations, "unequip", "equip", 0.2 )
 	end
 	
