@@ -56,7 +56,9 @@ local MaxTumbleImpulseSpeed = 35
 local RecentTumblesTickTimeInterval = 30.0 * 40 -- Time frame to count amount of tumbles in a row
 local MaxRecentTumbles = 3
 
-local maxTankCharge = 30 --Raft
+local maxTankChargePerTank = 30 --Raft
+local oxygenTankReplenishRate = 2 --Raft
+local maxOxygenTankMult = 5 --Raft
 
 function SurvivalPlayer.server_onCreate( self )
 	self.sv = {}
@@ -78,7 +80,8 @@ function SurvivalPlayer.server_onCreate( self )
 		--Raft
 		--tbh I only added these to self.sv.saved so that I can access them easily in client_onClientDataUpdate
 		self.sv.saved.wearingTank = false
-		self.sv.saved.tankCharge = maxTankCharge
+		self.sv.saved.tankCharge = maxTankChargePerTank
+		self.sv.saved.maxTankCharge = maxTankChargePerTank
 		self.sv.saved.usedTanks = 0
 		--Raft
 
@@ -304,17 +307,12 @@ function SurvivalPlayer:sv_checkRenderables( args )
 		self.sv.saved.wearingTank = sm.container.canSpend( args.inv, obj_oxygen_tank, 1 )
 
 		if self.sv.saved.wearingTank then
-			local tanks = 0
-			for i = 1, args.inv:getSize() do
-				local item = args.inv:getItem( i )
-				if item.uuid == obj_oxygen_tank then
-					tanks = tanks + 1
-				end
-			end
+			local tanks = sm.util.clamp(sm.container.totalQuantity( args.inv, obj_oxygen_tank ), 0, maxOxygenTankMult)
 
 			if self.sv.saved.usedTanks < tanks then
 				self.sv.saved.usedTanks = tanks
-				self.sv.saved.tankCharge = maxTankCharge * tanks
+				self.sv.saved.tankCharge = maxTankChargePerTank * tanks
+				self.sv.saved.maxTankCharge = maxTankChargePerTank * tanks
 				self.storage:save( self.sv.saved )
 			end
 		end
@@ -347,8 +345,8 @@ function SurvivalPlayer:cl_checkTankRenderable( args )
 	end
 end
 
-function SurvivalPlayer:cl_displayMsg( msg )
-	sm.gui.displayAlertText(msg, 2.5)
+function SurvivalPlayer:cl_displayMsg( args )
+	sm.gui.displayAlertText(args.msg, args.dur)
 end
 --Raft
 
@@ -438,18 +436,20 @@ function SurvivalPlayer.server_onFixedUpdate( self, dt )
 
 		--Raft
 		if self.sv.saved.wearingTank then
-			local tankChange = dt
+			self.sv.saved.maxTankCharge = maxTankChargePerTank * sm.util.clamp(sm.container.totalQuantity( self.player:getInventory(), obj_oxygen_tank ), 0, maxOxygenTankMult)
+
+			local tankChange = dt * oxygenTankReplenishRate
 			if character:isDiving() then
 				tankChange = -dt
 			end
 
 			if self.sv.saved.tankCharge + tankChange == 0 and tankChange < 0 then
-				self.network:sendToClient(self.player, "cl_displayMsg", "Your Oxygen Tank has ran out of air!")
-			elseif self.sv.saved.tankCharge > dt and tankChange < 0 then
-				self.network:sendToClient(self.player, "cl_displayMsg", "Oxygen tank will run out of air in: #df7f00"..tostring(math.floor(self.sv.saved.tankCharge)).." seconds")
+				self.network:sendToClient(self.player, "cl_displayMsg", { msg = "Your Oxygen Tank has ran out of air!", dur = 1 })
+			elseif self.sv.saved.tankCharge > dt and self.sv.saved.tankCharge < self.sv.saved.maxTankCharge then
+				self.network:sendToClient(self.player, "cl_displayMsg", { msg = "#df7f00"..tostring(math.floor(self.sv.saved.tankCharge)).." seconds #ffffffworth of air is in your tank.", dur = 1 } )
 			end
 
-			self.sv.saved.tankCharge = sm.util.clamp(self.sv.saved.tankCharge + tankChange, 0, maxTankCharge)
+			self.sv.saved.tankCharge = sm.util.clamp(self.sv.saved.tankCharge + tankChange, 0, self.sv.saved.maxTankCharge)
 		end
 		--Raft
 	end

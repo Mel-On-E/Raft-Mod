@@ -10,6 +10,39 @@ Antenna.poseWeightCount = 1
 local UVSpeed = 5
 local UnfoldSpeed = 15
 
+function Antenna:server_onCreate()
+	self.sv = {}
+	self.sv.loaded = true
+	self.sv.iconData = {
+		iconIndex = 0,
+		colorIndex = 1
+	}
+
+	self.network:setClientData( { iconIndex = self.sv.iconData.iconIndex, colorIndex = self.sv.iconData.colorIndex } )
+
+	if g_beaconManager then
+		g_beaconManager:sv_createBeacon( self.shape, self.sv.iconData )
+	end
+end
+
+function Antenna.server_onDestroy( self )
+	if self.sv.loaded then
+		if g_beaconManager then
+			g_beaconManager:sv_destroyBeacon( self.shape )
+		end
+		self.sv.loaded = false
+	end
+end
+
+function Antenna.server_onUnload( self )
+	if self.sv.loaded then
+		if g_beaconManager then
+			g_beaconManager:sv_unloadBeacon( self.shape )
+		end
+		self.sv.loaded = false
+	end
+end
+
 function Antenna.server_completeQuest( self, character, state )
 	g_questManager:sv_completeQuest(quest_radio_interactive)
     self.network:sendToClients("cl_playEffect")
@@ -17,6 +50,11 @@ end
 
 function Antenna.client_onCreate( self )
     self.cl = {}
+	self.cl.iconData = {
+		iconIndex = 0,
+		colorIndex = 1
+	}
+
 	self.cl.loopingIndex = 0
 	self.cl.unfoldWeight = 0
 	self.effect = sm.effect.createEffect( "Antenna - Activation", self.interactable )
