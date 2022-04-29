@@ -1,0 +1,58 @@
+{
+	"Glowstick - Throw":
+	{
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "event:/tools/glowstick/gs_throw",
+				"delay": 0.0
+			}
+		]
+	},
+	"Glowstick - Hold":
+	{
+		"parameterList":
+		{
+			"Color": [1,0.6,0,1],
+			"radius": 40.0,
+			"intensity": 1.25,
+			"color":"ffcc34"
+		},
+		"parameterCurves":
+		{
+			"radius":
+			{
+				"timeline":
+				[
+					{ "time":0.0, "value":0.0 },
+					{ "time":0.125, "value":40.0 }
+				]
+			},
+			"intensity":
+			{
+				"timeline":
+				[
+					{ "time":0.0, "value":0.0 },
+					{ "time":0.125, "value":1.25 }
+				]
+			}
+		},
+		"effectList":
+		[
+			{
+				"type": "pointLight",
+				"name": "",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"color",
+					"radius",
+					"intensity"
+				],
+				"duration": -1.0,
+				"delay": 0.0
+			}
+		]
+	}
+}
