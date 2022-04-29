@@ -123,6 +123,9 @@ function generateOverworldCelldata( xMin, xMax, yMin, yMax, seed, data, padding 
 
 	pois[#pois + 1] = { x = -12, y = 20, type = POI_PACKINGSTATIONVEG_MEDIUM, size = 2, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
 
+	--garantueed burn forest
+	pois[#pois + 1] = { x = 2, y = 32, type = POI_BURNTFOREST_FARMBOTSCRAPYARD_LARGE, size = 4, road = false, flat = true, cellDebug = DEBUG_R, edges = {} }
+
 
 
 
