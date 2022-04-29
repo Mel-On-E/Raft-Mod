@@ -9,3 +9,4 @@
 - various bug fixes
 - disabled dev mode for non host
 - multiplayer fixes
+- Polish, Italian localization!
