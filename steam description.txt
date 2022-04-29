@@ -45,8 +45,8 @@ Features:
 
 
 [h1]How to install[/h1]
-[h3]Watch my video on how to install mods![/h3]
-https://www.youtube.com/watch?v=ZbfB5nJ_BaM
+[h3]Click below to watch a video tutorial on how to install the mod![/h3]
+[url=https://www.youtube.com/watch?v=5IH-mvOsVX4][img]https://i.imgur.com/Cl4IM3qh.jpg[/img][/url]
 [olist]
     [*]Subscribe to the mod and wait for it to download.
     [*]Go to your Steam library and right-click Scrap Mechanic. Click "Manage" -> "Browse Local Files"
