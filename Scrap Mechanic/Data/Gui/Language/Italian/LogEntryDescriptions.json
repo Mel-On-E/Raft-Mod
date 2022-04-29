@@ -1,7 +1,7 @@
 {
     "ecf82a9f-26a1-4cac-b7de-ad69f4aba635": {
         "title": "Benvenuto su Raft Mechanic",
-        "description": "Grazie per aver giocato la NOSTRA mod! Come iniziare:\n\n • Prima, raccogli del legno e della plastica che galleggia nell'oceano e crea degli attrezzi come il martello.\n\n • Il martello è stato peggiorato, quindi non può più abbattere gli alberi. Fa pure meno danno. Ti conviene usare attrezzi come l'ascia e la lancia per queste azioni.\n\n • Il miglior modo per ottenere cibo è pescare. La descrizione dell'oggetto a più informazioni\n\n • Per rimanere idratato, ti servirà un purificafore d'acqua per essere fornito di acqua pulita.\n\n • Non dimenticare i pericoli! Come gli squali e altre creature non molto simpatiche."
+        "description": "Grazie per aver giocato la NOSTRA mod! Come iniziare:\n\n • Raccogli del legno e della plastica che galleggia nell'oceano e crea degli attrezzi come il martello.\n\n • Il martello è stato depotenziato, quindi non può più abbattere gli alberi. Fa pure meno danno. Ti conviene usare attrezzi come l'ascia e la lancia per queste azioni.\n\n • Il miglior modo per ottenere cibo è pescare. La descrizione dell'oggetto da più informazioni.\n\n • Per rimanere idratato, ti servirà un purificafore d'acqua per avere una scorta di acqua pulita.\n\n • Non dimenticare i pericoli! Come gli squali e altre creature non molto simpatiche."
     },
     "ee4ab0d3-027a-4969-9436-5b23c26e5eeb": {
         "title": "Disperso",
@@ -9,23 +9,23 @@
     },  
     "29d72e47-8eac-4fb9-95b1-ecccc06ff84f": {
         "title": "Avamposto del Ranger spaziale",
-        "description": "Secondo l'unità di navigazione della nave dovrebbe esserci un avamposto da qualche parte. Stranamente non manda segnali da più di un decennio. Credo di poter riparlo e mandare un segnale di soccorso. Quardando l'immagine sembra abbandonato. Mi chiedo cosa sia successo lì... Forse posso improvvisare un'arma."
+        "description": "Secondo l'unità di navigazione della nave dovrebbe esserci un avamposto da qualche parte. Stranamente non manda segnali da più di un decennio. Credo di poter riparlo e mandare un segnale di soccorso. Guardando l'immagine sembra abbandonato. Mi chiedo cosa sia successo lì... Penso di poter improvvisare un'arma."
     },
     "b7ebd326-60c5-4ee7-a35f-1bd3ef408ded": {
         "title": "Stato dell'antenna",
-        "description": "L'antenna di comunicazione dell'avamposto è stata danneggiata da 'Haybot'. Un'analisi più approfondita del pianeta rivela che è stato preso in controllo da una mega corporazione. Ma qualcosa è andato terribilmente male... Però, Dovrei riuscire a costruire una piccola radio per mandare e ricevere segnali di soccorso. Per migliorare il mio legno rottamato, mi servirà un fabbricatore migliore."
+        "description": "L'antenna di comunicazione dell'avamposto è stata danneggiata da 'Haybot'. Un'analisi più approfondita del pianeta rivela che era sotto il controllo di una mega corporazione. Ma qualcosa è andato terribilmente storto... Dovrei riuscire a costruire una piccola radio per mandare e ricevere segnali di soccorso. Per migliorare il mio legno rottamato, mi servirà un fabbricatore migliore."
     },
     "0ccc96c2-97dd-47d9-af8b-0ae2343a939e": {
         "title": "Missione di soccorso",
         "description": "Mi è arrivato uno strano segnale non lontano da qui, apparentemente è segnato come 'URGENTE'. Se costruisco una vela, potrei andarci."
     },
     "826a19db-2d2e-46fa-9ade-7bcdd8514572": {
-        "title": "Note del commerciante",
-        "description": "Le pagine sono ingiallite. Però sono fatte di materiale impermeabile e sorprendentemente ancora leggibile:\n\nGiorno 3\n Stavo volando vicino un pianeta quando qualcosa ha colpito la mia nave. Era grande e vivo, ma non come un'animale, più come un robot. Probabilmente non potrò consegnare le mie scatole di frutta, ma devo riparare i buchi nella nave velocemente, o soffocherò.\n\n Giorno 4\n Il pavimento è bagnato, dovrei uscire da qui.\n\n Giorno 12\nSta per finire il Sunshake. Dovrò trovare qualcosa da bere. Sto lasciando qui le mie note, nel caso che ci siano altri sopravvissuti di altre navi. Ho creato una base in un'isola vicina. Se sei fortunato, sarò ancora vivo."
+        "title": "Note del Commerciante",
+        "description": "Le pagine sono ingiallite. Però sono fatte di materiale impermeabile e sorprendentemente ancora leggibile:\n\nGiorno 3\n Stavo volando vicino un pianeta quando qualcosa ha colpito la mia nave. Era grande e vivo, ma non come un'animale, più come un robot. Probabilmente non potrò consegnare le mie scatole di frutta, ma devo riparare i buchi nella nave velocemente, o soffocherò.\n\n Giorno 4\n Il pavimento è bagnato, dovrei uscire da qui.\n\n Giorno 12\nSta per finire la riserva di Sunshake. Dovrò trovare qualcosa da bere. Sto lasciando qui le mie note, nel caso che ci siano altri sopravvissuti di altre navi. Ho creato una base in un'isola vicina. Se sei fortunato, sarò ancora vivo."
     },
     "9ff5727d-f8d7-4bfd-8c39-04ff194f61bc": {
         "title": "Verdura per il Commerciante",
-        "description": "Sembra sia stato qui per troppo tempo. Se voglio evitare di diventare come lui, dovrei aiutarlo. Non ho opzioni migliori comunque. Ha bisogno di 2 scatole di barbabietole e carote. Mi ha anche dato il waypoint di una stazione di impacchettamento. Dovrei iniziare a coltivare."
+        "description": "Sembra sia stato qui per troppo tempo. Se voglio evitare di diventare come lui, dovrei aiutarlo, non ho mica opzioni migliori comunque. Ha bisogno di 2 scatole di barbabietole e carote. Mi ha anche dato il waypoint di una stazione di impacchettamento. Dovrei iniziare a coltivare."
     },
     "6160a79b-08c6-4546-872c-48730b53118b": {
         "title": "Il mistero delle Woc",
@@ -37,7 +37,7 @@
     },
     "310434f1-84ca-41d1-a60d-ab91dea2aa04": {
         "title": "Città di rottami",
-        "description": "Questo pianeta è più abbandonato di quanto pensassi. Un'intera città, che sta cadendo a pezzi. Mi chiedo cosa abbia fatto abbandonare il pianeta alle persone così velocemente.. Forse dovrei portare con me un'arma più potente. Potrei modificare il mio fucile, penso."
+        "description": "Questo pianeta è più abbandonato di quanto pensassi. C'è un'intera città che sta cadendo a pezzi. Mi chiedo cosa sia successo per causare l'abbandono così veloce delle persone dal pianeta.. Forse dovrei portare con me un'arma più potente. Potrei modificare il mio fucile, penso."
     },
     "cad33bbf-5fc6-433a-b2f5-ae65ca3b43c6": {
         "title": "Incursione nel magazzino",
