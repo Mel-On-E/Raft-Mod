@@ -24,7 +24,7 @@ function Sapling.check_ground(self)
 	local raycast_end = self.shape.worldPosition + sm.vec3.new(0,0,-0.3)
 	local body = sm.shape.getBody(self.shape)
 	local success, result = sm.physics.raycast( raycast_start, raycast_end, body)
-	if success and result.type == "terrainSurface" then
+	if success and result.type == "terrainSurface" and result.pointWorld ~= nil and result.pointWorld.z > -2 then
 		valid = true
 		treePos = result.pointWorld
 	end
@@ -65,7 +65,7 @@ function Sapling.server_onProjectile( self, hitPos, hitTime, hitVelocity, projec
 		sm.effect.playEffect("Tree - LogAppear", treePos)
 		
 		self.saved.treePos = treePos
-		self.saved.grow = math.random(40*60, 40*60*24)
+		self.saved.grow = math.random(60, 60*24) -- in seconds
 		
 		self.saved.planted = true
 		self.storage:save( self.saved )
@@ -75,7 +75,7 @@ end
 
 function Sapling:server_onFixedUpdate()
 
-	if self.saved then
+	if self.saved and sm.game.getCurrentTick() % (40 * 5) == 0 then
 		if self.saved.grow == 0 then
 			local offset = sm.vec3.new(0.375, -0.375, 0)
 			sm.harvestable.create( self.tree, self.saved.treePos - offset, sm.quat.new(0.707, 0, 0, 0.707) )
@@ -83,7 +83,7 @@ function Sapling:server_onFixedUpdate()
 			self.shape:destroyPart(0)
 			return
 		end
-		self.saved.grow = self.saved.grow - 1
+		self.saved.grow = self.saved.grow - 5 -- five seconds per call
 		self.storage:save( self.saved )
 	end
 end
