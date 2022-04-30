@@ -7,14 +7,14 @@ function Sapling.server_onCreate(self)
 	self.saved = self.storage:load()
 	if self.saved == nil then
 		self.saved = {}
-		--local valid, treePos = Sapling.check_ground(self)
-		self.saved.grow = -1
-		self.saved.valid, self.saved.treePos = Sapling.check_ground(self)
-
-		self.storage:save( self.saved )
+		self.caculatingBox = true
 	end
-	self.network:setClientData( { valid = self.saved.valid, planted = self.saved.planted } )
-	
+
+	self:server_clientDataUpdate()
+end
+
+function Sapling.client_onCreate(self)
+	self.caculating = true -- default true!
 end
 
 function Sapling.check_ground(self)
@@ -24,10 +24,9 @@ function Sapling.check_ground(self)
 	local raycast_end = self.shape.worldPosition + sm.vec3.new(0,0,-0.3)
 	local body = sm.shape.getBody(self.shape)
 	local success, result = sm.physics.raycast( raycast_start, raycast_end, body)
-	local boundingBox = sm.areaTrigger.createAttachedBox( self.interactable, sm.vec3.one() / 6, sm.vec3.zero(), sm.quat.identity(), 8 )
-
+	
 	local isInWater = false
-    for _, result in ipairs( self.trigger:getContents() ) do
+    for _, result in ipairs( self.boundingBox:getContents() ) do
         if sm.exists( result ) then
             local userData = result:getUserData()
             if userData and userData.water then
@@ -36,8 +35,6 @@ function Sapling.check_ground(self)
         end
     end
 
-	boundingBox:destroy()
-
 	if success and result.type == "terrainSurface" and not isInWater  then
 		valid = true
 		treePos = result.pointWorld
@@ -45,13 +42,20 @@ function Sapling.check_ground(self)
 	return valid, treePos
 end
 
+function Sapling.server_clientDataUpdate( self )
+	self.network:setClientData( { valid = self.saved.valid or false, planted = self.saved.planted or false, caculating = self.caculatingBox } )
+end
+
 function Sapling.client_onClientDataUpdate( self, params )
+	self.caculating = params.caculating
 	self.valid = params.valid
 	self.planted = params.planted
 end
 
 function Sapling.client_canInteract(self)
-	if self.planted then
+	if self.caculating then
+		sm.gui.setInteractionText("", "Caculating...")
+	elseif self.planted then
 		sm.gui.setInteractionText("", "Growing...")
 	elseif self.valid then
 		sm.gui.setInteractionText("Splash with", "Water")
@@ -72,8 +76,7 @@ function Sapling.server_onProjectile( self, hitPos, hitTime, hitVelocity, projec
 	
 	if not valid then return end
 	
-	local treePos
-	valid, treePos = Sapling.check_ground(self)
+	local valid, treePos = Sapling.check_ground(self)
 	if valid then		
 		sm.effect.playEffect("Cotton - Picked", treePos + sm.vec3.new(0, 0, -0.5))
 		sm.effect.playEffect("Tree - LogAppear", treePos)
@@ -84,11 +87,13 @@ function Sapling.server_onProjectile( self, hitPos, hitTime, hitVelocity, projec
 		self.saved.planted = true
 		self.storage:save( self.saved )
 		self.network:setClientData( { valid = self.saved.valid, planted = self.saved.planted } )
+		
+		-- destroy bounding box
+		sm.areaTrigger.destroy( self.boundingBox )
 	end
 end
 
 function Sapling:server_onFixedUpdate()
-
 	if self.saved and sm.game.getCurrentTick() % (40 * 5) == 0 then
 		if self.saved.grow == 0 then
 			local offset = sm.vec3.new(0.375, -0.375, 0)
@@ -100,6 +105,21 @@ function Sapling:server_onFixedUpdate()
 		self.saved.grow = self.saved.grow - 5 -- five seconds per call
 		self.storage:save( self.saved )
 	end
+
+	if self.caculatingBox and sm.game.getCurrentTick() % 6 == 0 then 
+		if self.boundingBox == nil then
+			self.boundingBox = sm.areaTrigger.createAttachedBox( self.interactable, sm.vec3.one() / 4, sm.vec3.zero(), sm.quat.identity(), sm.areaTrigger.filter.areaTrigger )
+			return -- return so box can caculate its contents.
+		end
+
+		self.saved.grow = -1
+		self.saved.valid, self.saved.treePos = Sapling.check_ground(self)
+
+		self.storage:save( self.saved )
+		self.network:setClientData( { valid = self.saved.valid, planted = self.saved.planted } )
+
+		self.caculatingBox = false
+	end	
 end
 
 BirchSapling = class( Sapling )
