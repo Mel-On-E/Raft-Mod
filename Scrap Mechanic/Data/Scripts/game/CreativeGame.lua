@@ -3,6 +3,7 @@ dofile( "$SURVIVAL_DATA/Scripts/game/util/recipes.lua" )
 
 --Raft
 dofile( "$SURVIVAL_DATA/Scripts/game/managers/QuestManager.lua" )
+dofile( "$SURVIVAL_DATA/RaftMod/Scripts/versionChecker.lua" )
 --Raft
 
 CreativeGame = class( nil )
@@ -79,6 +80,11 @@ function CreativeGame.server_onFixedUpdate( self, timeStep )
 
 	--Raft
 	g_questManager:sv_onFixedUpdate()
+	
+	--RAFT
+	if g_checkForUpdates then
+		checkRaftVersion()
+	end
 	--Raft
 end
 

@@ -10,6 +10,9 @@ dofile( "$SURVIVAL_DATA/Scripts/game/util/Timer.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/game/survival_units.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/game/util/recipes.lua" )
 
+--Raft
+dofile( "$SURVIVAL_DATA/RaftMod/Scripts/versionChecker.lua" )
+
 SurvivalGame = class( nil )
 SurvivalGame.enableLimitedInventory = true
 SurvivalGame.enableRestrictions = true
@@ -20,25 +23,8 @@ SurvivalGame.enableUpgradeCost = true
 local SyncInterval = 400 -- 400 ticks | 10 seconds
 
 --Raft
-local VERSION = 1.1
-local checkedForUpdates = false
 local spawnRaft = false
 local setRaftSpawn = true
-
-function SurvivalGame:checkVersion() 
-	local success, data = pcall(sm.json.open, '$CONTENT_3df6725e-462a-47e3-92ed-e5b66883588c/description.json' )
-
-	if not success then return end -- If the file doesn't exist, don't bother checking the version
-
-	local modVersion = data.version
-	local needsUpdate = modVersion ~= nil and VERSION ~= modVersion -- maybe compare if Version < modVersion would be better
-	
-	if needsUpdate then
-		sm.gui.chatMessage("[Raft Mechanic] Your on version " .. VERSION .. " and version " .. modVersion .. " is available, please update!" )
-	--else 
-	--	sm.gui.chatMessage("[Raft Mechanic] You are on the latest version!" )
-	end
-end
 
 function SurvivalGame:sv_shootSpear( args )
 	sm.event.sendToWorld( args.world, "sv_shootSpear", args.data )
@@ -325,9 +311,9 @@ function SurvivalGame.server_onFixedUpdate( self, timeStep )
 		self.network:sendToClients("cl_msg", "Feeling stuck? The logbook can help you out.")
 	end
 
-	if not checkedForUpdates then
-		checkedForUpdates = true
-		self:checkVersion()
+	--RAFT
+	if g_checkForUpdates then
+		checkRaftVersion()
 	end
 end
 
