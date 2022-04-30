@@ -1,5 +1,0 @@
-{   
-    // version goes here and is a decimal only 1.11 NOT "1.1.1"
-    //UPDATE versionChecker.lua (in raft mod scripts) to match this version
-    "version" : 1.11
-}

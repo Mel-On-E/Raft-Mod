@@ -3,5 +3,8 @@
    "localId" : "3df6725e-462a-47e3-92ed-e5b66883588c",
    "name" : "Raft Mod",
    "type" : "Blocks and Parts",
-   "version" : 0
+   "version" : 0,
+
+   //UPDATE versionChecker.lua (in raft mod scripts) to match this version and NO non numbers
+   "fileModVersion": 1.11
 }
