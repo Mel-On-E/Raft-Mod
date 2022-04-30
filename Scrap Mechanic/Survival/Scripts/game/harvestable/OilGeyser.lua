@@ -44,8 +44,8 @@ function OilGeyser.server_spawnJunk(self)
 				i = 3
 			elseif random <= 0600 then
 				i = 2
-			elseif random <= 0601 then
-				i = 100 + math.random(1,1)
+			elseif random <= 0602 then
+				i = 100 + math.random(1,3) --Abandoned raft
 			else
 				i = 1
 			end

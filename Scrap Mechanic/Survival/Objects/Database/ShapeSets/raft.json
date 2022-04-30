@@ -2321,6 +2321,60 @@
 			},
 			"flammable": false,
 			"showInInventory": false
+		},
+		{
+			"uuid": "f2522739-07cd-43ad-97e6-c2515b601bad",
+			"name": "obj_abandoned_chest",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_challengechest_dif.tga",
+									"$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_challengechest_asg.tga",
+									"$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_challengechest_nor.tga"
+								],
+								"material": "PoseAnimDifAsgNor"
+							}
+						],
+						"mesh": "$CHALLENGE_DATA/Objects/Mesh/interactive/obj_interactive_challengechest_off.fbx",
+						"pose0": "$CHALLENGE_DATA/Objects/Mesh/interactive/obj_interactive_challengechest_on.fbx"
+					}
+				]
+			},
+			"color": "baa48a",
+			"box": {
+				"x": 4,
+				"y": 3,
+				"z": 4
+			},
+			"scripted": {
+				"filename": "$SURVIVAL_DATA/RaftMod/Scripts/chest.lua",
+				"classname": "Chest",
+				"data": {}
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Z-Y-X+X",
+			"physicsMaterial": "Metal",
+			"ratings": {
+				"density": 1,
+				"durability": 10,
+				"friction": 4,
+				"buoyancy": 8
+			},
+			"restrictions": {
+				"destructable": false,
+				"erasable": false,
+				"buildable": false,
+				"usable": false,
+				"connectable": false,
+				"liftable": false,
+				"convertibleToDynamic": true,
+				"paintable": false
+			},
+			"flammable": false,
+			"showInInventory": true
 		}
 	]
 }

@@ -9,4 +9,5 @@
 - various bug fixes
 - disabled dev mode for non host
 - multiplayer fixes
+- added abandoned rafts
 - Polish, Italian localization!
