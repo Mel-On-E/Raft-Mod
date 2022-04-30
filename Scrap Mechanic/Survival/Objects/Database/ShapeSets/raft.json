@@ -165,7 +165,7 @@
 				"y": 4,
 				"z": 2
 			},
-			"rotationSet": "StaticXY",
+			"rotationSet": "PropYX",
 			"sticky": "+X-X+Y-Y+Z",
 			"physicsMaterial": "Plastic",
 			"stackSize": 10,
@@ -211,7 +211,7 @@
 				"y": 4,
 				"z": 2
 			},
-			"rotationSet": "StaticXY",
+			"rotationSet": "PropYX",
 			"sticky": "+X-X+Y-Y+Z",
 			"physicsMaterial": "Wood",
 			"stackSize": 10,
