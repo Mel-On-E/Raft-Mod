@@ -52,7 +52,7 @@ function SharkBotUnit.server_onCreate( self )
 		self.saved = {}
 	end
 	if self.saved.stats == nil then
-		self.saved.stats = { hp = 200, maxhp = 200 }
+		self.saved.stats = { hp = 150, maxhp = 150 }
 	end
 	
 	if self.params then
