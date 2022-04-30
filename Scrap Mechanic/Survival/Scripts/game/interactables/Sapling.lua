@@ -7,7 +7,7 @@ function Sapling.server_onCreate(self)
 	self.saved = self.storage:load()
 	if self.saved == nil then
 		self.saved = {}
-		valid, treePos = Sapling.check_ground(self)
+		--local valid, treePos = Sapling.check_ground(self)
 		self.saved.grow = -1
 		self.saved.valid, self.saved.treePos = Sapling.check_ground(self)
 
@@ -24,7 +24,21 @@ function Sapling.check_ground(self)
 	local raycast_end = self.shape.worldPosition + sm.vec3.new(0,0,-0.3)
 	local body = sm.shape.getBody(self.shape)
 	local success, result = sm.physics.raycast( raycast_start, raycast_end, body)
-	if success and result.type == "terrainSurface" and result.pointWorld ~= nil and result.pointWorld.z > -2 then
+	local boundingBox = sm.areaTrigger.createAttachedBox( self.interactable, sm.vec3.one() / 6, sm.vec3.zero(), sm.quat.identity(), 8 )
+
+	local isInWater = false
+    for _, result in ipairs( self.trigger:getContents() ) do
+        if sm.exists( result ) then
+            local userData = result:getUserData()
+            if userData and userData.water then
+                isInWater = true
+            end
+        end
+    end
+
+	boundingBox:destroy()
+
+	if success and result.type == "terrainSurface" and not isInWater  then
 		valid = true
 		treePos = result.pointWorld
 	end
