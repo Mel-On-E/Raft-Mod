@@ -201,7 +201,7 @@ function TreeTrunk.server_onFixedUpdate( self, timeStep )
 			local lootList = {}
 			local quantity = math.random(0,2)
 			if quantity > 0 then
-				lootList[1] = { uuid = loot, quantity = math.random(0,2) }
+				lootList[1] = { uuid = loot, quantity = quantity }
 				SpawnLoot( self.shape, lootList, self.shape.worldPosition + sm.vec3.new( 0, 0, 1.0 ) )
 			end
 		end
