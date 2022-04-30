@@ -1,0 +1,111 @@
+{
+	"projectiles": {
+		"potato": {
+			"mass": 3.0,
+			"radius": 0.25,
+			"friction": 0.2,
+			"spin": 7.0,
+			"mesh": "$GAME_DATA/Projectiles/Renderables/potato.rend",
+			"effect": "PotatoProjectile - Hit",
+			"audiomass": 250.0,
+			"effectmaterial": "Potato",
+			"ammo": 
+			{ 
+				"uuid": "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82", 
+				"cost": 1
+			},
+			"destruction":
+			{
+				"destructionLevels":
+				[
+					{
+						"qualityLevel": 1,
+						"chance": 1.0
+					}
+				]
+			},
+			"enableImpactEffect": true
+		},
+		"smallpotato": {
+			"mass": 3.0,
+			"radius": 0.25,
+			"friction": 0.2,
+			"spin": 7.0,
+			"mesh": "$GAME_DATA/Projectiles/Renderables/projectile_spinner_potato.rend",
+			"effect": "PotatoProjectile - Hit",
+			"audiomass": 250.0,
+			"effectmaterial": "Potato",
+			"ammo": 
+			{ 
+				"uuid": "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82",  
+				"cost": 1
+			},
+			"destruction":
+			{
+				"destructionLevels":
+				[
+					{
+						"qualityLevel": 1,
+						"chance": 1.0
+					}
+				]
+			},
+			"enableImpactEffect": true
+		},
+		"fries": {
+			"mass": 0.75,
+			"radius": 0.0625,
+			"friction": 0.2,
+			"spin": 0.0,
+			"mesh": "$GAME_DATA/Projectiles/Renderables/projectile_fries.rend",
+			"effect": "PotatoProjectile - Hit",
+			"audiomass": 250.0,
+			"effectmaterial": "Potato",
+			"amount": 4,
+			"ammo": 
+			{ 
+				"uuid": "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82", 
+				"cost": 2
+			},
+			"destruction":
+			{
+				"destructionLevels":
+				[
+					{
+						"qualityLevel": 1,
+						"chance": 1.0
+					}
+				]
+			},
+			"enableImpactEffect": false
+		}
+
+		//MGR
+		,"harpoon": {
+			"mass": 3.0,
+			"radius": 0.25,
+			"friction": 0.2,
+			"spin": 0,
+			"mesh": "$SURVIVAL_DATA/RaftMod/Character/Char_arrow/char_arrow.rend",
+			"effect": "Sledgehammer - Hit",
+			"audiomass": 250.0,
+			"effectmaterial": "Metal",
+			"ammo": 
+			{ 
+				"uuid": "4a971f7d-14e6-454d-bce8-0879243c4857",
+				"cost": 1
+			},
+			"destruction":
+			{
+				"destructionLevels":
+				[
+					{
+						"qualityLevel": 1,
+						"chance": 1.0
+					}
+				]
+			},
+			"enableImpactEffect": true
+		}
+	}
+}

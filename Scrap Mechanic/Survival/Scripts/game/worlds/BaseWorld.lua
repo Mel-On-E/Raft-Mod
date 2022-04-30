@@ -8,6 +8,7 @@ dofile( "$SURVIVAL_DATA/Scripts/game/managers/PesticideManager.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/game/managers/KinematicManager.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/util.lua" )
 
+dofile( "$SURVIVAL_DATA/Scripts/game/survival_loot.lua" ) --Raft
 
 BaseWorld = class( nil )
 
@@ -497,6 +498,16 @@ function BaseWorld.server_onProjectile( self, hitPos, hitTime, hitVelocity, proj
 	if projectileName == "explosivetape" then
 		sm.physics.explode( hitPos, 7, 2.0, 6.0, 25.0, "RedTapeBot - ExplosivesHit" )
 	end
+
+	--Raft
+	if projectileName == "harpoon" then
+		local normal = -hitVelocity:normalize()
+		local zSignOffset = math.min( sign( normal.z ), 0 ) * 0.5
+		local offset = sm.vec3.new( 0, 0, zSignOffset )
+		local lootHarvestable = sm.harvestable.create( hvs_loot, hitPos + offset, sm.vec3.getRotation( sm.vec3.new( 0, 1, 0 ), sm.vec3.new( 0, 0, 1 ) ) )
+		lootHarvestable:setParams( { uuid = obj_arrow, quantity = 1, epic = false  } )
+	end
+	--Raft
 end
 
 function BaseWorld.server_onMelee( self, hitPos, attacker, target, damage )

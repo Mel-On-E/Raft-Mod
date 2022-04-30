@@ -599,18 +599,18 @@ function Harpoon.cl_onPrimaryUse( self, state )
 
 			-- Spread
 			local fireMode = self.aiming and self.aimFireMode or self.normalFireMode
-			--[[local recoilDispersion = 1.0 - ( math.max(fireMode.minDispersionCrouching, fireMode.minDispersionStanding ) + fireMode.maxMovementDispersion )
+			local recoilDispersion = 1.0 - ( math.max(fireMode.minDispersionCrouching, fireMode.minDispersionStanding ) + fireMode.maxMovementDispersion )
 
 			local spreadFactor = fireMode.spreadCooldown > 0.0 and clamp( self.spreadCooldownTimer / fireMode.spreadCooldown, 0.0, 1.0 ) or 0.0
 			spreadFactor = clamp( self.movementDispersion + spreadFactor * recoilDispersion, 0.0, 1.0 )
 			local spreadDeg =  fireMode.spreadMinAngle + ( fireMode.spreadMaxAngle - fireMode.spreadMinAngle ) * spreadFactor
 
-			dir = sm.noise.gunSpread( dir, spreadDeg )]]
+			dir = sm.noise.gunSpread( dir, spreadDeg )
 
 			local owner = self.tool:getOwner()
 			if owner then
-				--sm.projectile.projectileAttack( "potato", Damage, firePos, dir * fireMode.fireVelocity, owner, fakePosition, fakePositionSelf )
-				self.network:sendToServer( "sv_shootSpear", { pos = firePos, dir = dir, owner = self.player })
+				sm.projectile.projectileAttack( "harpoon", Damage, firePos, dir * fireMode.fireVelocity, owner, fakePosition, fakePositionSelf )
+				--self.network:sendToServer( "sv_shootSpear", { pos = firePos, dir = dir, owner = self.player })
 			end
 
 			-- Timers
