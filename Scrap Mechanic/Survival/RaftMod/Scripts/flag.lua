@@ -12,7 +12,9 @@ function Flag.client_onCreate(self)
     self.effect:start()
 end
 
-function Flag.client_onFixedUpdate( self, dt )
+function Flag.client_onUpdate( self, dt )
+    if not self.effect:isPlaying() then self.effect:start() end
+
     local point = sm.vec3.new(0, 0, 0)
 
     --Quest helper
@@ -22,7 +24,6 @@ function Flag.client_onFixedUpdate( self, dt )
         point = sm.vec3.new(1536, 2048, 20)
     end
 
-    
     local direction = self.shape:transformPoint(point)
     direction.y = 0
     self.effect:setOffsetRotation(sm.vec3.getRotation(sm.vec3.new(0, 0, 1), -direction))
