@@ -164,16 +164,21 @@ function Hook:cl_throwHook( args )
 	hook.rope = sm.effect.createEffect("ShapeRenderable")
 	hook.rope:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
 	hook.rope:setParameter("color", sm.color.new(0,0,0))
-	hook.rope:setPosition( args.pos )
+
+	local firePosTable = self.cl.firePoss[args.index]
+	local firePos = sm.localPlayer.isInFirstPersonView() and self.cl.playerId == args.index and firePosTable.fp or firePosTable.tp
+	hook.rope:setPosition( firePos )
+
 	hook.rope:setRotation( sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), args.dir ) )
+	hook.rope:setScale(hookSize)
 	hook.rope:start()
 
 	hook.hook = sm.effect.createEffect("ShapeRenderable")
 	hook.hook:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c8735"))
 	hook.hook:setParameter("color", sm.color.new(1,0,0))
-	hook.hook:setScale(hookSize)
 	hook.hook:setPosition( args.pos )
 	hook.hook:setRotation( sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), args.dir ) )
+	hook.hook:setScale(hookSize)
 	hook.hook:start()
 
 	self.cl.effects[args.index] = hook
