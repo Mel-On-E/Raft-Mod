@@ -293,7 +293,13 @@ function SurvivalPlayer.client_onUpdate( self, dt )
 	self.network:sendToServer("sv_checkRenderables", { player = player, char = character, inv = inv, checkFins = self.cl.checkFins, checkTank = self.cl.checkTank })
 
 	local speed = sm.container.canSpend( inv, obj_fins, 1 ) and (character:isSwimming() or character:isDiving()) and not self.cl.inChemical and not self.cl.inOil and 2 or 1
-	character:setMovementSpeedFraction(speed)
+	if character:getMovementSpeedFraction() ~= speed then
+		self.network:sendToServer("sv_setMoveSpeed", { char = character, speed = speed })
+	end
+end
+
+function SurvivalPlayer:sv_setMoveSpeed( args )
+	args.char:setMovementSpeedFraction(args.speed)
 end
 
 function SurvivalPlayer:sv_checkRenderables( args )
