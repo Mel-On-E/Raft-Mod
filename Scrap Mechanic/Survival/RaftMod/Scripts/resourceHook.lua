@@ -29,44 +29,37 @@ local collectables = {
 	obj_consumable_sunshake
 }
 
-local ignoreSizeCheck = {
-	obj_consumable_gas,
-	obj_consumable_water,
-	obj_consumable_fertilizer,
-	obj_consumable_sunshake
-}
-
-local hookSize = vec3Num(0.25)
-local hookDirAdjustThreshold = 2
+local hookSize = vec3Num(0.35)
 local colllectHookRange = 0.75
-local maxThrowForce = 18
+local maxThrowForce = 15
 local minThrowForce = 5
 local chargeUpTime = 1.75
 local ThrowSpeed = 4.5
 local PullSpeed = 2
+local maxPullMultiplier = 5
 
+function Hook:server_onCreate()
+	self.sv = {}
+	self.sv.hooks = {}
+	self.sv.firePoss = {}
+	self.sv.pullForces = {}
+end
 
 function Hook.client_onCreate( self )
-	self.player = sm.localPlayer.getPlayer()
+	self.cl = {}
+	self.cl.player = sm.localPlayer.getPlayer()
+	self.cl.playerId = self.cl.player:getId()
+	self.cl.effects = {}
+	self.cl.firePoss = {}
 
-	self.ropeEffect = sm.effect.createEffect("ShapeRenderable")
-	self.ropeEffect:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
-	self.ropeEffect:setParameter("color", sm.color.new(0,0,0))
+	self.cl.throwForce = 0
+	self.cl.isReversing = false
+	self.cl.primaryState = 0
+	self.cl.secondaryState = 0
+	self.cl.lookDir = sm.vec3.zero()
+	self.cl.pullMultiplier = 0
 
-	self.hookEffect = sm.effect.createEffect("ShapeRenderable")
-	self.hookEffect:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c8735"))
-	self.hookEffect:setParameter("color", sm.color.new(1,0,0))
-	self.hookEffect:setScale(hookSize)
-
-	self.throwForce = 0
-	self.primaryState = 0
-	self.isThrowing = false
-	self.isReversing = false
-	self.hookPos = sm.vec3.zero()
-	self.hookDir = sm.vec3.zero()
-	self.lookDir = sm.vec3.zero()
-	self.waterTrigger = nil
-	self.shapeTrigger = nil
+	self.network:sendToServer("sv_updatePullForce", { index = self.cl.playerId, force = self.cl.pullMultiplier })
 	--raft
 end
 
@@ -141,127 +134,199 @@ function Hook.loadAnimations( self )
 end
 
 --raft
-function Hook:sv_manageTrigger( action )
-	if action ~= nil then
-		if action == "create" then
-			self.waterTrigger = sm.areaTrigger.createBox( hookSize * 2, self.hookPos, sm.quat.identity(), sm.areaTrigger.filter.areaTrigger )
-			self.shapeTrigger = sm.areaTrigger.createBox( hookSize * 12, self.hookPos, sm.quat.identity(), sm.areaTrigger.filter.dynamicBody + sm.areaTrigger.filter.staticBody )
-		else
-			sm.areaTrigger.destroy(self.waterTrigger)
-			sm.areaTrigger.destroy(self.shapeTrigger)
-			return
-		end
-	end
-
-	self.waterTrigger:setWorldPosition( self.hookPos )
-	self.shapeTrigger:setWorldPosition( self.hookPos )
+function Hook:sv_updatePullForce( args )
+	self.sv.pullForces[args.index] = args.force
 end
 
-function Hook:sv_applyImpulse( body )
-	local dir = self.hookDir --(self.hookPos + self.hookDir) - body:getWorldPosition()
-	local distance = self.player:getCharacter():getWorldPosition() - body:getWorldPosition()
-	if body:getVelocity():length() < PullSpeed * 3 * math.max(distance:length()/10, 1) then
-		sm.physics.applyImpulse( body, dir * body:getMass() / 75 * math.max(distance:length()/20, 1), true )
+function Hook:sv_updateFirePositions( args )
+	self.sv.firePoss[args.index] = { fp = args.fp, tp = args.tp }
+
+	self.network:sendToClients("cl_updateFirePositions", self.sv.firePoss)
+end
+
+function Hook:cl_updateFirePositions( firePositions )
+	self.cl.firePoss = firePositions
+end
+
+function Hook:sv_throwHook( args )
+	local hook = { owner = args.owner, speed = sm.vec3.one(), waterTrigger = nil, shapeTrigger = nil, isThrowing = true, isReversing = false, pos = args.pos, dir = args.dir, throwForce = args.throwForce }
+	hook.waterTrigger = sm.areaTrigger.createBox( hookSize * 2, args.pos, sm.quat.identity(), sm.areaTrigger.filter.areaTrigger )
+	hook.shapeTrigger = sm.areaTrigger.createBox( hookSize * 12, args.pos, sm.quat.identity(), sm.areaTrigger.filter.dynamicBody + sm.areaTrigger.filter.staticBody )
+
+	local ownerId = args.owner:getId()
+	local effectData = { pos = args.pos, dir = args.dir, index = ownerId }
+	self.sv.hooks[ownerId] = hook
+	self.network:sendToClients("cl_throwHook", effectData)
+end
+
+function Hook:cl_throwHook( args )
+	local hook = {}
+	hook.rope = sm.effect.createEffect("ShapeRenderable")
+	hook.rope:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
+	hook.rope:setParameter("color", sm.color.new(0,0,0))
+	hook.rope:setPosition( args.pos )
+	hook.rope:setRotation( sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), args.dir ) )
+	hook.rope:start()
+
+	hook.hook = sm.effect.createEffect("ShapeRenderable")
+	hook.hook:setParameter("uuid", sm.uuid.new("4a971f7d-14e6-454d-bce8-0879243c8735"))
+	hook.hook:setParameter("color", sm.color.new(1,0,0))
+	hook.hook:setScale(hookSize)
+	hook.hook:setPosition( args.pos )
+	hook.hook:setRotation( sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), args.dir ) )
+	hook.hook:start()
+
+	self.cl.effects[args.index] = hook
+end
+
+function Hook:sv_applyImpulse( args )
+	local dir = args.dir --(self.hookPos + self.hookDir) - body:getWorldPosition()
+	local distance = args.owner:getCharacter():getWorldPosition() - args.body:getWorldPosition()
+	local mult = 1 + self.sv.pullForces[args.owner:getId()]
+
+	if args.body:getVelocity():length() < PullSpeed * 3 * math.max(distance:length()/10, 1) * mult then
+		sm.physics.applyImpulse( args.body, dir * args.body:getMass() / 75 * math.max(distance:length()/20, 1) * mult, true )
 	end
 end
 
-function Hook:cl_calculateRodEffectData()
-	local delta = self:calculateFirePosition() - self.hookPos
+function Hook:cl_calculateRodEffectData( args )
+	if self.cl.effects[args.index] == nil then return end
+
+	local firePosTable = self.cl.firePoss[args.index]
+	local firePos = sm.localPlayer.isInFirstPersonView() and self.cl.playerId == args.index and firePosTable.fp or firePosTable.tp
+
+	local delta = firePos - args.pos
 	local rot = sm.vec3.getRotation(sm.vec3.new(0, 0, 1), delta)
 	local distance = sm.vec3.new(0.01, 0.01, delta:length())
 
-	self.ropeEffect:setPosition(self.hookPos + delta * 0.5)
-	self.ropeEffect:setScale(distance)
-	self.ropeEffect:setRotation(rot)
+	self.cl.effects[args.index].rope:setPosition(args.pos + delta * 0.5)
+	self.cl.effects[args.index].rope:setScale(distance)
+	self.cl.effects[args.index].rope:setRotation(rot)
 
-	self.hookEffect:setPosition(self.hookPos)
-	self.hookEffect:setRotation(rot)
+	self.cl.effects[args.index].hook:setPosition(args.pos)
+	self.cl.effects[args.index].hook:setRotation(rot)
+
+	if self.cl.playerId == args.index then
+		self.cl.isReversing = args.isReversing
+	end
 end
 
-function Hook:cl_reset()
-	self.throwForce = 0
-	self.isThrowing = false
-	self.isReversing = false
-	self.hookPos = sm.vec3.zero()
-	self.hookDir = sm.vec3.zero()
-	self.ropeEffect:stop()
-	self.hookEffect:stop()
+function Hook:sv_reset( ownerId )
+	self.sv.hooks[ownerId] = nil
+	self.network:sendToClients("cl_reset", ownerId)
+end
+
+function Hook:cl_reset( ownerId )
+	if self.cl.effects[ownerId] == nil then return end
+
+	self.cl.effects[ownerId].rope:stop()
+	self.cl.effects[ownerId].hook:stop()
+	self.cl.effects[ownerId] = nil
+
+	if ownerId == self.cl.playerId then
+		self.cl.isReversing = false
+	end
 end
 
 function Hook:client_onFixedUpdate( dt )
-	if self.tool:isEquipped() and self.primaryState == 1 or self.primaryState == 2 then
-		self.throwForce = math.min(self.throwForce + dt/chargeUpTime * maxThrowForce, maxThrowForce)
+	local prevPullMultiplier = self.cl.pullMultiplier
+
+	if self.tool:isEquipped() and (self.cl.primaryState == 1 or self.cl.primaryState == 2) then
+		self.cl.throwForce = math.min(self.cl.throwForce + dt/chargeUpTime * maxThrowForce, maxThrowForce)
+	end
+
+	if self.tool:isEquipped() and (self.cl.secondaryState == 1 or self.cl.secondaryState == 2) and self.cl.isReversing then
+		self.cl.pullMultiplier = math.min(self.cl.pullMultiplier + dt/chargeUpTime * maxPullMultiplier, maxPullMultiplier)
+	else
+		self.cl.pullMultiplier = 0
+	end
+
+	if prevPullMultiplier ~= self.cl.pullMultiplier then
+		self.network:sendToServer("sv_updatePullForce", { index = self.cl.playerId, force = self.cl.pullMultiplier })
+	end
+
+	self.network:sendToServer("sv_updateFirePositions", { index = self.cl.playerId, fp = self:calculateFirePosition(), tp = self:calculateTpMuzzlePos() })
+end
+
+function Hook:server_onFixedUpdate( dt )
+	for v, hook in pairs(self.sv.hooks) do
+		if sm.exists(hook.waterTrigger) then
+			local ownerId = hook.owner:getId()
+
+			if hook.isThrowing then
+				hook.dir = hook.dir - sm.vec3.new(0,0,0.05 / hook.throwForce)
+				hook.pos = hook.pos + vec3Num(hook.throwForce) * ThrowSpeed * hook.dir * dt
+
+				hook.waterTrigger:setWorldPosition( hook.pos )
+				hook.shapeTrigger:setWorldPosition( hook.pos )
+
+				local hitWater = false
+				if sm.exists(hook.waterTrigger) then
+					for _, result in ipairs( hook.waterTrigger:getContents() ) do
+						if sm.exists( result ) then
+							local userData = result:getUserData()
+							if userData then
+								hitWater = true
+							end
+						end
+					end
+				end
+
+				local hit, result = sm.physics.raycast( hook.pos, hook.pos + hook.dir * hook.throwForce * (dt*2) )
+
+				if hitWater then
+					hook.isThrowing = false
+					hook.isReversing = true
+					hook.throwForce = 0
+				elseif not hitWater and hit then
+					if not result:getShape() or not isAnyOf(result:getShape():getShapeUuid(), collectables) then
+						self:sv_reset( ownerId )
+					end
+				end
+			end
+
+			if hook.isReversing then
+				local playerChar = hook.owner:getCharacter()
+				local playerPos = playerChar:getWorldPosition()
+				local dir = playerPos - hook.pos
+
+				--if (sm.vec3.new(playerPos.x, playerPos.y, 0) - sm.vec3.new(self.hookPos.x, self.hookPos.y, 0)):length() <= hookDirAdjustThreshold then
+				--	self.hookDir = dir * 5
+				--elseif dir:length() > hookDirAdjustThreshold then
+					local distance = sm.vec3.new(playerPos.x, playerPos.y, 0) - sm.vec3.new(hook.pos.x, hook.pos.y, 0)
+					hook.dir = sm.vec3.new(dir.x, dir.y, 0)
+				--end
+
+				hook.pos = hook.pos + sm.vec3.one() / 4 * hook.dir * PullSpeed * (1 + self.sv.pullForces[ownerId]) * dt
+
+				hook.waterTrigger:setWorldPosition( hook.pos )
+				hook.shapeTrigger:setWorldPosition( hook.pos )
+
+				for _, body in ipairs( hook.shapeTrigger:getContents() ) do
+					if sm.exists( body ) then
+						if body:getMass() < 100 then
+							self:sv_applyImpulse( { body = body, owner = hook.owner, dir = hook.dir } )
+						end
+					end
+				end
+
+				if distance:length() <= colllectHookRange then
+					sm.areaTrigger.destroy(hook.waterTrigger)
+					sm.areaTrigger.destroy(hook.shapeTrigger)
+					self:sv_reset( ownerId )
+				end
+			end
+
+			if hook.dir:length() > 0 and hook.pos:length() > 0 then
+				self.network:sendToClients("cl_calculateRodEffectData", { pos = hook.pos, index = hook.owner:getId(), isReversing = hook.isReversing } )
+			end
+		end
 	end
 end
 
 function Hook.client_onUpdate( self, dt )
 	--raft
-	self.lookDir = sm.localPlayer.getDirection()
-
-	if sm.exists(self.ropeEffect) and self.ropeEffect:isPlaying() then
-		if self.isThrowing then
-			self.hookDir = self.hookDir - sm.vec3.new(0,0,0.05 / self.throwForce)
-			self.hookPos = self.hookPos + vec3Num(self.throwForce) * ThrowSpeed * self.hookDir * dt
-			self.network:sendToServer("sv_manageTrigger")
-
-			local hitWater = false
-			if sm.exists(self.waterTrigger) then
-				for _, result in ipairs( self.waterTrigger:getContents() ) do
-					if sm.exists( result ) then
-						local userData = result:getUserData()
-						if userData then
-							hitWater = true
-						end
-					end
-				end
-			end
-
-			local hit, result = sm.physics.raycast( self.hookPos, self.hookPos + self.hookDir * self.throwForce * (dt*2) )
-
-			if hitWater then
-				self.isThrowing = false
-				self.isReversing = true
-				self.throwForce = 0
-			elseif not hitWater and hit then
-				if not result:getShape() or not isAnyOf(result:getShape():getShapeUuid(), collectables) then
-					self:cl_reset()
-				end
-			end
-		end
-
-		if self.isReversing then
-			local playerChar = self.player:getCharacter()
-			local playerPos = playerChar:getWorldPosition()
-			local dir = playerPos - self.hookPos
-
-			--if (sm.vec3.new(playerPos.x, playerPos.y, 0) - sm.vec3.new(self.hookPos.x, self.hookPos.y, 0)):length() <= hookDirAdjustThreshold then
-			--	self.hookDir = dir * 5
-			--elseif dir:length() > hookDirAdjustThreshold then
-				local distance = sm.vec3.new(playerPos.x, playerPos.y, 0) - sm.vec3.new(self.hookPos.x, self.hookPos.y, 0)
-				self.hookDir = sm.vec3.new(dir.x, dir.y, 0)
-			--end
-
-			self.hookPos = self.hookPos + sm.vec3.one() / 4 * self.hookDir * PullSpeed * dt
-
-			self.network:sendToServer("sv_manageTrigger")
-			for _, body in ipairs( self.shapeTrigger:getContents() ) do
-				if sm.exists( body ) then
-					if body:getMass() < 100 then
-						self.network:sendToServer("sv_applyImpulse", body)
-					end
-				end
-			end
-
-			if distance:length() <= colllectHookRange then
-				self.network:sendToServer("sv_manageTrigger", "destroy")
-				self:cl_reset()
-			end
-		end
-
-		if self.hookDir:length() > 0 and self.hookPos:length() > 0 then
-			self:cl_calculateRodEffectData()
-		end
-	end
+	self.cl.lookDir = sm.localPlayer.getDirection()
 	--raft
 
 	-- First person animation
@@ -436,7 +501,7 @@ end
 
 function Hook.client_onUnequip( self, animate )
 	--raft
-	self:cl_reset()
+	self.network:sendToServer("sv_reset", self.cl.playerId)
 	--raft
 
 	if animate then
@@ -556,28 +621,24 @@ function Hook.calculateTpMuzzlePos( self )
 end
 
 function Hook.cl_onPrimaryUse( self, state )
-	if self.tool:getOwner().character == nil or self.lookDir == sm.vec3.zero() then
+	if self.tool:getOwner().character == nil or self.cl.lookDir == sm.vec3.zero() then
 		return
 	end
 
 	if state == 3 then
-		if self.throwForce < minThrowForce then
-			self.throwForce = minThrowForce
+		if self.cl.throwForce < minThrowForce then
+			self.cl.throwForce = minThrowForce
 		end
 
-		self.isThrowing = true
-		self.hookPos = self:calculateFirePosition() + self.lookDir / 2
-		self.hookDir = self.lookDir
-		self.network:sendToServer("sv_manageTrigger", "create")
+		self.network:sendToServer("sv_reset", self.cl.playerId)
 
-		self:cl_calculateRodEffectData()
-		self.ropeEffect:start()
-		self.hookEffect:start()
+		self.network:sendToServer("sv_throwHook", { pos = self:calculateFirePosition() + self.cl.lookDir, dir = self.cl.lookDir, throwForce = self.cl.throwForce, owner = self.cl.player })
+		self.cl.throwForce = 0
 	end
 end
 
 function Hook.cl_onSecondaryUse( self, state )
-
+	
 end
 
 function Hook.client_onEquippedUpdate( self, primaryState, secondaryState)
@@ -587,9 +648,15 @@ function Hook.client_onEquippedUpdate( self, primaryState, secondaryState)
 	end
 
 	--raft
-	self.primaryState = primaryState
-	if self.throwForce > 0 and not self.isThrowing then
-		sm.gui.setProgressFraction(self.throwForce/maxThrowForce)
+	self.cl.primaryState = primaryState
+	self.cl.secondaryState = secondaryState
+
+	if self.cl.throwForce > 0 and not self.cl.isThrowing then
+		sm.gui.setProgressFraction(self.cl.throwForce/maxThrowForce)
+	end
+
+	if self.cl.pullMultiplier > 0 then
+		sm.gui.setProgressFraction(self.cl.pullMultiplier/maxPullMultiplier)
 	end
 	--raft
 
