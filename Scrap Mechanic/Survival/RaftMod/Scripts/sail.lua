@@ -25,7 +25,7 @@ function Sail.sv_changeState(self)
 end
 
 function Sail.server_onFixedUpdate(self, dt)
-    parent = self.interactable:getSingleParent()
+    local parent = self.interactable:getSingleParent()
 	if parent then
         if parent.active ~= self.sv.active then
             self:sv_changeState()
@@ -78,6 +78,9 @@ end
 
 function Sail.client_onClientDataUpdate( self, state )
 	self.cl.active = state
+end
+
+function Sail:client_onUpdate( dt )
     if self.cl.active and not self.cl.effect:isPlaying() then
         self.cl.effect:start()
     elseif not self.cl.active and self.cl.effect:isPlaying() then
@@ -86,7 +89,7 @@ function Sail.client_onClientDataUpdate( self, state )
 end
 
 function Sail.client_canInteract( self, character, state )
-    parent = self.interactable:getSingleParent()
+    local parent = self.interactable:getSingleParent()
     if parent then
         sm.gui.setInteractionText("", "#c60000X", "#{ALERT_CONTROL_OVERRIDE}")
         return false
@@ -102,7 +105,7 @@ function Sail.client_canInteract( self, character, state )
 end
 
 function Sail.client_onInteract( self, character, state )
-	if state == true then
+	if state then
         self.network:sendToServer("sv_changeState")
     end
 end
