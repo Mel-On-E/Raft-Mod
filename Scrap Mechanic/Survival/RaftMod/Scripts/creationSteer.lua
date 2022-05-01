@@ -58,18 +58,23 @@ end
 
 function Steer:server_onFixedUpdate( dt )
     if not self.sv or not self.sv.data then return end
-    self.network:sendToClients("cl_updateData", self.sv.data)
 
     local logicParent = self.interactable:getParents( sm.interactable.connectionType.logic )[1]
     local seatParent = self.interactable:getParents( sm.interactable.connectionType.power )[1]
     if not seatParent or logicParent and not logicParent:isActive() then
-        self:sv_updateState( { active = false, power = 0, index = 1  } )
+        if self.interactable:isActive() then
+            self:sv_updateState( { active = false, power = 0, index = 1  } )
+        end
+
         return
     end
 
     local seatedChar = seatParent:getSeatCharacter()
     if not seatedChar then
-        self:sv_updateState( { active = false, power = 0, index = 1  } )
+        if self.interactable:isActive() then
+            self:sv_updateState( { active = false, power = 0, index = 1  } )
+        end
+
         return
     end
 
@@ -131,6 +136,7 @@ end
 
 function Steer:sv_save()
     self.storage:save( self.sv.data )
+    self.network:sendToClients("cl_updateData", self.sv.data)
 end
 
 function Steer:cl_uvUpdate( index )

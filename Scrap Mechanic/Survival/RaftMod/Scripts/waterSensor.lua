@@ -26,7 +26,7 @@ function Sensor:server_onCreate()
 
     self.network:sendToClients("cl_updateData", self.sv.data)
 
-    self.trigger = sm.areaTrigger.createAttachedBox( self.interactable, vec3Num(self.sv.data.slider) / blockDivide, sm.vec3.zero(), sm.quat.identity(), sm.areaTrigger.filter.areaTrigger )
+    self.sv.trigger = sm.areaTrigger.createAttachedBox( self.interactable, vec3Num(self.sv.data.slider) / blockDivide, sm.vec3.zero(), sm.quat.identity(), sm.areaTrigger.filter.areaTrigger )
 end
 
 function Sensor:client_onCreate()
@@ -36,7 +36,7 @@ function Sensor:client_onCreate()
         visualization = sm.effect.createEffect("WaterSensor - Visualization", self.interactable)
     }
 
-    	self.cl.gui:setText( "Name", "#{RAFT_WATER_SENSOR_TEXT}" )
+    self.cl.gui:setText( "Name", "#{RAFT_WATER_SENSOR_TEXT}" )
 	self.cl.gui:setText( "Interaction", "#{RAFT_WATER_SENSOR_SENSING_RADIUS}" )
 	self.cl.gui:setSliderCallback( "Setting", "cl_onSliderChange" )
 	self.cl.gui:setIconImage( "Icon", obj_waterSensor )
@@ -66,31 +66,33 @@ function Sensor:sv_onSliderChange( sliderPos )
     --if I set it back to 1 it stayed active for some reason
     --creating a new trigger every time fixes it
     --weird...
-    sm.areaTrigger.destroy( self.trigger )
-    self.trigger = sm.areaTrigger.createAttachedBox( self.interactable, vec3Num(self.sv.data.slider) / blockDivide, sm.vec3.zero(), sm.quat.identity(), sm.areaTrigger.filter.areaTrigger )
+    sm.areaTrigger.destroy( self.sv.trigger )
+    self.sv.trigger = sm.areaTrigger.createAttachedBox( self.interactable, vec3Num(self.sv.data.slider) / blockDivide, sm.vec3.zero(), sm.quat.identity(), sm.areaTrigger.filter.areaTrigger )
 
     self.storage:save(self.sv.data)
+    self.network:sendToClients("cl_updateData", self.sv.data)
     self.network:sendToClients("cl_visualize", self.sv.data)
 end
 
 function Sensor:server_onFixedUpdate( dt )
     if not self.sv or not self.sv.data then return end
-    self.network:sendToClients("cl_updateData", self.sv.data)
 
-    if not self.trigger then return end
+    if not self.sv.trigger then return end
 
     local isInWater = false
-    for _, result in ipairs( self.trigger:getContents() ) do
+    for _, result in ipairs( self.sv.trigger:getContents() ) do
         if sm.exists( result ) then
             local userData = result:getUserData()
-            if userData and userData.water then
+            if userData and (userData.water or userData.chemical or userData.oil) then
                 isInWater = true
             end
         end
     end
 
-    local isInWater2 = isInWater and self.trigger:getSize():length() > 0
-    self:sv_updateState( { active = isInWater2, power = isInWater2 and 1 or 0, index = isInWater2 and 6 or 0  } )
+    local isInWater2 = isInWater and self.sv.trigger:getSize():length() > 0
+    if isInWater2 ~= self.interactable:isActive() then
+        self:sv_updateState( { active = isInWater2, power = isInWater2 and 1 or 0, index = isInWater2 and 6 or 0  } )
+    end
 end
 
 function Sensor:cl_updateData( data )
@@ -131,6 +133,7 @@ end
 
 function Sensor:sv_visualize()
     self.sv.data.visualize = not self.sv.data.visualize
+    self.network:sendToClients("cl_updateData", self.sv.data)
     self.network:sendToClients("cl_visualize", self.sv.data)
 end
 

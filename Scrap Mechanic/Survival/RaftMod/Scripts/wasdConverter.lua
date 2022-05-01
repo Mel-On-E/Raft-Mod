@@ -64,7 +64,6 @@ end
 
 function Converter:server_onFixedUpdate( dt )
     if not self.sv or not self.sv.data then return end
-    self.network:sendToClients("cl_updateData", self.sv.data)
 
     local parent = self.interactable:getSingleParent()
     if not parent then return end
@@ -73,15 +72,15 @@ function Converter:server_onFixedUpdate( dt )
     local forward = parent:getSteeringPower()
     local steer = parent:getSteeringAngle()
 
-    if forward ~= 0 and inputs.forward[forward] == selectedInput then
+    if forward ~= 0 and inputs.forward[forward] == selectedInput and not self.interactable:isActive() then
         self:sv_updateState( { active = true, power = forward } )
-    elseif selectedInput == "s" or selectedInput == "w" then
+    elseif forward == 0 and isAnyOf(selectedInput, inputs.forward) and self.interactable:isActive() then
         self:sv_updateState( { active = false, power = 0 } )
     end
 
-    if steer ~= 0 and inputs.steer[steer] == selectedInput then
+    if steer ~= 0 and inputs.steer[steer] == selectedInput and not self.interactable:isActive() then
         self:sv_updateState( { active = true, power = steer } )
-    elseif selectedInput == "a" or selectedInput == "d" then
+    elseif steer == 0 and isAnyOf(selectedInput, inputs.steer) and self.interactable:isActive() then
         self:sv_updateState( { active = false, power = 0 } )
     end
 end
@@ -104,6 +103,7 @@ end
 
 function Converter:sv_save()
     self.storage:save( self.sv.data )
+    self.network:sendToClients("cl_updateData", self.sv.data)
     self:sv_updateUV(0)
 end
 
