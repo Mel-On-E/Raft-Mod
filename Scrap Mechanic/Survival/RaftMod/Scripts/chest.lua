@@ -10,15 +10,28 @@ local function addToTable(t1,t2)
     end
 end
 
+local function getRealLength( table )
+    local length = 0
+    for v, k in pairs(table) do
+        length = length + 1
+    end
+
+    return length
+end
+
 function Chest.server_onCreate( self )
-	local container = self.shape.interactable:getContainer( 0 )
-    if not container then
-		container = self.shape:getInteractable():addContainer( 0, 20, 256 )
+    self.sv = {}
+    self.sv.sink = nil
+    --self.sv.shapesToSink = {}
+
+    self.sv.container = self.shape.interactable:getContainer( 0 )
+    if self.sv.container == nil then
+		self.sv.container = self.shape:getInteractable():addContainer( 0, 20, 256 )
 	end
-	
-	self.saved = self.storage:load()
-	if self.saved == nil then
-		self.saved = 0
+
+	self.sv.savedMass = self.storage:load()
+	if self.sv.savedMass == nil then
+		self.sv.savedMass = 0
 
         for _, body in pairs(self.shape:getBody():getCreationBodies()) do
             body:setDestructable(false)
@@ -27,8 +40,8 @@ function Chest.server_onCreate( self )
             body:setLiftable(false)
             body:setErasable(false)
 
-            self.saved = self.saved + body:getMass()
-        end 
+            self.sv.savedMass = self.sv.savedMass + body:getMass()
+        end
 
         local loot = {}
         addToTable(loot, SelectLoot("loot_ruinchest", 20))
@@ -41,18 +54,18 @@ function Chest.server_onCreate( self )
 
         if sm.container.beginTransaction() then
             if math.random(1,10) < 7 then
-                sm.container.collect( container, obj_consumable_soilbag, math.random(1,3), false )
+                sm.container.collect( self.sv.container, obj_consumable_soilbag, math.random(1,3), false )
             end
             for _, item in pairs(loot) do
-                sm.container.collect( container, item.uuid, item.quantity, false )
+                sm.container.collect( self.sv.container, item.uuid, item.quantity, false )
             end
             sm.container.endTransaction()
         end
 
-        container.allowSpend = true
-	    container.allowCollect = false
+        self.sv.container.allowSpend = true
+	    self.sv.container.allowCollect = false
 	end
-	self.storage:save( self.saved )
+	self.storage:save( self.sv.savedMass )
 end
 
 function Chest.client_onDestroy( self )
@@ -65,20 +78,40 @@ function Chest.client_onDestroy( self )
 end
 
 function Chest.server_onFixedUpdate( self )
-	local container = self.shape.interactable:getContainer( 0 )
-	if container then
-		if self.sink then
-            local down = sm.vec3.new(0,0,-1)
-            local force = (sm.game.getCurrentTick() - self.sink) / 2500
-            sm.physics.applyImpulse(self.shape:getBody(), down*force*self.saved, true)
+    if self.sv.container == nil or self.sv.sink == nil then return end
 
-            if self.shape:getBody().worldPosition.z < -5 and self.shape:getBody():getVelocity().z > -0.01 then
-                for _, shape in pairs(self.shape:getBody():getCreationShapes()) do
-                    sm.shape.destroyShape(shape, 0)
-                end 
+    --[[local currenTick = sm.game.getServerTick()
+    if currenTick >= self.sv.sink + 40 then
+        self.sv.sink = currenTick
+        for v, shape in pairs(self.sv.shapesToSink) do
+            local oneManStanding = getRealLength(self.sv.shapesToSink) == 1
+            if sm.exists(shape) and shape ~= self.shape and math.random() < 0.75 or oneManStanding then
+                if oneManStanding then
+                    sm.effect.playEffect( "Part - Upgrade", self.shape:getWorldPosition(), sm.vec3.zero(), sm.vec3.getRotation( sm.vec3.new(0,1,0), sm.vec3.new(0,0,1) ) )
+                end
+
+                sm.shape.destroyShape(shape, 0)
+                self.sv.shapesToSink[v] = nil
             end
-		end
-	end
+        end
+    end]]
+
+    local down = sm.vec3.new(0,0,-1)
+    local force = (sm.game.getCurrentTick() - self.sv.sink) / 2500
+    sm.physics.applyImpulse(self.shape:getBody(), down*force*self.sv.savedMass, true)
+
+    if self.shape:getBody().worldPosition.z < -5 and self.shape:getBody():getVelocity().z > -0.01 then
+        for _, shape in pairs(self.shape:getBody():getCreationShapes()) do
+            sm.shape.destroyShape(shape, 0)
+        end
+    end
+end
+
+function Chest:sv_setSink( sink )
+    if self.sv.sink == nil and sm.container.isEmpty( self.sv.container ) then
+        self.sv.sink = sink
+        --self.sv.shapesToSink = self.shape:getBody():getCreationShapes()
+    end
 end
 
 function Chest.client_onCreate( self )
@@ -99,10 +132,9 @@ function Chest.client_onInteract( self, character, state )
 			self.cl.containerGui:setText( "LowerName", "#{INVENTORY_TITLE}" )
 			self.cl.containerGui:setContainer( "LowerGrid", sm.localPlayer.getInventory() )
 			self.cl.containerGui:open()
-            if not self.sink then
-                self.sink = sm.game.getCurrentTick()
-            end
 		end
+    else
+        self.network:sendToServer("sv_setSink", sm.game.getCurrentTick())
 	end
 end
 
