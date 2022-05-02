@@ -88,10 +88,10 @@ local function CreateUnit( tag, node, cell )
 		--raft
 		if math.random(0,1) == 1 then
 			--don't spawn near spawn
-			dif = sm.vec3.new( -2336, -2592, 16 ) - node.position
-			pos = node.position
+			local dif = sm.vec3.new( -2336, -2592, 16 ) - node.position
+			local pos = node.position
 
-			safeDistance = 64*4 -- 4 tiles?
+			local safeDistance = 64*4 -- 4 tiles?
 
 			if math.abs(dif.x) > safeDistance or math.abs(dif.y) > safeDistance then
 				unit = sm.unit.createUnit( unit_sharkbot, node.position, toYaw( node.rotation ), { tetherPoint = node.position, deathTick = sm.game.getCurrentTick() + UnitTicksBetweenRespawns[tag] + 400 } )
