@@ -54,6 +54,7 @@ function Converter:server_onCreate()
     end
 
     self.network:sendToClients("cl_updateData", self.sv.data)
+    self:sv_updateUV( 0 )
 end
 
 function Converter:client_onCreate()
