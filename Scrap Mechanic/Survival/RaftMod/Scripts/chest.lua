@@ -4,6 +4,11 @@ dofile "$SURVIVAL_DATA/Scripts/game/survival_loot.lua"
 
 Chest = class( nil )
 
+local sinkStartDelay = 120
+local dissolvaStartDelay = 80
+local dissolveFrequency = 10
+local dissolveChance = 0.9
+
 local function addToTable(t1,t2)
     for _,v in ipairs(t2) do 
         table.insert(t1, v)
@@ -21,17 +26,22 @@ end
 
 function Chest.server_onCreate( self )
     self.sv = {}
-    self.sv.sink = nil
-    --self.sv.shapesToSink = {}
 
     self.sv.container = self.shape.interactable:getContainer( 0 )
     if self.sv.container == nil then
 		self.sv.container = self.shape:getInteractable():addContainer( 0, 20, 256 )
 	end
 
-	self.sv.savedMass = self.storage:load()
-	if self.sv.savedMass == nil then
-		self.sv.savedMass = 0
+	self.sv.saved = self.storage:load()
+	if self.sv.saved == nil then
+		self.sv.saved = {}
+
+        --self.sv.saved.mass = 0
+        self.sv.saved.sink = nil
+        self.sv.saved.dissolve = nil
+        self.sv.saved.shapesToSink = {}
+        self.sv.saved.sinkStartTick = nil
+        self.sv.saved.dissolveStartTick = 0
 
         for _, body in pairs(self.shape:getBody():getCreationBodies()) do
             body:setDestructable(false)
@@ -40,7 +50,7 @@ function Chest.server_onCreate( self )
             body:setLiftable(false)
             body:setErasable(false)
 
-            self.sv.savedMass = self.sv.savedMass + body:getMass()
+            --self.sv.saved.mass = self.sv.saved.mass + body:getMass()
         end
 
         local loot = {}
@@ -65,7 +75,7 @@ function Chest.server_onCreate( self )
         self.sv.container.allowSpend = true
 	    self.sv.container.allowCollect = false
 	end
-	self.storage:save( self.sv.savedMass )
+	self.storage:save( self.sv.saved )
 end
 
 function Chest.client_onDestroy( self )
@@ -78,39 +88,62 @@ function Chest.client_onDestroy( self )
 end
 
 function Chest.server_onFixedUpdate( self )
-    if self.sv.container == nil or self.sv.sink == nil then return end
-
-    --[[local currenTick = sm.game.getServerTick()
-    if currenTick >= self.sv.sink + 40 then
-        self.sv.sink = currenTick
-        for v, shape in pairs(self.sv.shapesToSink) do
-            local oneManStanding = getRealLength(self.sv.shapesToSink) == 1
-            if sm.exists(shape) and shape ~= self.shape and math.random() < 0.75 or oneManStanding then
-                if oneManStanding then
-                    sm.effect.playEffect( "Part - Upgrade", self.shape:getWorldPosition(), sm.vec3.zero(), sm.vec3.getRotation( sm.vec3.new(0,1,0), sm.vec3.new(0,0,1) ) )
-                end
-
-                sm.shape.destroyShape(shape, 0)
-                self.sv.shapesToSink[v] = nil
-            end
-        end
+    --[[for v, shape in pairs(self.sv.saved.shapesToSink) do
+        sm.shape.destroyShape(shape, 0)
     end]]
 
-    local down = sm.vec3.new(0,0,-1)
-    local force = (sm.game.getCurrentTick() - self.sv.sink) / 2500
-    sm.physics.applyImpulse(self.shape:getBody(), down*force*self.sv.savedMass, true)
+    local currenTick = sm.game.getServerTick()
+    if self.sv.container == nil or self.sv.saved.sinkStartTick == nil or currenTick < self.sv.saved.sinkStartTick + sinkStartDelay then return
+    elseif currenTick == self.sv.saved.sinkStartTick + sinkStartDelay then self.sv.saved.sink = currenTick end
 
-    if self.shape:getBody().worldPosition.z < -5 and self.shape:getBody():getVelocity().z > -0.01 then
-        for _, shape in pairs(self.shape:getBody():getCreationShapes()) do
+    local down = sm.vec3.new(0,0,-1)
+    local force = (currenTick - self.sv.saved.sink) / 2500
+    for v, shape in pairs(self.sv.saved.shapesToSink) do
+        if sm.exists(shape) then
+            local body = shape:getBody()
+            sm.physics.applyImpulse(body, down*force*body:getMass() / 12, true)
+        end
+    end
+
+    if self.shape:getBody():getCenterOfMassPosition().z < -5 and self.shape:getBody():getVelocity() < sm.vec3.new(0.001,0.01,0.001) and not self.sv.saved.dissolve then
+        self.sv.saved.dissolve = currenTick
+        self.sv.saved.dissolveStartTick = currenTick
+        self.storage:save( self.sv.saved )
+
+        --[[for _, shape in pairs(self.shape:getBody():getCreationShapes()) do
             sm.shape.destroyShape(shape, 0)
+        end]]
+    end
+
+    if self.sv.saved.dissolve == nil or currenTick < self.sv.saved.dissolveStartTick + dissolvaStartDelay then return end
+
+    if currenTick >= self.sv.saved.dissolve + dissolveFrequency then
+        self.sv.saved.dissolve = currenTick
+        for v, shape in pairs(self.sv.saved.shapesToSink) do
+            local oneManStanding = getRealLength(self.sv.saved.shapesToSink) == 1
+            if sm.exists(shape) then
+                if shape ~= self.shape and math.random() < dissolveChance or oneManStanding then
+                    if oneManStanding then
+                        sm.effect.playEffect( "Part - Upgrade", self.shape:getWorldPosition(), sm.vec3.zero(), sm.vec3.getRotation( sm.vec3.new(0,1,0), sm.vec3.new(0,0,1) ) )
+                    end
+
+                    sm.shape.destroyShape(shape, 0)
+                    self.sv.saved.shapesToSink[v] = nil
+                    break
+                end
+            else
+                self.sv.saved.shapesToSink[v] = nil
+            end
         end
     end
 end
 
 function Chest:sv_setSink( sink )
-    if self.sv.sink == nil and sm.container.isEmpty( self.sv.container ) then
-        self.sv.sink = sink
-        --self.sv.shapesToSink = self.shape:getBody():getCreationShapes()
+    if self.sv.saved.sink == nil and sm.container.isEmpty( self.sv.container ) then
+        --self.sv.saved.sink = sink
+        self.sv.saved.sinkStartTick = sink
+        self.sv.saved.shapesToSink = self.shape:getBody():getCreationShapes()
+        self.storage:save( self.sv.saved )
     end
 end
 
