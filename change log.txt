@@ -1,3 +1,7 @@
+---------1.11-----------
+- Fixed Polish translation
+- Fixed crash happening on one Poin Of Interest tile
+- Abandoned Rafts now disappear when you loot them
 ---------1.1-----------
 - new reinforced raft base texture
 - alert users of new version
