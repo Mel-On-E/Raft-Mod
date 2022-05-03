@@ -450,9 +450,10 @@ function SurvivalPlayer.server_onFixedUpdate( self, dt )
 			end
 
 			if self.sv.saved.tankCharge + tankChange == 0 and tankChange < 0 then
-				self.network:sendToClient(self.player, "cl_displayMsg", { msg = "Your Oxygen Tank has ran out of air!", dur = 1 })
+				self.network:sendToClient(self.player, "cl_displayMsg", { msg = "#ff1100Your Oxygen Tank has ran out of air!", dur = 2.5 })
 			elseif self.sv.saved.tankCharge > dt and self.sv.saved.tankCharge < self.sv.saved.maxTankCharge then
-				self.network:sendToClient(self.player, "cl_displayMsg", { msg = "#df7f00"..tostring(math.floor(self.sv.saved.tankCharge)).." seconds #ffffffworth of air is in your tank.", dur = 1 } )
+				local colour = tankChange > 0 and "#269e44^" or "#9e2626v"
+				self.network:sendToClient(self.player, "cl_displayMsg", { msg = colour..tostring(math.floor(self.sv.saved.tankCharge)).." seconds #ffffffworth of air is in your tank.", dur = 1 } )
 			end
 
 			self.sv.saved.tankCharge = sm.util.clamp(self.sv.saved.tankCharge + tankChange, 0, self.sv.saved.maxTankCharge)
