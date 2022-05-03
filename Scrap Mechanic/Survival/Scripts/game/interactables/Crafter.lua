@@ -73,7 +73,7 @@ local crafters = {
 	-- ScrapFarm
 	[tostring( obj_scrap_field )] = {
 		needsPower = false,
-		slots = 8,
+		slots = 1,
 		speed = 1,
 		recipeSets = {
 			{ name = "farm", locked = false }
@@ -85,7 +85,7 @@ local crafters = {
 	-- BigFarm
 	[tostring( obj_large_field )] = {
 		needsPower = false,
-		slots = 8,
+		slots = 1,
 		speed = 1,
 		recipeSets = {
 			{ name = "bigfarm", locked = false }
@@ -97,7 +97,7 @@ local crafters = {
 	-- ScrapPurifier
 	[tostring( obj_scrap_purifier )] = {
 		needsPower = false,
-		slots = 8,
+		slots = 2,
 		speed = 1,
 		recipeSets = {
 			{ name = "scrappurifier", locked = false }
@@ -109,7 +109,7 @@ local crafters = {
 	-- ScrapTreeGrower
 	[tostring( obj_scrap_tree_grower )] = {
 		needsPower = false,
-		slots = 8,
+		slots = 1,
 		speed = 1,
 		recipeSets = {
 			{ name = "scraptrees", locked = false }
@@ -164,7 +164,7 @@ local crafters = {
 	-- Grill
 	[tostring( obj_grill )] = {
 		needsPower = false,
-		slots = 8,
+		slots = 1,
 		speed = 1,
 		recipeSets = {
 			{ name = "grill", locked = false }
