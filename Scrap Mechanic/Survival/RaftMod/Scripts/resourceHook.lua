@@ -43,6 +43,8 @@ function Hook:server_onCreate()
 	self.sv.hooks = {}
 	self.sv.firePoss = {}
 	self.sv.pullForces = {}
+
+	self.sv.actualDt = 0
 end
 
 function Hook.client_onCreate( self )
@@ -190,7 +192,7 @@ function Hook:sv_applyImpulse( args )
 	local mult = 1 + self.sv.pullForces[args.owner:getId()]
 
 	if args.body:getVelocity():length() < PullSpeed * 3 * math.max(distance:length()/10, 1) * mult then
-		sm.physics.applyImpulse( args.body, dir * args.body:getMass() / 75 * math.max(distance:length()/20, 1) * mult, true )
+		sm.physics.applyImpulse( args.body, dir * args.body:getMass() * (self.sv.actualDt / 2.5) * math.max(distance:length()/20, 1) * mult, true )
 	end
 end
 
@@ -260,7 +262,7 @@ function Hook:server_onFixedUpdate( dt )
 
 			if hook.isThrowing then
 				hook.dir = hook.dir - sm.vec3.new(0,0,0.05 / hook.throwForce)
-				hook.pos = hook.pos + vec3Num(hook.throwForce) * ThrowSpeed * hook.dir * dt
+				hook.pos = hook.pos + vec3Num(hook.throwForce) * ThrowSpeed * hook.dir * self.sv.actualDt
 
 				hook.waterTrigger:setWorldPosition( hook.pos )
 				hook.shapeTrigger:setWorldPosition( hook.pos )
@@ -277,7 +279,7 @@ function Hook:server_onFixedUpdate( dt )
 					end
 				end
 
-				local hit, result = sm.physics.raycast( hook.pos, hook.pos + hook.dir * hook.throwForce * (dt*2) )
+				local hit, result = sm.physics.raycast( hook.pos, hook.pos + hook.dir * hook.throwForce * (self.sv.actualDt*2) )
 
 				if hitWater then
 					hook.isThrowing = false
@@ -302,7 +304,7 @@ function Hook:server_onFixedUpdate( dt )
 					hook.dir = sm.vec3.new(dir.x, dir.y, 0)
 				--end
 
-				hook.pos = hook.pos + sm.vec3.one() / 4 * hook.dir * PullSpeed * (1 + self.sv.pullForces[ownerId]) * dt
+				hook.pos = hook.pos + sm.vec3.one() / 4 * hook.dir * PullSpeed * (1 + self.sv.pullForces[ownerId]) * self.sv.actualDt
 
 				hook.waterTrigger:setWorldPosition( hook.pos )
 				hook.shapeTrigger:setWorldPosition( hook.pos )
@@ -329,8 +331,18 @@ function Hook:server_onFixedUpdate( dt )
 	end
 end
 
+--dt in onFixed is always 0.025 even if your framerate is below 40
+--fucking hell
+function Hook:sv_setDt( dt )
+	self.sv.actualDt = dt
+end
+
 function Hook.client_onUpdate( self, dt )
 	--raft
+	if sm.isHost then
+		self.network:sendToServer("sv_setDt", dt)
+	end
+
 	self.cl.lookDir = sm.localPlayer.getDirection()
 	--raft
 
