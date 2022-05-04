@@ -251,16 +251,12 @@ function HideoutTrader.server_onFixedUpdate( self, timeStep )
 
 	--RAFT
 	if not g_questManager:sv_isQuestCompleted(quest_deliver_vegetables) then
-		if sm.container.canSpend(self.interactable:getContainer(), obj_crates_carrot, 2) then
-			if sm.container.canSpend(self.interactable:getContainer(), obj_crates_redbeet, 2) then
-				Server_completeQuest(quest_deliver_vegetables)
-			end
+		if sm.container.canSpend(self.interactable:getContainer(), obj_crates_carrot, 2) and sm.container.canSpend(self.interactable:getContainer(), obj_crates_redbeet, 2) then
+			Server_completeQuest(quest_deliver_vegetables)
 		end
 	elseif not g_questManager:sv_isQuestCompleted(quest_fruits) then
-		if sm.container.canSpend(self.interactable:getContainer(), obj_crates_blueberry, 2) then
-			if sm.container.canSpend(self.interactable:getContainer(), obj_crates_banana, 2) then
-				Server_completeQuest(quest_fruits)
-			end
+		if sm.container.canSpend(self.interactable:getContainer(), obj_crates_blueberry, 2) and sm.container.canSpend(self.interactable:getContainer(), obj_crates_banana, 2) then
+			Server_completeQuest(quest_fruits)
 		end
 	elseif not g_questManager:sv_isQuestCompleted(quest_warehouse) then
 		if sm.container.canSpend(self.interactable:getContainer(), obj_survivalobject_farmerball, 1) then
@@ -397,35 +393,40 @@ function HideoutTrader.client_onInteract( self, character, state )
 
 
 			--RAFT
-			local function NPC_message(msg)
-				sm.gui.chatMessage("#3aa832Trader#ffffff: " .. msg)
-			end
-			
 			for _, quest in ipairs(ReturnQuests) do
 				if g_questManager:cl_isQuestActive(quest) then
 					Server_completeQuest( quest )
 				end
 			end
-			
+
 			if not g_questManager:cl_isQuestCompleted(quest_deliver_vegetables) then
-				NPC_message("#{RAFT_TRADER_DIALOGUE_1}")
+				self.network:sendToServer("sv_traderMsg", "#{RAFT_TRADER_DIALOGUE_1}")
 				if not g_questManager:cl_isQuestCompleted(quest_find_trader) then
 					Server_completeQuest( quest_find_trader )
 				end
 			elseif not g_questManager:cl_isQuestCompleted(quest_sunshake) then
-				NPC_message("#{RAFT_TRADER_DIALOGUE_2}")
+				self.network:sendToServer("sv_traderMsg", "#{RAFT_TRADER_DIALOGUE_2}")
 			elseif not g_questManager:cl_isQuestCompleted(quest_fruits) then
-				NPC_message("#{RAFT_TRADER_DIALOGUE_3}")
+				self.network:sendToServer("sv_traderMsg", "#{RAFT_TRADER_DIALOGUE_3}")
 			elseif not g_questManager:cl_isQuestCompleted(quest_scrap_city) then
-				NPC_message("#{RAFT_TRADER_DIALOGUE_4}")
+				self.network:sendToServer("sv_traderMsg", "#{RAFT_TRADER_DIALOGUE_4}")
 			elseif not g_questManager:cl_isQuestCompleted(quest_warehouse) then
-				NPC_message("#{RAFT_TRADER_DIALOGUE_5}")
+				self.network:sendToServer("sv_traderMsg", "#{RAFT_TRADER_DIALOGUE_5}")
 			elseif not g_questManager:cl_isQuestCompleted(quest_chapter2) then
-				NPC_message("#{RAFT_TRADER_DIALOGUE_6}")
+				self.network:sendToServer("sv_traderMsg", "#{RAFT_TRADER_DIALOGUE_6}")
 			end
 		end
 	end
 end
+
+function HideoutTrader:sv_traderMsg(msg)
+	self.network:sendToClients("cl_traderMsg", msg)
+end
+
+function HideoutTrader:cl_traderMsg(msg)
+	sm.gui.chatMessage("#3aa832Trader#ffffff: " .. msg)
+end
+--Raft
 
 function HideoutTrader.cl_onClose( self )
 	if self.cl.user then

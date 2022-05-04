@@ -708,12 +708,14 @@ function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 			sm.world.loadWorld( self.sv.saved.overworld )
 		end
 		self.sv.saved.overworld:loadCell( math.floor( spawnPoint.x/64 ), math.floor( spawnPoint.y/64 ), player, "sv_createNewPlayer" )
-		
+
 		--Raft
 		if player.id == 1 then
 			spawnRaft = true
 			sm.gui.chatMessage("#ff0000Thanks for playing the Raft Mechanic Mod! Check out the logbook to get started!")
-		elseif setRaftSpawn then
+		end
+
+		if setRaftSpawn then
 			sm.event.sendToWorld( player:getCharacter():getWorld(), "sv_e_handleRaftSpawn", { player = player, vec = vec } ) -- spawn players on the raft
 		end
 	else
