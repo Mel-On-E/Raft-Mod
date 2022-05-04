@@ -16,43 +16,38 @@ function OilGeyser.server_onCreate( self )
 end
 
 function OilGeyser.server_spawnJunk(self)
-	for _, player in pairs(sm.player.getAllPlayers()) do
-		if player.id == 1 then
-			vec = self.harvestable:getPosition()
-			vec.z = -2
+	local vec = self.harvestable:getPosition()
+	vec.z = -2
 
-			local random = math.random(1,1000)
-			local i
-			if random <= 0010 then
-				vec.z = -2
-				local crate = hvs_lootcrate
-				if math.random(1,25) == 25 then
-					crate = hvs_lootcrateepic
-				end
-
-				sm.harvestable.create( crate, vec, self.harvestable.worldRotation )
-				return
-			elseif random <= 0100 then
-				return
-			elseif random <= 0110 then
-				i = 6
-			elseif random <= 0125 then
-				i = 5
-			elseif random <= 0200 then
-				i = 4
-			elseif random <= 0275 then
-				i = 3
-			elseif random <= 0600 then
-				i = 2
-			elseif random <= 0602 then
-				i = 100 + math.random(1,3) --Abandoned raft
-			else
-				i = 1
-			end
-
-			local status, error = pcall( sm.creation.importFromFile( player:getCharacter():getWorld(), "$SURVIVAL_DATA/LocalBlueprints/junk" .. tostring(i) .. ".blueprint", vec ) )
+	local random = math.random(1,1000)
+	local junkIndex
+	if random <= 10 then
+		local crate = hvs_lootcrate
+		if math.random(1,25) == 25 then
+			crate = hvs_lootcrateepic
 		end
+
+		sm.harvestable.create( crate, vec, self.harvestable.worldRotation )
+		return
+	elseif random <= 100 then
+		return
+	elseif random <= 110 then
+		junkIndex = 6
+	elseif random <= 125 then
+		junkIndex = 5
+	elseif random <= 200 then
+		junkIndex = 4
+	elseif random <= 275 then
+		junkIndex = 3
+	elseif random <= 600 then
+		junkIndex = 2
+	elseif random <= 602 then
+		junkIndex = 100 + math.random(1,3) --Abandoned raft
+	else
+		junkIndex = 1
 	end
+
+	local status, error = pcall( sm.creation.importFromFile( sm.player.getAllPlayers()[1]:getCharacter():getWorld(), "$SURVIVAL_DATA/LocalBlueprints/junk" .. tostring(junkIndex) .. ".blueprint", vec ) )
 end
 
 function OilGeyser.server_onFixedUpdate( self, state )
