@@ -83,6 +83,7 @@ function SurvivalPlayer.server_onCreate( self )
 		self.sv.saved.tankCharge = maxTankChargePerTank
 		self.sv.saved.maxTankCharge = maxTankChargePerTank
 		self.sv.saved.usedTanks = 0
+		self.sv.saved.breathDepleteBlock = false
 		--Raft
 
 		self.storage:save( self.sv.saved )
@@ -354,6 +355,13 @@ end
 function SurvivalPlayer:cl_displayMsg( args )
 	sm.gui.displayAlertText(args.msg, args.dur)
 end
+
+function SurvivalPlayer:sv_setBlockBreatheDeplete( toggle )
+	print(self.sv.saved.breathDepleteBlock)
+	if self.sv.saved.breathDepleteBlock == nil then self.sv.saved.breathDepleteBlock = false end
+	self.sv.saved.breathDepleteBlock = toggle
+	self.storage:save(self.sv.saved)
+end
 --Raft
 
 function SurvivalPlayer.cl_localPlayerUpdate( self, dt )
@@ -496,7 +504,9 @@ function SurvivalPlayer.server_onFixedUpdate( self, dt )
 	if character then
 		if character:isDiving() then
 			--Raft
-			if not self.sv.saved.wearingTank or self.sv.saved.wearingTank and self.sv.saved.tankCharge == 0 then
+			if self.sv.saved.breathDepleteBlock == nil then self.sv.saved.breathDepleteBlock = false end
+
+			if (not self.sv.saved.wearingTank or self.sv.saved.wearingTank and self.sv.saved.tankCharge == 0) and not self.sv.saved.breathDepleteBlock then
 				self.sv.saved.stats.breath = math.max( self.sv.saved.stats.breath - BreathLostPerTick, 0 )
 			end
 			--Raft
