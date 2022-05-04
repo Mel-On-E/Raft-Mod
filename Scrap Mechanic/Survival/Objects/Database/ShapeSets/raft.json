@@ -555,6 +555,11 @@
 				"y": 1,
 				"z": 3
 			},
+			"scripted": {
+				"filename": "$SURVIVAL_DATA/RaftMod/Scripts/seatBreathe.lua",
+				"classname": "Breathe",
+				"data": {}
+			},
 			"rotationSet": "PropY",
 			"sticky": "-Y",
 			"physicsMaterial": "Plastic",
