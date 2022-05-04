@@ -9,8 +9,8 @@ AirTank.colorNormal = sm.color.new( 0x00ccccff )
 AirTank.colorHighlight = sm.color.new( 0x00ffffff )
 
 function AirTank:server_onFixedUpdate(dt)
-	parent = self.interactable:getSingleParent()
-	shape = self.shape
+	local parent = self.interactable:getSingleParent()
+	local shape = self.shape
 	if parent then
 		if parent.active and shape.uuid == obj_airtank_empty then
 			shape:replaceShape(obj_airtank_full)
