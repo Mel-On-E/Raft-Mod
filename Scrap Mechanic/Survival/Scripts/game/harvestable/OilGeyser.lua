@@ -47,7 +47,13 @@ function OilGeyser.server_spawnJunk(self)
 		junkIndex = 1
 	end
 
-	local status, error = pcall( sm.creation.importFromFile( sm.player.getAllPlayers()[1]:getCharacter():getWorld(), "$SURVIVAL_DATA/LocalBlueprints/junk" .. tostring(junkIndex) .. ".blueprint", vec ) )
+	local player = sm.player.getAllPlayers()[1]
+	if player:getCharacter() == nil then
+		self.spawnJunk = 10
+		return
+	end
+
+	local status, error = pcall( sm.creation.importFromFile( player:getCharacter():getWorld(), "$SURVIVAL_DATA/LocalBlueprints/junk" .. tostring(junkIndex) .. ".blueprint", vec ) )
 end
 
 function OilGeyser.server_onFixedUpdate( self, state )

@@ -715,7 +715,7 @@ function SurvivalGame.server_onPlayerJoined( self, player, newPlayer )
 			sm.gui.chatMessage("#ff0000Thanks for playing the Raft Mechanic Mod! Check out the logbook to get started!")
 		end
 
-		if setRaftSpawn then
+		if setRaftSpawn and player:getCharacter() ~= nil then
 			sm.event.sendToWorld( player:getCharacter():getWorld(), "sv_e_handleRaftSpawn", { player = player, vec = vec } ) -- spawn players on the raft
 		end
 	else
