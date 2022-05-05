@@ -6,5 +6,5 @@
    "version" : 0,
 
    //UPDATE versionChecker.lua (in raft mod scripts) to match this version and NO non numbers
-   "fileModVersion": 1.11
+   "fileModVersion": 1.2
 }

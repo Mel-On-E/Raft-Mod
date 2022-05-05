@@ -1,4 +1,4 @@
-local VERSION = 1.11 -- UPDATE version.json ASWELL!!!!!!
+local VERSION = 1.2 -- UPDATE description.json ASWELL!!!!!!
 g_checkForUpdates = true -- delcare to check for updates
 
 function checkRaftVersion()
