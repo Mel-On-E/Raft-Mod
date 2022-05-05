@@ -1317,8 +1317,8 @@
 				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Propeller.lua",
 				"classname": "Propeller"
 			},
-			"rotationSet": "PropY",
-			"sticky": "-Y",
+			"rotationSet": "PropYNegY",
+			"sticky": "-Y+Y",
 			"physicsMaterial": "Mechanical",
 			"ratings": {
 				"density": 3,
@@ -2159,8 +2159,8 @@
 				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Propeller.lua",
 				"classname": "SmallPropeller"
 			},
-			"rotationSet": "PropY",
-			"sticky": "-Y",
+			"rotationSet": "PropYNegY",
+			"sticky": "-Y+Y",
 			"physicsMaterial": "Mechanical",
 			"ratings": {
 				"density": 3,
