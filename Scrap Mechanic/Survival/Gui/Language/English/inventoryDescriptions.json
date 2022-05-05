@@ -322,8 +322,8 @@
 		"title": "Shack Wall"
 	},
 	"2af00456-b22e-4743-b338-a91934aba7c5": {
-		"description": "Cooks delicious food that will fill up your health bar or revive fallen friends.",
-		"title": "Cookbot"
+		"description": "Cooks delicious food that will fill up your health bar or revive fallen friends. You should have on on your raft.",
+		"title": "Lightweight Cookbot"
 	},
 	"2b9c6e87-1b75-4a57-8979-74d9f95668ba": {
 		"description": "Used for avoiding standing. Take a seat and relax or add it to your vehicle so your friends can tag along. Can be connected to triggers which can activate other interactive parts from the seat.",
@@ -731,8 +731,8 @@
 		"title": "obj_harvests_trees_pine01_p06"
 	},
 	"5cb15c93-4fa9-48da-9974-2e95ca6c9e1c": {
-		"description": "Let the Refinebot help you out and refine all your collected logs. Put them in by hand or by placing a Resource Collector with logs next to it.",
-		"title": "Refinebot"
+		"description": "Let the Refinebot help you out and refine all your collected logs. Put them in by hand or by placing a Resource Collector with logs next to it. You should have on on your raft.",
+		"title": "Lightweight Refinebot"
 	},
 	"5cb39ea5-554d-4c40-9d9a-6b2dd59de953": {
 		"title": "Scrap Metal"
@@ -954,8 +954,8 @@
 		"title": "Warehouse Ventilation Short"
 	},
 	"767a3121-2c31-473c-a5ab-27e188fdd55a": {
-		"description": "Use the Dressbot to make new clothes for your Mechanic. Just add your garment boxes and the right amount of cotton. You can also customise your look by using the blue wardrobe.",
-		"title": "Dressbot"
+		"description": "Use the Dressbot to make new clothes for your Mechanic. Just add your garment boxes and the right amount of cotton. You can also customise your look by using the blue wardrobe. You should have on on your raft.",
+		"title": "Lightweight Dressbot"
 	},
 	"7728c105-1fd9-4aaa-95ec-1da45b425d89": {
 		"title": "Office Sign"
@@ -1318,8 +1318,8 @@
 		"title": "Industrial Beam Long"
 	},
 	"a930a42f-63ed-4fb0-933e-56ce8a889cc5": {
-		"description": "Perfect for collecting and stacking logs. When full, place it next to a refinebot to turn logs in to blocks.",
-		"title": "Resource Collector"
+		"description": "Perfect for collecting and stacking logs. When full, place it next to a refinebot to turn logs in to blocks. You should have on on your raft.",
+		"title": "Lightweight Resource Collector"
 	},
 	"a9658eaf-0dd8-46a6-8cac-be6978f19b79": {
 		"description": "Adds shock absorption and provides stability. Great for vehicles to prevent them from easily flipping over. This suspension has a lot of bounce, making it ideal for off-road vehicles.",
