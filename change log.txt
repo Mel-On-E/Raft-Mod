@@ -1,7 +1,9 @@
 ---------1.11-----------
 - Fixed Polish translation
 - Fixed crash happening on one Poin Of Interest tile
-- Abandoned Rafts now disappear when you loot them
+- Oxygen tank can be connected to seat for inifinite oxygen
+- All bots are now lightweight
+- (Hopefully) Hook and fishing rod work in multiplayer now
 ---------1.1-----------
 - new reinforced raft base texture
 - alert users of new version
