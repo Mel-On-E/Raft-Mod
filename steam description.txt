@@ -61,5 +61,13 @@ To uninstall the mod, [b]verify the integrity[/b] of your game files.
 [h1]Do NOT load into unmodded worlds with the mod installed![/h1]
 [h2][b]WARNING![/b] This mod [i]cannot[/i] be mixed with other mods easily! It will break if you don't merge them correctly.[/h2]
 
+[h1]Join our official [url=https://discord.gg/KckXqDD6Yz]Discord Server![/url][/h1]
+
+Translations:
+[list]
+    [*]Italian - [url=https://steamcommunity.com/id/Fagiano0]Fagiano[/url]
+    [*]Polish - [url=https://steamcommunity.com/profiles/76561199100233083/]Cookiez_1[/url]
+[/list]
+
 If you enjoy this mod, don't forget to rate it!
 [img]https://i.imgur.com/p7Fv1Z6.gif[/img]
