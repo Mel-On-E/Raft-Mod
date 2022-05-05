@@ -16,6 +16,10 @@ sm.tool.preloadRenderables( renderablesTp )
 sm.tool.preloadRenderables( renderablesFp )
 
 --raft
+local firePoss = {}
+local pullForces = {}
+local actualDt = 0
+
 local function vec3Num( num )
 	return sm.vec3.new(num,num,num)
 end
@@ -41,10 +45,6 @@ local maxPullMultiplier = 5
 function Hook:server_onCreate()
 	self.sv = {}
 	self.sv.hooks = {}
-	self.sv.firePoss = {}
-	self.sv.pullForces = {}
-
-	self.sv.actualDt = 0
 end
 
 function Hook.client_onCreate( self )
@@ -52,7 +52,6 @@ function Hook.client_onCreate( self )
 	self.cl.player = sm.localPlayer.getPlayer()
 	self.cl.playerId = self.cl.player:getId()
 	self.cl.effects = {}
-	self.cl.firePoss = {}
 
 	self.cl.throwForce = 0
 	self.cl.isReversing = false
@@ -60,8 +59,6 @@ function Hook.client_onCreate( self )
 	self.cl.secondaryState = 0
 	self.cl.lookDir = sm.vec3.zero()
 	self.cl.pullMultiplier = 0
-
-	self.network:sendToServer("sv_updatePullForce", { index = self.cl.playerId, force = self.cl.pullMultiplier })
 	--raft
 end
 
@@ -136,20 +133,6 @@ function Hook.loadAnimations( self )
 end
 
 --raft
-function Hook:sv_updatePullForce( args )
-	self.sv.pullForces[args.index] = args.force
-end
-
-function Hook:sv_updateFirePositions( args )
-	self.sv.firePoss[args.index] = { fp = args.fp, tp = args.tp }
-
-	self.network:sendToClients("cl_updateFirePositions", self.sv.firePoss)
-end
-
-function Hook:cl_updateFirePositions( firePositions )
-	self.cl.firePoss = firePositions
-end
-
 function Hook:sv_throwHook( args )
 	local hook = { owner = args.owner, speed = sm.vec3.one(), waterTrigger = nil, shapeTrigger = nil, isThrowing = true, isReversing = false, pos = args.pos, dir = args.dir, throwForce = args.throwForce }
 	hook.waterTrigger = sm.areaTrigger.createBox( hookSize * 2, args.pos, sm.quat.identity(), sm.areaTrigger.filter.areaTrigger )
@@ -167,7 +150,7 @@ function Hook:cl_throwHook( args )
 	hook.rope:setParameter("uuid", sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"))
 	hook.rope:setParameter("color", sm.color.new(0,0,0))
 
-	local firePosTable = self.cl.firePoss[args.index]
+	local firePosTable = firePoss[args.index]
 	local firePos = sm.localPlayer.isInFirstPersonView() and self.cl.playerId == args.index and firePosTable.fp or firePosTable.tp
 	hook.rope:setPosition( firePos )
 
@@ -189,17 +172,17 @@ end
 function Hook:sv_applyImpulse( args )
 	local dir = args.dir --(self.hookPos + self.hookDir) - body:getWorldPosition()
 	local distance = args.owner:getCharacter():getWorldPosition() - args.body:getWorldPosition()
-	local mult = 1 + self.sv.pullForces[args.owner:getId()]
+	local mult = 1 + pullForces[args.owner:getId()]
 
 	if args.body:getVelocity():length() < PullSpeed * 3 * math.max(distance:length()/10, 1) * mult then
-		sm.physics.applyImpulse( args.body, dir * args.body:getMass() * (self.sv.actualDt / 2.5) * math.max(distance:length()/20, 1) * mult, true )
+		sm.physics.applyImpulse( args.body, dir * args.body:getMass() * (actualDt / 2.5) * math.max(distance:length()/20, 1) * mult, true )
 	end
 end
 
 function Hook:cl_calculateRodEffectData( args )
 	if self.cl.effects[args.index] == nil then return end
 
-	local firePosTable = self.cl.firePoss[args.index]
+	local firePosTable = firePoss[args.index]
 	local firePos = sm.localPlayer.isInFirstPersonView() and self.cl.playerId == args.index and firePosTable.fp or firePosTable.tp
 
 	local delta = firePos - args.pos
@@ -236,8 +219,6 @@ function Hook:cl_reset( ownerId )
 end
 
 function Hook:client_onFixedUpdate( dt )
-	local prevPullMultiplier = self.cl.pullMultiplier
-
 	if self.tool:isEquipped() and (self.cl.primaryState == 1 or self.cl.primaryState == 2) then
 		self.cl.throwForce = math.min(self.cl.throwForce + dt/chargeUpTime * maxThrowForce, maxThrowForce)
 	end
@@ -248,11 +229,8 @@ function Hook:client_onFixedUpdate( dt )
 		self.cl.pullMultiplier = 0
 	end
 
-	if prevPullMultiplier ~= self.cl.pullMultiplier then
-		self.network:sendToServer("sv_updatePullForce", { index = self.cl.playerId, force = self.cl.pullMultiplier })
-	end
-
-	self.network:sendToServer("sv_updateFirePositions", { index = self.cl.playerId, fp = self:calculateFirePosition(), tp = self:calculateTpMuzzlePos() })
+	pullForces[self.cl.playerId] = self.cl.pullMultiplier
+	firePoss[self.cl.playerId] = { fp = self:calculateFirePosition(), tp = self:calculateTpMuzzlePos() }
 end
 
 function Hook:server_onFixedUpdate( dt )
@@ -262,7 +240,7 @@ function Hook:server_onFixedUpdate( dt )
 
 			if hook.isThrowing then
 				hook.dir = hook.dir - sm.vec3.new(0,0,0.05 / hook.throwForce)
-				hook.pos = hook.pos + vec3Num(hook.throwForce) * ThrowSpeed * hook.dir * self.sv.actualDt
+				hook.pos = hook.pos + vec3Num(hook.throwForce) * ThrowSpeed * hook.dir * actualDt
 
 				hook.waterTrigger:setWorldPosition( hook.pos )
 				hook.shapeTrigger:setWorldPosition( hook.pos )
@@ -279,7 +257,7 @@ function Hook:server_onFixedUpdate( dt )
 					end
 				end
 
-				local hit, result = sm.physics.raycast( hook.pos, hook.pos + hook.dir * hook.throwForce * (self.sv.actualDt*2) )
+				local hit, result = sm.physics.raycast( hook.pos, hook.pos + hook.dir * hook.throwForce * (actualDt*2) )
 
 				if hitWater then
 					hook.isThrowing = false
@@ -304,7 +282,7 @@ function Hook:server_onFixedUpdate( dt )
 					hook.dir = sm.vec3.new(dir.x, dir.y, 0)
 				--end
 
-				hook.pos = hook.pos + sm.vec3.one() / 4 * hook.dir * PullSpeed * (1 + self.sv.pullForces[ownerId]) * self.sv.actualDt
+				hook.pos = hook.pos + sm.vec3.one() / 4 * hook.dir * PullSpeed * (1 + pullForces[ownerId]) * actualDt
 
 				hook.waterTrigger:setWorldPosition( hook.pos )
 				hook.shapeTrigger:setWorldPosition( hook.pos )
@@ -331,16 +309,12 @@ function Hook:server_onFixedUpdate( dt )
 	end
 end
 
---dt in onFixed is always 0.025 even if your framerate is below 40
---fucking hell
-function Hook:sv_setDt( dt )
-	self.sv.actualDt = dt
-end
-
 function Hook.client_onUpdate( self, dt )
 	--raft
+	--dt in onFixed is always 0.025 even if your framerate is below 40
+	--fucking hell
 	if sm.isHost then
-		self.network:sendToServer("sv_setDt", dt)
+		actualDt = dt
 	end
 
 	self.cl.lookDir = sm.localPlayer.getDirection()
