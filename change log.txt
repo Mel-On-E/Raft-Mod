@@ -3,11 +3,7 @@
 - Fixed crash happening on one Poin Of Interest tile
 - Oxygen tank can be connected to seat for inifinite oxygen
 - All bots are now lightweight
-- (Hopefully) Hook and fishing rod work in multiplayer now
-- (Hopefully) fixed wind sock and sail multiplayer issues
-- (Hopefully) fixed fin and oxygen tank issues
-- Optimised a few parts and tools by getting rid of unnecessary network calls
-- Improved Harpoon gun, it now shoots actual projectiles that drop harpoons on hit
+- (Hopefully) Hook works in multiplayer now
 ---------1.1-----------
 - new reinforced raft base texture
 - alert users of new version
