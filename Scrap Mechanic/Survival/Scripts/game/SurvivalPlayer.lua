@@ -156,6 +156,7 @@ function SurvivalPlayer.client_onCreate( self )
 	--Raft
 	self.cl.checkFins = true
 	self.cl.checkTank = true
+	self.cl.canShowTankDepleted = true
 	--Raft
 
 	self:cl_init()
@@ -226,6 +227,17 @@ function SurvivalPlayer.client_onClientDataUpdate( self, data )
 		--Raft
 		--g_survivalHud:setVisible( "TankChargeSlider", data.wearingTank )
 		--g_survivalHud:setSliderData( "TankCharge", maxTankCharge * 10 + 1, data.tankCharge * 10 )
+
+		if data.tankChange ~= nil then
+			if data.tankCharge + data.tankChange <= 0 and data.tankChange < 0 and self.cl.canShowTankDepleted then
+				self:cl_displayMsg({ msg = "#ff1100Your Oxygen Tank has ran out of air!", dur = 2.5 })
+				self.cl.canShowTankDepleted = false
+			elseif data.tankCharge > 0 and data.tankCharge < data.maxTankCharge then
+				self.cl.canShowTankDepleted = true
+				local colour =  data.tankChange > 0 and "#269e44^" or "#9e2626v"
+				self:cl_displayMsg({ msg = colour..tostring(math.floor(data.tankCharge)).." seconds #ffffffworth of air is in your tank.", dur = 2 })
+			end
+		end
 		--Raft
 
 		if self.cl.hasRevivalItem ~= data.hasRevivalItem then
@@ -357,7 +369,6 @@ function SurvivalPlayer:cl_displayMsg( args )
 end
 
 function SurvivalPlayer:sv_setBlockBreatheDeplete( toggle )
-	print(self.sv.saved.breathDepleteBlock)
 	if self.sv.saved.breathDepleteBlock == nil then self.sv.saved.breathDepleteBlock = false end
 	self.sv.saved.breathDepleteBlock = toggle
 	self.storage:save(self.sv.saved)
@@ -457,13 +468,7 @@ function SurvivalPlayer.server_onFixedUpdate( self, dt )
 				tankChange = -dt
 			end
 
-			if self.sv.saved.tankCharge + tankChange == 0 and tankChange < 0 then
-				self.network:sendToClient(self.player, "cl_displayMsg", { msg = "#ff1100Your Oxygen Tank has ran out of air!", dur = 2.5 })
-			elseif self.sv.saved.tankCharge > dt and self.sv.saved.tankCharge < self.sv.saved.maxTankCharge then
-				local colour = tankChange > 0 and "#269e44^" or "#9e2626v"
-				self.network:sendToClient(self.player, "cl_displayMsg", { msg = colour..tostring(math.floor(self.sv.saved.tankCharge)).." seconds #ffffffworth of air is in your tank.", dur = 1 } )
-			end
-
+			self.sv.saved.tankChange = tankChange
 			self.sv.saved.tankCharge = sm.util.clamp(self.sv.saved.tankCharge + tankChange, 0, self.sv.saved.maxTankCharge)
 		end
 		--Raft
