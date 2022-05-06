@@ -16,8 +16,6 @@ sm.tool.preloadRenderables( renderablesTp )
 sm.tool.preloadRenderables( renderablesFp )
 
 --raft
-local firePoss = {}
-local pullForces = {}
 local actualDt = 0
 
 local function vec3Num( num )
@@ -45,12 +43,14 @@ local maxPullMultiplier = 5
 function Hook:server_onCreate()
 	self.sv = {}
 	self.sv.hooks = {}
+	self.sv.pullForces = {}
 end
 
 function Hook.client_onCreate( self )
 	self.cl = {}
 	self.cl.player = sm.localPlayer.getPlayer()
 	self.cl.playerId = self.cl.player:getId()
+	self.cl.firePoss = {}
 	self.cl.effects = {}
 
 	self.cl.throwForce = 0
@@ -132,6 +132,18 @@ function Hook.loadAnimations( self )
 end
 
 --raft
+function Hook:sv_setPullForceForClient( args )
+	self.sv.pullForces[args.index] = args.force
+end
+
+function Hook:sv_setFirePoss( args )
+	self.network:sendToClients("cl_setFirePoss", args)
+end
+
+function Hook:cl_setFirePoss( args )
+	self.cl.firePoss[args.index] = args.data
+end
+
 function Hook:sv_throwHook( args )
 	local hook = {
 		owner = args.owner,
@@ -181,7 +193,7 @@ end
 function Hook:sv_applyImpulse( args )
 	local dir = args.dir
 	local distance = args.owner:getCharacter():getWorldPosition() - args.body:getWorldPosition()
-	local mult = 1 + pullForces[args.owner:getId()]
+	local mult = 1 + self.sv.pullForces[args.owner:getId()]
 
 	if args.body:getVelocity():length() < PullSpeed * 3 * math.max(distance:length()/10, 1) * mult then
 		sm.physics.applyImpulse( args.body, dir * args.body:getMass() * (actualDt / 2.5) * math.max(distance:length()/20, 1) * mult, true )
@@ -190,8 +202,8 @@ end
 
 function Hook:cl_calculateHookEffectData( args )
 	for v, k in pairs(args) do
-		if self.cl.effects[k.index] ~= nil and firePoss[k.index] ~= nil then
-			local firePosTable = firePoss[k.index]
+		if self.cl.effects[k.index] ~= nil and self.cl.firePoss[k.index] ~= nil then
+			local firePosTable = self.cl.firePoss[k.index]
 			local firePos = self.cl.playerId == k.index and sm.localPlayer.isInFirstPersonView() and firePosTable.fp or firePosTable.tp
 
 			local delta = firePos - k.pos
@@ -230,6 +242,11 @@ function Hook:cl_reset( ownerId )
 end
 
 function Hook:client_onFixedUpdate( dt )
+	self.cl.player = sm.localPlayer.getPlayer()
+	self.cl.playerId = sm.localPlayer.getPlayer():getId()
+	local prevPullForce = self.cl.pullMultiplier
+	local prevPoss = { fp = self:calculateFirePosition(), tp = self:calculateTpMuzzlePos() }
+
 	if self.tool:isEquipped() and (self.cl.primaryState == 1 or self.cl.primaryState == 2) then
 		self.cl.throwForce = math.min(self.cl.throwForce + dt/chargeUpTime * maxThrowForce, maxThrowForce)
 	end
@@ -240,19 +257,22 @@ function Hook:client_onFixedUpdate( dt )
 		self.cl.pullMultiplier = 0
 	end
 
-	--please for the love of god make it work
-	self.cl.player = sm.localPlayer.getPlayer()
-	self.cl.playerId = sm.localPlayer.getPlayer():getId()
+	if prevPullForce ~= self.cl.pullMultiplier then
+		self.network:sendToServer("sv_setPullForceForClient", { index = self.cl.playerId, force = self.cl.pullMultiplier })
+	end
 
-	pullForces[self.cl.playerId] = self.cl.pullMultiplier
-	firePoss[self.cl.playerId] = { fp = self:calculateFirePosition(), tp = self:calculateTpMuzzlePos() }
+	local fpPos = self:calculateFirePosition()
+	local tpPos = self:calculateTpMuzzlePos()
+	if prevPoss.fp ~= fpPos or prevPoss.tp ~= tpPos then
+		self.network:sendToServer("sv_setFirePoss", { index = self.cl.playerId, data = { fp = fpPos, tp = tpPos } })
+	end
 end
 
 function Hook:server_onFixedUpdate( dt )
 	local hookData = {}
 
 	for v, hook in pairs(self.sv.hooks) do
-		if sm.exists(hook.waterTrigger) then
+		if sm.exists(hook.waterTrigger) and sm.exists(hook.shapeTrigger) then
 			local ownerId = hook.owner:getId()
 
 			if hook.isThrowing then
@@ -294,7 +314,7 @@ function Hook:server_onFixedUpdate( dt )
 
 				local distance = sm.vec3.new(playerPos.x, playerPos.y, 0) - sm.vec3.new(hook.pos.x, hook.pos.y, 0)
 				hook.dir = sm.vec3.new(dir.x, dir.y, 0)
-				hook.pos = hook.pos + sm.vec3.one() / 4 * hook.dir * PullSpeed * (1 + pullForces[ownerId]) * actualDt
+				hook.pos = hook.pos + sm.vec3.one() / 4 * hook.dir * PullSpeed * (1 + self.sv.pullForces[ownerId]) * actualDt
 
 				hook.waterTrigger:setWorldPosition( hook.pos )
 				hook.shapeTrigger:setWorldPosition( hook.pos )
