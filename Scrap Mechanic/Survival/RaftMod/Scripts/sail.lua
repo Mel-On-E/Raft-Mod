@@ -91,7 +91,7 @@ end
 function Sail.client_canInteract( self, character, state )
     local parent = self.interactable:getSingleParent()
     if parent then
-        sm.gui.setInteractionText("", "#c60000X", "#{ALERT_CONTROL_OVERRIDE}")
+        sm.gui.setInteractionText("", "#c60000X", "#{RAFT_SAIL_ALERT_CONTROL_OVERRIDE}")
         return false
     end
 
