@@ -58,6 +58,8 @@ function Hook.client_onCreate( self )
 	self.cl.primaryState = 0
 	self.cl.secondaryState = 0
 	self.cl.pullMultiplier = 0
+
+	self.network:sendToServer("sv_setPullForceForClient", { index = self.cl.playerId, force = self.cl.pullMultiplier })
 	--raft
 end
 
@@ -245,7 +247,6 @@ function Hook:client_onFixedUpdate( dt )
 	self.cl.player = sm.localPlayer.getPlayer()
 	self.cl.playerId = sm.localPlayer.getPlayer():getId()
 	local prevPullForce = self.cl.pullMultiplier
-	local prevPoss = { fp = self:calculateFirePosition(), tp = self:calculateTpMuzzlePos() }
 
 	if self.tool:isEquipped() and (self.cl.primaryState == 1 or self.cl.primaryState == 2) then
 		self.cl.throwForce = math.min(self.cl.throwForce + dt/chargeUpTime * maxThrowForce, maxThrowForce)
@@ -261,11 +262,7 @@ function Hook:client_onFixedUpdate( dt )
 		self.network:sendToServer("sv_setPullForceForClient", { index = self.cl.playerId, force = self.cl.pullMultiplier })
 	end
 
-	local fpPos = self:calculateFirePosition()
-	local tpPos = self:calculateTpMuzzlePos()
-	if prevPoss.fp ~= fpPos or prevPoss.tp ~= tpPos then
-		self.network:sendToServer("sv_setFirePoss", { index = self.cl.playerId, data = { fp = fpPos, tp = tpPos } })
-	end
+	self.network:sendToServer("sv_setFirePoss", { index = self.cl.playerId, data = { fp = self:calculateFirePosition(), tp = self:calculateTpMuzzlePos() } })
 end
 
 function Hook:server_onFixedUpdate( dt )
