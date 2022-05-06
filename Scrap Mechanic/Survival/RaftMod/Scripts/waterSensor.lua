@@ -48,8 +48,8 @@ function Sensor:client_onCreate()
 end
 
 function Sensor:cl_refreshGUI()
-    self.cl.gui:setSliderData( "Setting", maxTriggerSize + 1, self.sv.data.slider )
-    self.cl.gui:setText( "SubTitle", "#{RAFT_WATER_SENSOR_RADIUS}" .. tostring( self.sv.data.slider ).."#{RAFT_WATER_SENSOR_RADIUS_BLOCKS}" )
+    self.cl.gui:setSliderData( "Setting", maxTriggerSize + 1, self.cl.data.slider )
+    self.cl.gui:setText( "SubTitle", "#{RAFT_WATER_SENSOR_RADIUS}" .. tostring( self.cl.data.slider ).."#{RAFT_WATER_SENSOR_RADIUS_BLOCKS}" )
 end
 
 function Sensor:cl_onSliderChange( sliderName, sliderPos )

@@ -239,12 +239,10 @@ function Hook:client_onFixedUpdate( dt )
 	else
 		self.cl.pullMultiplier = 0
 	end
-
-	pullForces[self.cl.playerId] = self.cl.pullMultiplier
-	firePoss[self.cl.playerId] = { fp = self:calculateFirePosition(), tp = self:calculateTpMuzzlePos() }
 end
 
 function Hook:server_onFixedUpdate( dt )
+	--print(pullForces, firePoss)
 	local hookData = {}
 
 	for v, hook in pairs(self.sv.hooks) do
@@ -325,6 +323,9 @@ function Hook.client_onUpdate( self, dt )
 	if sm.isHost then
 		actualDt = dt
 	end
+
+	pullForces[self.cl.playerId] = self.cl.pullMultiplier
+	firePoss[self.cl.playerId] = { fp = self:calculateFirePosition(), tp = self:calculateTpMuzzlePos() }
 	--raft
 
 	-- First person animation

@@ -18,9 +18,9 @@ function Flag.client_onUpdate( self, dt )
     local point = sm.vec3.new(0, 0, 0)
 
     --Quest helper
-    if not Server_isQuestCompleted(quest_radio_location) then
+    if not Client_isQuestCompleted(quest_radio_location) then
         point = sm.vec3.new(-1820.5, 167.5, -7)
-    elseif not Server_isQuestCompleted(quest_find_trader) then
+    elseif not Client_isQuestCompleted(quest_find_trader) then
         point = sm.vec3.new(1536, 2048, 20)
     end
 

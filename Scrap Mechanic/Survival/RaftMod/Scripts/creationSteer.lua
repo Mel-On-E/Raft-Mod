@@ -27,6 +27,7 @@ function Steer:server_onCreate()
     end
 
     self.network:sendToClients("cl_updateData", self.sv.data)
+    self:sv_updateState( { active = false, power = 0, index = 1  } )
 end
 
 function Steer:client_onCreate()
