@@ -566,7 +566,7 @@ function Crafter.cl_init( self )
 
 		self.cl.mainEffects["fertilizer"] = sm.effect.createEffect( "Plants - Fertilizer", self.interactable )
 		self.cl.mainEffects["fertilizer"]:setOffsetPosition(sm.vec3.new(0,0.75,0))
-	
+
 	elseif shapeUuid == obj_grill then
 		self.cl.mainEffects["fire"] = sm.effect.createEffect( "Fire - small01", self.interactable )
 		self.cl.mainEffects["fish"] = sm.effect.createEffect("ShapeRenderable", self.interactable)
@@ -575,8 +575,6 @@ function Crafter.cl_init( self )
 	elseif shapeUuid == obj_seed_press then
 		self.cl.mainEffects["craft"] = sm.effect.createEffect( "Craft - seedpress", self.interactable )
 	end
-
-	
 
 	self:cl_setupUI( tostring( self.shape:getShapeUuid() ) )
 
@@ -862,7 +860,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 						if uuid == obj_consumable_fertilizer then
 							isFertilized = true
 						end
-					end		
+					end
 				end
 
 				if val.time >= 0 and val.time < recipeCraftTime then -- The one beeing crafted
@@ -927,7 +925,7 @@ function Crafter.client_onUpdate( self, deltaTime )
 
 
 	--raft
-	shapeUuid = self.shape:getShapeUuid()
+	local shapeUuid = self.shape:getShapeUuid()
 
 	if shapeUuid == obj_scrap_purifier then
 		if isCrafting and not self.cl.mainEffects["fire"]:isPlaying() then
@@ -947,13 +945,14 @@ function Crafter.client_onUpdate( self, deltaTime )
 		else
 			crop = self.crop
 		end
-		worldPosition = self.shape:getWorldPosition()
+		local worldPosition = self.shape:getWorldPosition()
+		local worldPosition1
 		local bigFarm = shapeUuid == obj_large_field
 		if bigFarm then
 			worldPosition = worldPosition + self.shape.at*0.5 - self.shape.right*0.35
 			worldPosition1 = self.shape:getWorldPosition() + self.shape.at*0.5 + self.shape.right*0.35
 		end
-		
+
 		--fertilizer
 		if isFertilized and isCrafting and not self.cl.mainEffects["fertilizer"]:isPlaying() then
 			self.cl.mainEffects["fertilizer"]:setOffsetPosition(self.shape:transformPoint(worldPosition))
