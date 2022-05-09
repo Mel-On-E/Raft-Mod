@@ -34,7 +34,7 @@ function CreativeGame.server_onCreate( self )
 	g_questManager = QuestManager()
 	g_questManager:sv_onCreate( self )
 	g_questManager:sv_activateQuest( quest_use_terminal )
-	g_questManager:Server_completeQuest( quest_pickup_logbook )
+	g_questManager:sv_completeQuest( quest_pickup_logbook )
 	--Raft
 
 	self.network:setClientData( { time = time.timeOfDay } )
