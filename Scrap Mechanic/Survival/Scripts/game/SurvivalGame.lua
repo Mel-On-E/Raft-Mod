@@ -70,7 +70,7 @@ function SurvivalGame.server_onCreate( self )
 	g_questManager:sv_activateQuest( quest_use_terminal )
 
 	--raft
-	g_questManager:Server_completeQuest( quest_pickup_logbook )
+	g_questManager:sv_completeQuest( quest_pickup_logbook )
 
 	if self.sv.showHelpMessages == nil then -- first time setup
 		self.sv.saved.showHelpMessages = true 
